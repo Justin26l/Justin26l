@@ -1,0 +1,3 @@
+- 👋 Hi, I’m @Justin26l
+- 👀 I’m interested in program engineering
+- 🌱 I’m currently learning backend programming
