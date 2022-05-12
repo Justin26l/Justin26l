@@ -1,4 +1,4 @@
 - 👋 Hi, I’m @Justin26l
-- 👀 I’m interested in program engineering
-- 🌱 I’m currently learning backend programming
-- I Know about HTML&CSS, Python, Javascript, Pine Script
+- im a junior programer
+- know about Python, Javascript, php, Pine Script
+- and HTML&CSS
