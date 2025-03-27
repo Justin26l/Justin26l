@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="<?=$this->lg?>">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="xxxTerminal Provide pre-made and custom crypto trading bot, Automate your Crypto Trades.">
+    <meta name="keywords" content="crypto, cryptocurrency, automated trading, trading, strategy, crypto bot, trading bot, strategy bot, algo trade, btc, eth, bnb">
+    <meta name="theme-color" content="#f0a000">
+<!--     <link rel="alternate" hreflang="x-default" href="<?=base_url()?>">
+    <link rel="alternate" hreflang="en" href="<?=base_url('en')?>">
+    <link rel="alternate" hreflang="zh-Hans" href="<?=base_url('zh-hans')?>"> -->
+
+<!--     <link rel="shortcut icon" href="<?= base_url('static/favicon.ico')?>"> -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+  
+    <!-- <link rel="manifest" href="<?= base_url('manifest.json')?>" /> -->
+    
+    <title>xxxTerminal &nbsp;|&nbsp; 'home_title');?></title>
+    <style>input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input::placeholder{color:silver}input:focus input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}input,select{-ms-box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}footer{bottom:0;z-index:9}body{margin:0;font-family:'Open Sans',sans-serif;margin-top:40px;word-break:break-word}div{word-break:break-word}html{scroll-behavior:smooth}footer{bottom:0;height:auto}button{border:0;padding:0;margin:0;background-color:#00000000}a{text-decoration:none}img{vertical-align:middle;width:100%}hr{border-top:2px lightgray solid;border-bottom:0;border-left:0;border-right:0;margin:0}table{word-break:keep-all;border:0;margin:0;padding:0}pre{font-size:14px;background-color:#f6f6f6;border-radius:6px}.row{margin:0;width:100%}.col,.col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10,.col-11,.col-12{padding:0}.modal-header{border-bottom:0}.modal-footer{border-top:0}.form-control,.form-select{height:auto;box-sizing:border-box}.form-control:focus,.form-select:focus{border-color:rgba(230,150,0,0.25);box-shadow:0 0 0 .1rem rgba(4200,150,0,0.25)}nav{width:100%;height:40px;top:0;display:flex;position:fixed;text-align:center;background-color:#1e1e1e;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:9}.navlogo{margin:0 auto;padding:0 5px;z-index:inherit}.navitem{display:block;flex:1;border-bottom:3px #ffffff00 solid;margin:.5% 0 0 0;padding:0 3%;color:#e6e6e6;transition:all .2s ease;z-index:inherit}.navitem:hover{border-bottom:3px white solid;color:#fff;transition:all .2s ease;z-index:inherit}#secNav{padding:0;margin:0;background:#ffffffbf;top:40px !important;box-shadow:0 2px 2px #ebebeb}.l2navitem{flex:1;background-color:rgba(255,255,255,.5);color:#606060;font-size:14px;font-weight:bold;border-radius:30px;padding-top:.5%;margin:.5%;transition:all .3s ease;z-index:inherit}.l2navitem:hover{background-color:#fff;color:#000;transition:all .3s ease;z-index:inherit}.l2navitem-active{background-color:#f0a000 !important;color:#fff !important;z-index:inherit}.l2navitem svg{fill:#000}.l2navitem-active svg{fill:#fff}.navlist{list-style-type:none;display:block;border-left:2px #dcdcdc solid;font-size:16px;padding:5px 10px;color:#505050;transition:all .1s;z-index:1}.navlist:hover{border-left:4px #ffc800 solid;transition:all .1s}.navlist_Active{border-left:2px #ffc800 solid}.dropdown{position:relative;display:inline-block}.dropdown-content{display:none;position:fixed;top:40px;right:10px;width:160px;background-color:white;border:1px solid #f0f0f0;box-shadow:2px 2px 2px #e6e6e6}@media(max-width:768px){#secNav{top:auto !important;height:48px;padding:4px 0;margin:0;bottom:0;background:#fff;box-shadow:0 0}.l2navitem{background-color:#fff !important}.l2navitem-active{color:#f0a000 !important}.l2navitem svg{fill:#000}.l2navitem-active svg{fill:#f0a000}}.mob-nav{width:100%;position:fixed;top:40px;left:0;z-index:9;background-color:#f5f5f7;overflow-x:hidden;transition:.3s}.Mnavitem{display:block;padding:.8rem;color:#212529;font-size:calc(1rem)}.DDlogo{width:20px;height:20px;fill:#484848;margin-right:10px}.container{display:inline-block;width:100%}.bar1,.bar2,.bar3{width:35px;height:5px;background-color:#fff;margin:6px auto;transition:.2s}.change .bar1{-webkit-transform:rotate(-45deg) translate(-9px,6px);transform:rotate(-45deg) translate(-9px,6px)}.change .bar2{opacity:0}.change .bar3{-webkit-transform:rotate(45deg) translate(-8px,-8px);transform:rotate(45deg) translate(-8px,-8px)}.link{transition:all .2s ease;color:#dc8c00}.link:hover{transition:all .2s ease;color:#e69600;text-decoration:underline}.floatshadow{transition:all .2s ease;position:relative;overflow:hidden}.floatshadow:hover{transform:translateY(-3px);transition:all .2s ease;box-shadow:3px 3px 3px #0000001a}.btn-more{border:1px solid #c8c8c8;border-radius:100px;padding:10px}.btnx{padding:0 1rem !important;font-weight:normal !important;border:0 !important;border-radius:100vw !important}.btn-float{position:relative;transition:all .2s ease;overflow:hidden}.btn-float:hover{transform:translateY(-3px);transition:all .2s ease;box-shadow:3px 3px 3px #0000001a}.btn-wide{padding-left:3rem;padding-right:3rem}.btn-flat{padding-top:0 !important;padding-bottom:0 !important}.btn-pill{border-radius:100px !important;padding-top:.25rem;padding-bottom:.25rem}.btn-pill-sm{border-radius:100px !important;padding:0 .25rem !important;font-size:14px}.formbox{height:34px;width:80%;font-size:18px;padding:3px 5%;border-radius:22px;border:1px solid #dcdcdc;background-color:#fafafa}.formbox:hover{border:1px solid #606060;transition:all .2s ease}.formbox::placeholder{color:#b4b4b4;transition:all .2s ease}.formbox:hover::placeholder{color:gray;transition:all .2s ease}.formbox:focus::placeholder{color:#ffffff00;transition:all .2s ease}.formboxW{color:#b4b4b4;height:36px;width:80%;font-size:18px;padding:3px 5%;border-radius:22px;border:1px solid #c8c8c8}.formboxW:hover{border:1px solid #000;transition:all .2s ease}.formboxW:hover::placeholder{color:gray;transition:all .2s ease}.formboxW:focus::placeholder{color:#fff;transition:all .2s ease}.formbox2{box-sizing:border-box;height:30px;width:90%;font-size:18px;margin:0 2%;border:1px solid #c8c8c800;border-bottom:1px solid #c8c8c8}.formbox2::placeholder{color:#b4b4b4;transition:all .2s ease}.formbox2:hover::placeholder{color:#606060;transition:all .2s ease}.formbox2:focus::placeholder{color:#ffffff00;transition:all .2s ease}.fs-text{font-size:12px;transition:all .2s ease}@media(min-width:768px){.fs-text{font-size:1rem;transition:all .2s ease}}.hidden{opacity:0;filter:blur(2px);transition:all 1s ease}.opaShow{opacity:1 !important;filter:blur(0) !important}.hiddenFloatDn{opacity:0;filter:blur(2px);transform:translateY(-100%);transition:all 1s ease}.showFloatDn{opacity:1 !important;transform:translateY(0);filter:blur(0) !important}.hiddenFloatUp{opacity:0;filter:blur(2px);transform:translateY(100%);transition:all 1s ease}.showFloatUp{opacity:1 !important;transform:translateY(0);filter:blur(0) !important}.borderB{border:1px solid #000}.borderG{border:1px solid gray}.borderW{border:1px solid #f0f0f0}.bdrRed{border:1px solid red}.bdrbotTrans{border-bottom:3px solid #00000000}.bdrbotTCol{border-bottom:3px solid #ffc800}.hovbdrbotTCol{border-bottom:3px solid #ffc800}.float{transition:all .6s ease;position:relative;overflow:hidden}.float:hover{transform:translateY(-4px);transition:all .2s ease}.floatLeft{transition:all .6s ease;position:relative;overflow:hidden}.floatLeft:hover{transform:translateX(-4px);transition:all .2s ease}.x-card{box-sizing:border-box;margin:1%;width:98%;border:1px solid #f0f0f0;border-radius:15px;background-color:white;box-shadow:1px 2px 2px #e6e6e6}.cardcontainer{padding:.5rem;height:98%;position:relative}.top-0{position:absolute;top:0}.left-0{position:absolute;left:0}.bottom-0{position:absolute;bottom:0}.right-0{position:absolute;right:0}.center{text-align:center}.m-auto{margin:0 auto}.left{text-align:left}.right{text-align:right}.vertical-center{margin:0;position:absolute;top:50%;-ms-transform:translateY(-50%);transform:translateY(-50%)}.borderbox{box-sizing:border-box}.disBlock{display:block}.disInline{display:inline}.disFlex{display:flex}.flex1{flex:1}.flex2{flex:2}.flex3{flex:3}.flex4{flex:4}.flex5{flex:5}.flex6{flex:6}.order-0{order:0}.order-1{order:1}.order-2{order:2}.order-3{order:3}.w-100{width:100% !important}.w-95{width:95% !important}.w-90{width:90% !important}.w-85{width:85% !important}.w-80{width:80% !important}.w-75{width:75% !important}.w-70{width:70% !important}.w-65{width:65% !important}.w-60{width:60% !important}.w-55{width:55% !important}.w-50{width:50% !important}.w-45{width:45% !important}.w-40{width:40% !important}.w-35{width:35% !important}.w-30{width:30% !important}.w-25{width:25% !important}.w-20{width:20% !important}.w-15{width:15% !important}.w-10{width:10% !important}.w-5{width:5% !important}.rounded-S{border-radius:.25rem}.rounded-M{border-radius:.375rem}.rounded-L{border-radius:.5rem}.rounded-XL{border-radius:1rem}.rounded-start-S{border-top-left-radius:.25rem;border-bottom-left-radius:.25rem}.rounded-start-M{border-top-left-radius:.375rem;border-bottom-left-radius:.375rem}.rounded-start-L{border-top-left-radius:.5rem;border-bottom-left-radius:.5rem}.rounded-start-XL{border-top-left-radius:1rem;border-bottom-left-radius:1rem}.rounded-top-S{border-top-left-radius:.25rem;border-top-right-radius:.25rem}.rounded-top-M{border-top-left-radius:.375rem;border-top-right-radius:.375rem}.rounded-top-L{border-top-left-radius:.5rem;border-top-right-radius:.5rem}.rounded-top-XL{border-top-left-radius:1rem;border-top-right-radius:1rem}.rounded-end-S{border-top-right-radius:.25rem;border-bottom-right-radius:.25rem}.rounded-end-M{border-top-right-radius:.375rem;border-bottom-right-radius:.375rem}.rounded-end-L{border-top-right-radius:.5rem;border-bottom-right-radius:.5rem}.rounded-end-XL{border-top-right-radius:1rem;border-bottom-right-radius:1rem}.rounded-bottom-S{border-bottom-left-radius:.25rem;border-bottom-right-radius:.25rem}.rounded-bottom-M{border-bottom-left-radius:.375rem;border-bottom-right-radius:.375rem}.rounded-bottom-L{border-bottom-left-radius:.5rem;border-bottom-right-radius:.5rem}.rounded-bottom-XL{border-bottom-left-radius:1rem;border-bottom-right-radius:1rem}@media(min-width:768px){.order-md-0{order:0}.order-md-1{order:1}.order-md-2{order:2}.order-md-3{order:3}.w-md-100{width:100% !important}.w-md-95{width:95% !important}.w-md-90{width:90% !important}.w-md-85{width:85% !important}.w-md-80{width:80% !important}.w-md-75{width:75% !important}.w-md-70{width:70% !important}.w-md-65{width:65% !important}.w-md-60{width:60% !important}.w-md-55{width:55% !important}.w-md-50{width:50% !important}.w-md-45{width:45% !important}.w-md-40{width:40% !important}.w-md-35{width:35% !important}.w-md-30{width:30% !important}.w-md-25{width:25% !important}.w-md-20{width:20% !important}.w-md-15{width:15% !important}.w-md-10{width:10% !important}.w-md-5{width:5% !important}.rounded-md-S{border-radius:.25rem}.rounded-md-M{border-radius:.375rem}.rounded-md-L{border-radius:.5rem}.rounded-md-XL{border-radius:1rem}.rounded-md-start-S{border-radius:.25rem 0 0 .25rem}.rounded-md-start-M{border-radius:.375rem 0 0 .375rem}.rounded-md-start-L{border-radius:.5rem 0 0 .5rem}.rounded-md-start-XL{border-radius:1rem 0 0 1rem}.rounded-md-top-S{border-radius:.25rem .25rem 0 0}.rounded-md-top-M{border-radius:.375rem .375rem 0 0}.rounded-md-top-L{border-radius:.5rem .5rem 0 0}.rounded-md-top-XL{border-radius:1rem 1rem 0 0}.rounded-md-end-S{border-radius:0 .25rem .25rem 0}.rounded-md-end-M{border-radius:0 .375rem .375rem 0}.rounded-md-end-L{border-radius:0 .5rem .5rem 0}.rounded-md-end-XL{border-radius:0 1rem 1rem 0}.rounded-md-bottom-S{border-radius:0 0 .25rem .25rem}.rounded-md-bottom-M{border-radius:0 0 .375rem .375rem}.rounded-md-bottom-L{border-radius:0 0 .5rem .5rem}.rounded-md-bottom-XL{border-radius:0 0 1rem 1rem}}@media(min-width:992px){.order-lg-0{order:0}.order-lg-1{order:1}.order-lg-2{order:2}.order-lg-3{order:3}.w-lg-100{width:100% !important}.w-lg-95{width:95% !important}.w-lg-90{width:90% !important}.w-lg-85{width:85% !important}.w-lg-80{width:80% !important}.w-lg-75{width:75% !important}.w-lg-70{width:70% !important}.w-lg-65{width:65% !important}.w-lg-60{width:60% !important}.w-lg-55{width:55% !important}.w-lg-50{width:50% !important}.w-lg-45{width:45% !important}.w-lg-40{width:40% !important}.w-lg-35{width:35% !important}.w-lg-30{width:30% !important}.w-lg-25{width:25% !important}.w-lg-20{width:20% !important}.w-lg-15{width:15% !important}.w-lg-10{width:10% !important}.w-lg-5{width:5% !important}.rounded-lg-S{border-radius:.25rem}.rounded-lg-M{border-radius:.375rem}.rounded-lg-L{border-radius:.5rem}.rounded-lg-XL{border-radius:1rem}.rounded-lg-start-S{border-radius:.25rem 0 0 .25rem}.rounded-lg-start-M{border-radius:.375rem 0 0 .375rem}.rounded-lg-start-L{border-radius:.5rem 0 0 .5rem}.rounded-lg-start-XL{border-radius:1rem 0 0 1rem}.rounded-lg-top-S{border-radius:.25rem .25rem 0 0}.rounded-lg-top-M{border-radius:.375rem .375rem 0 0}.rounded-lg-top-L{border-radius:.5rem .5rem 0 0}.rounded-lg-top-XL{border-radius:1rem 1rem 0 0}.rounded-lg-end-S{border-radius:0 .25rem .25rem 0}.rounded-lg-end-M{border-radius:0 .375rem .375rem 0}.rounded-lg-end-L{border-radius:0 .5rem .5rem 0}.rounded-lg-end-XL{border-radius:0 1rem 1rem 0}.rounded-lg-bottom-S{border-radius:0 0 .25rem .25rem}.rounded-lg-bottom-M{border-radius:0 0 .375rem .375rem}.rounded-lg-bottom-L{border-radius:0 0 .5rem .5rem}.rounded-lg-bottom-XL{border-radius:0 0 1rem 1rem}}.mrgX10{margin-left:10%;margin-right:10%}.mrgX5{margin-left:5%;margin-right:5%}.mrgX3{margin-left:3%;margin-right:3%}.mrgX1{margin-left:1%;margin-right:1%}.mrgY10{margin-top:10%;margin-bottom:10%}.mrgY5{margin-top:5%;margin-bottom:5%}.mrgY3{margin-top:3%;margin-bottom:3%}.mrgY1{margin-top:1%;margin-bottom:1%}.padX10{padding-left:10%;padding-right:10%}.padX5{padding-left:5%;padding-right:5%}.padX3{padding-left:3%;padding-right:3%}.padX1{padding-left:1%;padding-right:1%}.padY10{padding-top:10%;padding-bottom:10%}.padY5{padding-top:5%;padding-bottom:5%}.padY3{padding-top:3%;padding-bottom:3%}.padY1{padding-top:1%;padding-bottom:1%}.TCol{color:#f0a000}.TColDeep{color:#d28200}.black{color:#000}.deepGray{color:#202020}.darkGray{color:#404040}.gray{color:gray}.lightGray{color:silver}.light{color:#e6e6e6}.white{color:#fff}.bgTCol{background-color:#f0a000}.bgBlack{background-color:#000}.bgDeepGray{background-color:#202020}.bgDarkGray{background-color:#404040}.bgGray{background-color:gray}.bgLightGray{background-color:silver}.bgLight{background-color:#e6e6e6}.bgWhiteLight{background-color:#f0f0f0}.bgWhite{background-color:#fff}.bgBlurGray{background-color:gray;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}.hovShow{content:"*** ***";transition:all .15s ease}.hovShow:hover:after{transition:all .15s ease}.hovOpa{opacity:65%;transition:all .15s ease}.hovOpa:hover{opacity:100%;transition:all .15s ease}.hovOpaL{opacity:50%;transition:all .15s ease}.hovOpaL:hover{opacity:100%;transition:all .15s ease}.hovTCol,.hovBlack,.hovWhite{transition:all .15s ease}.hovTCol:hover{color:#f0a000;transition:all .15s ease}.hovBlack:hover{color:black;transition:all .15s ease}.hovWhite:hover{color:White;transition:all .15s ease}.hovbgTCol{transition:all .15s ease}.hovbgTCol:hover{background-color:#f0a000;transition:all .15s ease}.hovbgBlack{transition:all .15s ease}.hovbgBlack:hover{background-color:#000;transition:all .15s ease}.hovbgDeepGray{transition:all .15s ease}.hovbgDeepGray:hover{background-color:#202020;transition:all .15s ease}.hovbgGray{transition:all .15s ease}.hovbgGray:hover{background-color:gray;transition:all .15s ease}.hovbgLight{transition:all .15s ease}.hovbgLight:hover{background-color:#e6e6e6;transition:all .15s ease}.hovbgWhiteLight{transition:all .15s ease}.hovbgWhiteLight:hover{background-color:#f0f0f0;transition:all .15s ease}.hovbgWhite{transition:all .15s ease}.hovbgWhite:hover{background-color:White;transition:all .15s ease}.hovbgGreen{transition:all .15s ease}.hovbgGreen:hover{background-color:#00c800;transition:all .15s ease}.hovbgRed{transition:all .15s ease}.hovbgRed:hover{background-color:#c80000;transition:all .15s ease}.shaKe{animation:shake .5s}@keyframes shake{0%{transform:translate(3px,0)}25%{transform:translate(-3px,0)}50%{transform:translate(3px,0)}75%{transform:translate(-3px,0)}100%{transform:translate(0,0)}}.td-none{text-decoration:none}.prime-badge{border-radius:10px;background-color:var(--bs-dark);box-shadow:0 0 5px var(--bs-primary);color:var(--bs-primary);font-weight:600 !important}.plus-badge{border-radius:10px;background-color:var(--bs-primary);box-shadow:0 0 5px var(--bs-secondary);color:var(--bs-dark);font-weight:600 !important}.pro-badge{border-radius:10px;background-color:var(--bs-light);box-shadow:0 0 5px var(--bs-secondary);color:var(--bs-dark);font-weight:600 !important}.input-control{height:auto;box-sizing:border-box;border:0;border-bottom:1px solid #000}.input-control:active{border:0;border-bottom:1px solid #e6a000}@media(min-width:1px){.navigation{display:none;position:fixed}.image{object-fit:contain;height:130px;width:95%}}@media(min-width:768px){.navigation{display:inline-block;position:fixed}.mrgLeft15-m{margin-left:15%}.pull-right{margin-left:auto;order:1}.tech-Lib-Nav{margin-left:auto;order:4}}.searchSuggestBox{position:relative;width:100%}.searchSuggest{position:absolute;top:0;left:0;z-index:8}.faq{scroll-margin-top:300px}</style>
+    <style>
+        /* canvas {position: fixed;left: 0;top: 0;z-index: -1;} */
+        .transWhiteBG {background: #fff;background: linear-gradient(0deg, #ffffff00 0%, rgba(255, 255, 255, 0.7) 10%, rgba(255, 255, 255, 0.7) 90%, #ffffff00 100%);}
+        .lightGradient_0-1 {background: #fff;background: linear-gradient(180deg, #fff 0%, #fff 80%, #ffffff00 100%);}
+        .lightGradient_1-0 {background: #fff;background: linear-gradient(180deg, #ffffff00 0%, #fff 60%, #fff 100%);}
+
+        /* block bg */
+        .block_bg_W{background:#000; background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.035)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");}
+        .block_bg_B{background:#fff; background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(0 0 0 / 0.035)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");}
+        .full-height{height:100vh;}
+        .half-height{height:50vh;}
+
+        /* Waves */
+        .waves {position: relative;width: 100%;height: 15vh;margin-bottom: -7px;min-height: 100px;max-height: 150px;}
+        .parallax>use {animation: wavy 25s cubic-bezier(.55, .5, .45, .5) infinite;}
+        .parallax>use:nth-child(1) {animation-delay: -2s;animation-duration: 7s;}
+        .parallax>use:nth-child(2) {animation-delay: -3s;animation-duration: 10s;}
+        .parallax>use:nth-child(3) {animation-delay: -4s;animation-duration: 13s}
+        .parallax>use:nth-child(4) {animation-delay: -5s;animation-duration: 20s;}
+        @keyframes wavy {0% {transform: translate3d(-90px, 0, 0);}100% {transform: translate3d(85px, 0, 0);}}
+        @media (max-width: 768px) {.waves {height: 50px;min-height: 50px;}}
+
+        /* animated-btn */
+        .arr{width:24px; height:24px; fill:currentColor; transition: all .3s ease;}
+        .arr-swipe :nth-child(1){opacity:.7; transform: translateX(10px);}
+        .arr-swipe :nth-child(2){opacity:1; transform: translateX(-10px);}
+        .arr-swipe:hover :nth-child(1){opacity:1; transform: translateX(5px);}
+        .arr-swipe:hover :nth-child(2){opacity:.7; transform: translateX(-5px);}
+        .signup-btn .arr-l {width:24px; height:24px; fill: #cc8800; transition: all .3s ease;}
+        .signup-btn .arr-r {width:24px; height:24px; fill: #cc8800; transform: rotate(180deg); transition: all .3s ease;}
+        .signup-btn .txt   {padding: .2rem 1rem; background: #575757; color: #fff; font-size: 1rem; font-weight: 400; border-radius: 10px; ; transition: all .3s ease;}
+        .signup-btn:hover .arr-l {width:30px; height:30px; fill: #f0a000; transform: translateX(160px); transition: all .3s ease;}
+        .signup-btn:hover .arr-r {width:30px; height:30px; fill: #f0a000; transform: translateX(-160px) rotate(180deg); transition: all .3s ease;}
+        .signup-btn:hover .txt   {padding: .2rem 1.6rem; background: #f0a000; color: #000; font-size: 1.2rem; font-weight: 800; border-radius: 5px; ; transition: all .3s ease;}
+    
+        #gradient-canvas {
+            position:absolute;
+            left:0;
+            top:0;
+            z-index:-1;
+            --gradient-color-1: #6ec3f4;
+            --gradient-color-2: #3a3aff;
+            --gradient-color-3: #ff61ab;
+            --gradient-color-4: #E63946;
+        }
+    </style>
+</head>
+
+<body class="w-100"> 
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+        <symbol id="arrow" viewBox="0 0 16 16">
+            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+        </symbol>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+        <symbol id="evenodd" viewBox="1 2 14 14">
+            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />        
+        </symbol>
+    </svg>
+    <header class="position-relative">
+        <canvas id="gradient-canvas" style="width:100%;height:100%;"></canvas>
+        <div style="background:rgba(0,0,0,.1)">
+            <div class="pt-5 px-3">
+                <div class="row text-center pt-lg-5">
+                    <!-- Title -->
+                    <div class="col-0 col-lg-2"></div>
+                    <div class="col-md-12 col-lg-5 mt-lg-5 order-2 order-lg-1 text-lg-center rounded-5">
+                        <div class="my-5">
+                            <h1 class="display-3 fw-bolder text-white mb-2">xxxTerminal</h1>
+                            <p class="lead text-light mb-4 m-auto">Make Crypto Trading Simpler</p>
+                            <div class="row">
+                                <div class="col-12 col-md-6 text-md-end py-2"> 
+                                    <a class="btn btn-wide btn-primary btn-float bg-gradient text-black fs-5 m-2" href="#features">Get Started</a> 
+                                </div>
+                                <div class="col-12 col-md-6 text-md-start py-2"> 
+                                    <a class="btn btn-wide btn-light btn-float bg-gradient fs-5 m-2">Dashboard</a> 
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <!-- Label -->
+                    <div class="col-12 col-lg-5 order-1 order-lg-2 text-center text-lg-start pt-md-5 px-md-5">
+                        <svg class="col-8 px-0" viewbox="0 0 300 300" fill="rgb(240,160,0)" xmlns="http://www.w3.org/2000/svg">
+                            <g class="layer" stroke="#fff" stroke-width="5">
+                                <path d="M15 10h270l-30 35h-90v50l-5 7.5V215l5 7.5v50L155 285h-10l-10-12.5v-50l5-7.5V102.5l-5-7.5V45H45L15 10z" />
+                                <path d="M50 55h40l40 55v60l-10 10v35l5 7.5V265l-35-45v-55l25-25-65-85zm200 0h-38.333L170 110v60l10.417 10v35L175 222.5V265l35-45v-55l-25-25 65-85z" />
+                            </g>
+                        </svg> 
+                    </div>
+                </div>
+            </div> 
+            <!-- Waves -->
+            <div> 
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs>
+                        <path id="wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    </defs>
+                    <g class="parallax">
+                        <use xlink:href="#wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+                        <use xlink:href="#wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                        <use xlink:href="#wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                        <use xlink:href="#wave" x="48" y="7" fill="#fff" />
+                    </g>
+                </svg> 
+            </div>
+        </div>
+    </header>
+    <main class="block_bg_B">
+        <div class="lightGradient_0-1 py-3">
+            <!-- Features section-->
+            <div id="features" class="mrgX5 pb-5">
+                <div class="row pt-5">
+                    <div class="col-lg-6 col-12 mt-lg-4 pt-lg-4 text-center">
+                        <h1 class="display-3 fw-bold fw-bold mt-4 pt-4 hiddenFloatUp">What We Do ?</h1>
+                        <div class="TCol fs-5 hiddenFloatUp"> 
+                            <a href="#" class="gray mx-1">Sterategy</a>|
+                            <a href="#" class="gray mx-1">Research</a>|
+                            <a href="#" class="gray mx-1">Bots</a> 
+                        </div> 
+                        <br>
+                        <a href="<?= base_url($this->lg.'/pricing')?>" class="btn btn-wide btn-primary btn-float hiddenFloatUp">More Detail ></a>
+                    </div>
+
+                    <div class="col-lg-6 col-12">
+                        <div class="row mt-4 pt-4">
+                            <div class="col-6 mb-4 px-2 floatshadow hiddenFloatDn"> 
+                                <a class="text-dark td-none" href="#bot_section"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="p-2 rounded-3 bgTCol bg-gradient text-white" viewBox="0 0 16 16">
+                                        <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0zm-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3h-7zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+                                    </svg>
+                                    <h3 class="fw-bold my-2">Trading Bot</h3>
+                                    <p>Copy Trade, API Connector, <br>Customize Strategy Hosting</p>
+                                </a> 
+                            </div>
+                            <div class="col-6 mb-4 px-2 floatshadow hiddenFloatDn"> 
+                                <a class="text-dark td-none" href="#article_section"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="p-2 rounded-3 bgTCol bg-gradient text-white" viewBox="0 0 16 16">
+                                        <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z" />
+                                        <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z" />
+                                    </svg>
+                                    <h3 class="fw-bold my-2">Article</h3>
+                                    <p>News, Idea, <br class="d-lg-none">Technique, Analysis</p>
+                                </a> 
+                            </div>
+                            <div class="col-6 mb-4 px-2 floatshadow hiddenFloatUp"> 
+                                <a class="text-dark td-none" href="#techlib_section"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="p-2 rounded-3 bgTCol bg-gradient text-white" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z" />
+                                    </svg>
+                                    <h3 class="fw-bold my-2">Technical Library</h3>
+                                    <p>Exclusive Indicator <br class="d-lg-none">& Strategy Library</p>
+                                </a> 
+                            </div>
+                            <div class="col-6 mb-4 px-2 floatshadow hiddenFloatUp">
+                                <a class="text-dark td-none" href="#techsupp_section"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="p-2 rounded-3 bgTCol bg-gradient text-white" viewBox="0 0 16 16">
+                                        <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
+                                    </svg>
+                                    <h3 class="fw-bold my-2">Strategy Builder</h3>
+                                    <p>Strategy Developer <br class="d-lg-none">& Trader Community</p>
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <!-- Top Article section-->
+            <div id="article_section" class="pb-5">
+                <div class="mt-4 pt-2 px-4 center">
+                    <h1 class="d-inline fw-bold">Top Articles</h1>
+                </div>
+                <div class="splide pb-5" role="group">
+                    <div class="splide__track py-3 px-2">
+                        <ul class="splide__list">
+                            <?php foreach ($top_article as $x) { ?> 
+                            <li class="splide__slide">
+                                <div class="card h-100 float p-2 position-relative">
+                                    <img alt="article cover image" class="w-100 rounded-3" src='<?= $x['image'] ?>'>
+                                    <div class="pb-5">
+                                        <p class="fs-4 fw-bold px-2 m-0"><?= $x['title'] ?></p>
+                                        <span class="text-dark px-2 m-0" style="font-size: 12px;"><?= substr($x['created_date'],0,10) ?> | <?= $x['author'] ?> </span>
+                                    </div>
+                                    <div class="position-absolute bottom-0 text-center p-2" style="width:calc(100% - 1rem)">
+                                        <a target="_blank" class="w-100 w-md-75 btn btn-primary p-0" aria-label="read article <?=$x['article_id']?>">'read')?></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <?php } ?>
+                            <li class="splide__slide">
+                                <div class="card h-100 float p-2 center">
+                                    <a>
+                                        <button type="button" class="black hovOpa h-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="80" viewbox="-5 -5 26 26">
+                                                <circle cx="8" cy="8" r="12" stroke="gray" stroke-width="0.2" fill="none" />
+                                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                            </svg>
+                                            <p><?php echo $this->lang->line('more') . $this->lang->line('art')?></p>
+                                        </button>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <!-- Solution -->
+        <div class="mrgX5 text-center">
+            <div id="bot_section" class="py-5 hidden">
+                <div class="row py-5">
+                    <div class="m-auto col-md-5 col-12 text-md-end pe-md-4"> 
+                        <svg xmlns="http://www.w3.org/2000/svg"  width="280" height="280" fill="currentColor" style="color:#000" viewBox="200 200 350 350">
+                            <defs>
+                                <linearGradient id="a" x1="0%" x2="100%" y1="0%" y2="100%">
+                                    <stop stop-color="#00148cb3" offset="0%"/>
+                                    <stop stop-color="#00c8ffb3" offset="36%"/>
+                                    <stop stop-color="#00b4ff4d" offset="36.1%"/>
+                                    <stop stop-color="#00b4ff80" offset="45%"/>
+                                    <stop stop-color="#14c8ffb3" offset="45%"/>
+                                    <stop stop-color="#b414ffb3" offset="58%"/>
+                                    <stop stop-color="#b400ff4d" offset="58.1%"/>
+                                    <stop stop-color="#a01eff80" offset="64%"/>
+                                    <stop stop-color="#b400ffb3" offset="64.1%"/>
+                                    <stop stop-color="#14008cb3" offset="100%"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M309.6 296.54c3.348 0 6.168-2.203 7.164-5.227l12.562-.004a7.57 7.57 0 0 0 1.496 2.657 7.6 7.6 0 0 0 5.688 2.562c4.183 0 7.582-3.406 7.582-7.582 0-4.035-3.563-7.59-7.59-7.586-3.348 0-6.168 2.207-7.164 5.227l-12.613.004c-1.051-2.957-3.934-5.227-7.137-5.223-4.184.004-7.582 3.41-7.582 7.59 0 1.848.676 3.629 1.899 5.016a7.607 7.607 0 0 0 5.695 2.566zm26.914-10.457c.82 0 1.602.36 2.144.973a2.86 2.86 0 0 1-2.144 4.75c-1.512 0-2.86-1.34-2.856-2.86a2.86 2.86 0 0 1 2.856-2.863zm-26.918.016c.824 0 1.602.351 2.148.964a2.863 2.863 0 0 1-2.148 4.75c-1.516 0-2.856-1.343-2.86-2.859a2.86 2.86 0 0 1 2.86-2.855zm65.774-61.389.027 73.969 4.727-.004 37.578-.02-.004-4.722h-.02l-.015-19.363-4.723.004-12.617.008c-1.055-2.957-3.93-5.223-7.137-5.223-4.183.004-7.582 3.406-7.582 7.586a7.56 7.56 0 0 0 1.899 5.015 7.58 7.58 0 0 0 5.683 2.57c3.352-.003 6.172-2.206 7.172-5.226l12.578-.004.008 14.645-32.828.008-.031-69.234c3.02-1 5.223-3.82 5.223-7.176-.004-4.031-3.57-7.586-7.59-7.582-2.027 0-3.93.785-5.36 2.227a7.534 7.534 0 0 0-2.222 5.367c0 1.848.676 3.629 1.894 5.016.91 1.011 2.074 1.718 3.34 2.14zm17.824 55.098c-1.516-.004-2.86-1.336-2.86-2.86a2.858 2.858 0 1 1 2.86 2.86zm-17.488-64.281a2.85 2.85 0 0 1 2.023-.844c.82 0 1.606.356 2.149.973a2.863 2.863 0 0 1-2.148 4.75c-1.516-.004-2.86-1.34-2.86-2.86a2.85 2.85 0 0 1 .836-2.019zm47.004 53.343.016 29.785h4.726l8.637-.004a7.45 7.45 0 0 0 1.492 2.652 7.593 7.593 0 0 0 5.692 2.567c4.183 0 7.578-3.406 7.578-7.586-.004-4.031-3.567-7.586-7.586-7.582-2.028 0-3.93.789-5.36 2.223-.855.855-1.449 1.886-1.812 3.003h-8.645l-.011-25.047a7.528 7.528 0 0 0 3.004-1.812 7.512 7.512 0 0 0 2.214-5.36c0-4.03-3.566-7.585-7.586-7.585a7.545 7.545 0 0 0-5.359 2.226 7.534 7.534 0 0 0-2.223 5.367 7.59 7.59 0 0 0 1.895 5.016c.906 1.016 2.066 1.727 3.328 2.137zm18.535 25.398a2.852 2.852 0 0 1 4.168.129c.465.516.71 1.187.71 1.887a2.854 2.854 0 0 1-2.855 2.855c-1.515.004-2.86-1.332-2.86-2.851.005-.77.298-1.485.837-2.02zm-18.191-34.582a2.828 2.828 0 0 1 2.016-.84c.82 0 1.605.352 2.144.973.461.515.715 1.187.715 1.887 0 .761-.297 1.48-.84 2.023a2.86 2.86 0 0 1-2.023.84c-1.516 0-2.86-1.34-2.86-2.86.012-.761.301-1.48.848-2.023zm-67.554.044.008 24.398c-3.02 1-5.219 3.82-5.219 7.172a7.594 7.594 0 0 0 7.586 7.586 7.54 7.54 0 0 0 5.36-2.23 7.533 7.533 0 0 0 2.226-5.36c0-3.207-2.273-6.082-5.227-7.137l-.007-24.418c1.109-.363 2.144-.957 2.996-1.812a7.557 7.557 0 0 0 2.222-5.367c-.004-4.028-3.57-7.586-7.59-7.583-2.023 0-3.925.79-5.359 2.231a7.539 7.539 0 0 0-2.223 5.36c0 1.847.676 3.632 1.899 5.015.898 1.012 2.058 1.727 3.328 2.144zm5.234 31.562c0 .762-.296 1.48-.843 2.027a2.844 2.844 0 0 1-2.016.84c-1.516-.004-2.86-1.34-2.86-2.86a2.854 2.854 0 0 1 2.852-2.859c.824 0 1.61.352 2.156.973.461.516.711 1.18.711 1.879zm-4.902-40.75a2.868 2.868 0 0 1 4.172.125c.453.52.71 1.195.71 1.89 0 .758-.296 1.481-.843 2.024-.535.543-1.25.84-2.016.844-1.511-.004-2.859-1.34-2.859-2.86.004-.761.3-1.48.836-2.023zM417.68 458.07h.02l.003-4.727-37.578-.02H375.4l-.028 73.97c-1.269.418-2.43 1.129-3.328 2.144a7.57 7.57 0 0 0-1.894 5.016c0 2.027.785 3.93 2.223 5.367a7.522 7.522 0 0 0 5.359 2.223c4.02.008 7.586-3.55 7.59-7.578 0-3.36-2.203-6.172-5.223-7.172l.031-69.242 32.828.02-.007 14.632h-12.578c-1-3.027-3.817-5.226-7.172-5.226a7.592 7.592 0 0 0-5.684 2.562 7.555 7.555 0 0 0-1.898 5.016c0 4.183 3.398 7.586 7.582 7.586 3.207.008 6.082-2.27 7.136-5.219l12.617.008h4.723zm-37.09 76.383c0 .7-.254 1.379-.71 1.895a2.9 2.9 0 0 1-2.15.972 2.863 2.863 0 0 1-2.855-2.86c0-1.523 1.34-2.859 2.86-2.862a2.857 2.857 0 0 1 2.855 2.855zm14.754-57.508a2.886 2.886 0 0 1-2.144.973 2.867 2.867 0 0 1-2.86-2.864c0-1.515 1.34-2.851 2.86-2.859a2.87 2.87 0 0 1 2.859 2.863 2.855 2.855 0 0 1-.715 1.887z"/>
+                            <path d="M402.64 489.14a7.635 7.635 0 0 0-5.688 2.563 7.59 7.59 0 0 0-1.894 5.023c0 4.183 3.394 7.586 7.578 7.586 4.027 0 7.59-3.551 7.59-7.578 0-4.184-3.406-7.594-7.586-7.594zm2.14 9.48a2.863 2.863 0 0 1-5.004-1.898c.005-1.516 1.34-2.86 2.86-2.86a2.863 2.863 0 0 1 2.856 2.864 2.847 2.847 0 0 1-.711 1.894zm91.03-104.49a7.6 7.6 0 0 0-5.02 1.895 7.607 7.607 0 0 0-2.562 5.687c0 4.184 3.406 7.586 7.586 7.586 4.031 0 7.586-3.57 7.582-7.598-.008-4.172-3.406-7.57-7.586-7.57zm1.89 9.734c-.515.454-1.187.7-1.886.7a2.85 2.85 0 0 1-2.86-2.852c0-1.516 1.336-2.86 2.86-2.86a2.854 2.854 0 0 1 2.86 2.852 2.9 2.9 0 0 1-.973 2.16zM336.52 455.47a7.6 7.6 0 0 0-5.688 2.563 7.605 7.605 0 0 0-1.496 2.656h-12.562c-1-3.028-3.816-5.227-7.164-5.227a7.6 7.6 0 0 0-5.687 2.563 7.614 7.614 0 0 0-1.899 5.023c0 4.172 3.399 7.578 7.582 7.586 3.207 0 6.086-2.27 7.137-5.227l12.613.008c.996 3.016 3.816 5.227 7.164 5.227 4.028 0 7.586-3.551 7.59-7.586-.012-4.18-3.41-7.586-7.59-7.586zm-24.777 9.46a2.847 2.847 0 0 1-2.148.974 2.86 2.86 0 0 1-2.856-2.86c0-1.515 1.34-2.863 2.86-2.863a2.864 2.864 0 0 1 2.859 2.863 2.875 2.875 0 0 1-.715 1.887zm26.918.013a2.845 2.845 0 0 1-2.144.972 2.857 2.857 0 0 1-2.856-2.86c0-1.515 1.344-2.859 2.856-2.859a2.86 2.86 0 0 1 2.859 2.86c0 .691-.258 1.371-.715 1.887zM402.64 262.86c4.184 0 7.586-3.41 7.582-7.59 0-4.027-3.566-7.582-7.59-7.582-4.183.004-7.578 3.406-7.578 7.586 0 1.856.676 3.64 1.895 5.024a7.63 7.63 0 0 0 5.691 2.562zm-.004-10.445c.82 0 1.606.355 2.145.973.46.52.71 1.187.71 1.879a2.86 2.86 0 0 1-2.855 2.859c-1.52.004-2.86-1.336-2.86-2.86a2.864 2.864 0 0 1 2.86-2.851zM443.27 448.14a7.59 7.59 0 0 0-5.691 2.563 7.31 7.31 0 0 0-1.493 2.656h-8.636l-4.727-.008-.016 29.793c-1.265.418-2.425 1.117-3.324 2.144a7.556 7.556 0 0 0-1.894 5.016c0 2.016.785 3.93 2.222 5.355a7.549 7.549 0 0 0 5.36 2.231c4.02 0 7.586-3.563 7.586-7.586a7.493 7.493 0 0 0-2.215-5.355c-.855-.864-1.887-1.454-3.004-1.813l.016-25.047h8.644c.363 1.11.957 2.145 1.813 2.996a7.522 7.522 0 0 0 5.36 2.223c4.019.008 7.581-3.543 7.585-7.578-.008-4.184-3.402-7.59-7.586-7.59zm-15.344 42.164a2.89 2.89 0 0 1-.715 1.887 2.839 2.839 0 0 1-2.144.972 2.8 2.8 0 0 1-2.016-.843 2.818 2.818 0 0 1-.84-2.016c0-1.516 1.34-2.86 2.86-2.86.757 0 1.48.297 2.023.833.535.543.832 1.257.832 2.027zm17.48-32.691a2.88 2.88 0 0 1-2.144.973 2.824 2.824 0 0 1-2.024-.844 2.841 2.841 0 0 1-.84-2.027c0-1.516 1.344-2.852 2.86-2.852a2.86 2.86 0 0 1 2.855 2.86 2.78 2.78 0 0 1-.707 1.89zm-79.946 3.097c0-2.027-.79-3.93-2.227-5.367a7.522 7.522 0 0 0-5.359-2.223 7.607 7.607 0 0 0-5.688 2.563 7.61 7.61 0 0 0-1.898 5.015c0 3.348 2.2 6.172 5.219 7.172l-.008 24.398c-1.27.418-2.43 1.129-3.328 2.145a7.61 7.61 0 0 0-1.898 5.015c0 2.028.789 3.93 2.222 5.367a7.543 7.543 0 0 0 5.36 2.23c4.02 0 7.586-3.562 7.59-7.585a7.55 7.55 0 0 0-2.223-5.367c-.852-.852-1.887-1.445-2.996-1.813l.007-24.418c2.954-1.058 5.227-3.925 5.227-7.132zm-4.746 38.727c0 .691-.262 1.367-.711 1.894a2.873 2.873 0 0 1-2.145.961c-.761 0-1.48-.296-2.027-.843a2.843 2.843 0 0 1-.832-2.016c0-1.516 1.344-2.86 2.86-2.86.765 0 1.48.298 2.015.833.547.55.84 1.261.84 2.03zm-.692-36.844a2.857 2.857 0 0 1-5.008-1.89c0-1.508 1.34-2.852 2.86-2.86.762.008 1.48.305 2.016.844.543.543.843 1.258.843 2.027a2.83 2.83 0 0 1-.71 1.879z"/>
+                            <path d="M538.9 371.45a7.533 7.533 0 0 0-5.36-2.227 7.617 7.617 0 0 0-5.019 1.899c-1.02.894-1.723 2.066-2.144 3.324l-73.965.031v4.723l.02 37.574h4.718v-.02l19.37-.007-.003-4.727-.004-12.617c2.95-1.055 5.219-3.93 5.219-7.133 0-4.183-3.406-7.586-7.586-7.586a7.575 7.575 0 0 0-5.016 1.895 7.619 7.619 0 0 0-2.57 5.695c.008 3.348 2.207 6.16 5.227 7.16l.008 12.578-14.645.008-.008-32.828 69.234-.031c1 3.02 3.82 5.223 7.176 5.223 4.03-.008 7.582-3.57 7.582-7.586a7.514 7.514 0 0 0-2.235-5.348zm-67.617 20.828c0-1.516 1.34-2.86 2.86-2.86a2.858 2.858 0 0 1 2.859 2.86 2.886 2.886 0 0 1-.965 2.144c-.527.465-1.2.711-1.895.711a2.862 2.862 0 0 1-2.859-2.855zm64.145-13.316a2.853 2.853 0 0 1-1.887.707 2.858 2.858 0 0 1-2.86-2.86c.005-1.511 1.34-2.859 2.86-2.855a2.852 2.852 0 0 1 2.864 2.848 2.908 2.908 0 0 1-.977 2.16zM459.77 315.84l.004 12.57a7.483 7.483 0 0 0-2.652 1.492 7.587 7.587 0 0 0-2.563 5.688c0 4.183 3.406 7.586 7.586 7.586 4.031-.004 7.586-3.567 7.578-7.598 0-3.348-2.203-6.168-5.223-7.164l-.003-12.613c2.957-1.055 5.222-3.934 5.218-7.14 0-4.184-3.406-7.583-7.586-7.579a7.583 7.583 0 0 0-7.582 7.582c-.004 3.371 2.2 6.18 5.223 7.176zm5.23 19.75c0 .82-.359 1.605-.972 2.144a2.85 2.85 0 0 1-1.89.711 2.858 2.858 0 0 1-2.86-2.859c0-1.508 1.34-2.86 2.86-2.86A2.875 2.875 0 0 1 465 335.59zm-2.875-29.773a2.86 2.86 0 0 1 2.86 2.86c0 .82-.348 1.605-.961 2.144-.52.465-1.195.71-1.895.71a2.865 2.865 0 0 1-2.859-2.855c-.004-1.515 1.336-2.855 2.856-2.86zM489.37 416.56a7.59 7.59 0 0 0-5.016 1.895c-1.02.894-1.73 2.066-2.144 3.32l-29.785.02v4.726l.008 8.637a7.483 7.483 0 0 0-2.656 1.488 7.619 7.619 0 0 0-2.57 5.695c.007 4.184 3.413 7.578 7.597 7.578 4.027-.007 7.582-3.57 7.578-7.586 0-2.027-.789-3.93-2.223-5.367a7.458 7.458 0 0 0-3.004-1.804l-.003-8.649 25.047-.008a7.527 7.527 0 0 0 1.812 2.996 7.48 7.48 0 0 0 5.367 2.211c4.028 0 7.586-3.562 7.582-7.578a7.517 7.517 0 0 0-2.226-5.367 7.552 7.552 0 0 0-5.364-2.207zm-31.715 25.781a2.87 2.87 0 0 1-.96 2.144 2.83 2.83 0 0 1-1.892.711 2.852 2.852 0 0 1-2.859-2.851c0-1.524 1.336-2.863 2.856-2.863.765 0 1.48.296 2.027.843.535.535.828 1.25.828 2.016zm33.613-16.051a2.844 2.844 0 0 1-1.89.71 2.83 2.83 0 0 1-2.024-.843 2.821 2.821 0 0 1-.84-2.015c0-1.516 1.336-2.86 2.856-2.86.765 0 1.48.297 2.027.832a2.864 2.864 0 0 1-.129 4.176zm-31.478-61.75c3.207 0 6.082-2.27 7.137-5.227l24.418-.007a7.528 7.528 0 0 0 1.812 3.003 7.542 7.542 0 0 0 5.367 2.215c4.028-.004 7.586-3.566 7.582-7.586a7.52 7.52 0 0 0-2.226-5.359 7.524 7.524 0 0 0-5.367-2.223 7.583 7.583 0 0 0-5.016 1.895c-1.02.898-1.73 2.066-2.144 3.328l-24.398.008c-1-3.028-3.82-5.223-7.172-5.22a7.58 7.58 0 0 0-5.016 1.892 7.603 7.603 0 0 0-2.57 5.69 7.546 7.546 0 0 0 2.23 5.36 7.507 7.507 0 0 0 5.364 2.23zm38.723-10.453c.766 0 1.48.297 2.027.832.54.54.832 1.258.84 2.023a2.85 2.85 0 0 1-2.855 2.855c-.762 0-1.48-.292-2.024-.839a2.831 2.831 0 0 1-.843-2.016c.007-1.515 1.34-2.855 2.855-2.855zm-38.73.012a2.862 2.862 0 0 1 1.895 5.004 2.82 2.82 0 0 1-1.891.71c-.758 0-1.48-.296-2.023-.831a2.848 2.848 0 0 1-.84-2.028c.011-1.511 1.344-2.855 2.86-2.855zM294.85 412.03l-14.637-.008.004-12.578c3.027-1 5.223-3.812 5.227-7.16a7.602 7.602 0 0 0-2.567-5.695 7.563 7.563 0 0 0-5.015-1.895c-4.176 0-7.582 3.406-7.582 7.586 0 3.203 2.265 6.074 5.218 7.133l-.004 12.617v4.726l19.363.008v.02h4.723l.02-37.574v-4.723l-73.97-.031c-.417-1.266-1.128-2.43-2.144-3.324a7.567 7.567 0 0 0-5.015-1.899 7.5 7.5 0 0 0-5.36 2.227 7.52 7.52 0 0 0-2.226 5.36c-.004 4.015 3.55 7.577 7.578 7.585 3.351 0 6.175-2.203 7.175-5.223l69.234.032zm-16.992-16.898a2.857 2.857 0 1 1-.004-5.715c1.52 0 2.86 1.34 2.86 2.86a2.85 2.85 0 0 1-2.856 2.855zm-59.398-15.465a2.893 2.893 0 0 1-1.89-.707 2.89 2.89 0 0 1-.973-2.156c0-.758.297-1.477.84-2.016a2.829 2.829 0 0 1 2.023-.832c1.52-.004 2.855 1.34 2.86 2.856a2.86 2.86 0 0 1-2.86 2.855zm63.82-44.087c-.004 4.031 3.55 7.59 7.582 7.598 4.184 0 7.582-3.407 7.586-7.586a7.6 7.6 0 0 0-2.563-5.688 7.458 7.458 0 0 0-2.652-1.492v-12.57c3.02-1 5.223-3.812 5.227-7.164 0-2.18-.938-4.246-2.567-5.688a7.57 7.57 0 0 0-5.015-1.894c-4.184-.004-7.582 3.394-7.586 7.578 0 3.207 2.265 6.086 5.219 7.14l-.004 12.614c-3.02.992-5.223 3.804-5.227 7.152zm4.734-26.91a2.863 2.863 0 0 1 2.86-2.86c1.515.005 2.86 1.344 2.86 2.86a2.862 2.862 0 0 1-4.75 2.145 2.862 2.862 0 0 1-.97-2.145zm2.852 24.059c1.52 0 2.86 1.352 2.86 2.86a2.86 2.86 0 0 1-5.723.003 2.865 2.865 0 0 1 2.863-2.863z"/>
+                            <path d="M263.78 401.72a7.597 7.597 0 0 0-2.566-5.688 7.563 7.563 0 0 0-5.016-1.894 7.59 7.59 0 0 0-7.586 7.578c-.004 4.027 3.55 7.598 7.578 7.598 4.184-.012 7.59-3.414 7.59-7.594zm-10.441-.012a2.854 2.854 0 0 1 2.86-2.851c1.519 0 2.859 1.34 2.859 2.86a2.854 2.854 0 0 1-2.86 2.85 2.85 2.85 0 0 1-2.86-2.86zm51.451 40.642a7.602 7.602 0 0 0-2.566-5.695 7.408 7.408 0 0 0-2.653-1.489v-13.37l-29.785-.02c-.418-1.258-1.129-2.426-2.144-3.32a7.56 7.56 0 0 0-5.012-1.895 7.524 7.524 0 0 0-5.367 2.223 7.527 7.527 0 0 0-2.227 5.367c0 4.016 3.555 7.578 7.582 7.578a7.473 7.473 0 0 0 5.36-2.21 7.554 7.554 0 0 0 1.812-2.997l25.047.008v8.648a7.457 7.457 0 0 0-3.004 1.805 7.557 7.557 0 0 0-2.222 5.367c-.004 4.016 3.55 7.578 7.582 7.586 4.191-.016 7.593-3.406 7.597-7.586zm-40.141-16.188a2.857 2.857 0 0 1-4.887-2.012 2.855 2.855 0 0 1 2.863-2.86c1.52.001 2.856 1.34 2.856 2.86a2.78 2.78 0 0 1-.832 2.012zm32.555 19.031c-.691 0-1.367-.25-1.887-.71a2.852 2.852 0 0 1-.972-2.145c0-.766.297-1.48.84-2.016a2.833 2.833 0 0 1 2.023-.844c1.52 0 2.855 1.34 2.855 2.864a2.844 2.844 0 0 1-2.859 2.851zM253.48 364.52c2.023 0 3.93-.785 5.36-2.215.855-.855 1.449-1.887 1.812-3.004l24.422.008c1.05 2.957 3.926 5.227 7.133 5.227 2.027 0 3.93-.79 5.36-2.223a7.565 7.565 0 0 0 2.226-5.36c0-2.18-.938-4.245-2.567-5.69a7.56 7.56 0 0 0-5.015-1.891c-3.352-.004-6.172 2.191-7.172 5.218l-24.402-.007c-.418-1.27-1.13-2.43-2.145-3.329a7.563 7.563 0 0 0-5.015-1.894 7.484 7.484 0 0 0-5.36 2.223 7.526 7.526 0 0 0-2.226 5.36c.004 4.01 3.562 7.57 7.59 7.577zm38.734-10.426c1.516 0 2.856 1.344 2.86 2.86a2.852 2.852 0 0 1-2.868 2.859 2.86 2.86 0 0 1-2.86-2.86 2.875 2.875 0 0 1 2.868-2.859zm-40.754.816a2.87 2.87 0 0 1 2.027-.832c1.516 0 2.856 1.34 2.856 2.86 0 .762-.293 1.48-.84 2.015a2.83 2.83 0 0 1-2.023.84 2.877 2.877 0 0 1-1.891-.71 2.886 2.886 0 0 1-.973-2.145c.008-.77.305-1.485.844-2.028zm174.22-47.44h-98.504c-10.355 0-18.781 8.426-18.781 18.785v98.496c0 10.363 8.426 18.785 18.781 18.785h98.504c10.355 0 18.781-8.426 18.781-18.785l.004-98.492c0-10.363-8.426-18.789-18.785-18.789zm9.59 117.29c0 5.29-4.301 9.59-9.586 9.59H327.18c-5.285 0-9.59-4.301-9.59-9.59v-98.496c0-5.29 4.305-9.59 9.59-9.59h98.504c5.285 0 9.586 4.301 9.586 9.59z"/>
+                            <path fill="url(#a)" stroke="#000" stroke-width="4" d="M422.64 324.48h-92.402a5.516 5.516 0 0 0-5.516 5.523v91.016a5.521 5.521 0 0 0 5.516 5.524h92.398a5.519 5.519 0 0 0 5.516-5.524l.004-91.016a5.521 5.521 0 0 0-5.516-5.523z"/>
+                        </svg>
+                    </div>
+                    <div class="m-auto col-md-7 col-12 text-md-start ps-md-4 transWhiteBG">
+                        <h1 class="display-3 fw-bold mt-4">Trading Bot</h1>
+                        <p class="fs-4">Copy Trades from experts, <br>Tradingview stratrgy to Exchanges,<br>Customize Strategy Hosting</p> 
+                        <a class="btn btn-primary shadow-sm fw-bold bg-gradient arr-swipe">
+                            Explore Algo Bot
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arr"><use xlink:href="#arrow"></use></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arr"><use xlink:href="#arrow"></use></svg>
+                        </a>
+                    </div>
+                </div>
+            </div> 
+            <div id="techlib_section" class="py-5 hidden">
+                <div class="row py-5">
+                    <div class="m-auto col-md-5 col-12 text-md-start ps-md-4 order-1 order-md-2"> 
+                        <svg style="color:rgba(0,0,0,.9)" width="280" height="280" fill="currentColor" viewbox="100 100 550 550" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M457.12 549.65h-223.2a23.67 23.67 0 0 0-20.504 11.84 23.678 23.678 0 0 0 20.504 35.516h268.36a7.89 7.89 0 0 0 7.895-7.89V557.54H470.71a15.727 15.727 0 0 1-13.594-7.89zm-65.336 31.57h-126.29a7.892 7.892 0 1 1 0-15.785h126.29c4.36 0 7.89 3.535 7.89 7.894s-3.53 7.891-7.89 7.891zm71.039 0h-39.469a7.892 7.892 0 1 1 0-15.785h39.465a7.892 7.892 0 1 1 0 15.785zM226.04 164.34a23.672 23.672 0 0 0-15.785 22.226v355.39a39.383 39.383 0 0 1 15.785-7.285zm15.78-1.45v370.97h31.57v-39.465a7.895 7.895 0 0 1 15.789 0v39.465h15.785v-15.789a7.89 7.89 0 0 1 7.89-7.89 7.892 7.892 0 0 1 7.895 7.89v15.785h71.04v-39.461a7.892 7.892 0 1 1 15.784 0v39.465h47.36v-4.625h-.005a15.905 15.905 0 0 1 4.63-11.164l50.624-50.625a15.91 15.91 0 0 1 11.16-4.625h4.625v-55.25a23.66 23.66 0 0 1-14.105-4.66 23.669 23.669 0 0 1-8.555-12.145 23.679 23.679 0 0 1-16.805-22.66v-39.465a23.66 23.66 0 0 1 4.66-14.105 23.637 23.637 0 0 1 12.145-8.555 23.66 23.66 0 0 1 8.555-12.148 23.684 23.684 0 0 1 14.105-4.656v-55.254h-4.625a15.892 15.892 0 0 1-11.16-4.625l-50.625-50.625a15.903 15.903 0 0 1-4.629-11.16v-4.625h-124.84a9.507 9.507 0 0 0-7.953 4.254l-7.957 11.934a7.853 7.853 0 0 0-1.328 4.375v21.27a13.582 13.582 0 0 1-22.976 9.473l-17.445-17.445h.004a23.492 23.492 0 0 1-6.938-16.715V162.89zm39.465 125.45v-.004c0-3.648 1.27-7.187 3.59-10.004a15.715 15.715 0 0 1 9.14-5.426 23.67 23.67 0 0 0 11.906-6.433 23.65 23.65 0 0 0 6.438-11.902 15.742 15.742 0 0 1 15.438-12.746h96.406c3.652 0 7.187 1.273 10.004 3.593a15.752 15.752 0 0 1 5.43 9.137 23.711 23.711 0 0 0 18.347 18.351 15.706 15.706 0 0 1 12.734 15.43v49.051a15.735 15.735 0 0 1-3.598 10 15.708 15.708 0 0 1-9.136 5.43 23.712 23.712 0 0 0-18.347 18.351 15.741 15.741 0 0 1-5.43 9.141 15.73 15.73 0 0 1-10.004 3.59h-96.406c-3.649 0-7.188-1.27-10.004-3.59a15.715 15.715 0 0 1-5.426-9.14 23.67 23.67 0 0 0-6.434-11.907 23.65 23.65 0 0 0-11.902-6.437 15.742 15.742 0 0 1-12.746-15.438z" />
+                            <path style="color:#f08c00" d="M281.29 180.04c0 2.09.832 4.098 2.313 5.578l13.473 13.473v-15.633a23.583 23.583 0 0 1 3.718-12.672H281.29zm189.43 349.2v12.516h55.25a7.894 7.894 0 0 0 7.894-7.89V478.61h-12.52zm47.35-216.38a7.907 7.907 0 0 1-2.309 5.582 7.894 7.894 0 0 1-5.582 2.313 7.895 7.895 0 0 0-7.894 7.894v39.465c0 2.094.832 4.102 2.312 5.582 1.48 1.477 3.489 2.309 5.582 2.309s4.102.832 5.582 2.312a7.904 7.904 0 0 1 2.309 5.582 7.894 7.894 0 0 0 7.894 7.895h7.895V304.97h-7.894a7.895 7.895 0 0 0-7.895 7.89zm7.9-157.86h-55.25v12.52l50.625 50.625h12.52v-55.25a7.894 7.894 0 0 0-7.894-7.894zM327.86 367.95l96.348.16c1.52-7.562 5.223-14.512 10.656-19.984s12.355-9.226 19.906-10.8l.164-48.939v.004a40.153 40.153 0 0 1-21.703-12.629 39.579 39.579 0 0 1-9.078-17.988l-96.352-.168a39.048 39.048 0 0 1-9.02 18.22 39.642 39.642 0 0 1-21.547 12.565l-.16 48.992a39.048 39.048 0 0 1 18.22 9.02 39.642 39.642 0 0 1 12.565 21.547z" />
+                        </svg> 
+                    </div>
+                    <div class="m-auto col-md-7 col-12 text-md-end pe-md-4 order-2 order-md-1 transWhiteBG">
+                        <h1 class="display-3 fw-bold mt-4">Technical Library</h1>
+                        <p class="fs-5">Our technical library is powerful.<br>With a comprehensive set of indicators and strategy,<br>you'll be able to identify market trends and make informed trading decisions,<br>Whether you're a beginner or an experienced pro.</p> 
+                        <a href="/pricing#resources" class="btn btn-primary shadow-sm fw-bold bg-gradient arr-swipe">
+                            Explore Technical Library
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arr"><use xlink:href="#arrow"></use></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arr"><use xlink:href="#arrow"></use></svg>
+                        </a>
+                    </div>
+                </div>
+            </div> 
+            <div id="techsupp_section" class="py-5 hidden">
+                <div class="row py-5">
+                    <div class="col-md-5 col-12 text-md-end pe-md-4"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="280" height="280" fill="currentColor" style="color:#000" viewBox="100 100 550 550">
+                            <path d="M489.46 311.87h-24.664v19.734h14.801c2.465 0 4.934 2.465 4.934 4.934v133.2l-217.06-.004v-133.2c0-2.465 2.464-4.934 4.933-4.934h14.801v-19.734h-24.664c-8.386 0-14.8 6.414-14.8 14.801v177.59c0 8.387 6.413 14.801 14.8 14.801h83.863v24.664h59.2v-24.664h83.862c8.387 0 14.801-6.414 14.801-14.8v-29.599l-.008-147.99c0-8.387-6.41-14.8-14.797-14.8zm-44.398 187.46h-9.867v-9.867h9.867zm19.73 0h-9.867v-9.867h9.867zm19.734 0h-9.867v-9.867h9.867zm-49.824 69.066h69.555v9.867h-256.52v-9.867h69.559c2.465-11.348 12.332-19.734 24.172-19.734h69.062c11.84 0 21.707 8.387 24.176 19.734zm-132.7-108.53h147.99c2.96 0 4.934-1.973 4.934-4.934v-192.39c0-2.96-1.973-4.933-4.934-4.933h-147.99c-2.96 0-4.934 1.973-4.934 4.933v192.39c0 2.961 1.973 4.934 4.934 4.934zm143.06-9.863h-138.13v-143.06h138.13zm-59.199-172.66h49.332v9.867l-49.332-.004zm-39.465 0h19.734v9.867h-19.734zm-29.598 0h19.734v9.867H316.8zm73.008 162.79h-28.117c1.973-5.918 7.398-9.867 13.812-9.867s12.332 3.945 14.305 9.867zm-37.984 0h-35.023v-14.801c0-2.465 2.465-4.934 4.934-4.934h6.414l-4.934-4.933c-1.973-1.973-1.973-4.934 0-6.907l21.211-21.21c1.973-1.973 4.934-1.973 6.906 0l4.934 4.44v-5.921c0-2.465 2.465-4.934 4.933-4.934h29.598c2.465 0 4.934 2.465 4.934 4.934v6.414l4.934-4.441c1.972-1.973 4.933-1.973 6.906 0l21.21 21.21c1.974 1.973 1.974 4.934 0 6.907l-4.933 4.933 6.414.004c2.465 0 4.934 2.465 4.934 4.934v14.8h-35.023c-2.465-11.348-12.332-19.734-24.172-19.734-11.844 0-21.707 7.89-24.176 19.238zm34.039-113.46h-69.062v-9.867h69.062zm-9.867 19.73H316.8v-9.867H376zm9.867-9.867h19.734v9.867h-19.734zm49.332 9.867h-19.734v-9.867h19.734zm-59.199 9.867h59.199v9.867h-59.199zm-29.598 9.867v-9.867h19.734v9.867zm-9.867 0h-19.734v-9.867h19.734zm251.59-152.93H479.59c-8.387 0-14.801 6.414-14.801 14.801v59.2c0 8.386 6.414 14.8 14.8 14.8h34.532v19.734c0 1.973.988 3.945 2.96 4.442.493.488 1.481.488 1.973.488 1.48 0 2.465-.492 3.453-1.48l23.188-23.189h44.398c6.907 0 12.824-5.918 12.824-12.824v-61.172c0-8.386-6.414-14.8-14.8-14.8zm-75.477 55.746-6.906 6.906-14.801-14.8c-1.973-1.973-1.973-4.934 0-6.907l14.8-14.8 6.907 6.905-11.344 11.348zm9.867 6.906-6.906-6.906 29.598-29.598 6.906 6.906zm54.266-14.8-14.801 14.8-6.906-6.906 11.348-11.348-11.348-11.348 6.906-6.906 14.801 14.8c1.973 1.974 1.973 4.935 0 6.907zM233.917 331.6h8.883v44.891c-13.812 2.465-24.664 14.305-24.664 29.105 0 14.801 10.852 26.641 24.664 29.105v44.895h-8.88c-5.425 0-9.866-4.441-9.866-9.867v-18.746l-13.32 13.32c-3.946 3.945-9.868 3.945-13.812 0L184.59 451.48c-3.946-3.945-3.946-9.867 0-13.812l13.32-13.32h-19.242c-5.426 0-9.868-4.441-9.868-9.867v-17.758c0-5.426 4.442-9.867 9.868-9.867h18.746l-13.32-13.32c-3.946-3.946-3.946-9.867 0-13.812l12.332-12.332c3.945-3.946 9.867-3.946 13.812 0l13.32 13.32V341.47c.496-5.426 4.933-9.867 10.359-9.867zm8.883 54.758v37.984c-8.387-1.972-14.801-9.867-14.801-19.238 0-9.37 6.414-16.277 14.8-18.746zm34.53-222.48c0-5.425-4.44-9.867-9.866-9.867l-108.53.004c-5.43 0-9.868 4.438-9.868 9.863v19.734h128.26zm-98.663 9.868H168.8v-9.868h9.867zm14.8 0h-9.866v-9.868h9.867zm14.798 0h-9.867l.004-9.868h9.867zm69.066 108.53V193.48H149.07v88.797c0 5.425 4.441 9.867 9.867 9.867h108.53c5.426-.004 9.867-4.442 9.867-9.867zm-85.344-28.121-6.906 6.906-14.801-14.801c-1.973-1.973-1.973-4.934 0-6.906l14.8-14.801 6.907 6.906-11.348 11.352zm9.867 6.906-6.906-6.906 29.598-29.598 6.906 6.906zm54.262-14.797-14.801 14.8-6.906-6.905 11.348-11.348-11.348-11.348 6.906-6.907 14.801 14.801c1.973 1.973 1.973 4.93 0 6.907z"/>
+                        </svg>
+                    </div>
+                    <div class="col-md-7 col-12 text-md-start ps-md-4 transWhiteBG">
+                        <h1 class="display-3 fw-bold mt-4">Strategy Develop</h1>
+                        <p class="fs-5">We accept custom orders for strategies or indicators,<br>Talents in various fields are welcome to cooperate.<br><br>We care about user experience, if you have any ideas,<br>Please share your opinion with us.</p>
+                        <a href="#contact" class="btn btn-primary shadow-sm fw-bold bg-gradient arr-swipe">
+                            Contact us
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arr"><use xlink:href="#arrow"></use></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arr"><use xlink:href="#arrow"></use></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+        </div> 
+
+        <div class="py-5 text-center lightGradient_1-0">
+            <div class="pt-5 fs-4 mb-4 fst-italic hidden"> 
+                <span class=" fs-2 fw-bold hiddenFloatUp">
+                    <span class="TCol">"</span>Live Your Life Happier!<span class="TCol">"</span>
+                </span>
+                <br>
+                <p class="hiddenFloatUp">Automate your Trades,<br>Dont just look at Chart.</p>
+                <div class="fs-5 fw-bold hiddenFloatUp"> Justin Lai <span class="fw-bold TCol px-1">/</span> Founder </div>
+            </div>
+        </div>
+
+        <div class="rounded-3 pb-4 bgWhite">
+            <div class="center mb-5">
+                <div class="fs-3 fw-bolder text-deep mb-3">Start Algo Trade Journy.</div> 
+                <a target="_blank" class="signup-btn">
+                    <svg class="arr-l"><use xlink:href="#arrow"/></svg>
+                    <span class="txt">SignUp</span>
+                    <svg class="arr-r"><use xlink:href="#arrow"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div id="contact" class="py-2 bg-light center">
+            <h2 class="fw-bolder my-4">Contact Us</h2>
+            <p id="feedbackrespone" class="text-muted">We care about your feedback, it is an important information to make product better.</p>
+            <div class="w-md-80 m-auto pb-4">
+                <div id="ctf" class="mx-4 p-3 rounded-4">
+                    <div class="input-group pb-2">
+                        <span class="input-group-text">Contact</span>
+                        <input id="a" type="text" class="form-control" placeholder="Email, Telegram ID, Discord ID">
+                    </div>
+                    <div class="input-group pb-2">
+                        <span class="input-group-text">Subject</span>
+                        <input id="b" aria-label="Subject" type="text" class="form-control" placeholder="">
+                    </div>
+                    <textarea id="c" class="form-control" placeholder="Content"></textarea>
+                    <button id="fbsend" type="button" class="btn btn-primary px-4 mt-2">Send</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Nav -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="profile" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/></svg>
+        </symbol>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="lang" viewBox="0 0 16 16">
+            <path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z"/><path d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6.066 6.066 0 0 1-.415-.492 1.988 1.988 0 0 1-.94.31z"/>
+        </symbol>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="help" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+        </symbol>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="dash" viewBox="0 0 24 24" fill="none">
+            <path stroke="#000" stroke-width="1" d="M4 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5ZM14 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V5ZM4 16a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3ZM14 13a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-6Z"/>
+        </symbol>
+    </svg>    
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="menu" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </symbol>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="logI" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/><path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+        </symbol>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="logO" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/><path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+        </symbol>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="home" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
+        </symbol>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" >
+        <symbol id="bot" viewBox="2 2 20 20">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm11-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0ZM10 15.5a.5.5 0 0 1 .5.5v.003l.003.01a.237.237 0 0 0 .036.053.86.86 0 0 0 .27.194c.28.14.7.24 1.191.24.492 0 .912-.1 1.19-.24a.86.86 0 0 0 .271-.194.214.214 0 0 0 .039-.063V16a.5.5 0 0 1 1 0c0 .568-.447.947-.862 1.154-.445.223-1.025.346-1.638.346s-1.193-.123-1.638-.346C9.947 16.947 9.5 16.568 9.5 16a.5.5 0 0 1 .5-.5Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16 5.5v2H8v-2a.5.5 0 0 0-1 0v2H6A2.5 2.5 0 0 0 3.5 10v7A2.5 2.5 0 0 0 6 19.5h12a2.5 2.5 0 0 0 2.5-2.5v-7A2.5 2.5 0 0 0 18 7.5h-1v-2a.5.5 0 0 0-1 0Zm-10 3A1.5 1.5 0 0 0 4.5 10v7A1.5 1.5 0 0 0 6 18.5h12a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 18 8.5H6Z"/>
+        </symbol>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="strategy" viewBox="0 0 28 28">
+            <path fill-rule="evenodd" d="M18.44 10.62l5.09-5.09-1.06-1.06-5.09 5.09c-.48.48-1.28.48-1.76 0l-3.18-3.18a2.75 2.75 0 0 0-3.88 0l-5.09 5.09 1.06 1.06 5.09-5.09a1.25 1.25 0 0 1 1.76 0l3.18 3.18a2.75 2.75 0 0 0 3.88 0zM14.25 19v-5h-1.5v5H10l3.5 4 3.5-4h-2.75zM18 18l3.5-4 3.5 4h-2.75v5h-1.5v-5H18z"></path>
+        </symbol>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="article" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+            <path fill-rule="evenodd" d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+        </symbol>
+    </svg>
+
+    <nav>
+        <a class="m-auto col-md-1 col-2" aria-label="home" style="cursor: pointer;">
+            <svg class="px-0" height="40" width="40" viewBox="0 0 300 300" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 10h270l-30 35h-90v50l-5 7.5V215l5 7.5v50L155 285h-10l-10-12.5v-50l5-7.5V102.5l-5-7.5V45H45L15 10z"/>
+                <path d="M50 55h40l40 55v60l-10 10v35l5 7.5V265l-35-45v-55l25-25-65-85zm200 0h-38.333L170 110v60l10.417 10v35L175 222.5V265l35-45v-55l-25-25 65-85z"/>
+            </svg>
+        </a>
+
+        <!-- Mobile -->
+        <a class="d-flex d-md-none navitem border-0">
+            <h3 class="text-white fw-bolder pt-1">xxxTerminal</h3>
+        </a>
+
+        <button id="navBtn" class="d-md-none col-2">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </button>
+        
+        <!-- Desktop -->
+        <a class="d-none d-md-flex navitem"><b class="m-auto">Dashboard</b></a>
+        <a class="d-none d-md-flex navitem"><b class="m-auto">Pricing</b></a>
+        <a class="d-none d-md-flex navitem"><b class="m-auto">Affiliate</b></a>
+        <span class="d-none d-lg-flex" style="flex:4"></span>
+        <div class="d-none d-md-flex col-md-2 col-lg-1 text-center">
+            <div class="row">
+                <div class="col-6 navlogo dropdown">
+                    <button type="button" aria-label="change language" class="d-block link-dark text-decoration-none dropdown-toggle" id="LangDrop" data-bs-toggle="dropdown">
+                        <svg xmlns="http://www.w3.org/2000/svg" style="margin-top:2px" width="30" height="30px" fill="#fff" ><use xlink:href="#lang"></svg>
+                    </button>
+                    <ul class="dropdown-menu text-small shadow" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 33px, 0px);border: 1px solid rgb(230,230,230);" data-popper-placement="bottom-end">
+                        <li class="dropdown-item">English</li>
+                        <li class="dropdown-item">中文</li>
+                    </ul>
+                </div>
+                <div class="col-6 navlogo dropdown">
+                    <button type="button" aria-label="to profile page" class="d-block link-dark text-decoration-none dropdown-toggle" id="ProfDrop" data-bs-toggle="dropdown">
+                        <svg xmlns="http://www.w3.org/2000/svg" style="margin-top:2px" width="30" height="30px" fill="#fff"><use xlink:href="#profile"></svg>
+                    </button>
+                    <ul class="dropdown-menu text-small shadow" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 33px, 0px);border: 1px solid rgb(230,230,230);" data-popper-placement="bottom-end">
+                            <li class="dropdown-item l2nav_profile" >Profile</li>
+                            <li class="dropdown-item l2nav_affiliate" >Affiliate</li>
+                            <li class="dropdown-item l2nav_help" >Help</li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item logout" ><svg xmlns="http://www.w3.org/2000/svg" class="DDlogo" style="fill:#f01e1e"><use xlink:href="#logO"></use></svg>Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mob-nav" style="height: 0%; padding-top: 0px;">
+        <div class="row">
+            <div class="col-12 px-1">
+                <a class="card Mnavitem">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo"><use xlink:href="#profile"></svg>
+                    <br>Profile
+                </a>
+            </div>
+            <div class="col-12 row px-1">
+                <div class="col-6">
+                    <a class="card Mnavitem">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo"><use xlink:href="#dash"></svg>
+                        <br>Dashboard
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a class="card Mnavitem">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo"><use xlink:href="#dash"></svg>
+                        <br>Affiliate
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-12 row px-1 pt-3 center">
+                <a class="col" href="<?=base_url($this->lg.'/dashboard?page=bot')?>">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block d-md-none" width="22px" height="22px"><use xlink:href="#bot"></use></svg>
+                    <p class="text-l2nav text-dark m-0">Trading Bot</p>
+                </a>
+                <a class="col" href="<?=base_url($this->lg.'/dashboard?page=techlib')?>">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block d-md-none" width="22px" height="22px"><use xlink:href="#strategy"></use></svg>
+                    <p class="text-l2nav text-dark m-0">Technical Library</p>
+                </a>
+                <a class="col" href="<?=base_url($this->lg.'/dashboard?page=article')?>">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block d-md-none" width="22px" height="22px"><use xlink:href="#article"></use></svg>
+                    <p class="text-l2nav text-dark m-0">Articles</p>
+                </a>
+            </div>
+        
+            <hr class="my-3">
+
+            <div class="col-6">
+                <a class="card Mnavitem">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo"><use xlink:href="#menu"></svg>
+                    Home
+                </a>
+            </div>
+            <div class="col-6">
+                <a class="card Mnavitem">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo"><use xlink:href="#menu"></svg>
+                    Pricing
+                </a>
+            </div>
+            <div class="col-6">
+                <a class="card Mnavitem">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo"><use xlink:href="#menu"></svg>
+                    Affiliate
+                </a>
+            </div>
+
+            <hr class="my-3">
+            
+            <div class="col-6">
+                <a class="card Mnavitem">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo" style="fill:#1464dc"><use xlink:href="#lang"></svg>
+                    English
+                </a>
+            </div>
+            <div class="col-6">
+                <a class="card Mnavitem">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo" style="fill:#1464dc"><use xlink:href="#lang"></svg>
+                    中文
+                </a>
+            </div>
+
+            <hr class="my-3">
+
+            <div class="col-6">
+                <a class="card Mnavitem">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo"><use xlink:href="#help"></svg>
+                    Help
+                </a>
+            </div>
+
+            <div class="col-6">
+                <a class="logout card Mnavitem"><svg xmlns="http://www.w3.org/2000/svg" class="DDlogo" style="fill:#f01e1e"><use xlink:href="#logO"></svg>"logout",0)?></a>
+            </div>
+        </div>
+    </div>
+    <script>
+        // mobile menu
+        window.onload = function(){
+            var mobNav = QS("#navBtn").addEventListener("click", ()=>{
+                let nav = QS(".mob-nav");
+                let btn = QS("#navBtn");
+                if (nav.style.height == "0%" && nav.style.paddingTop == "0px") {
+                    if (QS("#secNav") != null){ QS("#secNav").style.zIndex = 10; };
+                    btn.classList.add("change");
+                    nav.style.height = "100%";
+                    nav.style.paddingTop = "10px";
+                } else {
+                    btn.classList.remove("change");
+                    nav.style.height = "0%";
+                    nav.style.paddingTop = "0px";
+                    setTimeout(()=>{ if (QS("#secNav") != null){  QS("#secNav").style.zIndex = 10; }; },50);
+                };
+            });
+        }
+    </script>
+    <!-- Footer -->
+<footer class="d-none d-md-block w-100">
+    <div id="foot" class="center bg-black" style="padding-top:3%;margin-top:5%">
+        <a href="#" class="btn btn-light btn-pill float mb-3" style="padding:0.5% 6%">"totop",0)?></a>
+        <div class="row">
+            <div class="col mb-3">
+                <a class="text-secondary hovWhite">Home</a><br>
+                <a class="text-secondary hovWhite">Pricing</a><br>
+                <a class="text-secondary hovWhite">Dashboard</a><br>
+                <!-- <a class="text-secondary hovWhite" href="<?=base_url($this->lg.'/solution')?>">"solution</a><br> -->
+
+            </div>
+            <div class="col mb-3">
+                <a class="text-secondary hovWhite">Dashboard</a><br>
+                <a class="text-secondary hovWhite">Trading Bot</a><br>
+                <a class="text-secondary hovWhite">Article</a><br>
+                <a class="text-secondary hovWhite">Technical Library</a><br>
+            </div>
+        </div>
+        <div>
+            <a href="#" target="_blank" class="hovOpa" aria-label="telegram">
+                <svg xmlns="http://www.w3.org/2000/svg" height="35" width="35" viewBox="50 50 130 150"><path d="M98 175c-3.9 0-3.2-1.5-4.6-5.2L82 132.2 152.8 88l8.3 2.2-6.9 18.8L98 175z" fill="#c8daea"/><path d="m100 144.4 48.4 35.7c5.5 3 9.5 1.5 10.9-5.1L179 82.2c2-8.1-3.1-11.7-8.4-9.3L55 117.5c-7.9 3.2-7.8 7.6-1.4 9.5l29.7 9.3L152 93c3.2-2 6.2-.9 3.8 1.3L100 144.4z" fill="#fff"/></svg>
+            </a>
+            <a href="#" target="_blank" class="hovOpa" aria-label="discord">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 71 55" fill="#fff"><g clip-path="url(#a)"><path d="M60.105 4.898A58.55 58.55 0 0 0 45.653.415a.22.22 0 0 0-.233.11 40.784 40.784 0 0 0-1.8 3.697c-5.456-.817-10.886-.817-16.23 0-.485-1.164-1.201-2.587-1.828-3.697a.228.228 0 0 0-.233-.11 58.386 58.386 0 0 0-14.451 4.483.207.207 0 0 0-.095.082C1.578 18.73-.944 32.144.293 45.39a.244.244 0 0 0 .093.167c6.073 4.46 11.955 7.167 17.729 8.962a.23.23 0 0 0 .249-.082 42.08 42.08 0 0 0 3.627-5.9.225.225 0 0 0-.123-.312 38.772 38.772 0 0 1-5.539-2.64.228.228 0 0 1-.022-.378 31.17 31.17 0 0 0 1.1-.862.22.22 0 0 1 .23-.03c11.619 5.304 24.198 5.304 35.68 0a.219.219 0 0 1 .233.027c.356.293.728.586 1.103.865a.228.228 0 0 1-.02.378 36.384 36.384 0 0 1-5.54 2.637.227.227 0 0 0-.121.315 47.249 47.249 0 0 0 3.624 5.897.225.225 0 0 0 .249.084c5.801-1.794 11.684-4.502 17.757-8.961a.228.228 0 0 0 .092-.164c1.48-15.315-2.48-28.618-10.497-40.412a.18.18 0 0 0-.093-.084Zm-36.38 32.427c-3.497 0-6.38-3.211-6.38-7.156 0-3.944 2.827-7.156 6.38-7.156 3.583 0 6.438 3.24 6.382 7.156 0 3.945-2.827 7.156-6.381 7.156Zm23.593 0c-3.498 0-6.38-3.211-6.38-7.156 0-3.944 2.826-7.156 6.38-7.156 3.582 0 6.437 3.24 6.38 7.156 0 3.945-2.798 7.156-6.38 7.156Z"></path></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h71v55H0z"></path></clipPath></defs></svg>
+            </a>
+        </div>
+        <p class="white m-0 pt-3 pb-md-1 pb-5">© 2022 xxxTerminal</p>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script>function normalizeColor(e){return[(e>>16&255)/255,(e>>8&255)/255,(255&e)/255]}["SCREEN","LINEAR_LIGHT"].reduce((e,t,n)=>Object.assign(e,{[t]:n}),{});class MiniGl{constructor(e,t,n,i=!1){const h=this,s=-1!==document.location.search.toLowerCase().indexOf("debug=webgl"),a=(h.canvas=e,h.gl=h.canvas.getContext("webgl",{antialias:!0}),h.meshes=[],h.gl);t&&n&&this.setSize(t,n),h.lastDebugMsg,h.debug=i&&s?function(e){var t=new Date;1e3<t-h.lastDebugMsg&&console.log("---"),console.log(t.toLocaleTimeString()+Array(Math.max(0,32-e.length)).join(" ")+e+": ",...Array.from(arguments).slice(1)),h.lastDebugMsg=t}:()=>{},Object.defineProperties(h,{Material:{enumerable:!1,value:class{constructor(e,t,n={}){var i=this;function s(e,t){e=a.createShader(e);return a.shaderSource(e,t),a.compileShader(e),a.getShaderParameter(e,a.COMPILE_STATUS)||console.error(a.getShaderInfoLog(e)),h.debug("Material.compileShaderSource",{source:t}),e}function o(e,n){return Object.entries(e).map(([e,t])=>t.getDeclaration(e,n)).join("\n")}i.uniforms=n,i.uniformInstances=[];var r="\n              precision highp float;\n            ";i.vertexSource=`
+              ${r}
+              attribute vec4 position;
+              attribute vec2 uv;
+              attribute vec2 uvNorm;
+              ${o(h.commonUniforms,"vertex")}
+              ${o(n,"vertex")}
+              ${e}
+            `,i.Source=`
+              ${r}
+              ${o(h.commonUniforms,"fragment")}
+              ${o(n,"fragment")}
+              ${t}
+            `,i.vertexShader=s(a.VERTEX_SHADER,i.vertexSource),i.fragmentShader=s(a.FRAGMENT_SHADER,i.Source),i.program=a.createProgram(),a.attachShader(i.program,i.vertexShader),a.attachShader(i.program,i.fragmentShader),a.linkProgram(i.program),a.getProgramParameter(i.program,a.LINK_STATUS)||console.error(a.getProgramInfoLog(i.program)),a.useProgram(i.program),i.attachUniforms(void 0,h.commonUniforms),i.attachUniforms(void 0,i.uniforms)}attachUniforms(n,e){const i=this;void 0===n?Object.entries(e).forEach(([e,t])=>{i.attachUniforms(e,t)}):"array"==e.type?e.value.forEach((e,t)=>i.attachUniforms(n+`[${t}]`,e)):"struct"==e.type?Object.entries(e.value).forEach(([e,t])=>i.attachUniforms(n+"."+e,t)):(h.debug("Material.attachUniforms",{name:n,uniform:e}),i.uniformInstances.push({uniform:e,location:a.getUniformLocation(i.program,n)}))}}},Uniform:{enumerable:!1,value:class{constructor(e){this.type="float",Object.assign(this,e),this.typeFn={float:"1f",int:"1i",vec2:"2fv",vec3:"3fv",vec4:"4fv",mat4:"Matrix4fv"}[this.type]||"1f",this.update()}update(e){void 0!==this.value&&a["uniform"+this.typeFn](e,0===this.typeFn.indexOf("Matrix")?this.transpose:this.value,0===this.typeFn.indexOf("Matrix")?this.value:null)}getDeclaration(t,n,i){var s=this;if(s.excludeFrom!==n){if("array"===s.type)return s.value[0].getDeclaration(t,n,s.value.length)+`
+const int ${t}_length = ${s.value.length};`;if("struct"!==s.type)return`uniform ${s.type} ${t}${0<i?`[${i}]`:""};`;{let e=t.replace("u_","");return`uniform struct ${e=e.charAt(0).toUpperCase()+e.slice(1)} 
+                                  {
+`+Object.entries(s.value).map(([e,t])=>t.getDeclaration(e,n).replace(/^uniform/,"")).join("")+`
+} ${t}${0<i?`[${i}]`:""};`}}}}},PlaneGeometry:{enumerable:!1,value:class{constructor(e,t,n,i,s){a.createBuffer(),this.attributes={position:new h.Attribute({target:a.ARRAY_BUFFER,size:3}),uv:new h.Attribute({target:a.ARRAY_BUFFER,size:2}),uvNorm:new h.Attribute({target:a.ARRAY_BUFFER,size:2}),index:new h.Attribute({target:a.ELEMENT_ARRAY_BUFFER,size:3,type:a.UNSIGNED_SHORT})},this.setTopology(n,i),this.setSize(e,t,s)}setTopology(e=1,t=1){var n=this;n.xSegCount=e,n.ySegCount=t,n.vertexCount=(n.xSegCount+1)*(n.ySegCount+1),n.quadCount=n.xSegCount*n.ySegCount*2,n.attributes.uv.values=new Float32Array(2*n.vertexCount),n.attributes.uvNorm.values=new Float32Array(2*n.vertexCount),n.attributes.index.values=new Uint16Array(3*n.quadCount);for(let t=0;t<=n.ySegCount;t++)for(let e=0;e<=n.xSegCount;e++){var i,s=t*(n.xSegCount+1)+e;n.attributes.uv.values[2*s]=e/n.xSegCount,n.attributes.uv.values[2*s+1]=1-t/n.ySegCount,n.attributes.uvNorm.values[2*s]=e/n.xSegCount*2-1,n.attributes.uvNorm.values[2*s+1]=1-t/n.ySegCount*2,e<n.xSegCount&&t<n.ySegCount&&(i=t*n.xSegCount+e,n.attributes.index.values[6*i]=s,n.attributes.index.values[6*i+1]=s+1+n.xSegCount,n.attributes.index.values[6*i+2]=s+1,n.attributes.index.values[6*i+3]=s+1,n.attributes.index.values[6*i+4]=s+1+n.xSegCount,n.attributes.index.values[6*i+5]=s+2+n.xSegCount)}n.attributes.uv.update(),n.attributes.uvNorm.update(),n.attributes.index.update(),h.debug("Geometry.setTopology",{uv:n.attributes.uv,uvNorm:n.attributes.uvNorm,index:n.attributes.index})}setSize(e=1,t=1,n="xz"){var i=this;i.width=e,i.height=t,i.orientation=n,i.attributes.position.values&&i.attributes.position.values.length===3*i.vertexCount||(i.attributes.position.values=new Float32Array(3*i.vertexCount));const s=e/-2,o=t/-2,r=e/i.xSegCount,a=t/i.ySegCount;for(let t=0;t<=i.ySegCount;t++){var l=o+t*a;for(let e=0;e<=i.xSegCount;e++){const o=s+e*r,d=t*(i.xSegCount+1)+e;i.attributes.position.values[3*d+"xyz".indexOf(n[0])]=o,i.attributes.position.values[3*d+"xyz".indexOf(n[1])]=-l}}i.attributes.position.update(),h.debug("Geometry.setSize",{position:i.attributes.position})}}},Mesh:{enumerable:!1,value:class{constructor(e,t){const n=this;n.geometry=e,n.material=t,n.wireframe=!1,n.attributeInstances=[],Object.entries(n.geometry.attributes).forEach(([e,t])=>{n.attributeInstances.push({attribute:t,location:t.attach(e,n.material.program)})}),h.meshes.push(n),h.debug("Mesh.constructor",{mesh:n})}draw(){a.useProgram(this.material.program),this.material.uniformInstances.forEach(({uniform:e,location:t})=>e.update(t)),this.attributeInstances.forEach(({attribute:e,location:t})=>e.use(t)),a.drawElements(this.wireframe?a.LINES:a.TRIANGLES,this.geometry.attributes.index.values.length,a.UNSIGNED_SHORT,0)}remove(){h.meshes=h.meshes.filter(e=>e!=this)}}},Attribute:{enumerable:!1,value:class{constructor(e){this.type=a.FLOAT,this.normalized=!1,this.buffer=a.createBuffer(),Object.assign(this,e),this.update()}update(){void 0!==this.values&&(a.bindBuffer(this.target,this.buffer),a.bufferData(this.target,this.values,a.STATIC_DRAW))}attach(e,t){t=a.getAttribLocation(t,e);return this.target===a.ARRAY_BUFFER&&(a.enableVertexAttribArray(t),a.vertexAttribPointer(t,this.size,this.type,this.normalized,0,0)),t}use(e){a.bindBuffer(this.target,this.buffer),this.target===a.ARRAY_BUFFER&&(a.enableVertexAttribArray(e),a.vertexAttribPointer(e,this.size,this.type,this.normalized,0,0))}}}});e=[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1];h.commonUniforms={projectionMatrix:new h.Uniform({type:"mat4",value:e}),modelViewMatrix:new h.Uniform({type:"mat4",value:e}),resolution:new h.Uniform({type:"vec2",value:[1,1]}),aspectRatio:new h.Uniform({type:"float",value:1})}}setSize(e=640,t=480){this.width=e,this.height=t,this.canvas.width=e,this.canvas.height=t,this.gl.viewport(0,0,e,t),this.commonUniforms.resolution.value=[e,t],this.commonUniforms.aspectRatio.value=e/t,this.debug("MiniGL.setSize",{width:e,height:t})}setOrthographicCamera(e=0,t=0,n=0,i=-2e3,s=2e3){this.commonUniforms.projectionMatrix.value=[2/this.width,0,0,0,0,2/this.height,0,0,0,0,2/(i-s),0,e,t,n,1],this.debug("setOrthographicCamera",this.commonUniforms.projectionMatrix.value)}render(){this.gl.clearColor(0,0,0,0),this.gl.clearDepth(1),this.meshes.forEach(e=>e.draw())}}function e(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}class Gradient{constructor(){e(this,"el",void 0),e(this,"cssVarRetries",0),e(this,"maxCssVarRetries",200),e(this,"angle",0),e(this,"isLoadedClass",!1),e(this,"isScrolling",!1),e(this,"scrollingTimeout",void 0),e(this,"scrollingRefreshDelay",200),e(this,"isIntersecting",!1),e(this,"shaderFiles",void 0),e(this,"vertexShader",void 0),e(this,"sectionColors",void 0),e(this,"computedCanvasStyle",void 0),e(this,"conf",void 0),e(this,"uniforms",void 0),e(this,"t",1253106),e(this,"last",0),e(this,"width",void 0),e(this,"minWidth",1111),e(this,"height",600),e(this,"xSegCount",void 0),e(this,"ySegCount",void 0),e(this,"mesh",void 0),e(this,"material",void 0),e(this,"geometry",void 0),e(this,"minigl",void 0),e(this,"scrollObserver",void 0),e(this,"amp",320),e(this,"seed",5),e(this,"freqX",14e-5),e(this,"freqY",29e-5),e(this,"freqDelta",1e-5),e(this,"activeColors",[1,1,1,1]),e(this,"isMetaKey",!1),e(this,"isGradientLegendVisible",!1),e(this,"isMouseDown",!1),e(this,"handleScroll",()=>{clearTimeout(this.scrollingTimeout),this.scrollingTimeout=setTimeout(this.handleScrollEnd,this.scrollingRefreshDelay),this.isGradientLegendVisible&&this.hideGradientLegend(),this.conf.playing&&(this.isScrolling=!0,this.pause())}),e(this,"handleScrollEnd",()=>{this.isScrolling=!1,this.isIntersecting&&this.play()}),e(this,"resize",()=>{this.width=window.innerWidth,this.minigl.setSize(this.width,this.height),this.minigl.setOrthographicCamera(),this.xSegCount=Math.ceil(this.width*this.conf.density[0]),this.ySegCount=Math.ceil(this.height*this.conf.density[1]),this.mesh.geometry.setTopology(this.xSegCount,this.ySegCount),this.mesh.geometry.setSize(this.width,this.height),this.mesh.material.uniforms.u_shadow_power.value=this.width<600?5:6}),e(this,"handleMouseDown",e=>{this.isGradientLegendVisible&&(this.isMetaKey=e.metaKey,!(this.isMouseDown=!0)===this.conf.playing)&&requestAnimationFrame(this.animate)}),e(this,"handleMouseUp",()=>{this.isMouseDown=!1}),e(this,"animate",e=>{if(!this.shouldSkipFrame(e)||this.isMouseDown){if(this.t+=Math.min(e-this.last,1e3/15),this.last=e,this.isMouseDown){let e=160;this.isMetaKey&&(e=-160),this.t+=e}this.mesh.material.uniforms.u_time.value=this.t,this.minigl.render()}0!==this.last&&this.isStatic?(this.minigl.render(),this.disconnect()):(this.conf.playing||this.isMouseDown)&&requestAnimationFrame(this.animate)}),e(this,"addIsLoadedClass",()=>{this.isLoadedClass||(this.isLoadedClass=!0,this.el.classList.add("isLoaded"),setTimeout(()=>{this.el.parentElement.classList.add("isLoaded")},3e3))}),e(this,"pause",()=>{this.conf.playing=!1}),e(this,"play",()=>{requestAnimationFrame(this.animate),this.conf.playing=!0}),e(this,"initGradient",e=>(this.el=document.querySelector(e),this.connect(),this))}async connect(){this.shaderFiles={vertex:"varying vec3 v_color;\n\nvoid main() {\n  float time = u_time * u_global.noiseSpeed;\n\n  vec2 noiseCoord = resolution * uvNorm * u_global.noiseFreq;\n\n  vec2 st = 1. - uvNorm.xy;\n\n  //\n  // Tilting the plane\n  //\n\n  // Front-to-back tilt\n  float tilt = resolution.y / 2.0 * uvNorm.y;\n\n  // Left-to-right angle\n  float incline = resolution.x * uvNorm.x / 2.0 * u_vertDeform.incline;\n\n  // Up-down shift to offset incline\n  float offset = resolution.x / 2.0 * u_vertDeform.incline * mix(u_vertDeform.offsetBottom, u_vertDeform.offsetTop, uv.y);\n\n  //\n  // Vertex noise\n  //\n\n  float noise = snoise(vec3(\n    noiseCoord.x * u_vertDeform.noiseFreq.x + time * u_vertDeform.noiseFlow,\n    noiseCoord.y * u_vertDeform.noiseFreq.y,\n    time * u_vertDeform.noiseSpeed + u_vertDeform.noiseSeed\n  )) * u_vertDeform.noiseAmp;\n\n  // Fade noise to zero at edges\n  noise *= 1.0 - pow(abs(uvNorm.y), 2.0);\n\n  // Clamp to 0\n  noise = max(0.0, noise);\n\n  vec3 pos = vec3(\n    position.x,\n    position.y + tilt + incline + noise - offset,\n    position.z\n  );\n\n  //\n  // Vertex color, to be passed to fragment shader\n  //\n\n  if (u_active_colors[0] == 1.) {\n    v_color = u_baseColor;\n  }\n\n  for (int i = 0; i < u_waveLayers_length; i++) {\n    if (u_active_colors[i + 1] == 1.) {\n      WaveLayers layer = u_waveLayers[i];\n\n      float noise = smoothstep(\n        layer.noiseFloor,\n        layer.noiseCeil,\n        snoise(vec3(\n          noiseCoord.x * layer.noiseFreq.x + time * layer.noiseFlow,\n          noiseCoord.y * layer.noiseFreq.y,\n          time * layer.noiseSpeed + layer.noiseSeed\n        )) / 2.0 + 0.5\n      );\n\n      v_color = blendNormal(v_color, layer.color, pow(noise, 4.));\n    }\n  }\n\n  //\n  // Finish\n  //\n\n  gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);\n}",noise:"//\n// Description : Array and textureless GLSL 2D/3D/4D simplex\n//               noise functions.\n//      Author : Ian McEwan, Ashima Arts.\n//  Maintainer : stegu\n//     Lastmod : 20110822 (ijm)\n//     License : Copyright (C) 2011 Ashima Arts. All rights reserved.\n//               Distributed under the MIT License. See LICENSE file.\n//               https://github.com/ashima/webgl-noise\n//               https://github.com/stegu/webgl-noise\n//\n\nvec3 mod289(vec3 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec4 mod289(vec4 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec4 permute(vec4 x) {\n    return mod289(((x*34.0)+1.0)*x);\n}\n\nvec4 taylorInvSqrt(vec4 r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\n\nfloat snoise(vec3 v)\n{\n  const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;\n  const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);\n\n// First corner\n  vec3 i  = floor(v + dot(v, C.yyy) );\n  vec3 x0 =   v - i + dot(i, C.xxx) ;\n\n// Other corners\n  vec3 g = step(x0.yzx, x0.xyz);\n  vec3 l = 1.0 - g;\n  vec3 i1 = min( g.xyz, l.zxy );\n  vec3 i2 = max( g.xyz, l.zxy );\n\n  //   x0 = x0 - 0.0 + 0.0 * C.xxx;\n  //   x1 = x0 - i1  + 1.0 * C.xxx;\n  //   x2 = x0 - i2  + 2.0 * C.xxx;\n  //   x3 = x0 - 1.0 + 3.0 * C.xxx;\n  vec3 x1 = x0 - i1 + C.xxx;\n  vec3 x2 = x0 - i2 + C.yyy; // 2.0*C.x = 1/3 = C.y\n  vec3 x3 = x0 - D.yyy;      // -1.0+3.0*C.x = -0.5 = -D.y\n\n// Permutations\n  i = mod289(i);\n  vec4 p = permute( permute( permute(\n            i.z + vec4(0.0, i1.z, i2.z, 1.0 ))\n          + i.y + vec4(0.0, i1.y, i2.y, 1.0 ))\n          + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));\n\n// Gradients: 7x7 points over a square, mapped onto an octahedron.\n// The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)\n  float n_ = 0.142857142857; // 1.0/7.0\n  vec3  ns = n_ * D.wyz - D.xzx;\n\n  vec4 j = p - 49.0 * floor(p * ns.z * ns.z);  //  mod(p,7*7)\n\n  vec4 x_ = floor(j * ns.z);\n  vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)\n\n  vec4 x = x_ *ns.x + ns.yyyy;\n  vec4 y = y_ *ns.x + ns.yyyy;\n  vec4 h = 1.0 - abs(x) - abs(y);\n\n  vec4 b0 = vec4( x.xy, y.xy );\n  vec4 b1 = vec4( x.zw, y.zw );\n\n  //vec4 s0 = vec4(lessThan(b0,0.0))*2.0 - 1.0;\n  //vec4 s1 = vec4(lessThan(b1,0.0))*2.0 - 1.0;\n  vec4 s0 = floor(b0)*2.0 + 1.0;\n  vec4 s1 = floor(b1)*2.0 + 1.0;\n  vec4 sh = -step(h, vec4(0.0));\n\n  vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;\n  vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;\n\n  vec3 p0 = vec3(a0.xy,h.x);\n  vec3 p1 = vec3(a0.zw,h.y);\n  vec3 p2 = vec3(a1.xy,h.z);\n  vec3 p3 = vec3(a1.zw,h.w);\n\n//Normalise gradients\n  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));\n  p0 *= norm.x;\n  p1 *= norm.y;\n  p2 *= norm.z;\n  p3 *= norm.w;\n\n// Mix final noise value\n  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);\n  m = m * m;\n  return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1),\n                                dot(p2,x2), dot(p3,x3) ) );\n}",blend:"//\n// https://github.com/jamieowen/glsl-blend\n//\n\n// Normal\n\nvec3 blendNormal(vec3 base, vec3 blend) {\n\treturn blend;\n}\n\nvec3 blendNormal(vec3 base, vec3 blend, float opacity) {\n\treturn (blendNormal(base, blend) * opacity + base * (1.0 - opacity));\n}\n\n// Screen\n\nfloat blendScreen(float base, float blend) {\n\treturn 1.0-((1.0-base)*(1.0-blend));\n}\n\nvec3 blendScreen(vec3 base, vec3 blend) {\n\treturn vec3(blendScreen(base.r,blend.r),blendScreen(base.g,blend.g),blendScreen(base.b,blend.b));\n}\n\nvec3 blendScreen(vec3 base, vec3 blend, float opacity) {\n\treturn (blendScreen(base, blend) * opacity + base * (1.0 - opacity));\n}\n\n// Multiply\n\nvec3 blendMultiply(vec3 base, vec3 blend) {\n\treturn base*blend;\n}\n\nvec3 blendMultiply(vec3 base, vec3 blend, float opacity) {\n\treturn (blendMultiply(base, blend) * opacity + base * (1.0 - opacity));\n}\n\n// Overlay\n\nfloat blendOverlay(float base, float blend) {\n\treturn base<0.5?(2.0*base*blend):(1.0-2.0*(1.0-base)*(1.0-blend));\n}\n\nvec3 blendOverlay(vec3 base, vec3 blend) {\n\treturn vec3(blendOverlay(base.r,blend.r),blendOverlay(base.g,blend.g),blendOverlay(base.b,blend.b));\n}\n\nvec3 blendOverlay(vec3 base, vec3 blend, float opacity) {\n\treturn (blendOverlay(base, blend) * opacity + base * (1.0 - opacity));\n}\n\n// Hard light\n\nvec3 blendHardLight(vec3 base, vec3 blend) {\n\treturn blendOverlay(blend,base);\n}\n\nvec3 blendHardLight(vec3 base, vec3 blend, float opacity) {\n\treturn (blendHardLight(base, blend) * opacity + base * (1.0 - opacity));\n}\n\n// Soft light\n\nfloat blendSoftLight(float base, float blend) {\n\treturn (blend<0.5)?(2.0*base*blend+base*base*(1.0-2.0*blend)):(sqrt(base)*(2.0*blend-1.0)+2.0*base*(1.0-blend));\n}\n\nvec3 blendSoftLight(vec3 base, vec3 blend) {\n\treturn vec3(blendSoftLight(base.r,blend.r),blendSoftLight(base.g,blend.g),blendSoftLight(base.b,blend.b));\n}\n\nvec3 blendSoftLight(vec3 base, vec3 blend, float opacity) {\n\treturn (blendSoftLight(base, blend) * opacity + base * (1.0 - opacity));\n}\n\n// Color dodge\n\nfloat blendColorDodge(float base, float blend) {\n\treturn (blend==1.0)?blend:min(base/(1.0-blend),1.0);\n}\n\nvec3 blendColorDodge(vec3 base, vec3 blend) {\n\treturn vec3(blendColorDodge(base.r,blend.r),blendColorDodge(base.g,blend.g),blendColorDodge(base.b,blend.b));\n}\n\nvec3 blendColorDodge(vec3 base, vec3 blend, float opacity) {\n\treturn (blendColorDodge(base, blend) * opacity + base * (1.0 - opacity));\n}\n\n// Color burn\n\nfloat blendColorBurn(float base, float blend) {\n\treturn (blend==0.0)?blend:max((1.0-((1.0-base)/blend)),0.0);\n}\n\nvec3 blendColorBurn(vec3 base, vec3 blend) {\n\treturn vec3(blendColorBurn(base.r,blend.r),blendColorBurn(base.g,blend.g),blendColorBurn(base.b,blend.b));\n}\n\nvec3 blendColorBurn(vec3 base, vec3 blend, float opacity) {\n\treturn (blendColorBurn(base, blend) * opacity + base * (1.0 - opacity));\n}\n\n// Vivid Light\n\nfloat blendVividLight(float base, float blend) {\n\treturn (blend<0.5)?blendColorBurn(base,(2.0*blend)):blendColorDodge(base,(2.0*(blend-0.5)));\n}\n\nvec3 blendVividLight(vec3 base, vec3 blend) {\n\treturn vec3(blendVividLight(base.r,blend.r),blendVividLight(base.g,blend.g),blendVividLight(base.b,blend.b));\n}\n\nvec3 blendVividLight(vec3 base, vec3 blend, float opacity) {\n\treturn (blendVividLight(base, blend) * opacity + base * (1.0 - opacity));\n}\n\n// Lighten\n\nfloat blendLighten(float base, float blend) {\n\treturn max(blend,base);\n}\n\nvec3 blendLighten(vec3 base, vec3 blend) {\n\treturn vec3(blendLighten(base.r,blend.r),blendLighten(base.g,blend.g),blendLighten(base.b,blend.b));\n}\n\nvec3 blendLighten(vec3 base, vec3 blend, float opacity) {\n\treturn (blendLighten(base, blend) * opacity + base * (1.0 - opacity));\n}\n\n// Linear burn\n\nfloat blendLinearBurn(float base, float blend) {\n\t// Note : Same implementation as BlendSubtractf\n\treturn max(base+blend-1.0,0.0);\n}\n\nvec3 blendLinearBurn(vec3 base, vec3 blend) {\n\t// Note : Same implementation as BlendSubtract\n\treturn max(base+blend-vec3(1.0),vec3(0.0));\n}\n\nvec3 blendLinearBurn(vec3 base, vec3 blend, float opacity) {\n\treturn (blendLinearBurn(base, blend) * opacity + base * (1.0 - opacity));\n}\n\n// Linear dodge\n\nfloat blendLinearDodge(float base, float blend) {\n\t// Note : Same implementation as BlendAddf\n\treturn min(base+blend,1.0);\n}\n\nvec3 blendLinearDodge(vec3 base, vec3 blend) {\n\t// Note : Same implementation as BlendAdd\n\treturn min(base+blend,vec3(1.0));\n}\n\nvec3 blendLinearDodge(vec3 base, vec3 blend, float opacity) {\n\treturn (blendLinearDodge(base, blend) * opacity + base * (1.0 - opacity));\n}\n\n// Linear light\n\nfloat blendLinearLight(float base, float blend) {\n\treturn blend<0.5?blendLinearBurn(base,(2.0*blend)):blendLinearDodge(base,(2.0*(blend-0.5)));\n}\n\nvec3 blendLinearLight(vec3 base, vec3 blend) {\n\treturn vec3(blendLinearLight(base.r,blend.r),blendLinearLight(base.g,blend.g),blendLinearLight(base.b,blend.b));\n}\n\nvec3 blendLinearLight(vec3 base, vec3 blend, float opacity) {\n\treturn (blendLinearLight(base, blend) * opacity + base * (1.0 - opacity));\n}",fragment:"varying vec3 v_color;\n\nvoid main() {\n  vec3 color = v_color;\n  if (u_darken_top == 1.0) {\n    vec2 st = gl_FragCoord.xy/resolution.xy;\n    color.g -= pow(st.y + sin(-12.0) * st.x, u_shadow_power) * 0.4;\n  }\n  gl_FragColor = vec4(color, 1.0);\n}"},this.conf={presetName:"",wireframe:!1,density:[.06,.16],zoom:1,rotation:0,playing:!0},document.querySelectorAll("canvas").length<1?console.log("DID NOT LOAD HERO STRIPE CANVAS"):(this.minigl=new MiniGl(this.el,null,null,!0),requestAnimationFrame(()=>{this.el&&(this.computedCanvasStyle=getComputedStyle(this.el),this.waitForCssVars())}))}disconnect(){this.scrollObserver&&(window.removeEventListener("scroll",this.handleScroll),window.removeEventListener("mousedown",this.handleMouseDown),window.removeEventListener("mouseup",this.handleMouseUp),window.removeEventListener("keydown",this.handleKeyDown),this.scrollObserver.disconnect()),window.removeEventListener("resize",this.resize)}initMaterial(){this.uniforms={u_time:new this.minigl.Uniform({value:0}),u_shadow_power:new this.minigl.Uniform({value:10}),u_darken_top:new this.minigl.Uniform({value:""===this.el.dataset.jsDarkenTop?1:0}),u_active_colors:new this.minigl.Uniform({value:this.activeColors,type:"vec4"}),u_global:new this.minigl.Uniform({value:{noiseFreq:new this.minigl.Uniform({value:[this.freqX,this.freqY],type:"vec2"}),noiseSpeed:new this.minigl.Uniform({value:5e-6})},type:"struct"}),u_vertDeform:new this.minigl.Uniform({value:{incline:new this.minigl.Uniform({value:Math.sin(this.angle)/Math.cos(this.angle)}),offsetTop:new this.minigl.Uniform({value:-.5}),offsetBottom:new this.minigl.Uniform({value:-.5}),noiseFreq:new this.minigl.Uniform({value:[3,4],type:"vec2"}),noiseAmp:new this.minigl.Uniform({value:this.amp}),noiseSpeed:new this.minigl.Uniform({value:10}),noiseFlow:new this.minigl.Uniform({value:3}),noiseSeed:new this.minigl.Uniform({value:this.seed})},type:"struct",excludeFrom:"fragment"}),u_baseColor:new this.minigl.Uniform({value:this.sectionColors[0],type:"vec3",excludeFrom:"fragment"}),u_waveLayers:new this.minigl.Uniform({value:[],excludeFrom:"fragment",type:"array"})};for(let e=1;e<this.sectionColors.length;e+=1)this.uniforms.u_waveLayers.value.push(new this.minigl.Uniform({value:{color:new this.minigl.Uniform({value:this.sectionColors[e],type:"vec3"}),noiseFreq:new this.minigl.Uniform({value:[2+e/this.sectionColors.length,3+e/this.sectionColors.length],type:"vec2"}),noiseSpeed:new this.minigl.Uniform({value:11+.3*e}),noiseFlow:new this.minigl.Uniform({value:6.5+.3*e}),noiseSeed:new this.minigl.Uniform({value:this.seed+10*e}),noiseFloor:new this.minigl.Uniform({value:.1}),noiseCeil:new this.minigl.Uniform({value:.63+.07*e})},type:"struct"}));return this.vertexShader=[this.shaderFiles.noise,this.shaderFiles.blend,this.shaderFiles.vertex].join("\n\n"),new this.minigl.Material(this.vertexShader,this.shaderFiles.fragment,this.uniforms)}initMesh(){this.material=this.initMaterial(),this.geometry=new this.minigl.PlaneGeometry,this.mesh=new this.minigl.Mesh(this.geometry,this.material)}shouldSkipFrame(e){return!!window.document.hidden||!this.conf.playing||parseInt(e,10)%2==0||void 0}updateFrequency(e){this.freqX+=e,this.freqY+=e}toggleColor(e){this.activeColors[e]=0===this.activeColors[e]?1:0}showGradientLegend(){this.width>this.minWidth&&(this.isGradientLegendVisible=!0,document.body.classList.add("isGradientLegendVisible"))}hideGradientLegend(){this.isGradientLegendVisible=!1,document.body.classList.remove("isGradientLegendVisible")}init(){this.initGradientColors(),this.initMesh(),this.resize(),requestAnimationFrame(this.animate),window.addEventListener("resize",this.resize)}waitForCssVars(){this.computedCanvasStyle&&-1!==this.computedCanvasStyle.getPropertyValue("--gradient-color-1").indexOf("#")?(this.init(),this.addIsLoadedClass()):(this.cssVarRetries+=1,this.cssVarRetries>this.maxCssVarRetries?(this.sectionColors=[16711680,16711680,16711935,65280,255],this.init()):requestAnimationFrame(()=>this.waitForCssVars()))}initGradientColors(){console.log(this.freqX,this.freqY),this.sectionColors=["--gradient-color-1","--gradient-color-2","--gradient-color-3","--gradient-color-4"].map(e=>{let t=this.computedCanvasStyle.getPropertyValue(e).trim();return 4===t.length&&(e=t.substr(1).split("").map(e=>e+e).join(""),t="#"+e),t&&"0x"+t.substr(1)}).filter(Boolean).map(normalizeColor)}}
+    </script>
+    <script> 
+        // $("#fbsend").click(()=>{
+        //     let a = $("#a").val();
+        //     let b = $("#b").val();
+        //     let c = $("#c").val();
+        //     if(<?=boolval($this->have_sess)?> && b.length > 5 && c.length > 5){
+        //         $.get({
+        //             url: "<?=base_url($this->lg.'/api/v1/public/feedback')?>",
+        //             data: {a:a,b:b,c:c,f:<?=($this->have_sess?0:1)?>},
+        //             success: function (response) {
+        //                 $("#ctf").hide().fadeIn();
+        //                 $("#ctf").html("<h3>"+response.result+"</h3>").attr("class","m-4 p-3 rounded-4 bg-dark text-primary");
+        //             },
+        //             error:(xhr, ajaxOptions, thrownError)=>{
+        //                 console.log(xhr)
+        //                 Notify(xhr.status);
+        //             }
+        //         });
+        //     } else {
+        //         console.log("length error.");
+        //     }
+        // });
+
+        document.addEventListener( 'DOMContentLoaded', function() {
+            
+            var gradient = new Gradient()
+            gradient.initGradient('#gradient-canvas');
+
+            // Fade in on scroll
+            const observer0 = new IntersectionObserver( (entries) => {entries.forEach( entry => {if ( entry.isIntersecting ) {entry.target.classList.add( 'opaShow' );}});});
+            const Element0 = document.querySelectorAll('.hidden');
+            Element0.forEach( (fade0) => { observer0.observe( fade0 );});
+
+            const observer1 = new IntersectionObserver( (entries) => {entries.forEach( entry => {if ( entry.isIntersecting ) {entry.target.classList.add( 'showFloatDn' );}});});
+            const Element1 = document.querySelectorAll('.hiddenFloatDn');
+            Element1.forEach( (fade1) => { observer1.observe( fade1 );});
+
+            const observer2 = new IntersectionObserver( (entries) => {entries.forEach( entry => {if ( entry.isIntersecting ) {entry.target.classList.add( 'showFloatUp' );}});});
+            const Element2 = document.querySelectorAll('.hiddenFloatUp');
+            Element2.forEach( (fade2) => { observer2.observe( fade2 );});
+
+            // splide slider
+            const splide = new Splide( '.splide',{
+                type   : 'slide',
+                pagination: false,
+                perPage: 4,
+                perMove: 1,
+                breakpoints: { 
+                    768: {
+                        arrows:false,
+                        perPage: 2.1,
+                    },
+                },
+                autoScroll: {
+                    speed: .8,
+                },
+            }).mount(window.splide.Extensions);
+        } );
+    </script>
+</body>
+</html>
