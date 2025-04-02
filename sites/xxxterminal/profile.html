@@ -38,17 +38,16 @@
 </head>
 
 <body class="waveBGw position-relative" style="min-height: 100vh;">
+  
   <!-- secNav -->
   <nav id="secNav">
     <div class="disFlex col col-md-7 py-0 px-md-4 mx-md-4">
-      <button 
-        onclick="alert('This is a UI Demo, it do not provide any features')"
-        type="button" class="l2navitem l2navitem-active" id="l2nav_home">
+      <a href="dashboard.html" type="button" class="l2navitem" id="l2nav_home">
         <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block d-md-none" width="22px" height="22px">
           <use xlink:href="#home"></use>
         </svg>
         <p class="text-l2nav">Home</p>
-      </button>
+      </a>
       <button 
         onclick="alert('This is a UI Demo, it do not provide any features')"
         type="button" class="l2navitem" id="l2nav_bot">
@@ -73,8 +72,7 @@
         </svg>
         <p class="text-l2nav">Article</p>
       </button>
-      <a 
-        href="profile.html"
+      <a href="profile.html" 
         type="button" class="d-md-none l2navitem l2nav_profile" id="l2nav_mob_profile" onclick="">
         <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block d-md-none" width="22px" height="22px">
           <use xlink:href="#profile"></use>
@@ -83,134 +81,419 @@
       </a>
     </div>
   </nav>
+  
 
 
+
+
+
+
+
+
+
+  
   <div id="MainFrame" class="mb-5 pb-3"><br>
+    <div class="padX5">
+      <div class="row">
 
-    <div class="row padX3">
-      <div class="col col-md">
-        <div class="tradingview-widget-container card">
-          <div id="tradingview_6eec1">
-            <iframe title="symbol overview TradingView widget" lang="en" id="tradingview_b70fa" frameborder="0"
-              allowtransparency="true" scrolling="no"
-              src="https://s.tradingview.com/embed-widget/symbol-overview/?locale=en#%7B%22symbols%22%3A%5B%5B%22BTC%2FUSD%22%2C%22INDEX%3ABTCUSD%7C12M%22%5D%2C%5B%22ETH%2FUSD%22%2C%22INDEX%3AETHUSD%7C12M%22%5D%2C%5B%22BNB%2FUSDT%22%2C%22BINANCE%3ABNBUSDT%7C12M%22%5D%2C%5B%22MATIC%2FUSDT%22%2C%22BINANCE%3AMATICUSDT%7C12M%22%5D%2C%5B%22BTC%20CAP%20%24%22%2C%22CRYPTOCAP%3ABTC%7C12M%22%5D%2C%5B%22ETH%20CAP%20%24%22%2C%22CRYPTOCAP%3AETH%7C12M%22%5D%2C%5B%22USDT%20CAP%20%24%22%2C%22CRYPTOCAP%3AUSDT%7C12M%22%5D%2C%5B%22CRYPTO%20CAP%20%24%22%2C%22CRYPTOCAP%3ATOTAL%7C12M%22%5D%5D%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22400px%22%2C%22colorTheme%22%3A%22light%22%2C%22backgroundColor%22%3A%22rgba(19%2C%2023%2C%2034%2C%200)%22%2C%22gridLineColor%22%3A%22rgba(240%2C%20243%2C%20250%2C%200.02)%22%2C%22fontColor%22%3A%22rgba(152%2C%20152%2C%20152%2C%201)%22%2C%22scalePosition%22%3A%22right%22%2C%22scaleMode%22%3A%22Logarithmic%22%2C%22chartType%22%3A%22area%22%2C%22lineColor%22%3A%22%232962ff%22%2C%22topColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22bottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22fontFamily%22%3A%22-apple-system%2C%20BlinkMacSystemFont%2C%20Trebuchet%20MS%2C%20Roboto%2C%20Ubuntu%2C%20sans-serif%22%2C%22valuesTracking%22%3A%222%22%2C%22lineWidth%22%3A2%2C%22showVolume%22%3Atrue%2C%22page-uri%22%3A%22localhost%3A8080%2Fxxxterminal%2Fen%2Fdashboard%3Fpage%3Dhome%22%2C%22utm_source%22%3A%22localhost%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22symbol-overview%22%7D"
-              style="margin: 0px !important; padding: 0px !important; width: 100%; height: 400px;"></iframe>
-          </div>
-        </div>
-      </div>
-      <div class="tradingview-widget-copyright">
-        <a href="https://cn.tradingview.com/" rel="noopener nofollow" target="_blank">
-          source from <span class="blue-text">TradingView</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Top Article section-->
-    <div id="article_section" class="pb-5">
-      <div class="mt-3 padX5">
-        <h1 class="d-inline">Top Article</h1>
-        <p class="ps-2 d-inline">Editor Choice</p>
-      </div>
-
-      <div class="splide"  style="height: fit-content" role="group">
-        <div class="splide__track py-3 ps-3">
-          <ul class="splide__list">
-
-            <li class="splide__slide">
-              <div class="card h-100 float p-2 position-relative">
-                <img class="w-100 rounded-3" src="https://alternative.me/crypto/fear-and-greed-index.png" alt="Latest Crypto Fear &amp; Greed Index">
-              </div>
-            </li>
-
-            <li class="splide__slide">
-              <div class="card h-100 float p-1 position-relative">
-                  <img class="w-100 rounded-3" src='img\uploads\image_M.jpeg'>
-                  <div class="pb-4">
-                      <div class="px-2 my-1"><span class="prime-badge px-2">Editor Choise</span></div>
-                      <h4 class="px-2 m-0">article title</h4>
-                      <p class="text-secondary px-2 m-0">26 May 2022 | xxxTerminal </p>
-                  </div>
-                  <div class="position-absolute bottom-0 text-center p-2" style="width:calc(100% - 1rem)">
-                      <a href="article_detail.html" target="_blank" class="w-100 w-md-75 btn btn-primary p-0">read</a>
-                  </div>
-              </div>
-            </li>
-
-            
-            <li class="splide__slide">
-              <div class="card h-100 float p-1 position-relative">
-                  <img class="w-100 rounded-3" src='img\uploads\image_M.jpeg'>
-                  <div class="pb-4">
-                      <div class="px-2 my-1"></div>
-                      <h4 class="px-2 m-0">article title</h4>
-                      <p class="text-secondary px-2 m-0">26 May 2022 | xxxTerminal </p>
-                  </div>
-                  <div class="position-absolute bottom-0 text-center p-2" style="width:calc(100% - 1rem)">
-                      <a href="article_detail.html" target="_blank" class="w-100 w-md-75 btn btn-primary p-0">read</a>
-                  </div>
-              </div>
-            </li>
-
-            <li class="splide__slide" id="splide01-slide04" role="group" aria-roledescription="slide" aria-label="4 of 4" style="width: calc(47.619%);" aria-hidden="true">
-              <div class="card h-100 float p-2 center">
-                <button type="button" class="black hovOpa h-100" onclick="$('#l2nav_article').click()" tabindex="-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="80" viewBox="-5 -5 26 26">
-                    <circle cx="8" cy="8" r="12" stroke="gray" stroke-width="0.2" fill="none"></circle>
-                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
-                  </svg>
-                  <p>More</p>
-                </button>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- <div class="mrgX5">
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a id="newsXXX" class="nav-link active" data-bs-toggle="tab" data-bs-target="#example">xxxTerminal</a>
-        </li>
-        <li class="nav-item">
-          <a id="newsCrypto" class="nav-link" data-bs-toggle="tab" data-bs-target="#example">Crypto</a>
-        </li>
-        <li class="nav-item">
-          <a disabled="" class="nav-link" data-bs-toggle="tab" data-bs-target="#example">Stock</a>
-        </li>
-      </ul>
-      <div class="accordion" id="newsList">
-        <div class="accordion-item d-none">hidden</div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#row1"
-              aria-expanded="true">
-              Title
-            </button>
-          </h2>
-          <div id="row1" class="accordion-collapse collapse" data-bs-parent="#newsList">
-            <div class="accordion-body bg-light">
-              data data data data<br>data data data data<br>data data data data
+        <div class="col-lg-6 col-12 pb-3">
+          <div class="card h-100 px-4 py-1 ms-lg-0 ms-lg-0">
+            <h2 class="mt-2">Account Info</h2>
+            <hr class="my-2">
+            <h3>JustinXX <button type="button" class="px-2" data-bs-toggle="modal" data-bs-target="#ChangeName">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M1.09594 2.26256C1.42413 1.93437 1.86925 1.75 2.33337 1.75H6.41671C6.73887 1.75 7.00004 2.01117 7.00004 2.33333C7.00004 2.6555 6.73887 2.91667 6.41671 2.91667H2.33337C2.17866 2.91667 2.03029 2.97812 1.9209 3.08752C1.8115 3.19692 1.75004 3.34529 1.75004 3.5V11.6667C1.75004 11.8214 1.8115 11.9697 1.9209 12.0791C2.03029 12.1885 2.17866 12.25 2.33337 12.25H10.5C10.6548 12.25 10.8031 12.1885 10.9125 12.0791C11.0219 11.9697 11.0834 11.8214 11.0834 11.6667V7.58333C11.0834 7.26117 11.3445 7 11.6667 7C11.9889 7 12.25 7.26117 12.25 7.58333V11.6667C12.25 12.1308 12.0657 12.5759 11.7375 12.9041C11.4093 13.2323 10.9642 13.4167 10.5 13.4167H2.33337C1.86925 13.4167 1.42413 13.2323 1.09594 12.9041C0.767748 12.5759 0.583374 12.1308 0.583374 11.6667V3.5C0.583374 3.03587 0.767748 2.59075 1.09594 2.26256Z"
+                    fill="#81858C"></path>
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.6667 1.67924C11.4932 1.67924 11.3269 1.74815 11.2042 1.87082L5.77678 7.29824L5.46843 8.53163L6.70182 8.22328L12.1292 2.79586C12.2519 2.6732 12.3208 2.50682 12.3208 2.33334C12.3208 2.15986 12.2519 1.99349 12.1292 1.87082C12.0066 1.74815 11.8402 1.67924 11.6667 1.67924ZM10.3792 1.04586C10.7207 0.704404 11.1838 0.512573 11.6667 0.512573C12.1496 0.512573 12.6127 0.704404 12.9542 1.04586C13.2957 1.38733 13.4875 1.85044 13.4875 2.33334C13.4875 2.81624 13.2957 3.27936 12.9542 3.62082L7.41253 9.16249C7.33777 9.23725 7.2441 9.29029 7.14153 9.31593L4.8082 9.89926C4.60941 9.94896 4.39913 9.89071 4.25424 9.74582C4.10935 9.60093 4.05111 9.39065 4.1008 9.19187L4.68414 6.85853C4.70978 6.75596 4.76281 6.66229 4.83757 6.58753L10.3792 1.04586Z"
+                    fill="#81858C"></path>
+                </svg>
+              </button>
+            </h3>
+            <div class="left gray">
+              <label>UID : 2</label><br>
+              <label>Mail : dem***@gmail.com</label><br>
             </div>
           </div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#row2"
-              aria-expanded="true">
-              Title
-            </button>
-          </h2>
-          <div id="row2" class="accordion-collapse collapse" data-bs-parent="#newsList">
-            <div class="accordion-body bg-light">
-              data data data data<br>data data data data<br>data data data data
+        <br>
+
+        <div class="col-lg-6 col-12 pb-3">
+          <div class="card h-100 px-4 py-1 me-lg-0">
+            <h2 class="mt-2">Subscriptions</h2>
+            <hr class="my-2">
+            <div class="mb-2">
+              <h3 class="TColDeep">PRO</h3>
+              <label>
+                Due : 01 Jan 1970 </label>
+              <br>
+              <label class="pb-3">
+                Library Code : /0U7=7/ </label>
+              <br>
+              <button type="button" class="btn btn-flat btn-primary" data-bs-toggle="modal" data-bs-target="#retvCodeMod">
+                Request Library Code </button>
+              <a href="pricing.html" class="btn btnx btn-secondary hovbgTCol">View
+                Plan</a>
             </div>
           </div>
         </div>
       </div>
-    </div> -->
+
+      <div class="card px-4 py-1 m-0">
+        <h2 class="mt-2">Security</h2>
+        <hr class="my-2">
+        <div>
+          <div class="row my-4">
+            <div class="col-lg-4">
+              <h5 class="mt-2">Password</h5>
+            </div>
+            <div class="col-lg-8 right">
+              <div class="col left">
+                <span class="gray"><svg xmlns="http://www.w3.org/2000/svg" width="16" class="mb-1" fill="rgb(51, 204, 51)"
+                    viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="8"></circle>
+                  </svg>&nbsp;OK</span><br>
+                <span class="lightGray">Secure Login, and security settings</span>
+              </div>
+              <button type="button" class="btn btnx btn-secondary hovbgTCol" data-bs-toggle="modal" data-bs-target="#ChangePass">
+                Change <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-pencil-square" viewBox="0 0 16 16">
+                  <path
+                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z">
+                  </path>
+                  <path fill-rule="evenodd"
+                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z">
+                  </path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <hr>
+          <div class="row my-4">
+            <div class="col-lg-4">
+              <h5 class="mt-2">Google 2 Factor Authentication</h5>
+            </div>
+            <div class="col-lg-8 right">
+              <div class="col left">
+                <span class="gray">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mb-1" fill="rgb(51, 204, 51)"
+                    viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="8"></circle>
+                  </svg>&nbsp;Enable </span><br>
+                <span class="lightGray">Secure Login, and security settings</span>
+              </div>
+              <button type="button" class="btn btnx btn-secondary hovbgTCol" data-bs-toggle="modal"
+                data-bs-target="#chg2FA">
+                Enable <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-pencil-square" viewBox="0 0 16 16">
+                  <path
+                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z">
+                  </path>
+                  <path fill-rule="evenodd"
+                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z">
+                  </path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <hr>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="ChangeName" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content px-2">
+          <div class="modal-header">
+            <h3 class="m-0 mt-1">Change Name</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <input class="form-control" id="NewName" value="JustinXX" maxlength="21">
+            <p class="gray m-0 px-1"></p>
+            <br>
+            <input id="passN" type="password" class="form-control" placeholder="Input your Password" maxlength="64">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btnx btn-danger hovbgRed" data-bs-dismiss="modal">Close</button>
+            <button type="button" id="chgName" class="btn btnx btn-success hovbgGreen" onclick="alert('This is a UI Demo, it do not provide any features')">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="retvCodeMod" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Request Library Code</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <hr>
+          <div class="modal-body">
+            <input id="passR" type="password" class="form-control" placeholder="Password" maxlength="64">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btnx btn-danger hovbgRed" data-bs-dismiss="modal">Close</button>
+            <button type="button" id="retvCode" class="btn btnx btn-success hovbgGreen" onclick="alert('This is a UI Demo, it do not provide any features')">Request</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="cancelSubs" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Unsubscribe</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <hr>
+          <div class="modal-body">
+            <p>Are you sure you want to unsubscribe ?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btnx btn-secondary hovbgTCol" data-bs-dismiss="modal">Close</button>
+            <a onclick="alert('This is a UI Demo, it do not provide any features')"
+              class="btn btnx btn-secondary hovbgRed">Unsubscribe</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="ChangePass" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content px-2">
+              <div class="modal-header">
+                  <h3 class="m-0 mt-1">Change Password</h3>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body mx-lg-4">
+                  <p class=" my-1">New Password</p>
+                  <div class="input-group py-2">
+                      <input class="form-control" type="password" id="NewPass" placeholder="New Password" maxlength="64">
+                      <input class="form-control" type="password" id="ConfirmNewPass" placeholder="Confirm new password" maxlength="64">
+                  </div>
+                  <div>
+                      <p class=" my-1">Verification</p>
+                      <div class="row py-2">
+                          <div class="col">
+                              <input id="passP" type="password" class="form-control" placeholder="Old Password" maxlength="64">
+                          </div>
+                          <div class="col input-group">
+                              <input id="mailP" type="number" class="form-control" placeholder="Email Verify" maxlength="4">
+                              <button type="button" id="ReqMail" class="btn btn-dark" style="border-radius: 0 6px 6px 0;" onclick="alert('This is a UI Demo, it do not provide any features')">Request</button>
+                          </div>
+                      </div>
+                      <input id="otpP" type="number" class="form-control" placeholder="OTP Code" maxlength="6">
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  <button type="button" id="VerPass" class="btn btn-success" onclick="alert('This is a UI Demo, it do not provide any features')">Save</button>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="chg2FA" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content px-2">
+              <div class="modal-header">
+                  <h4 class="m-0 mt-1">Setup Authentication</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+                      <div class=" my-4">
+                          <img class="p-1 m-0 bgTCol rounded-2 w-50" src="img/qrcode.png" alt="QR Code">
+                          <p class="gray my-1">Scan QR code</p>
+                          <div class="input-group px-3 py-2">
+                              <input id="pass" type="password" class="form-control" placeholder="Passcode" maxlength="64">
+                              <input id="otp" type="number" class="form-control" placeholder="One-Time-Pass" maxlength="6">
+                          </div>
+                          <input class="d-none" type="text" value="123123">
+                          <button type="button" id="btnCopy" class="btn btn-primary" onclick="alert('This is a UI Demo, it do not provide any features')">Copy code</button>
+                          <button type="button" id="VerOtp" class="btn btn-success" onclick="alert('This is a UI Demo, it do not provide any features')">Verify</button>
+                      </div>
+
+                  <div class="row">
+                      <div class="col-lg-3 col-1 p-0"></div>
+                      <div class="col-lg-3 col-5 p-0">
+                          <a href='https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=zh&gl=US&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target="_blank">
+                              <img class="w-100" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' />
+                          </a>
+                      </div>
+                      <div class="col-lg-3 col-5 p-0">
+                          <a href="https://apps.apple.com/us/app/google-authenticator/id388497605?itsct=apps_box_badge&amp;itscg=10000" target="_blank">
+                              <!--30200 -->
+                              <img class="w-100" style="padding:5.5% 8%;box-sizing: border-box;" alt="Download on the App Store" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1284940800&h=7fc6b39acc8ae5a42ad4b87ff8c7f88d">
+                          </a>
+                      </div>
+                      <div class="col-lg-3 col-1 p-0"></div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+    </div>
+
+    <br><br><br>
+    <script>
+
+      $("#retvCode").click(function () {
+        console.log('Genarate Code : Request');
+        API_Private(
+          URL = "http://localhost:8080/xxxterminal/en/api/v1/profile/retvCode",
+          UID = '2',
+          PASS = $('#passR').val(),
+          Data = {
+            name: $('#NewName').val()
+          },
+          Success = (res) => {
+            Notify({ txt: res.result });
+            console.log(res)
+            $('.modal').modal('hide');
+            loadFrame("profile");
+          },
+          Abort = (res) => {
+            Notify({ txt: res.result });
+            console.log(res)
+          }
+        );
+      });
+
+      $("#chgName").click(function () {
+        console.log('Name Change : Request');
+        API_Private(
+          URL = "http://localhost:8080/xxxterminal/en/api/v1/profile/chgName",
+          UID = '2',
+          PASS = $('#passN').val(),
+          Data = {
+            name: $('#NewName').val()
+          },
+          Success = (res) => {
+            Notify({ txt: res.result });
+            $('.modal').modal('hide');
+            loadFrame("profile");
+          },
+          Abort = (res) => {
+            Notify({ txt: res.result });
+          }
+        );
+      });
+
+      $("#VerPass").click(function () {
+        console.log('Password : Request');
+        validPass = false;
+        passA = $("#NewPass").val();
+        passB = $("#ConfirmNewPass").val();
+        passC = $("#passP").val();
+
+        if (passA.length >= 8 && passA.length <= 64 && passA == passB && passA.match(/[a-z]+/) != null && passA.match(/[A-Z]+/) != null && passA.match(/[0-9]+/) != null) {
+          $("#NewPass,#ConfirmNewPass").removeClass('bdrRed');
+          validPass = true;
+        } else if (passA != passB) {
+          $("#NewPass,#ConfirmNewPass").addClass('bdrRed');
+          validPass = false;
+        } else {
+          $("#NewPass,#ConfirmNewPass").addClass('bdrRed');
+          validPass = false;
+        };
+
+        if (validPass) {
+          API_Private(
+            URL = "http://localhost:8080/xxxterminal/en/api/v1/profile/chgPass",
+            UID = '2',
+            PASS = passC,
+            Data = {
+              newpass: passA,
+              mailvalid: $("#mailP").val(),
+              otp: $("#otpP").val(),
+            },
+            Success = (res) => {
+              console.log(res);
+              Notify({ txt: res.result });
+              $('.modal').modal('hide');
+              loadFrame("profile");
+            },
+            Abort = (res) => {
+              console.log(res);
+              Notify({ txt: res.result });
+              if (res.result == "Wrong Password.") {
+                $("#passP").addClass('bdrRed');
+              } else if (res.result == "Unvalid OTP.") {
+                $("#passP").removeClass('bdrRed');
+                $("#otpP").addClass('bdrRed');
+              } else {
+                alert("Unknow Error ! ")
+              };
+            }
+          );
+
+        };
+      });
+
+      $("#VerOtp").click(function () {
+        console.log('Authenticator : Request');
+        API_Private(
+          URL = "http://localhost:8080/xxxterminal/en/api/v1/profile/addAuth",
+          UID = '2',
+          PASS = $('#pass').val(),
+          Data = {
+            totp: $('#otp').val(),
+            secret: "JBGEKN2PGNLTQTJYGFIUGVSULJKTCS2QIRHDIS2CJZCTQWC2GUZA"
+          },
+          Success = (res) => {
+            Notify({ txt: res.result });
+            $('.modal').modal('hide');
+            loadFrame("profile");
+          },
+          Abort = (res) => {
+            Notify({ txt: res.result });
+            if (res.result == "Wrong Password.") {
+              $("#pass").addClass('bdrRed');
+            } else if (res.result == "Unvalid OTP.") {
+              $("#pass").removeClass('bdrRed');
+              $("#otp").addClass('bdrRed');
+            } else {
+              Notify({ txt: "Unknow Error !" });
+            }
+          }
+        );
+
+      });
+
+      $("#ReqMail").click(function () {
+        console.log('mail verify : Request');
+        API_Private(
+          URL = "http://localhost:8080/xxxterminal/en/api/v1/profile/reqmail",
+          UID = '2',
+          PASS = $("#passP").val(),
+          Data = {},
+          Success = (res) => {
+            Notify({ txt: res.result });
+          },
+          Abort = (res) => {
+            Notify({ txt: res.result });
+          }
+        );
+      });
+
+    </script>
 
   </div>
+
+
+
+
+
+
+
+
+
 
   <!-- Nav -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -505,8 +788,6 @@
           <a href="home.html" class="text-secondary hovWhite">Home</a><br>
           <a href="pricing.html" class="text-secondary hovWhite">Pricing</a><br>
           <a href="dashboard.html" class="text-secondary hovWhite">Dashboard</a><br>
-          <!-- <a class="text-secondary hovWhite" href="<?=base_url($this->lg.'/solution')?>">"solution</a><br> -->
-
         </div>
         <div class="col mb-3">
           <a href="dashboard.html" class="text-secondary hovWhite">Dashboard</a><br>
