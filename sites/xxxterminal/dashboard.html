@@ -1,0 +1,749 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf8mb4_general_ci">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard</title>
+
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/xxx.min.css">
+  <link rel="stylesheet" href="css/splide.min.css">
+  <style>
+    body {
+      background-color: #f5f5f7;
+      word-wrap: break-all;
+      margin-top: 80px;
+    }
+
+    .waveBGw {
+      background-image: url("img/SVG/waveW.svg");
+      background-repeat: repeat;
+    }
+
+    .text-l2nav {
+      font-size: .8rem;
+      margin: auto;
+    }
+
+    @media (max-width: 768px) {
+      .text-l2nav {
+        font-size: 0.6rem;
+      }
+    }
+  </style>
+  <style></style>
+</head>
+
+<body class="waveBGw position-relative" style="min-height: 100vh;">
+  <!-- secNav -->
+  <nav id="secNav">
+    <div class="disFlex col col-md-7 py-0 px-md-4 mx-md-4">
+      <button type="button" class="l2navitem l2navitem-active" id="l2nav_home">
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block d-md-none" width="22px" height="22px">
+          <use xlink:href="#home"></use>
+        </svg>
+        <p class="text-l2nav">Home</p>
+      </button>
+      <button type="button" class="l2navitem" id="l2nav_bot">
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block d-md-none" width="22px" height="22px">
+          <use xlink:href="#bot"></use>
+        </svg>
+        <p class="text-l2nav">Trading Bot</p>
+      </button>
+      <button type="button" class="l2navitem" id="l2nav_techlib">
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block d-md-none" width="22px" height="22px">
+          <use xlink:href="#strategy"></use>
+        </svg>
+        <p class="text-l2nav">Tech Library</p>
+      </button>
+      <button type="button" class="l2navitem" id="l2nav_article">
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block d-md-none" width="22px" height="22px">
+          <use xlink:href="#article"></use>
+        </svg>
+        <p class="text-l2nav">Article</p>
+      </button>
+      <button type="button" class="d-md-none l2navitem l2nav_profile" id="l2nav_mob_profile" onclick="">
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block d-md-none" width="22px" height="22px">
+          <use xlink:href="#profile"></use>
+        </svg>
+        <p class="text-l2nav">Profile</p>
+      </button>
+    </div>
+  </nav>
+
+
+  <div id="MainFrame" class="mb-5 pb-3"><br>
+
+    <div class="row padX3">
+      <div class="col col-md">
+        <div class="tradingview-widget-container card">
+          <div id="tradingview_6eec1">
+            <iframe title="symbol overview TradingView widget" lang="en" id="tradingview_b70fa" frameborder="0"
+              allowtransparency="true" scrolling="no"
+              src="https://s.tradingview.com/embed-widget/symbol-overview/?locale=en#%7B%22symbols%22%3A%5B%5B%22BTC%2FUSD%22%2C%22INDEX%3ABTCUSD%7C12M%22%5D%2C%5B%22ETH%2FUSD%22%2C%22INDEX%3AETHUSD%7C12M%22%5D%2C%5B%22BNB%2FUSDT%22%2C%22BINANCE%3ABNBUSDT%7C12M%22%5D%2C%5B%22MATIC%2FUSDT%22%2C%22BINANCE%3AMATICUSDT%7C12M%22%5D%2C%5B%22BTC%20CAP%20%24%22%2C%22CRYPTOCAP%3ABTC%7C12M%22%5D%2C%5B%22ETH%20CAP%20%24%22%2C%22CRYPTOCAP%3AETH%7C12M%22%5D%2C%5B%22USDT%20CAP%20%24%22%2C%22CRYPTOCAP%3AUSDT%7C12M%22%5D%2C%5B%22CRYPTO%20CAP%20%24%22%2C%22CRYPTOCAP%3ATOTAL%7C12M%22%5D%5D%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22400px%22%2C%22colorTheme%22%3A%22light%22%2C%22backgroundColor%22%3A%22rgba(19%2C%2023%2C%2034%2C%200)%22%2C%22gridLineColor%22%3A%22rgba(240%2C%20243%2C%20250%2C%200.02)%22%2C%22fontColor%22%3A%22rgba(152%2C%20152%2C%20152%2C%201)%22%2C%22scalePosition%22%3A%22right%22%2C%22scaleMode%22%3A%22Logarithmic%22%2C%22chartType%22%3A%22area%22%2C%22lineColor%22%3A%22%232962ff%22%2C%22topColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22bottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22fontFamily%22%3A%22-apple-system%2C%20BlinkMacSystemFont%2C%20Trebuchet%20MS%2C%20Roboto%2C%20Ubuntu%2C%20sans-serif%22%2C%22valuesTracking%22%3A%222%22%2C%22lineWidth%22%3A2%2C%22showVolume%22%3Atrue%2C%22page-uri%22%3A%22localhost%3A8080%2Fxxxterminal%2Fen%2Fdashboard%3Fpage%3Dhome%22%2C%22utm_source%22%3A%22localhost%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22symbol-overview%22%7D"
+              style="margin: 0px !important; padding: 0px !important; width: 100%; height: 400px;"></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="tradingview-widget-copyright">
+        <a href="https://cn.tradingview.com/" rel="noopener nofollow" target="_blank">
+          source from <span class="blue-text">TradingView</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Top Article section-->
+    <div id="article_section" class="pb-5">
+      <div class="mt-3 padX5">
+        <h1 class="d-inline">Top Article</h1>
+        <p class="ps-2 d-inline">Editor Choice</p>
+      </div>
+
+      <div class="splide"  style="height: fit-content" role="group">
+        <div class="splide__track py-3 ps-3">
+          <ul class="splide__list">
+
+            <li class="splide__slide">
+              <div class="card h-100 float p-2 position-relative">
+                <img class="w-100 rounded-3" src="https://alternative.me/crypto/fear-and-greed-index.png" alt="Latest Crypto Fear &amp; Greed Index">
+              </div>
+            </li>
+
+            <li class="splide__slide">
+              <div class="card h-100 float p-1 position-relative">
+                  <img class="w-100 rounded-3" src='img\uploads\image_M.jpeg'>
+                  <div class="pb-4">
+                      <div class="px-2 my-1"><span class="prime-badge px-2">Editor Choise</span></div>
+                      <h4 class="px-2 m-0">article title</h4>
+                      <p class="text-secondary px-2 m-0">26 May 2022 | xxxTerminal </p>
+                  </div>
+                  <div class="position-absolute bottom-0 text-center p-2" style="width:calc(100% - 1rem)">
+                      <a href="article_detail.html" target="_blank" class="w-100 w-md-75 btn btn-primary p-0">read</a>
+                  </div>
+              </div>
+            </li>
+
+            
+            <li class="splide__slide">
+              <div class="card h-100 float p-1 position-relative">
+                  <img class="w-100 rounded-3" src='img\uploads\image_M.jpeg'>
+                  <div class="pb-4">
+                      <div class="px-2 my-1"></div>
+                      <h4 class="px-2 m-0">article title</h4>
+                      <p class="text-secondary px-2 m-0">26 May 2022 | xxxTerminal </p>
+                  </div>
+                  <div class="position-absolute bottom-0 text-center p-2" style="width:calc(100% - 1rem)">
+                      <a href="article_detail.html" target="_blank" class="w-100 w-md-75 btn btn-primary p-0">read</a>
+                  </div>
+              </div>
+            </li>
+
+            <li class="splide__slide" id="splide01-slide04" role="group" aria-roledescription="slide" aria-label="4 of 4" style="width: calc(47.619%);" aria-hidden="true">
+              <div class="card h-100 float p-2 center">
+                <button type="button" class="black hovOpa h-100" onclick="$('#l2nav_article').click()" tabindex="-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="80" viewBox="-5 -5 26 26">
+                    <circle cx="8" cy="8" r="12" stroke="gray" stroke-width="0.2" fill="none"></circle>
+                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
+                  </svg>
+                  <p>More</p>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="mrgX5">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a id="newsXXX" class="nav-link active" data-bs-toggle="tab" data-bs-target="#example">xxxTerminal</a>
+        </li>
+        <li class="nav-item">
+          <a id="newsCrypto" class="nav-link" data-bs-toggle="tab" data-bs-target="#example">Crypto</a>
+        </li>
+        <li class="nav-item">
+          <a disabled="" class="nav-link" data-bs-toggle="tab" data-bs-target="#example">Stock</a>
+        </li>
+      </ul>
+      <div class="accordion" id="newsList">
+        <div class="accordion-item d-none">hidden</div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#row1"
+              aria-expanded="true">
+              Title
+            </button>
+          </h2>
+          <div id="row1" class="accordion-collapse collapse" data-bs-parent="#newsList">
+            <div class="accordion-body bg-light">
+              data data data data<br>data data data data<br>data data data data
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#row2"
+              aria-expanded="true">
+              Title
+            </button>
+          </h2>
+          <div id="row2" class="accordion-collapse collapse" data-bs-parent="#newsList">
+            <div class="accordion-body bg-light">
+              data data data data<br>data data data data<br>data data data data
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+  </div>
+  <!-- Nav -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="profile" viewBox="0 0 16 16">
+      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+      <path fill-rule="evenodd"
+        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+  </svg>
+  </symbol>
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="lang" viewBox="0 0 16 16">
+      <path
+        d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z" />
+      <path
+        d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6.066 6.066 0 0 1-.415-.492 1.988 1.988 0 0 1-.94.31z" />
+    </symbol>
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="help" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+      <path
+        d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+    </symbol>
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="dash" viewBox="0 0 24 24" fill="none">
+      <path stroke="#000" stroke-width="1"
+        d="M4 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5ZM14 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V5ZM4 16a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3ZM14 13a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-6Z" />
+    </symbol>
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="menu" viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+    </symbol>
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="logI" viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
+      <path fill-rule="evenodd"
+        d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+    </symbol>
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="logO" viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+      <path fill-rule="evenodd"
+        d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+    </symbol>
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="home" viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z" />
+    </symbol>
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="bot" viewBox="2 2 20 20">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M7.5 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm11-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0ZM10 15.5a.5.5 0 0 1 .5.5v.003l.003.01a.237.237 0 0 0 .036.053.86.86 0 0 0 .27.194c.28.14.7.24 1.191.24.492 0 .912-.1 1.19-.24a.86.86 0 0 0 .271-.194.214.214 0 0 0 .039-.063V16a.5.5 0 0 1 1 0c0 .568-.447.947-.862 1.154-.445.223-1.025.346-1.638.346s-1.193-.123-1.638-.346C9.947 16.947 9.5 16.568 9.5 16a.5.5 0 0 1 .5-.5Z" />
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M16 5.5v2H8v-2a.5.5 0 0 0-1 0v2H6A2.5 2.5 0 0 0 3.5 10v7A2.5 2.5 0 0 0 6 19.5h12a2.5 2.5 0 0 0 2.5-2.5v-7A2.5 2.5 0 0 0 18 7.5h-1v-2a.5.5 0 0 0-1 0Zm-10 3A1.5 1.5 0 0 0 4.5 10v7A1.5 1.5 0 0 0 6 18.5h12a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 18 8.5H6Z" />
+    </symbol>
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="strategy" viewBox="0 0 28 28">
+      <path fill-rule="evenodd"
+        d="M18.44 10.62l5.09-5.09-1.06-1.06-5.09 5.09c-.48.48-1.28.48-1.76 0l-3.18-3.18a2.75 2.75 0 0 0-3.88 0l-5.09 5.09 1.06 1.06 5.09-5.09a1.25 1.25 0 0 1 1.76 0l3.18 3.18a2.75 2.75 0 0 0 3.88 0zM14.25 19v-5h-1.5v5H10l3.5 4 3.5-4h-2.75zM18 18l3.5-4 3.5 4h-2.75v5h-1.5v-5H18z">
+      </path>
+    </symbol>
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="article" viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z" />
+      <path fill-rule="evenodd"
+        d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z" />
+    </symbol>
+  </svg>
+
+  <nav>
+    <a href="home.html" class="m-auto col-md-1 col-2" aria-label="home" style="cursor: pointer;">
+      <svg class="px-0" height="40" width="40" viewBox="0 0 300 300" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M15 10h270l-30 35h-90v50l-5 7.5V215l5 7.5v50L155 285h-10l-10-12.5v-50l5-7.5V102.5l-5-7.5V45H45L15 10z" />
+        <path
+          d="M50 55h40l40 55v60l-10 10v35l5 7.5V265l-35-45v-55l25-25-65-85zm200 0h-38.333L170 110v60l10.417 10v35L175 222.5V265l35-45v-55l-25-25 65-85z" />
+      </svg>
+    </a>
+
+    <!-- Mobile -->
+    <a href="home.html" class="d-flex d-md-none navitem border-0">
+      <h3 class="text-white fw-bolder pt-1">xxxTerminal</h3>
+    </a>
+
+    <button id="navBtn" class="d-md-none col-2">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </button>
+
+    <!-- Desktop -->
+    <a href="dashboard.html" class="d-none d-md-flex navitem"><b class="m-auto">Dashboard</b></a>
+    <a href="pricing.html" class="d-none d-md-flex navitem"><b class="m-auto">Pricing</b></a>
+    <a href="affiliate.html" class="d-none d-md-flex navitem"><b class="m-auto">Affiliate</b></a>
+    <span class="d-none d-lg-flex" style="flex:4"></span>
+    <div class="d-none d-md-flex col-md-2 col-lg-1 text-center">
+      <div class="row">
+        <div class="col-6 navlogo dropdown">
+          <button type="button" aria-label="change language"
+            class="d-block link-dark text-decoration-none dropdown-toggle" id="LangDrop" data-bs-toggle="dropdown">
+            <svg xmlns="http://www.w3.org/2000/svg" style="margin-top:2px" width="30" height="30px" fill="#fff">
+              <use xlink:href="#lang">
+            </svg>
+          </button>
+          <ul class="dropdown-menu text-small shadow"
+            style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 33px, 0px);border: 1px solid rgb(230,230,230);"
+            data-popper-placement="bottom-end">
+            <li class="dropdown-item">English</li>
+            <li class="dropdown-item">中文</li>
+          </ul>
+        </div>
+        <div class="col-6 navlogo dropdown">
+          <button type="button" aria-label="to profile page"
+            class="d-block link-dark text-decoration-none dropdown-toggle" id="ProfDrop" data-bs-toggle="dropdown">
+            <svg xmlns="http://www.w3.org/2000/svg" style="margin-top:2px" width="30" height="30px" fill="#fff">
+              <use xlink:href="#profile">
+            </svg>
+          </button>
+          <ul class="dropdown-menu text-small shadow"
+            style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 33px, 0px);border: 1px solid rgb(230,230,230);"
+            data-popper-placement="bottom-end">
+            <li class="dropdown-item l2nav_profile">Profile</li>
+            <li class="dropdown-item l2nav_affiliate">Affiliate</li>
+            <li class="dropdown-item l2nav_help">Help</li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a href="home.html" class="dropdown-item logout"><svg xmlns="http://www.w3.org/2000/svg" class="DDlogo"
+                  style="fill:#f01e1e">
+                  <use xlink:href="#logO"></use>
+                </svg>Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mob-nav" style="height: 0%; padding-top: 0px;">
+    <div class="row">
+      <div class="col-12 px-1">
+        <a href="profile.html" class="card Mnavitem">
+          <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo">
+            <use xlink:href="#profile">
+          </svg>
+          <br>Profile
+        </a>
+      </div>
+      <div class="col-12 row px-1">
+        <div class="col-6">
+          <a href="dashboard.html" class="card Mnavitem">
+            <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo">
+              <use xlink:href="#dash">
+            </svg>
+            <br>Dashboard
+          </a>
+        </div>
+        <div class="col-6">
+          <a href="affiliate.html" class="card Mnavitem">
+            <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo">
+              <use xlink:href="#dash">
+            </svg>
+            <br>Affiliate
+          </a>
+        </div>
+      </div>
+
+      <div class="col-12 row px-1 pt-3 center">
+        <a href="dashboard.html?page=bot" class="col" href="dashboard.html?page=bot">
+          <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block d-md-none" width="22px" height="22px">
+            <use xlink:href="#bot"></use>
+          </svg>
+          <p class="text-l2nav text-dark m-0">Trading Bot</p>
+        </a>
+        <a href="dashboard.html?page=techlib" class="col" href="dashboard.html?page=techlib">
+          <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block d-md-none" width="22px" height="22px">
+            <use xlink:href="#strategy"></use>
+          </svg>
+          <p class="text-l2nav text-dark m-0">Technical Library</p>
+        </a>
+        <a href="dashboard.html?page=article" class="col" href="dashboard.html?page=article">
+          <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block d-md-none" width="22px" height="22px">
+            <use xlink:href="#article"></use>
+          </svg>
+          <p class="text-l2nav text-dark m-0">Articles</p>
+        </a>
+      </div>
+
+      <hr class="my-3">
+
+      <div class="col-6">
+        <a href="home.html" class="card Mnavitem">
+          <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo">
+            <use xlink:href="#menu">
+          </svg>
+          Home
+        </a>
+      </div>
+      <div class="col-6">
+        <a href="pricing.html" class="card Mnavitem">
+          <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo">
+            <use xlink:href="#menu">
+          </svg>
+          Pricing
+        </a>
+      </div>
+      <div class="col-6">
+        <a href="affiliate.html" class="card Mnavitem">
+          <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo">
+            <use xlink:href="#menu">
+          </svg>
+          Affiliate
+        </a>
+      </div>
+
+      <hr class="my-3">
+
+      <div class="col-6">
+        <a class="card Mnavitem">
+          <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo" style="fill:#1464dc">
+            <use xlink:href="#lang">
+          </svg>
+          English
+        </a>
+      </div>
+      <div class="col-6">
+        <a class="card Mnavitem">
+          <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo" style="fill:#1464dc">
+            <use xlink:href="#lang">
+          </svg>
+          中文
+        </a>
+      </div>
+
+      <hr class="my-3">
+
+      <div class="col-6">
+        <a class="card Mnavitem">
+          <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo">
+            <use xlink:href="#help">
+          </svg>
+          Help
+        </a>
+      </div>
+
+      <div class="col-6">
+        <a class="logout card Mnavitem"><svg xmlns="http://www.w3.org/2000/svg" class="DDlogo" style="fill:#f01e1e">
+            <use xlink:href="#logO">
+          </svg>logout</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    // mobile menu
+    window.onload = function () {
+      var mobNav = QS("#navBtn").addEventListener("click", () => {
+        let nav = QS(".mob-nav");
+        let btn = QS("#navBtn");
+        if (nav.style.height == "0%" && nav.style.paddingTop == "0px") {
+          if (QS("#secNav") != null) { QS("#secNav").style.zIndex = 10; };
+          btn.classList.add("change");
+          nav.style.height = "100%";
+          nav.style.paddingTop = "10px";
+        } else {
+          btn.classList.remove("change");
+          nav.style.height = "0%";
+          nav.style.paddingTop = "0px";
+          setTimeout(() => { if (QS("#secNav") != null) { QS("#secNav").style.zIndex = 10; }; }, 50);
+        };
+      });
+    }
+  </script>
+  <!-- Footer -->
+  <footer class="d-none d-md-block w-100">
+    <div id="foot" class="center bg-black" style="padding-top:3%;margin-top:5%">
+      <a href="#" class="btn btn-light btn-pill float mb-3" style="padding:0.5% 6%">to Top</a>
+      <div class="row">
+        <div class="col mb-3">
+          <a href="home.html" class="text-secondary hovWhite">Home</a><br>
+          <a href="pricing.html" class="text-secondary hovWhite">Pricing</a><br>
+          <a href="dashboard.html" class="text-secondary hovWhite">Dashboard</a><br>
+          <!-- <a class="text-secondary hovWhite" href="<?=base_url($this->lg.'/solution')?>">"solution</a><br> -->
+
+        </div>
+        <div class="col mb-3">
+          <a href="dashboard.html" class="text-secondary hovWhite">Dashboard</a><br>
+          <a href="dashboard.html?page=bot" class="text-secondary hovWhite">Trading Bot</a><br>
+          <a href="dashboard.html?page=techlib" class="text-secondary hovWhite">Article</a><br>
+          <a href="dashboard.html?page=article" class="text-secondary hovWhite">Technical Library</a><br>
+        </div>
+      </div>
+      <div>
+        <a href="#" target="_blank" class="hovOpa" aria-label="telegram">
+          <svg xmlns="http://www.w3.org/2000/svg" height="35" width="35" viewBox="50 50 130 150">
+            <path d="M98 175c-3.9 0-3.2-1.5-4.6-5.2L82 132.2 152.8 88l8.3 2.2-6.9 18.8L98 175z" fill="#c8daea" />
+            <path
+              d="m100 144.4 48.4 35.7c5.5 3 9.5 1.5 10.9-5.1L179 82.2c2-8.1-3.1-11.7-8.4-9.3L55 117.5c-7.9 3.2-7.8 7.6-1.4 9.5l29.7 9.3L152 93c3.2-2 6.2-.9 3.8 1.3L100 144.4z"
+              fill="#fff" />
+          </svg>
+        </a>
+        <a href="#" target="_blank" class="hovOpa" aria-label="discord">
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 71 55" fill="#fff">
+            <g clip-path="url(#a)">
+              <path
+                d="M60.105 4.898A58.55 58.55 0 0 0 45.653.415a.22.22 0 0 0-.233.11 40.784 40.784 0 0 0-1.8 3.697c-5.456-.817-10.886-.817-16.23 0-.485-1.164-1.201-2.587-1.828-3.697a.228.228 0 0 0-.233-.11 58.386 58.386 0 0 0-14.451 4.483.207.207 0 0 0-.095.082C1.578 18.73-.944 32.144.293 45.39a.244.244 0 0 0 .093.167c6.073 4.46 11.955 7.167 17.729 8.962a.23.23 0 0 0 .249-.082 42.08 42.08 0 0 0 3.627-5.9.225.225 0 0 0-.123-.312 38.772 38.772 0 0 1-5.539-2.64.228.228 0 0 1-.022-.378 31.17 31.17 0 0 0 1.1-.862.22.22 0 0 1 .23-.03c11.619 5.304 24.198 5.304 35.68 0a.219.219 0 0 1 .233.027c.356.293.728.586 1.103.865a.228.228 0 0 1-.02.378 36.384 36.384 0 0 1-5.54 2.637.227.227 0 0 0-.121.315 47.249 47.249 0 0 0 3.624 5.897.225.225 0 0 0 .249.084c5.801-1.794 11.684-4.502 17.757-8.961a.228.228 0 0 0 .092-.164c1.48-15.315-2.48-28.618-10.497-40.412a.18.18 0 0 0-.093-.084Zm-36.38 32.427c-3.497 0-6.38-3.211-6.38-7.156 0-3.944 2.827-7.156 6.38-7.156 3.583 0 6.438 3.24 6.382 7.156 0 3.945-2.827 7.156-6.381 7.156Zm23.593 0c-3.498 0-6.38-3.211-6.38-7.156 0-3.944 2.826-7.156 6.38-7.156 3.582 0 6.437 3.24 6.38 7.156 0 3.945-2.798 7.156-6.38 7.156Z">
+              </path>
+            </g>
+            <defs>
+              <clipPath id="a">
+                <path fill="#fff" d="M0 0h71v55H0z"></path>
+              </clipPath>
+            </defs>
+          </svg>
+        </a>
+      </div>
+      <p class="white m-0 pt-3 pb-md-1 pb-5">© 2022 xxxTerminal</p>
+    </div>
+  </footer>
+
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/xxx.min.js"></script>
+  <script src="js/splide.min.js"></script>
+  <script src="js/splide_autoscroll.min.js"></script>
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <script>
+
+    function buildAccordion(data = []) {
+      let html = "";
+      data.foreach((x, i) => {
+        html += `<div class="accordion-item">
+                      <h2 class="accordion-header">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#row${i}" aria-expanded="false">
+                              ${x.title}
+                          </button>
+                      </h2>
+                      <div id="row${i}" class="accordion-collapse collapse" data-bs-parent="#newsList">
+                          <div class="accordion-body bg-light">
+                              ${x.content}
+                          </div>
+                      </div>
+                  </div>`;
+      });
+      return html;
+    }
+
+    function setWidgetA() {
+      return new TradingView.MediumWidget({
+        "symbols": [
+          ['BTC/USD', "INDEX:BTCUSD|12M"],
+          ['ETH/USD', "INDEX:ETHUSD|12M"],
+          ['BNB/USDT', "BINANCE:BNBUSDT|12M"],
+          ['MATIC/USDT', "BINANCE:MATICUSDT|12M"],
+          ['BTC CAP $', "CRYPTOCAP:BTC|12M"],
+          ['ETH CAP $', "CRYPTOCAP:ETH|12M"],
+          ['USDT CAP $', "CRYPTOCAP:USDT|12M"],
+          ['CRYPTO CAP $', "CRYPTOCAP:TOTAL|12M"],
+        ],
+        "chartOnly": false,
+        "width": "100%",
+        "height": "400",
+        "locale": "en",
+        "colorTheme": "light",
+        "autosize": true,
+        "showVolume": true,
+        "hideDateRanges": false,
+        "scalePosition": "right",
+        "scaleMode": "Logarithmic",
+        "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+        "noTimeScale": false,
+        "valuesTracking": "2",
+        "chartType": "area",
+        "fontColor": "rgba(152, 152, 152, 1)",
+        "gridLineColor": "rgba(240, 243, 250, 0.02)",
+        "backgroundColor": "rgba(19, 23, 34, 0)",
+        "lineWidth": 2,
+        "lineColor": "#2962ff",
+        "topColor": "rgba(41, 98, 255, 0.3)",
+        "bottomColor": "rgba(41, 98, 255, 0)",
+        "container_id": "tradingview_6eec1"
+      });
+    }
+
+    $("#newsXXX").click(() => {
+      $.ajax({
+        url: "http://localhost:8080/xxxterminal/en/dashboard/home/news",
+        type: "GET",
+        dataType: "html",
+        success: (data) => {
+          $('#newsList').html(buildAccordion(data));
+        }
+      })
+    });
+
+    $("#newsCrypto").click(() => {
+      $.ajax({
+        url: "http://localhost:8080/xxxterminal/en/dashboard/home/news",
+        type: "GET",
+        dataType: "html",
+        success: (data) => {
+          $('#newsList').html(buildAccordion(data));
+        }
+      })
+    });
+
+    $(document).ready(() => {
+
+      new Splide('.splide', {
+        type: 'slide',
+        pagination: false,
+        perPage: 4,
+        perMove: 1,
+        breakpoints: {
+          768: {
+            arrows: false,
+            perPage: 2.1,
+          },
+        }
+      }).mount();
+
+      let checkTV = setInterval(function () {
+        if (typeof TradingView == 'object' && setWidgetA()) {
+          clearInterval(checkTV);
+        };
+      }, 500);
+    });
+
+  </script>
+  <script>
+    const plan = JSON.parse('[{"INDEX":0,"NAME":"NONE","ID":{"MONTHLY":"","ANNUALY":""},"PRICE":{"USD":0,"MYR":0}},{"INDEX":1,"NAME":"PRO","ID":{"ANNUALY":"price_1Mc3SNF4XvzripaROHiQAoza","MONTHLY":"price_1Mc3SNF4XvzripaRtBCJwqTX"},"PRICE":{"ANNUALY":8,"MONTHLY":10}},{"INDEX":2,"NAME":"PLUS","ID":{"ANNUALY":"price_1Mc3SNF4XvzripaRvX1wLwGU","MONTHLY":"price_1Mc3SNF4XvzripaRzTD02Y3J"},"PRICE":{"ANNUALY":24,"MONTHLY":30}},{"INDEX":3,"NAME":"PRIME","ID":{"ANNUALY":"price_1Mc3SNF4XvzripaRzG3fg3vo","MONTHLY":"price_1Mc3SNF4XvzripaRwcGfdjE2"},"PRICE":{"ANNUALY":48,"MONTHLY":59}}]');
+    function badge(member_id = 0) {
+      if (member_id > 3 || member_id < 0) {
+        member_id = 0;
+      };
+      return [
+        '<span class="pro-badge bg-gradient my-1 px-4 py-1"></span>',
+        '<span class="pro-badge bg-gradient my-1 px-4 py-1"></span>',
+        '<span class="plus-badge bg-gradient my-1 px-4 py-1"></span>',
+        '<span class="prime-badge bg-gradient my-1 px-4 py-1"></span>'
+      ][member_id];
+    };
+
+    function statIndicator(idx) {
+      if (idx > 3 || idx < 0) {
+        idx = 0;
+      };
+      return [ // sleep, active, error
+        '<svg xmlns="http://www.w3.org/2000/svg" width="16" fill="rgb(230, 180, 0)" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.646-2.646a.5.5 0 0 0-.708-.708l-6 6a.5.5 0 0 0 .708.708l6-6z"/></svg>',
+        '<svg xmlns="http://www.w3.org/2000/svg" width="16" fill="rgb(50, 200, 50)" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>',
+        '<svg xmlns="http://www.w3.org/2000/svg" width="16" fill="rgb(230, 0, 0)" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>'
+      ][idx];
+    }
+
+    var loadingElement = '<div style="height: 500px; display: flex;align-items: center;justify-content: center;overflow:hidden;text-align: center;"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"x="0px" y="0px" width="60px" height="70px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;"xml:space="preserve"><rect x="0" y="0" width="5" height="15" fill="#f0a000"><animateTransform attributeType="xml" attributeName="transform" type="translate" values="0 0; 0 20; 0 0"begin="0" dur="0.6s" repeatCount="indefinite"></animateTransform></rect><rect x="10" y="0" width="5" height="15" fill="#f0a000"><animateTransform attributeType="xml" attributeName="transform" type="translate" values="0 0; 0 20; 0 0"begin="0.2s" dur="0.6s" repeatCount="indefinite"></animateTransform></rect><rect x="20" y="0" width="5" height="15" fill="#f0a000"><animateTransform attributeType="xml" attributeName="transform" type="translate" values="0 0; 0 20; 0 0"begin="0.4s" dur="0.6s" repeatCount="indefinite"></animateTransform></rect></svg></div>';
+    function loadFrame(e) {
+      console.log("Loading Frame: " + e),
+        $("#foot").hide(),
+        $("#MainFrame").html(loadingElement),
+          // $.get({
+          //     url:"dashboard.html/"+e,
+          //     success:(a)=>{
+          //         history.pushState(e,"","dashboard.html?page="+e),
+          //         $("#MainFrame").html(a),
+          //         $("#foot").show(),
+          //         ImgLazyLoad()
+          //     },
+          //     error:(e)=>{
+          //         $("#MainFrame").html(e)
+          //         $("#foot").show()
+          //     }
+          // })
+      }
+
+    function rn(e = null) {
+      $("#l2nav_home, #l2nav_bot, #l2nav_techlib, #l2nav_article, #l2nav_mob_profile").removeClass("l2navitem-active"),
+        null != e && $(e).addClass("l2navitem-active")
+    }
+    setInterval(
+      () => {
+        console.log("%c\n██╗..██╗██╗..██╗██╗..██╗\n╚██╗██╔╝╚██╗██╔╝╚██╗██╔╝\n.╚███╔╝..╚███╔╝..╚███╔╝.\n.██╔██╗..██╔██╗..██╔██╗.\n██╔╝╚██╗██╔╝╚██╗██╔╝╚██╗\n╚═╝..╚═╝╚═╝..╚═╝╚═╝..╚═╝ ", "color:#ff0000;"),
+          console.log("%cHold Up!\n%cIf someone told you to do something here, he is scamm.\n%cPasting anything in here could give attackers access to your account.\nUnless you understand exactly what you are doing, close this window and stay safe.", "color:#ff0000;font-size:32px;font-weight:bold;", "color:#f0b400;font-size:16px;font-weight:bold;", "font-size:16px;font-weight:bold;")
+      },
+      3e4
+    ),
+      $(document).ready(() => {
+        $(".l2nav_profile, .l2nav_affiliate, .l2nav_help").attr("onclick", ""),
+          $("#l2nav_home").click(() => { loadFrame("home"), rn("#l2nav_home") }),
+          $("#l2nav_bot").click(() => { loadFrame("bot"), rn("#l2nav_bot") }),
+          $("#l2nav_techlib").click(() => { loadFrame("techlib"), rn("#l2nav_techlib") }),
+          $("#l2nav_article").click(() => { loadFrame("article"), rn("#l2nav_article") }),
+          $(".l2nav_profile").click(() => { loadFrame("profile"), rn('#l2nav_mob_profile') }),
+          $(".l2nav_affiliate").click(() => { loadFrame("affiliate"), rn() }), $(".l2nav_help").click(() => { loadFrame("help"), rn() }),
+          $("#l2nav_home, .l2nav_home").click()
+      });
+  </script>
+
+  <style>
+    .tradingview-widget-copyright {
+      font-size: 13px !important;
+      line-height: 32px !important;
+      text-align: center !important;
+      vertical-align: middle !important;
+      font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto, Ubuntu, sans-serif !important;
+      color: #B2B5BE !important;
+    }
+
+    .tradingview-widget-copyright .blue-text {
+      color: #2962FF !important;
+    }
+
+    .tradingview-widget-copyright a {
+      text-decoration: none !important;
+      color: #B2B5BE !important;
+    }
+
+    .tradingview-widget-copyright a:visited {
+      color: #B2B5BE !important;
+    }
+
+    .tradingview-widget-copyright a:hover .blue-text {
+      color: #1E53E5 !important;
+    }
+
+    .tradingview-widget-copyright a:active .blue-text {
+      color: #1848CC !important;
+    }
+
+    .tradingview-widget-copyright a:visited .blue-text {
+      color: #2962FF !important;
+    }
+  </style>
+</body>
+
+</html>

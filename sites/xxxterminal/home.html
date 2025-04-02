@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="<?=$this->lg?>">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="xxxTerminal Provide pre-made and custom crypto trading bot, Automate your Crypto Trades.">
+    <meta name="keywords" content="crypto, cryptocurrency, automated trading, trading, strategy, crypto bot, trading bot, strategy bot, algo trade, btc, eth, bnb">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#f0a000">
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/xxx.min.css">
+    <link rel="stylesheet" href="css/splide.min.css">
+
+    <title>xxxTerminal &nbsp;|&nbsp; Home</title>
+    <style>
+        /* canvas {position: fixed;left: 0;top: 0;z-index: -1;} */
+        .transWhiteBG {background: #fff;background: linear-gradient(0deg, #ffffff00 0%, rgba(255, 255, 255, 0.7) 10%, rgba(255, 255, 255, 0.7) 90%, #ffffff00 100%);}
+        .lightGradient_0-1 {background: #fff;background: linear-gradient(180deg, #fff 0%, #fff 80%, #ffffff00 100%);}
+        .lightGradient_1-0 {background: #fff;background: linear-gradient(180deg, #ffffff00 0%, #fff 60%, #fff 100%);}
+
+        /* block bg */
+        .block_bg_W{background:#000; background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.035)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");}
+        .block_bg_B{background:#fff; background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(0 0 0 / 0.035)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");}
+        .full-height{height:100vh;}
+        .half-height{height:50vh;}
+
+        /* Waves */
+        .waves {position: relative;width: 100%;height: 15vh;margin-bottom: -7px;min-height: 100px;max-height: 150px;}
+        .parallax>use {animation: wavy 25s cubic-bezier(.55, .5, .45, .5) infinite;}
+        .parallax>use:nth-child(1) {animation-delay: -2s;animation-duration: 7s;}
+        .parallax>use:nth-child(2) {animation-delay: -3s;animation-duration: 10s;}
+        .parallax>use:nth-child(3) {animation-delay: -4s;animation-duration: 13s}
+        .parallax>use:nth-child(4) {animation-delay: -5s;animation-duration: 20s;}
+        @keyframes wavy {0% {transform: translate3d(-90px, 0, 0);}100% {transform: translate3d(85px, 0, 0);}}
+        @media (max-width: 768px) {.waves {height: 50px;min-height: 50px;}}
+
+        /* animated-btn */
+        .arr{width:24px; height:24px; fill:currentColor; transition: all .3s ease;}
+        .arr-swipe :nth-child(1){opacity:.7; transform: translateX(10px);}
+        .arr-swipe :nth-child(2){opacity:1; transform: translateX(-10px);}
+        .arr-swipe:hover :nth-child(1){opacity:1; transform: translateX(5px);}
+        .arr-swipe:hover :nth-child(2){opacity:.7; transform: translateX(-5px);}
+        .signup-btn .arr-l {width:24px; height:24px; fill: #cc8800; transition: all .3s ease;}
+        .signup-btn .arr-r {width:24px; height:24px; fill: #cc8800; transform: rotate(180deg); transition: all .3s ease;}
+        .signup-btn .txt   {padding: .2rem 1rem; background: #575757; color: #fff; font-size: 1rem; font-weight: 400; border-radius: 10px; ; transition: all .3s ease;}
+        .signup-btn:hover .arr-l {width:30px; height:30px; fill: #f0a000; transform: translateX(160px); transition: all .3s ease;}
+        .signup-btn:hover .arr-r {width:30px; height:30px; fill: #f0a000; transform: translateX(-160px) rotate(180deg); transition: all .3s ease;}
+        .signup-btn:hover .txt   {padding: .2rem 1.6rem; background: #f0a000; color: #000; font-size: 1.2rem; font-weight: 800; border-radius: 5px; ; transition: all .3s ease;}
+    
+        #gradient-canvas {
+            position:absolute;
+            left:0;
+            top:0;
+            z-index:-1;
+            --gradient-color-1: #6ec3f4;
+            --gradient-color-2: #3a3aff;
+            --gradient-color-3: #ff61ab;
+            --gradient-color-4: #E63946;
+        }
+    </style>
+</head>
+
+<body class="w-100"> 
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+        <symbol id="arrow" viewBox="0 0 16 16">
+            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+        </symbol>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+        <symbol id="evenodd" viewBox="1 2 14 14">
+            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />        
+        </symbol>
+    </svg>
+
+    <header class="position-relative">
+        <canvas id="gradient-canvas" style="width:100%;height:100%;"></canvas>
+        <div style="background:rgba(0,0,0,.1)">
+            <div class="pt-5 px-3">
+                <div class="row text-center pt-lg-5">
+                    <!-- Title -->
+                    <div class="col-0 col-lg-2"></div>
+                    <div class="col-md-12 col-lg-5 mt-lg-5 order-2 order-lg-1 text-lg-center rounded-5">
+                        <div class="my-5">
+                            <h1 class="display-3 fw-bolder text-white mb-2">xxxTerminal</h1>
+                            <p class="lead text-light mb-4 m-auto">Make Crypto Trading Simpler</p>
+                            <div class="text-md py-2"> 
+                                <a href="dashboard.html" class="btn btn-wide btn-light btn-float bg-gradient fs-5 m-2">Get Started</a> 
+                            </div>
+                        </div>
+                    </div> 
+                    <!-- Label -->
+                    <div class="col-12 col-lg-5 order-1 order-lg-2 text-center text-lg-start pt-md-5 px-md-5">
+                        <svg class="col-8 px-0" viewbox="0 0 300 300" fill="rgb(240,160,0)" xmlns="http://www.w3.org/2000/svg">
+                            <g class="layer" stroke="#fff" stroke-width="5">
+                                <path d="M15 10h270l-30 35h-90v50l-5 7.5V215l5 7.5v50L155 285h-10l-10-12.5v-50l5-7.5V102.5l-5-7.5V45H45L15 10z" />
+                                <path d="M50 55h40l40 55v60l-10 10v35l5 7.5V265l-35-45v-55l25-25-65-85zm200 0h-38.333L170 110v60l10.417 10v35L175 222.5V265l35-45v-55l-25-25 65-85z" />
+                            </g>
+                        </svg> 
+                    </div>
+                </div>
+            </div> 
+            <!-- Waves -->
+            <div> 
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs>
+                        <path id="wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    </defs>
+                    <g class="parallax">
+                        <use xlink:href="#wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+                        <use xlink:href="#wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                        <use xlink:href="#wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                        <use xlink:href="#wave" x="48" y="7" fill="#fff" />
+                    </g>
+                </svg> 
+            </div>
+        </div>
+    </header>
+
+    <main class="block_bg_B">
+        <div class="lightGradient_0-1 py-3">
+            <!-- Features section-->
+            <div id="features" class="mrgX5 pb-5">
+                <div class="row pt-5">
+                    <div class="col-lg-6 col-12 mt-lg-4 pt-lg-4 text-center">
+                        <h1 class="display-3 fw-bold fw-bold mt-4 pt-4 hiddenFloatUp">What We Do ?</h1>
+                        <div class="TCol fs-5 hiddenFloatUp"> 
+                            <a href="#" class="gray mx-1">Sterategy</a>|
+                            <a href="#" class="gray mx-1">Research</a>|
+                            <a href="#" class="gray mx-1">Bots</a> 
+                        </div> 
+                        <br>
+                        <a href="pricing.html" class="btn btn-wide btn-primary btn-float hiddenFloatUp">More Detail ></a>
+                    </div>
+
+                    <div class="col-lg-6 col-12">
+                        <div class="row mt-4 pt-4">
+                            <div class="col-6 mb-4 px-2 floatshadow hiddenFloatDn"> 
+                                <a class="text-dark td-none" href="#bot_section"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="p-2 rounded-3 bgTCol bg-gradient text-white" viewBox="0 0 16 16">
+                                        <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0zm-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3h-7zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+                                    </svg>
+                                    <h3 class="fw-bold my-2">Trading Bot</h3>
+                                    <p>Copy Trade, API Connector, <br>Customize Strategy Hosting</p>
+                                </a> 
+                            </div>
+                            <div class="col-6 mb-4 px-2 floatshadow hiddenFloatDn"> 
+                                <a class="text-dark td-none" href="#article_section"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="p-2 rounded-3 bgTCol bg-gradient text-white" viewBox="0 0 16 16">
+                                        <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z" />
+                                        <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z" />
+                                    </svg>
+                                    <h3 class="fw-bold my-2">Article</h3>
+                                    <p>News, Idea, <br class="d-lg-none">Technique, Analysis</p>
+                                </a> 
+                            </div>
+                            <div class="col-6 mb-4 px-2 floatshadow hiddenFloatUp"> 
+                                <a class="text-dark td-none" href="#techlib_section"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="p-2 rounded-3 bgTCol bg-gradient text-white" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z" />
+                                    </svg>
+                                    <h3 class="fw-bold my-2">Technical Library</h3>
+                                    <p>Exclusive Indicator <br class="d-lg-none">& Strategy Library</p>
+                                </a> 
+                            </div>
+                            <div class="col-6 mb-4 px-2 floatshadow hiddenFloatUp">
+                                <a class="text-dark td-none" href="#techsupp_section"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="p-2 rounded-3 bgTCol bg-gradient text-white" viewBox="0 0 16 16">
+                                        <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
+                                    </svg>
+                                    <h3 class="fw-bold my-2">Strategy Builder</h3>
+                                    <p>Strategy Developer <br class="d-lg-none">& Trader Community</p>
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <!-- Top Article section-->
+            <div id="article_section" class="pb-5">
+                <div class="mt-4 pt-2 px-4 center">
+                    <h1 class="d-inline fw-bold">Top Articles</h1>
+                </div>
+                <div class="splide pb-5" role="group">
+                    <div class="splide__track py-3 px-2">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <div class="card h-100 float p-2 position-relative">
+                                    <img alt="article cover image" class="w-100 rounded-3" src='img\uploads\image_M.jpeg'>
+                                    <div class="pb-5">
+                                        <p class="fs-4 fw-bold px-2 m-0">What is Risk Management ?</p>
+                                        <span class="text-dark px-2 m-0" style="font-size: 12px;">05 May 2023 | Conor Mcgregor </span>
+                                    </div>
+                                    <div class="position-absolute bottom-0 text-center p-2" style="width:calc(100% - 1rem)">
+                                        <a target="_blank" class="w-100 w-md-75 btn btn-primary p-0" aria-label="read article <?=$x['article_id']?>">Read More</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="card h-100 float p-2 position-relative">
+                                    <img alt="article cover image" class="w-100 rounded-3" src='img\uploads\image_M.jpeg'>
+                                    <div class="pb-5">
+                                        <p class="fs-4 fw-bold px-2 m-0">Dollar Cost Average,<br> is it good for you ?</p>
+                                        <span class="text-dark px-2 m-0" style="font-size: 12px;">06 May 2023 | Khabib Nurmagomedov </span>
+                                    </div>
+                                    <div class="position-absolute bottom-0 text-center p-2" style="width:calc(100% - 1rem)">
+                                        <a target="_blank" class="w-100 w-md-75 btn btn-primary p-0" aria-label="read article <?=$x['article_id']?>">Read More</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="card h-100 float p-2 center">
+                                    <a>
+                                        <button type="button" class="black hovOpa h-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="80" viewbox="-5 -5 26 26">
+                                                <circle cx="8" cy="8" r="12" stroke="gray" stroke-width="0.2" fill="none" />
+                                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                            </svg>
+                                            <p>More Article</p>
+                                        </button>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <!-- Solution -->
+        <div class="mrgX5 text-center">
+            <div id="bot_section" class="py-5 hidden">
+                <div class="row py-5">
+                    <div class="m-auto col-md-5 col-12 text-md-end pe-md-4"> 
+                        <object width="280" height="280" aria-label="algo bot logo" data="img/SVG/algobot.svg"></object>
+                    </div>
+                    <div class="m-auto col-md-7 col-12 text-md-start ps-md-4 transWhiteBG">
+                        <h1 class="display-3 fw-bold mt-4">Trading Bot</h1>
+                        <p class="fs-4">Copy Trades from experts, <br>Tradingview stratrgy to Exchanges,<br>Customize Strategy Hosting</p> 
+                        <a href="pricing.html#tradebot" class="btn btn-primary shadow-sm fw-bold bg-gradient arr-swipe">
+                            Explore Algo Bot
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arr"><use xlink:href="#arrow"></use></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arr"><use xlink:href="#arrow"></use></svg>
+                        </a>
+                    </div>
+                </div>
+            </div> 
+            <div id="techlib_section" class="py-5 hidden">
+                <div class="row py-5">
+                    <div class="m-auto col-md-5 col-12 text-md-start ps-md-4 order-1 order-md-2"> 
+                        <svg style="color:rgba(0,0,0,.9)" width="280" height="280" fill="currentColor" viewbox="100 100 550 550" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M457.12 549.65h-223.2a23.67 23.67 0 0 0-20.504 11.84 23.678 23.678 0 0 0 20.504 35.516h268.36a7.89 7.89 0 0 0 7.895-7.89V557.54H470.71a15.727 15.727 0 0 1-13.594-7.89zm-65.336 31.57h-126.29a7.892 7.892 0 1 1 0-15.785h126.29c4.36 0 7.89 3.535 7.89 7.894s-3.53 7.891-7.89 7.891zm71.039 0h-39.469a7.892 7.892 0 1 1 0-15.785h39.465a7.892 7.892 0 1 1 0 15.785zM226.04 164.34a23.672 23.672 0 0 0-15.785 22.226v355.39a39.383 39.383 0 0 1 15.785-7.285zm15.78-1.45v370.97h31.57v-39.465a7.895 7.895 0 0 1 15.789 0v39.465h15.785v-15.789a7.89 7.89 0 0 1 7.89-7.89 7.892 7.892 0 0 1 7.895 7.89v15.785h71.04v-39.461a7.892 7.892 0 1 1 15.784 0v39.465h47.36v-4.625h-.005a15.905 15.905 0 0 1 4.63-11.164l50.624-50.625a15.91 15.91 0 0 1 11.16-4.625h4.625v-55.25a23.66 23.66 0 0 1-14.105-4.66 23.669 23.669 0 0 1-8.555-12.145 23.679 23.679 0 0 1-16.805-22.66v-39.465a23.66 23.66 0 0 1 4.66-14.105 23.637 23.637 0 0 1 12.145-8.555 23.66 23.66 0 0 1 8.555-12.148 23.684 23.684 0 0 1 14.105-4.656v-55.254h-4.625a15.892 15.892 0 0 1-11.16-4.625l-50.625-50.625a15.903 15.903 0 0 1-4.629-11.16v-4.625h-124.84a9.507 9.507 0 0 0-7.953 4.254l-7.957 11.934a7.853 7.853 0 0 0-1.328 4.375v21.27a13.582 13.582 0 0 1-22.976 9.473l-17.445-17.445h.004a23.492 23.492 0 0 1-6.938-16.715V162.89zm39.465 125.45v-.004c0-3.648 1.27-7.187 3.59-10.004a15.715 15.715 0 0 1 9.14-5.426 23.67 23.67 0 0 0 11.906-6.433 23.65 23.65 0 0 0 6.438-11.902 15.742 15.742 0 0 1 15.438-12.746h96.406c3.652 0 7.187 1.273 10.004 3.593a15.752 15.752 0 0 1 5.43 9.137 23.711 23.711 0 0 0 18.347 18.351 15.706 15.706 0 0 1 12.734 15.43v49.051a15.735 15.735 0 0 1-3.598 10 15.708 15.708 0 0 1-9.136 5.43 23.712 23.712 0 0 0-18.347 18.351 15.741 15.741 0 0 1-5.43 9.141 15.73 15.73 0 0 1-10.004 3.59h-96.406c-3.649 0-7.188-1.27-10.004-3.59a15.715 15.715 0 0 1-5.426-9.14 23.67 23.67 0 0 0-6.434-11.907 23.65 23.65 0 0 0-11.902-6.437 15.742 15.742 0 0 1-12.746-15.438z" />
+                            <path style="color:#f08c00" d="M281.29 180.04c0 2.09.832 4.098 2.313 5.578l13.473 13.473v-15.633a23.583 23.583 0 0 1 3.718-12.672H281.29zm189.43 349.2v12.516h55.25a7.894 7.894 0 0 0 7.894-7.89V478.61h-12.52zm47.35-216.38a7.907 7.907 0 0 1-2.309 5.582 7.894 7.894 0 0 1-5.582 2.313 7.895 7.895 0 0 0-7.894 7.894v39.465c0 2.094.832 4.102 2.312 5.582 1.48 1.477 3.489 2.309 5.582 2.309s4.102.832 5.582 2.312a7.904 7.904 0 0 1 2.309 5.582 7.894 7.894 0 0 0 7.894 7.895h7.895V304.97h-7.894a7.895 7.895 0 0 0-7.895 7.89zm7.9-157.86h-55.25v12.52l50.625 50.625h12.52v-55.25a7.894 7.894 0 0 0-7.894-7.894zM327.86 367.95l96.348.16c1.52-7.562 5.223-14.512 10.656-19.984s12.355-9.226 19.906-10.8l.164-48.939v.004a40.153 40.153 0 0 1-21.703-12.629 39.579 39.579 0 0 1-9.078-17.988l-96.352-.168a39.048 39.048 0 0 1-9.02 18.22 39.642 39.642 0 0 1-21.547 12.565l-.16 48.992a39.048 39.048 0 0 1 18.22 9.02 39.642 39.642 0 0 1 12.565 21.547z" />
+                        </svg>
+                    </div>
+                    <div class="m-auto col-md-7 col-12 text-md-end pe-md-4 order-2 order-md-1 transWhiteBG">
+                        <h1 class="display-3 fw-bold mt-4">Technical Library</h1>
+                        <p class="fs-5">Our technical library is powerful.<br>With a comprehensive set of indicators and strategy,<br>you'll be able to identify market trends and make informed trading decisions,<br>Whether you're a beginner or an experienced pro.</p> 
+                        <a href="/pricing#resources" class="btn btn-primary shadow-sm fw-bold bg-gradient arr-swipe">
+                            Explore Technical Library
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arr"><use xlink:href="#arrow"></use></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arr"><use xlink:href="#arrow"></use></svg>
+                        </a>
+                    </div>
+                </div>
+            </div> 
+            <div id="techsupp_section" class="py-5 hidden">
+                <div class="row py-5">
+                    <div class="col-md-5 col-12 text-md-end pe-md-4"> 
+                        <object width="280" height="280" aria-label="support logo" data="img/SVG/tech_supp.svg"></object>
+                    </div>
+                    <div class="col-md-7 col-12 text-md-start ps-md-4 transWhiteBG">
+                        <h1 class="display-3 fw-bold mt-4">Strategy Develop</h1>
+                        <p class="fs-5">We accept custom orders for strategies or indicators,<br>Talents in various fields are welcome to cooperate.<br><br>We care about user experience, if you have any ideas,<br>Please share your opinion with us.</p>
+                        <a href="#contact" class="btn btn-primary shadow-sm fw-bold bg-gradient arr-swipe">
+                            Contact us
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arr"><use xlink:href="#arrow"></use></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arr"><use xlink:href="#arrow"></use></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+        </div> 
+
+        <div class="py-5 text-center lightGradient_1-0">
+            <div class="pt-5 fs-4 mb-4 fst-italic hidden"> 
+                <span class=" fs-2 fw-bold hiddenFloatUp">
+                    <span class="TCol">"</span>Live Your Life Happier!<span class="TCol">"</span>
+                </span>
+                <br>
+                <p class="hiddenFloatUp">Automate your Trades,<br>Dont just look at Chart.</p>
+                <div class="fs-5 fw-bold hiddenFloatUp"> Justin Lai <span class="fw-bold TCol px-1">/</span> Founder </div>
+            </div>
+        </div>
+
+        <div class="rounded-3 pb-4 bgWhite">
+            <div class="center mb-5">
+                <div class="fs-3 fw-bolder text-deep mb-3">Start Algo Trade Journy.</div> 
+                <a target="_blank" class="signup-btn">
+                    <svg class="arr-l"><use xlink:href="#arrow"/></svg>
+                    <span class="txt">SignUp</span>
+                    <svg class="arr-r"><use xlink:href="#arrow"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div id="contact" class="py-2 bg-light center">
+            <h2 class="fw-bolder my-4">Contact Us</h2>
+            <p id="feedbackrespone" class="text-muted">We care about your feedback, it is an important information to make product better.</p>
+            <div class="w-md-80 m-auto pb-4">
+                <div id="ctf" class="mx-4 p-3 rounded-4">
+                    <div class="input-group pb-2">
+                        <span class="input-group-text">Contact</span>
+                        <input id="a" type="text" class="form-control" placeholder="Email, Telegram ID, Discord ID">
+                    </div>
+                    <div class="input-group pb-2">
+                        <span class="input-group-text">Subject</span>
+                        <input id="b" aria-label="Subject" type="text" class="form-control" placeholder="">
+                    </div>
+                    <textarea id="c" class="form-control" placeholder="Content"></textarea>
+                    <button id="fbsend" type="button" class="btn btn-primary px-4 mt-2">Send</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+<!-- Nav -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="profile" viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/></svg>
+    </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="lang" viewBox="0 0 16 16">
+        <path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z"/><path d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6.066 6.066 0 0 1-.415-.492 1.988 1.988 0 0 1-.94.31z"/>
+    </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="help" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+    </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="dash" viewBox="0 0 24 24" fill="none">
+        <path stroke="#000" stroke-width="1" d="M4 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5ZM14 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V5ZM4 16a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3ZM14 13a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-6Z"/>
+    </symbol>
+</svg>    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="menu" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+    </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="logI" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/><path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+    </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="logO" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/><path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+    </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="home" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
+    </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;" >
+    <symbol id="bot" viewBox="2 2 20 20">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm11-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0ZM10 15.5a.5.5 0 0 1 .5.5v.003l.003.01a.237.237 0 0 0 .036.053.86.86 0 0 0 .27.194c.28.14.7.24 1.191.24.492 0 .912-.1 1.19-.24a.86.86 0 0 0 .271-.194.214.214 0 0 0 .039-.063V16a.5.5 0 0 1 1 0c0 .568-.447.947-.862 1.154-.445.223-1.025.346-1.638.346s-1.193-.123-1.638-.346C9.947 16.947 9.5 16.568 9.5 16a.5.5 0 0 1 .5-.5Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16 5.5v2H8v-2a.5.5 0 0 0-1 0v2H6A2.5 2.5 0 0 0 3.5 10v7A2.5 2.5 0 0 0 6 19.5h12a2.5 2.5 0 0 0 2.5-2.5v-7A2.5 2.5 0 0 0 18 7.5h-1v-2a.5.5 0 0 0-1 0Zm-10 3A1.5 1.5 0 0 0 4.5 10v7A1.5 1.5 0 0 0 6 18.5h12a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 18 8.5H6Z"/>
+    </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="strategy" viewBox="0 0 28 28">
+        <path fill-rule="evenodd" d="M18.44 10.62l5.09-5.09-1.06-1.06-5.09 5.09c-.48.48-1.28.48-1.76 0l-3.18-3.18a2.75 2.75 0 0 0-3.88 0l-5.09 5.09 1.06 1.06 5.09-5.09a1.25 1.25 0 0 1 1.76 0l3.18 3.18a2.75 2.75 0 0 0 3.88 0zM14.25 19v-5h-1.5v5H10l3.5 4 3.5-4h-2.75zM18 18l3.5-4 3.5 4h-2.75v5h-1.5v-5H18z"></path>
+    </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="article" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+        <path fill-rule="evenodd" d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+    </symbol>
+</svg>
+
+<nav>
+    <a href="home.html" class="m-auto col-md-1 col-2" aria-label="home" style="cursor: pointer;">
+        <svg class="px-0" height="40" width="40" viewBox="0 0 300 300" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 10h270l-30 35h-90v50l-5 7.5V215l5 7.5v50L155 285h-10l-10-12.5v-50l5-7.5V102.5l-5-7.5V45H45L15 10z"/>
+            <path d="M50 55h40l40 55v60l-10 10v35l5 7.5V265l-35-45v-55l25-25-65-85zm200 0h-38.333L170 110v60l10.417 10v35L175 222.5V265l35-45v-55l-25-25 65-85z"/>
+        </svg>
+    </a>
+
+    <!-- Mobile -->
+    <a href="home.html" class="d-flex d-md-none navitem border-0">
+        <h3 class="text-white fw-bolder pt-1">xxxTerminal</h3>
+    </a>
+
+    <button id="navBtn" class="d-md-none col-2">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </button>
+    
+    <!-- Desktop -->
+    <a href="dashboard.html" class="d-none d-md-flex navitem"><b class="m-auto">Dashboard</b></a>
+    <a href="pricing.html" class="d-none d-md-flex navitem"><b class="m-auto">Pricing</b></a>
+    <a href="affiliate.html" class="d-none d-md-flex navitem"><b class="m-auto">Affiliate</b></a>
+    <span class="d-none d-lg-flex" style="flex:4"></span>
+    <div class="d-none d-md-flex col-md-2 col-lg-1 text-center">
+        <div class="row">
+            <div class="col-6 navlogo dropdown">
+                <button type="button" aria-label="change language" class="d-block link-dark text-decoration-none dropdown-toggle" id="LangDrop" data-bs-toggle="dropdown">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-top:2px" width="30" height="30px" fill="#fff" ><use xlink:href="#lang"></svg>
+                </button>
+                <ul class="dropdown-menu text-small shadow" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 33px, 0px);border: 1px solid rgb(230,230,230);" data-popper-placement="bottom-end">
+                    <li class="dropdown-item">English</li>
+                    <li class="dropdown-item">中文</li>
+                </ul>
+            </div>
+            <div class="col-6 navlogo dropdown">
+                <button type="button" aria-label="to profile page" class="d-block link-dark text-decoration-none dropdown-toggle" id="ProfDrop" data-bs-toggle="dropdown">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-top:2px" width="30" height="30px" fill="#fff"><use xlink:href="#profile"></svg>
+                </button>
+                <ul class="dropdown-menu text-small shadow" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 33px, 0px);border: 1px solid rgb(230,230,230);" data-popper-placement="bottom-end">
+                        <li class="dropdown-item l2nav_profile" >Profile</li>
+                        <li class="dropdown-item l2nav_affiliate" >Affiliate</li>
+                        <li class="dropdown-item l2nav_help" >Help</li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a href="home.html" class="dropdown-item logout" ><svg xmlns="http://www.w3.org/2000/svg" class="DDlogo" style="fill:#f01e1e"><use xlink:href="#logO"></use></svg>Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="mob-nav" style="height: 0%; padding-top: 0px;">
+    <div class="row">
+        <div class="col-12 px-1">
+            <a href="profile.html" class="card Mnavitem">
+                <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo"><use xlink:href="#profile"></svg>
+                <br>Profile
+            </a>
+        </div>
+        <div class="col-12 row px-1">
+            <div class="col-6">
+                <a href="dashboard.html" class="card Mnavitem">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo"><use xlink:href="#dash"></svg>
+                    <br>Dashboard
+                </a>
+            </div>
+            <div class="col-6">
+                <a href="affiliate.html" class="card Mnavitem">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo"><use xlink:href="#dash"></svg>
+                    <br>Affiliate
+                </a>
+            </div>
+        </div>
+
+        <div class="col-12 row px-1 pt-3 center">
+            <a href="dashboard.html?page=bot" class="col" href="dashboard.html?page=bot">
+                <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block d-md-none" width="22px" height="22px"><use xlink:href="#bot"></use></svg>
+                <p class="text-l2nav text-dark m-0">Trading Bot</p>
+            </a>
+            <a href="dashboard.html?page=techlib" class="col" href="dashboard.html?page=techlib">
+                <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block d-md-none" width="22px" height="22px"><use xlink:href="#strategy"></use></svg>
+                <p class="text-l2nav text-dark m-0">Technical Library</p>
+            </a>
+            <a href="dashboard.html?page=article" class="col" href="dashboard.html?page=article">
+                <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block d-md-none" width="22px" height="22px"><use xlink:href="#article"></use></svg>
+                <p class="text-l2nav text-dark m-0">Articles</p>
+            </a>
+        </div>
+    
+        <hr class="my-3">
+
+        <div class="col-6">
+            <a href="home.html" class="card Mnavitem">
+                <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo"><use xlink:href="#menu"></svg>
+                Home
+            </a>
+        </div>
+        <div class="col-6">
+            <a href="pricing.html" class="card Mnavitem">
+                <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo"><use xlink:href="#menu"></svg>
+                Pricing
+            </a>
+        </div>
+        <div class="col-6">
+            <a href="affiliate.html" class="card Mnavitem">
+                <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo"><use xlink:href="#menu"></svg>
+                Affiliate
+            </a>
+        </div>
+
+        <hr class="my-3">
+        
+        <div class="col-6">
+            <a class="card Mnavitem">
+                <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo" style="fill:#1464dc"><use xlink:href="#lang"></svg>
+                English
+            </a>
+        </div>
+        <div class="col-6">
+            <a class="card Mnavitem">
+                <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo" style="fill:#1464dc"><use xlink:href="#lang"></svg>
+                中文
+            </a>
+        </div>
+
+        <hr class="my-3">
+
+        <div class="col-6">
+            <a class="card Mnavitem">
+                <svg xmlns="http://www.w3.org/2000/svg" class="DDlogo"><use xlink:href="#help"></svg>
+                Help
+            </a>
+        </div>
+
+        <div class="col-6">
+            <a class="logout card Mnavitem"><svg xmlns="http://www.w3.org/2000/svg" class="DDlogo" style="fill:#f01e1e"><use xlink:href="#logO"></svg>logout</a>
+        </div>
+    </div>
+</div>
+<script>
+    // mobile menu
+    window.onload = function(){
+        var mobNav = QS("#navBtn").addEventListener("click", ()=>{
+            let nav = QS(".mob-nav");
+            let btn = QS("#navBtn");
+            if (nav.style.height == "0%" && nav.style.paddingTop == "0px") {
+                if (QS("#secNav") != null){ QS("#secNav").style.zIndex = 10; };
+                btn.classList.add("change");
+                nav.style.height = "100%";
+                nav.style.paddingTop = "10px";
+            } else {
+                btn.classList.remove("change");
+                nav.style.height = "0%";
+                nav.style.paddingTop = "0px";
+                setTimeout(()=>{ if (QS("#secNav") != null){  QS("#secNav").style.zIndex = 10; }; },50);
+            };
+        });
+    }
+</script>
+<!-- Footer -->
+<footer class="d-none d-md-block w-100">
+<div id="foot" class="center bg-black" style="padding-top:3%;margin-top:5%">
+    <a href="#" class="btn btn-light btn-pill float mb-3" style="padding:0.5% 6%">to Top</a>
+    <div class="row">
+        <div class="col mb-3">
+            <a href="home.html" class="text-secondary hovWhite">Home</a><br>
+            <a href="pricing.html" class="text-secondary hovWhite">Pricing</a><br>
+            <a href="dashboard.html" class="text-secondary hovWhite">Dashboard</a><br>
+            <!-- <a class="text-secondary hovWhite" href="<?=base_url($this->lg.'/solution')?>">"solution</a><br> -->
+
+        </div>
+        <div class="col mb-3">
+            <a href="dashboard.html" class="text-secondary hovWhite">Dashboard</a><br>
+            <a href="dashboard.html?page=bot" class="text-secondary hovWhite">Trading Bot</a><br>
+            <a href="dashboard.html?page=techlib" class="text-secondary hovWhite">Article</a><br>
+            <a href="dashboard.html?page=article" class="text-secondary hovWhite">Technical Library</a><br>
+        </div>
+    </div>
+    <div>
+        <a href="#" target="_blank" class="hovOpa" aria-label="telegram">
+            <svg xmlns="http://www.w3.org/2000/svg" height="35" width="35" viewBox="50 50 130 150"><path d="M98 175c-3.9 0-3.2-1.5-4.6-5.2L82 132.2 152.8 88l8.3 2.2-6.9 18.8L98 175z" fill="#c8daea"/><path d="m100 144.4 48.4 35.7c5.5 3 9.5 1.5 10.9-5.1L179 82.2c2-8.1-3.1-11.7-8.4-9.3L55 117.5c-7.9 3.2-7.8 7.6-1.4 9.5l29.7 9.3L152 93c3.2-2 6.2-.9 3.8 1.3L100 144.4z" fill="#fff"/></svg>
+        </a>
+        <a href="#" target="_blank" class="hovOpa" aria-label="discord">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 71 55" fill="#fff"><g clip-path="url(#a)"><path d="M60.105 4.898A58.55 58.55 0 0 0 45.653.415a.22.22 0 0 0-.233.11 40.784 40.784 0 0 0-1.8 3.697c-5.456-.817-10.886-.817-16.23 0-.485-1.164-1.201-2.587-1.828-3.697a.228.228 0 0 0-.233-.11 58.386 58.386 0 0 0-14.451 4.483.207.207 0 0 0-.095.082C1.578 18.73-.944 32.144.293 45.39a.244.244 0 0 0 .093.167c6.073 4.46 11.955 7.167 17.729 8.962a.23.23 0 0 0 .249-.082 42.08 42.08 0 0 0 3.627-5.9.225.225 0 0 0-.123-.312 38.772 38.772 0 0 1-5.539-2.64.228.228 0 0 1-.022-.378 31.17 31.17 0 0 0 1.1-.862.22.22 0 0 1 .23-.03c11.619 5.304 24.198 5.304 35.68 0a.219.219 0 0 1 .233.027c.356.293.728.586 1.103.865a.228.228 0 0 1-.02.378 36.384 36.384 0 0 1-5.54 2.637.227.227 0 0 0-.121.315 47.249 47.249 0 0 0 3.624 5.897.225.225 0 0 0 .249.084c5.801-1.794 11.684-4.502 17.757-8.961a.228.228 0 0 0 .092-.164c1.48-15.315-2.48-28.618-10.497-40.412a.18.18 0 0 0-.093-.084Zm-36.38 32.427c-3.497 0-6.38-3.211-6.38-7.156 0-3.944 2.827-7.156 6.38-7.156 3.583 0 6.438 3.24 6.382 7.156 0 3.945-2.827 7.156-6.381 7.156Zm23.593 0c-3.498 0-6.38-3.211-6.38-7.156 0-3.944 2.826-7.156 6.38-7.156 3.582 0 6.437 3.24 6.38 7.156 0 3.945-2.798 7.156-6.38 7.156Z"></path></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h71v55H0z"></path></clipPath></defs></svg>
+        </a>
+    </div>
+    <p class="white m-0 pt-3 pb-md-1 pb-5">© 2022 xxxTerminal</p>
+</div>
+</footer>
+
+    <!-- scripts -->
+    <script src="js/xxx.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/splide.min.js" ></script>
+    <script src="js/splide_autoscroll.min.js"></script>
+    <script src="js/gradient.min.js"></script>
+    <script>
+        $("#fbsend").click(()=>{
+            $("#ctf").hide().fadeIn();
+            $("#ctf").html("<h3>This is a UI Demo, No feedback was sent.</h3>").attr("class","m-4 p-3 rounded-4 bg-dark text-primary");
+        });
+
+        document.addEventListener( 'DOMContentLoaded', function() {
+            
+            var gradient = new Gradient()
+            gradient.initGradient('#gradient-canvas');
+
+            // Fade in on scroll
+            const observer0 = new IntersectionObserver( (entries) => {entries.forEach( entry => {if ( entry.isIntersecting ) {entry.target.classList.add( 'opaShow' );}});});
+            const Element0 = document.querySelectorAll('.hidden');
+            Element0.forEach( (fade0) => { observer0.observe( fade0 );});
+
+            const observer1 = new IntersectionObserver( (entries) => {entries.forEach( entry => {if ( entry.isIntersecting ) {entry.target.classList.add( 'showFloatDn' );}});});
+            const Element1 = document.querySelectorAll('.hiddenFloatDn');
+            Element1.forEach( (fade1) => { observer1.observe( fade1 );});
+
+            const observer2 = new IntersectionObserver( (entries) => {entries.forEach( entry => {if ( entry.isIntersecting ) {entry.target.classList.add( 'showFloatUp' );}});});
+            const Element2 = document.querySelectorAll('.hiddenFloatUp');
+            Element2.forEach( (fade2) => { observer2.observe( fade2 );});
+
+            // splide slider
+            const splide = new Splide( '.splide',{
+                type   : 'slide',
+                pagination: false,
+                perPage: 4,
+                perMove: 1,
+                breakpoints: { 
+                    768: {
+                        arrows:false,
+                        perPage: 2.1,
+                    },
+                },
+                autoScroll: {
+                    speed: .8,
+                },
+            }).mount(window.splide.Extensions);
+        } );
+    </script>
+</body>
+</html>
