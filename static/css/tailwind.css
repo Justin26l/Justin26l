@@ -1,0 +1,48 @@
+/* @layer theme, base, components, utilities; */
+@import "tailwindcss/theme.css" layer(theme);
+/* @import "tailwindcss/preflight.css" layer(base); */
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@custom-variant dark (&:where(.dark, .dark *));
+svg {
+  fill: currentColor;
+}
+
+@font-face {
+  font-family: 'CharlesWrightBold';
+  src: url('../CharlesWrightBold.ttf') format('opentype');
+}
+
+body {
+  font-family: 'CharlesWrightBold', sans-serif;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  @apply bg-neutral-100 text-black dark:bg-neutral-800 dark:text-white;
+}
+
+a{
+  @apply text-blue-500 dark:text-blue-400;
+  @apply hover:text-blue-700 dark:hover:text-blue-300;
+}
+
+b{
+  @apply underline text-lime-500;
+}
+
+.bg-theme{
+  @apply bg-neutral-100 text-black dark:bg-neutral-800 dark:text-white;
+}
+.bg-invert{
+  @apply dark:bg-neutral-100 dark:text-black bg-neutral-800 text-white;
+}
+
+.splashScreen {
+  @apply fixed w-screen h-screen z-50;
+  @apply bg-neutral-100 text-black dark:bg-neutral-800 dark:text-white;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+.push-center{
+  @apply w-full lg:w-3/4 xl:w-2/3
+}
+

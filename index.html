@@ -1,2 +1,211 @@
-<h1>Hello</h1>
-<a href="https://justin26l.github.io/Justin26l/xxxterminalDemo.html">xxxterminal</a>
+<html>
+
+<head class="dark">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Web Page</title>
+  <link href="static/css/index.css" rel="stylesheet">
+  <style>
+    #splashScreen {
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out, pointer-events 0.5s ease-in-out;
+    }
+
+    #splashScreen.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="m-0">
+  <!-- <div id="splashScreen" class="splashScreen dark flex flex-col justify-center align-middle items-center">
+    <p class="my-2 text-2xl">This is a page about <span class="text-5xl mb-6">Justin Lai</span></p>
+    <p class="text-2xl">A Full-Stack software engineer & UX designer</p>
+  </div> -->
+
+  <header class="flex justify-center gap-4 md:gap-8 py-4 bg-black text-white">
+    <a class="text-white text-lg h-full" href="#about"><b>About Me</b></a>
+    <a class="text-white text-lg h-full" href="#sns"><b>Social Media</b></a>
+    <a class="text-white text-lg h-full" href="#portfolio"><b>Portfolio</b></a>
+    <a class="text-white text-lg h-full" href="#edu"><b>Educations</b></a>
+    <button id="themeToggle" class="toggle-btn">Toggle Light/Dark Mode</button>
+  </header>
+
+  <main class="mt-6 flex flex-col gap-6 items-center">
+
+    <section id="profile" class="push-center">
+      <div class="grid grid-cols-2 2xl:grid-cols-5 gap-4 px-2">
+        <div class="col-span-2 sm:col-span-1 2xl:col-span-2 relative rounded-tl-3xl rounded-sm bg-invert overflow-clip">
+          <img src="static/img/profilePic.png" alt="Justin Lai" class="relative z-30 w-full" />
+          <div aria-label="linksContainer" class="absolute bottom-0 right-0 bg-theme pl-6 pt-6">
+            <div aria-label="invertRadius" class="absolute z-20 bg-invert -top-0 right-0 rounded-br-3xl w-6 h-6"></div>
+            <div aria-label="invertRadius" class="absolute z-20 bg-invert bottom-0 right-14 rounded-br-3xl w-6 h-6"></div>
+            <div aria-label="radiusCover" class="absolute z-20 bg-invert bottom-6 right-6 w-full h-full"></div>
+
+            <div aria-label="linksContainer" class="relative z-30 flex flex-col gap-2 rounded-tl-3xl p-2 bg-theme">
+              <a href="https://www.linkedin.com/in/justin-lai-3b859422a/" target="_blank" rel="noopener noreferrer"
+                class="bg-blue-500 p-2 rounded-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" alt="LinkedIn" class="w-6 h-6 text-white">
+                  <use xlink:href="#linkedin">
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/in/justin26l/" target="_blank" rel="noopener noreferrer"
+                class="bg-neutral-900 dark:bg-neutral-100 p-2 rounded-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" alt="Github" class="w-6 h-6 text-white dark:text-black">
+                  <use xlink:href="#github">
+                </svg>
+              </a>
+              <a href="https://justin-se.gitbook.io/justin-se-docs" target="_blank" rel="noopener noreferrer"
+                class="bg-orange-600 p-2 rounded-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" alt="Gitbook" class="w-6 h-6 text-white ">
+                  <use xlink:href="#gitbook">
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-span-2 sm:col-span-1 2xl:col-span-3 rounded-3xl overflow-clip">
+          <h1 class="mt-8 mb-3 text-7xl lg:text-8xl xl:text-9xl font-extrabold">Justin Lai</h1>
+          <h2 class="mt-0 mb-2"><span class="inline-block rounded-full w-4 h-4 bg-lime-500"></span> Full-Stack Software engineer</h2>
+          <h2 class="mt-0 mb-2"><span class="inline-block rounded-full w-4 h-4 bg-lime-500"></span> UX Designer</h2>
+          <!-- <div class="grid grid-cols-2">
+            <div class="col-span-1 bg-yellow-500">1</div>
+            <div class="col-span-1 bg-green-500">2</div>
+          </div> -->
+        </div>
+      </div>  
+    </section>
+
+    <section id="portfolio" class="w-full flex flex-col items-center">
+      <h1 class="w-full overflow-clip bg-black text-6xl lg:text-8xl py-2" style="white-space: nowrap">
+        <span class="text-lime-400">Portfolio</span> 
+        <span class="text-neutral-400">Portfolio</span> 
+        <span class="text-lime-400">Portfolio</span> 
+        <span class="text-neutral-400">Portfolio</span> 
+        <span class="text-lime-400">Portfolio</span> 
+        <span class="text-neutral-400">Portfolio</span> 
+        <span class="text-lime-400">Portfolio</span> 
+        <span class="text-neutral-400">Portfolio</span> 
+      </h1>
+    </section>
+
+
+    <section id="about" class="w-full flex flex-col items-center">
+      <h1 class="w-full overflow-clip bg-black text-6xl lg:text-8xl py-2" style="white-space: nowrap">
+        <span class="text-lime-400">Journey</span> 
+        <span class="text-neutral-400">Journey</span> 
+        <span class="text-lime-400">Journey</span> 
+        <span class="text-neutral-400">Journey</span> 
+        <span class="text-lime-400">Journey</span> 
+        <span class="text-neutral-400">Journey</span> 
+        <span class="text-lime-400">Journey</span> 
+        <span class="text-neutral-400">Journey</span> 
+      </h1>
+
+      <div class="push-center flex flex-row justify-center gap-4">
+        <!-- Left Pane -->
+        <div class="flex-shrink-0">
+          <p class="text-8xl sticky top-0">20</p>
+        </div>
+        <!-- Right Pane -->
+        <div class="flex-grow text-xl">
+          <div>
+            <p class="bg-theme text-8xl mb-4 sticky top-0">21</p>
+            <p>Start <b>Crypto trading</b> in pendemic, <br/>learn market fundamental & technical analysis for <b>Day trading</b>. <br/>in process of build trading bot using <a class="text-blue-600 after:content-['_↗']" href="...">Python</a></p>
+          </div>
+          <div>
+          <p class="bg-theme text-8xl mb-4 sticky top-0">22</p>
+          <p>start building xxxTerminal, <br /> realise lack off tech skills, <br /> enrol diploma programe at i-tea technology</p>
+          </div>
+          <div>
+            <p class="bg-theme text-8xl mb-4 sticky top-0">23</p>
+            <p>join simit group as a full-stack engineer, <br /> re-build simtrian portal app, <br /> develop simbiz crm</p>
+          </div>
+          <div>
+            <p class="bg-theme text-8xl mb-4 sticky top-0">24</p>
+            <p>build open source project "very express" <br /> develop simit e-invoice, <br /> enrol UX design course</p>
+          </div>
+          <div>
+            <p class="bg-theme text-8xl mb-4 sticky top-0">25</p>
+            <p>Develop visual of this site, reference a lot of colors from Formula1, MotoGP</p>
+            <p>develop Live Tuition app</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <div>
+      <h1>My Projects</h1>
+
+      <h2>Project Name</h2>
+      <h3>personal / company | status</h3>
+
+      <h2>xxxTerminal</h2>
+      <h3>Crypto trading SAAS | Discontinued</h3>
+
+
+      <h2>Very Express</h2>
+      <h3>Open-Source Web App Generator | <a href="https://github.com/Justin26l/VeryExpress">Github</a></h3>
+    </div>
+    <h1>Portfolio</h1>
+    <a href="https://justin26l.github.io/Justin26l/xxxterminalDemo.html">xxxterminal</a>
+  </main>
+
+  <script src="static/js/jquery.min.js"></script>
+  <script>
+    $("#splashScreen").click(() => {
+      $("#splashScreen").addClass("hide");
+    });
+
+    // const themeToggle = document.getElementById('themeToggle');
+    // const htmlElement = document.documentElement;
+
+    // themeToggle.addEventListener('click', () => {
+    //   htmlElement.classList.toggle('dark');
+    // });
+
+    $("#themeToggle").click(() => {
+      $("html").toggleClass("dark");
+    });
+
+  </script>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="linkedin" fill="currentcolor" viewBox="0 0 310 310">
+      <g id="XMLID_801_">
+        <path id="XMLID_802_" d="M72.16,99.73H9.927c-2.762,0-5,2.239-5,5v199.928c0,2.762,2.238,5,5,5H72.16c2.762,0,5-2.238,5-5V104.73
+        C77.16,101.969,74.922,99.73,72.16,99.73z" />
+        <path id="XMLID_803_" d="M41.066,0.341C18.422,0.341,0,18.743,0,41.362C0,63.991,18.422,82.4,41.066,82.4
+        c22.626,0,41.033-18.41,41.033-41.038C82.1,18.743,63.692,0.341,41.066,0.341z" />
+        <path id="XMLID_804_" d="M230.454,94.761c-24.995,0-43.472,10.745-54.679,22.954V104.73c0-2.761-2.238-5-5-5h-59.599
+        c-2.762,0-5,2.239-5,5v199.928c0,2.762,2.238,5,5,5h62.097c2.762,0,5-2.238,5-5v-98.918c0-33.333,9.054-46.319,32.29-46.319
+        c25.306,0,27.317,20.818,27.317,48.034v97.204c0,2.762,2.238,5,5,5H305c2.762,0,5-2.238,5-5V194.995
+        C310,145.43,300.549,94.761,230.454,94.761z" />
+      </g>
+    </symbol>
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="github" viewBox="0 0 20 20">
+      <g id="Page-1" stroke="none" stroke-width="1" fill-rule="evenodd">
+        <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#000000">
+          <g id="icons"  transform="translate(56.000000, 160.000000)">
+            <path fill="currentColor" d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]"></path>
+          </g>
+        </g>
+      </g>
+    </symbol>
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="gitbook" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M10.802 17.77a.703.703 0 1 1-.002 1.406.703.703 0 0 1 .002-1.406m11.024-4.347a.703.703 0 1 1 .001-1.406.703.703 0 0 1-.001 1.406m0-2.876a2.176 2.176 0 0 0-2.174 2.174c0 .233.039.465.115.691l-7.181 3.823a2.165 2.165 0 0 0-1.784-.937c-.829 0-1.584.475-1.95 1.216l-6.451-3.402c-.682-.358-1.192-1.48-1.138-2.502.028-.533.212-.947.493-1.107.178-.1.392-.092.62.027l.042.023c1.71.9 7.304 3.847 7.54 3.956.363.169.565.237 1.185-.057l11.564-6.014c.17-.064.368-.227.368-.474 0-.342-.354-.477-.355-.477-.658-.315-1.669-.788-2.655-1.25-2.108-.987-4.497-2.105-5.546-2.655-.906-.474-1.635-.074-1.765.006l-.252.125C7.78 6.048 1.46 9.178 1.1 9.397.457 9.789.058 10.57.006 11.539c-.08 1.537.703 3.14 1.824 3.727l6.822 3.518a2.175 2.175 0 0 0 2.15 1.862 2.177 2.177 0 0 0 2.173-2.14l7.514-4.073c.38.298.853.461 1.337.461A2.176 2.176 0 0 0 24 12.72a2.176 2.176 0 0 0-2.174-2.174"/>
+    </symbol>
+  </svg>
+
+</body>
+
+</html>
