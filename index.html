@@ -15,6 +15,11 @@
       opacity: 0;
       pointer-events: none;
     }
+
+    .plusGrid{
+      background-image: url("static/SVG/plus.svg");
+      background-repeat: repeat;
+    }
   </style>
 </head>
 
@@ -68,8 +73,8 @@
 
         <div class="col-span-2 sm:col-span-1 2xl:col-span-3 rounded-3xl overflow-clip">
           <h1 class="mt-8 mb-3 text-7xl lg:text-8xl xl:text-9xl font-extrabold">Justin Lai</h1>
-          <h2 class="mt-0 mb-2"><span class="inline-block rounded-full w-4 h-4 bg-lime-500"></span> Full-Stack Software engineer</h2>
-          <h2 class="mt-0 mb-2"><span class="inline-block rounded-full w-4 h-4 bg-lime-500"></span> UX Designer</h2>
+          <h2 class="mt-0 mb-2"><span class="inline-block rounded-full w-4 h-4 bg-main"></span> Full-Stack Software engineer</h2>
+          <h2 class="mt-0 mb-2"><span class="inline-block rounded-full w-4 h-4 bg-main"></span> UX Designer</h2>
           <!-- <div class="grid grid-cols-2">
             <div class="col-span-1 bg-yellow-500">1</div>
             <div class="col-span-1 bg-green-500">2</div>
@@ -78,57 +83,59 @@
       </div>  
     </section>
 
-    <section id="portfolio" class="w-full flex flex-col items-center">
-      <h1 class="w-full overflow-clip bg-black text-6xl lg:text-8xl py-2" style="white-space: nowrap">
-        <span class="text-lime-400">Portfolio</span> 
+    <section id="portfolio" class="bg-neutral-600 plusGrid w-full h-96 flex flex-col items-center">
+      <h1 class="w-full overflow-clip bg-black text-6xl lg:text-8xl mt-0 py-2" style="white-space: nowrap">
+        <span class="text-main">Portfolio</span> 
         <span class="text-neutral-400">Portfolio</span> 
-        <span class="text-lime-400">Portfolio</span> 
+        <span class="text-main">Portfolio</span> 
         <span class="text-neutral-400">Portfolio</span> 
-        <span class="text-lime-400">Portfolio</span> 
+        <span class="text-main">Portfolio</span> 
         <span class="text-neutral-400">Portfolio</span> 
-        <span class="text-lime-400">Portfolio</span> 
+        <span class="text-main">Portfolio</span> 
         <span class="text-neutral-400">Portfolio</span> 
       </h1>
     </section>
 
 
     <section id="about" class="w-full flex flex-col items-center">
-      <h1 class="w-full overflow-clip bg-black text-6xl lg:text-8xl py-2" style="white-space: nowrap">
-        <span class="text-lime-400">Journey</span> 
+      <h1 class="w-full overflow-clip bg-black text-6xl lg:text-8xl mt-0 py-2" style="white-space: nowrap">
+        <span class="text-main">Journey</span> 
         <span class="text-neutral-400">Journey</span> 
-        <span class="text-lime-400">Journey</span> 
+        <span class="text-main">Journey</span> 
         <span class="text-neutral-400">Journey</span> 
-        <span class="text-lime-400">Journey</span> 
+        <span class="text-main">Journey</span> 
         <span class="text-neutral-400">Journey</span> 
-        <span class="text-lime-400">Journey</span> 
+        <span class="text-main">Journey</span> 
         <span class="text-neutral-400">Journey</span> 
       </h1>
 
       <div class="push-center flex flex-row justify-center gap-4">
         <!-- Left Pane -->
         <div class="flex-shrink-0">
-          <p class="text-8xl sticky top-0">20</p>
+          <p class="text-8xl py-4 sticky top-0 border-b">20</p>
         </div>
         <!-- Right Pane -->
         <div class="flex-grow text-xl">
           <div>
-            <p class="bg-theme text-8xl mb-4 sticky top-0">21</p>
-            <p>Start <b>Crypto trading</b> in pendemic, <br/>learn market fundamental & technical analysis for <b>Day trading</b>. <br/>in process of build trading bot using <a class="text-blue-600 after:content-['_↗']" href="...">Python</a></p>
+            <p class="bg-theme text-8xl py-4 sticky top-0 border-b">21</p>
+            <p>Start <b>Crypto trading</b> in pendemic, <br/>
+              Learn <a target="_blank" href="https://www.tradingview.com/pine-script-docs/welcome/">PineScript</a> & technical analysis to build trading bot, <br/>
+              start selling </p>
           </div>
           <div>
-          <p class="bg-theme text-8xl mb-4 sticky top-0">22</p>
+          <p class="bg-theme text-8xl py-4 sticky top-0 border-b">22</p>
           <p>start building xxxTerminal, <br /> realise lack off tech skills, <br /> enrol diploma programe at i-tea technology</p>
           </div>
           <div>
-            <p class="bg-theme text-8xl mb-4 sticky top-0">23</p>
+            <p class="bg-theme text-8xl py-4 sticky top-0 border-b">23</p>
             <p>join simit group as a full-stack engineer, <br /> re-build simtrian portal app, <br /> develop simbiz crm</p>
           </div>
           <div>
-            <p class="bg-theme text-8xl mb-4 sticky top-0">24</p>
+            <p class="bg-theme text-8xl py-4 sticky top-0 border-b">24</p>
             <p>build open source project "very express" <br /> develop simit e-invoice, <br /> enrol UX design course</p>
           </div>
           <div>
-            <p class="bg-theme text-8xl mb-4 sticky top-0">25</p>
+            <p class="bg-theme text-8xl py-4 sticky top-0 border-b">25</p>
             <p>Develop visual of this site, reference a lot of colors from Formula1, MotoGP</p>
             <p>develop Live Tuition app</p>
           </div>
