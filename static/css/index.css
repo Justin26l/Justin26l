@@ -497,6 +497,9 @@
   .text-center {
     text-align: center;
   }
+  .text-left {
+    text-align: left;
+  }
   .text-start {
     text-align: start;
   }
@@ -756,9 +759,9 @@ b {
   transition-duration: 200ms;
   &:hover {
     @media (hover: hover) {
-      --tw-scale-x: 105%;
-      --tw-scale-y: 105%;
-      --tw-scale-z: 105%;
+      --tw-scale-x: 103%;
+      --tw-scale-y: 103%;
+      --tw-scale-z: 103%;
       scale: var(--tw-scale-x) var(--tw-scale-y);
     }
   }

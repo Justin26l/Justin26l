@@ -64,7 +64,7 @@ b{
 
 .portfolio-card {
   @apply relative bg-black p-1;
-  @apply hover:scale-105 hover:shadow-lg transition-transform duration-200;
+  @apply hover:scale-103 hover:shadow-lg transition-transform duration-200;
 }
 
 .portfolio-card-content {
