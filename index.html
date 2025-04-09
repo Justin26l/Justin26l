@@ -75,18 +75,16 @@
           <h1 class="mt-8 mb-3 text-7xl lg:text-8xl xl:text-9xl font-extrabold">Justin Lai</h1>
           <h2 class="mt-0 mb-2"><span class="inline-block rounded-full w-4 h-4 bg-main"></span> Full-Stack Software engineer</h2>
           <h2 class="mt-0 mb-2"><span class="inline-block rounded-full w-4 h-4 bg-main"></span> UX Designer</h2>
-          <!-- <div class="grid grid-cols-2">
-            <div class="col-span-1 bg-yellow-500">1</div>
-            <div class="col-span-1 bg-green-500">2</div>
-          </div> -->
+
+          <p><span class="text-xl">Hi</span>,  yoyo</p>
         </div>
 
       </div>
     </section>
 
-    <section id="portfolio" class="bg-neutral-800 dark:bg-neutral-700 plusGrid w-full flex flex-col items-center">
+    <section id="portfolio" class="bg-neutral-800 dark:bg-neutral-700 w-full flex flex-col items-start overflow-hidden">
       
-      <h1 class="w-full overflow-clip bg-black text-6xl lg:text-8xl mt-0 py-2" style="white-space: nowrap">
+      <h1 class="w-full overflow-clip bg-black text-6xl lg:text-8xl m-0 py-2" style="white-space: nowrap">
         <span class="text-main">Portfolio</span> 
         <span class="text-neutral-400">Portfolio</span> 
         <span class="text-main">Portfolio</span> 
@@ -97,30 +95,31 @@
         <span class="text-neutral-400">Portfolio</span> 
       </h1>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-1 px-12 lg:px-24 pt-12 pb-36">
-
-        <a href="xxxterminalDemo.html">
-          <div class="portfolio-card">
-            <img src="static/img/xxxTerminalPlaceholder.png" alt="xxxTerminal" class="w-full" />
-            <div class="portfolio-card-content">
-              <div class="p-2">
-                <p class="text-2xl">xxxTerminal</p>
-                <p>Crypto trading Saas</p>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <div class="portfolio-card">
-          <img src="static/img/image.png" alt="xxxTerminal" class="w-full" />
-          <div class="portfolio-card-content">
-            <div class="p-2">
-              <p class="text-2xl">xxxTerminal</p>
-              <p>Crypto trading Saas</p>
-            </div>
-          </div>
+      <div id="portfolioItems" posx="0" class="flex flex-col md:flex-row gap-4 p-12 pt-6 pb-20 lg:px-24 text-white">
+        <!-- Portfolio Cards -->
+        <div class="w-[50vw] lg:w-[30vw]">
+          <p class="text-4xl">xxxTerminal.com</p>
+          <p>xxxterminal is a "Algo Trading Bots Platform" (Paas), to let user turn their stetegy into trading bot and run on the platform</p>
+          <img src="static/img/xxxTerminalPlaceholder.png" alt="xxxTerminal" class="w-full" />
         </div>
-
+    
+        <div class="w-[50vw] lg:w-[30vw]">
+          <p class="text-2xl">Title</p>
+          <p>Description</p>
+          <img src="static/img/image.png" alt="xxxTerminal" class="w-full" />
+        </div>
+    
+        <div class="w-[50vw] lg:w-[30vw]">
+          <p class="text-2xl">Title</p>
+          <p>Description</p>
+          <img src="static/img/image.png" alt="xxxTerminal" class="w-full" />
+        </div>
+    
+        <div class="w-[50vw] lg:w-[30vw]">
+          Contact me for work!
+        </div>
+    
+        <!-- Add more portfolio cards as needed -->
       </div>
     </section>
 
@@ -147,12 +146,13 @@
           <div>
             <p class="bg-theme text-8xl py-4 sticky top-0 border-b">21</p>
             <p>Start <b>Crypto trading</b> in pendemic, <br/>
-              Learn <a class="link" target="_blank" href="https://www.tradingview.com/pine-script-docs/welcome/">PineScript</a> & technical analysis to build trading bot, <br/>
-              start selling </p>
+              Learn <a class="link" target="_blank" href="https://www.tradingview.com/pine-script-docs/welcome/">PineScript</a> & technical analysis and start freelancing as trading stetegy & algo bot developer.</p>
           </div>
           <div>
           <p class="bg-theme text-8xl py-4 sticky top-0 border-b">22</p>
-          <p>start building xxxTerminal, <br /> realise lack off tech skills, <br /> enrol diploma programe at i-tea technology</p>
+          <p>start building xxxTerminal, a Platform as a service (PaaS) to reduce the workload from freelance, <br/>
+            it let user run their algo bot on the platform without need of developer setup environment everytime. <br />
+            <br /> realise lack off tech skills, <br /> enrol diploma programe at i-tea technology</p>
           </div>
           <div>
             <p class="bg-theme text-8xl py-4 sticky top-0 border-b">23</p>
@@ -185,8 +185,6 @@
       <h2>Very Express</h2>
       <h3>Open-Source Web App Generator | <a class="link" href="https://github.com/Justin26l/VeryExpress">Github</a></h3>
     </div>
-    <h1>Portfolio</h1>
-    <a href="https://justin26l.github.io/Justin26l/xxxterminalDemo.html">xxxterminal</a>
   </main>
 
   <script src="static/js/jquery.min.js"></script>
@@ -195,17 +193,32 @@
       $("#splashScreen").addClass("hide");
     });
 
-    // const themeToggle = document.getElementById('themeToggle');
-    // const htmlElement = document.documentElement;
-
-    // themeToggle.addEventListener('click', () => {
-    //   htmlElement.classList.toggle('dark');
-    // });
-
     $("#themeToggle").click(() => {
       $("html").toggleClass("dark");
     });
 
+    $("#portfolioItems").on("wheel", function (e) {
+      const target = $("#portfolioItems");
+      if(target.width() <= 640) {
+        return;
+      };
+
+      const scroll = parseInt(e.originalEvent.deltaY);
+      const maxPosX = -target.width() + window.innerWidth;
+      const currentPosX = parseInt(target.attr("posX"));
+      const newPosX = currentPosX - scroll;
+
+      // limit maxPosX to 0 and maxPosX
+      if (newPosX <= maxPosX || newPosX > 0) {
+        return;
+      }
+      else{
+        e.preventDefault(); 
+        location.href = "#portfolio";
+        target.attr("style",`transform: translateX(${newPosX}px);`);
+        target.attr("posX", newPosX);
+      };
+    });
   </script>
 
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
