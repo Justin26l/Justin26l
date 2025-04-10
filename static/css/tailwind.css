@@ -12,6 +12,11 @@ svg {
   font-family: 'CharlesWrightBold';
   src: url('../CharlesWrightBold.ttf') format('opentype');
 }
+
+.font-ariel{
+  font-family: 'Ariel', sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -22,6 +27,10 @@ html{
   box-sizing: border-box;
   transition: background-color 0.5s ease, color 0.5s ease;
   @apply bg-neutral-100 text-black dark:bg-neutral-800 dark:text-white;
+}
+
+body{
+  @apply m-0;
 }
 
 a{
