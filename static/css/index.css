@@ -2,6 +2,7 @@
 @layer properties;
 @layer theme {
   :root, :host {
+    --color-red-700: oklch(50.5% 0.213 27.518);
     --color-red-800: oklch(44.4% 0.177 26.899);
     --color-orange-600: oklch(64.6% 0.222 41.116);
     --color-orange-700: oklch(55.3% 0.195 38.402);
@@ -314,9 +315,6 @@
   }
   .w-full {
     width: 100%;
-  }
-  .flex-1 {
-    flex: 1;
   }
   .flex-shrink-0 {
     flex-shrink: 0;
@@ -866,6 +864,11 @@ b {
 .portfolio-card-content p {
   margin-block: calc(var(--spacing) * 0);
   color: var(--color-white);
+}
+.intro-bar {
+  flex: 1;
+  opacity: 1;
+  transition: all 0.5s ease;
 }
 @property --tw-rotate-x {
   syntax: "*";

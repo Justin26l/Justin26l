@@ -5,25 +5,25 @@
     <title>xxxTerminal Demo</title>
     <link href="static/css/index.css" rel="stylesheet">
 </head>
-<body>
-    <div id="intro" class="flex flex-row h-svh">
-        <div class="flex-1 bg-red-800 h-full"></div>
-        <div class="flex-1 bg-orange-700 h-full"></div>
-        <div class="flex-1 bg-amber-700 h-full"></div>
-        <div class="flex-1 bg-yellow-700 h-full"></div>
-        <div class="flex-1 bg-lime-600 h-full"></div>
-        <div class="flex-1 bg-green-500 h-full"></div>
-        <div class="flex-1 bg-emerald-500 h-full"></div>
-        <div class="flex-1 bg-teal-600 h-full"></div>
-        <div class="flex-1 bg-cyan-600 h-full"></div>
-        <div class="flex-1 bg-sky-600 h-full"></div>
-        <div class="flex-1 bg-blue-600 h-full"></div>
-        <div class="flex-1 bg-indigo-600 h-full"></div>
-        <div class="flex-1 bg-violet-700 h-full"></div>
-        <div class="flex-1 bg-purple-700 h-full"></div>
-        <div class="flex-1 bg-fuchsia-800 h-full"></div>
-        <div class="flex-1 bg-pink-800 h-full"></div>
-        <div class="flex-1 bg-rose-800 h-full"></div>
+<body class="relative">
+    <div id="intro" class="absolute flex flex-row h-svh w-full">
+        <div class="intro-bar bg-red-800 h-full">1</div>
+        <div class="intro-bar bg-orange-700 h-full">1</div>
+        <div class="intro-bar bg-amber-700 h-full">1</div>
+        <div class="intro-bar bg-yellow-700 h-full">1</div>
+        <div class="intro-bar bg-lime-600 h-full">1</div>
+        <div class="intro-bar bg-green-500 h-full">1</div>
+        <div class="intro-bar bg-emerald-500 h-full">1</div>
+        <div class="intro-bar bg-teal-600 h-full">1</div>
+        <div class="intro-bar bg-cyan-600 h-full">1</div>
+        <div class="intro-bar bg-sky-600 h-full">1</div>
+        <div class="intro-bar bg-blue-600 h-full">1</div>
+        <div class="intro-bar bg-indigo-600 h-full">1</div>
+        <div class="intro-bar bg-violet-700 h-full">1</div>
+        <div class="intro-bar bg-purple-700 h-full">1</div>
+        <div class="intro-bar bg-fuchsia-800 h-full">1</div>
+        <div class="intro-bar bg-pink-800 h-full">1</div>
+        <div class="intro-bar bg-rose-800 h-full">1</div>
     </div>
 
     <div>
@@ -95,5 +95,17 @@
             <li>Cloud Services : AWS (EC2, S3, Route53)</li>
             <li>Web Server : Apache Web Server</li>
     </div>
+
+    <script src="static/js/jquery.min.js"></script>
+    <script>
+        $('.intro-bar').each(function(i) {
+            setTimeout(() => {
+                $(this).css("opacity", "0");
+            }, i * 50);
+        });
+        setTimeout(() => {
+            $('#intro').css("display", "none");
+        }, ($('.intro-bar').length * 50) + 200);
+    </script>
 </body>
 </html>
