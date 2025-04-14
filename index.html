@@ -95,7 +95,7 @@
         <span class="text-neutral-400">Portfolio</span> 
       </h1>
 
-      <div id="portfolioItems" posx="0" class="flex flex-col md:flex-row gap-4 p-12 pt-6 pb-20 lg:px-24 text-white">
+      <div id="portfolioItems" posx="0" class="flex flex-col md:flex-row gap-4 overflow-x-scroll p-12 pt-6 pb-20 lg:px-24 text-white">
         <!-- Portfolio Cards -->
         <div class="w-[50vw] lg:w-[30vw]">
           <p class="text-4xl">xxxTerminal.com</p>
@@ -189,6 +189,11 @@
 
   <script src="static/js/jquery.min.js"></script>
   <script>
+    /** convert numbers to positive , simpler for comparison*/
+    function posify(num) {
+      return num <= 0 ? -num : num;
+    }
+    
     $("#splashScreen").click(() => {
       $("#splashScreen").addClass("hide");
     });
@@ -198,12 +203,17 @@
     });
 
     $("#portfolioItems").on("wheel", function (e) {
+
       const target = $("#portfolioItems");
       if(target.width() <= 640) {
         return;
       };
 
-      const scroll = parseInt(e.originalEvent.deltaY);
+      const deltaYmov = posify(e.originalEvent.deltaY);
+      const deltaXmov = posify(e.originalEvent.deltaX);
+      const movement = deltaYmov > deltaXmov ? e.originalEvent.deltaY : e.originalEvent.deltaX;
+
+      const scroll = parseInt(movement);
       const maxPosX = -target.width() + window.innerWidth;
       const currentPosX = parseInt(target.attr("posX"));
       const newPosX = currentPosX - scroll;

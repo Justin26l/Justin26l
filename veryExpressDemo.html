@@ -1,0 +1,92 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xxxTerminal Demo</title>
+    <link href="static/css/index.css" rel="stylesheet">
+</head>
+<body class="relative flex justify-center">
+    <div class="bg-lime-400"></div>
+    <div id="intro" class="absolute flex flex-row h-full w-full">
+        <div class="intro-bar bg-black h-full"></div>
+        <div class="intro-bar bg-black h-full"></div>
+        <div class="intro-bar bg-black h-full"></div>
+        <div class="intro-bar bg-black h-full"></div>
+        <div class="intro-bar bg-black h-full"></div>
+        <div class="intro-bar bg-black h-full"></div>
+        <div class="intro-bar bg-black h-full"></div>
+        <div class="intro-bar bg-black h-full"></div>
+        <div class="intro-bar bg-black h-full"></div>
+        <div class="intro-bar bg-black h-full"></div>
+        <div class="intro-bar bg-black h-full"></div>
+        <div class="intro-bar bg-black h-full"></div>
+        <div class="intro-bar bg-black h-full"></div>
+        <div class="intro-bar bg-black h-full"></div>
+        <div class="intro-bar bg-black h-full"></div>
+        <div class="intro-bar bg-black h-full"></div>
+        <div class="intro-bar bg-black h-full"></div>
+    </div>
+
+    <main class="push-center my-6">
+        <div>
+            <h1>Project: VeryExpress</h1>
+            <table class="table">
+                <tr>
+                    <th>Description</th><td>A Open-source generator to make <a target="_blank" href="https://expressjs.com/">Express.js</a> app with custom REST API defined in Json Schema and Open Api</td>
+                </tr>
+                <tr>
+                    <th>Owner</th><td>Justin Lai (me)</td>
+                </tr>
+                <tr>
+                    <th>Role</th><td>Development Team</td>
+                </tr>
+                <tr>
+                    <th>Website</th><td><a target="_blank" href="https://github.com/Justin26l/VeryExpress">VeryExpress</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <img src="static/img/image.png" alt="veryExpress" class="w-full">
+
+        <div>
+            <h1>Key Features</h1>
+            <ul>
+                <li>Implement industry standard security with OAuth, rolling keys, single-sign-on & Role based access control.</li>
+                <li>Enhance development experience & efficiency by implement Docker, SwaggerUI and OpenAPI.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h1>Technical Stack</h1>
+            <ul>
+                <li>ExpressJs</li>
+                <li>Type Script</li>
+                <li>Java Script</li>
+                <li>Npm Management</li>
+            </ul>
+        </div>
+    </main>
+
+    <script src="static/js/jquery.min.js"></script>
+    <script>
+
+        $('body').addClass("overflow-hidden");
+        
+        $('.intro-bar').each(function(i) {
+            setTimeout(() => {
+                $(this).addClass("!bg-lime-500")
+                setTimeout(() => {
+                    $(this).css("opacity", "0");
+                }, i * 30);
+            }, i * 30);
+        });
+        
+        setTimeout(() => {
+            $('#intro').css("display", "none");
+            $('body').removeClass("overflow-hidden");
+        }, $('.intro-bar').length * 60);
+
+
+    </script>
+</body>
+</html>
