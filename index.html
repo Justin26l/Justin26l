@@ -6,16 +6,6 @@
   <title>My Web Page</title>
   <link href="static/css/index.css" rel="stylesheet">
   <style>
-    #splashScreen {
-      opacity: 1;
-      transition: opacity 0.5s ease-in-out, pointer-events 0.5s ease-in-out;
-    }
-
-    #splashScreen.hide {
-      opacity: 0;
-      pointer-events: none;
-    }
-
     .plusGrid{
       background-image: url("static/SVG/plus.svg");
       background-repeat: repeat;
@@ -24,10 +14,6 @@
 </head>
 
 <body class="m-0">
-  <!-- <div id="splashScreen" class="splashScreen dark flex flex-col justify-center align-middle items-center">
-    <p class="my-2 text-2xl">This is a page about <span class="text-5xl mb-6">Justin Lai</span></p>
-    <p class="text-2xl">A Full-Stack software engineer & UX designer</p>
-  </div> -->
 
   <header class="flex justify-center gap-4 md:gap-8 py-4 bg-black text-white">
     <a class="text-white text-lg h-full" href="#about"><b>About Me</b></a>
@@ -73,16 +59,15 @@
 
         <div class="col-span-2 sm:col-span-1 2xl:col-span-3 rounded-3xl overflow-clip">
           <h1 class="mt-8 mb-3 text-7xl lg:text-8xl xl:text-9xl font-extrabold">Justin Lai</h1>
-          <h2 class="mt-0 mb-2"><span class="inline-block rounded-full w-4 h-4 bg-main"></span> Full-Stack Software engineer</h2>
-          <h2 class="mt-0 mb-2"><span class="inline-block rounded-full w-4 h-4 bg-main"></span> UX Designer</h2>
-
-          <p><span class="text-xl">Hi</span>,  yoyo</p>
+          <h2 class="mt-0 mb-2"><svg class="w-5 h-5 text-main"><use xlink:href="#round2"></svg> Front-end Software engineer</h2>
+          <h2 class="mt-0 mb-2"><svg class="w-5 h-5 text-main"><use xlink:href="#round2"></svg> Back-end Software engineer</h2>
+          <h2 class="mt-0 mb-2"><svg class="w-5 h-5 text-main"><use xlink:href="#round2"></svg> UI UX Designer</h2>
         </div>
 
       </div>
     </section>
 
-    <section id="portfolio" class="bg-neutral-800 dark:bg-neutral-700 w-full flex flex-col items-start overflow-hidden">
+    <section id="portfolio" class="bg-neutral-800 dark:bg-neutral-200 w-full flex flex-col items-start overflow-hidden">
       
       <h1 class="w-full overflow-clip bg-black text-6xl lg:text-8xl m-0 py-2" style="white-space: nowrap">
         <span class="text-main">Portfolio</span> 
@@ -95,39 +80,37 @@
         <span class="text-neutral-400">Portfolio</span> 
       </h1>
 
-      <div id="portfolioItems" posx="0" class="flex flex-col md:flex-row gap-4 overflow-x-scroll p-12 pt-6 pb-20 lg:px-24 text-white">
+      <div id="portfolioItems" posx="0" class="flex flex-col md:flex-row gap-12 overflow-x-scroll p-12 pt-6 pb-20 lg:px-24 text-white dark:text-black">
         <!-- Portfolio Cards -->
-        
-        <div class="w-full md:w-[50vw] lg:w-[30vw] md:h-full align-middle">
-          My Personal Projects
+        <div class="hidden md:block w-full md:w-[50vw] lg:w-[30vw] py-20">
+          <p class="text-3xl">My Works</p>
+          <p class="text-5xl">►►►►►►</p>
         </div>
 
         <div class="w-full md:w-[50vw] lg:w-[30vw]">
-          <p class="text-4xl">xxxTerminal.com</p>
-          <p class="font-ariel">xxxTerminal is a all in one Algo Trading Platform, provide service of trading bot hosting, strategy develop and latest news of markets on the platform.</p>
+          <p class="text-4xl mb-0">xxxTerminal.com</p>
+          <p class="text-lx">Saas, Website Development</p>
+          <p class="font-ariel">Provide algo trading solutions. <br/>let traders manage trading bots in ease, simplify software & infrastructure.</p>
           <a class="link" href="xxxterminalDemo.html">View More</a>
-          <img src="static/img/xxxTerminal.png" alt="xxxTerminal" class="w-full" />
+          <img src="static/img/xxxTerminal.png" alt="xxxTerminal" class="w-full mt-6" />
         </div>
 
         <div class="w-full md:w-[50vw] lg:w-[30vw]">
-          <p class="text-4xl">VeryExpress</p>
-          <p class="font-ariel">A Open-source generator to make <a target="_blank" href="https://expressjs.com/">Express.js</a> app with custom REST API defined in Json Schema and Open Api</p>
+          <p class="text-4xl mb-0">VeryExpress</p>
+          <p class="text-lx">DevTool</p>
+          <p class="font-ariel">A Open-source generator to make Express.js app with custom REST API defined in Json Schema and Open Api</p>
           <a class="link" href="veryExpressDemo.html">View More</a>
-          <img src="static/img/image.png" alt="very express app generator" class="w-full" />
+          <img src="static/img/image.png" alt="very express app generator" class="w-full mt-6" />
         </div>
-    
+        
         <div class="w-full md:w-[50vw] lg:w-[30vw]">
-          <p class="text-2xl">Title</p>
-          <p>Description</p>
-          <img src="static/img/image.png" alt="xxxTerminal" class="w-full" />
+          <p class="text-4xl mb-0">My Portfolio Site <br class="block md:hidden"/>(this page)</p>
+          <p class="text-lx">Website Design</p>
+          <p class="font-ariel">Consider it might go with my whole career, i choose an eternal tech stack, HTML CSS & Jquery </p>
+          <a class="link" href="veryExpressDemo.html">View More</a>
+          <img src="static/img/image.png" alt="very express app generator" class="w-full mt-6" />
         </div>
-    
-        <div class="w-full md:w-[50vw] lg:w-[30vw]">
-          <p class="text-2xl">Title</p>
-          <p>Description</p>
-          <img src="static/img/image.png" alt="xxxTerminal" class="w-full" />
-        </div>
-    
+
         <div class="w-full md:w-[50vw] lg:w-[30vw]">
           Contact me for work!
         </div>
@@ -182,7 +165,6 @@
           </div>
         </div>
       </div>
-
     </section>
 
     <div>
@@ -193,7 +175,6 @@
 
       <h2>xxxTerminal</h2>
       <h3>Crypto trading SAAS | Discontinued</h3>
-
 
       <h2>Very Express</h2>
       <h3>Open-Source Web App Generator | <a class="link" href="https://github.com/Justin26l/VeryExpress">Github</a></h3>
@@ -207,10 +188,6 @@
       return num <= 0 ? -num : num;
     }
     
-    $("#splashScreen").click(() => {
-      $("#splashScreen").addClass("hide");
-    });
-
     $("#themeToggle").click(() => {
       $("html").toggleClass("dark");
     });
@@ -274,6 +251,84 @@
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="gitbook" viewBox="0 0 24 24">
       <path fill="currentColor" d="M10.802 17.77a.703.703 0 1 1-.002 1.406.703.703 0 0 1 .002-1.406m11.024-4.347a.703.703 0 1 1 .001-1.406.703.703 0 0 1-.001 1.406m0-2.876a2.176 2.176 0 0 0-2.174 2.174c0 .233.039.465.115.691l-7.181 3.823a2.165 2.165 0 0 0-1.784-.937c-.829 0-1.584.475-1.95 1.216l-6.451-3.402c-.682-.358-1.192-1.48-1.138-2.502.028-.533.212-.947.493-1.107.178-.1.392-.092.62.027l.042.023c1.71.9 7.304 3.847 7.54 3.956.363.169.565.237 1.185-.057l11.564-6.014c.17-.064.368-.227.368-.474 0-.342-.354-.477-.355-.477-.658-.315-1.669-.788-2.655-1.25-2.108-.987-4.497-2.105-5.546-2.655-.906-.474-1.635-.074-1.765.006l-.252.125C7.78 6.048 1.46 9.178 1.1 9.397.457 9.789.058 10.57.006 11.539c-.08 1.537.703 3.14 1.824 3.727l6.822 3.518a2.175 2.175 0 0 0 2.15 1.862 2.177 2.177 0 0 0 2.173-2.14l7.514-4.073c.38.298.853.461 1.337.461A2.176 2.176 0 0 0 24 12.72a2.176 2.176 0 0 0-2.174-2.174"/>
+    </symbol>
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="dot" viewBox="0 0 100 100" stroke="currentColor">
+      <circle cx="50" cy="50" r="20" fill="currentColor" />
+    </symbol>
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="x1" viewBox="0 0 100 100" stroke="currentColor">
+      <line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="8" />
+      <line x1="0" y1="100" x2="100" y2="0" stroke="currentColor" stroke-width="8" />
+    </symbol>
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="x2" viewBox="0 0 100 100" stroke="currentColor">
+      <line x1="50" y1="0" x2="50" y2="100" stroke="currentColor" stroke-width="8" />
+      <line x1="0" y1="50" x2="100" y2="50" stroke="currentColor" stroke-width="8" />
+    </symbol>
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="round1" viewBox="0 0 100 100" stroke="currentColor">
+      <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="8" />
+    </symbol>
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="round2" viewBox="0 0 100 100" stroke="currentColor">
+      <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="8" />
+      <circle cx="50" cy="50" r="30" fill="currentColor" />
+    </symbol>
+  </svg>
+
+  
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="round3" viewBox="0 0 100 100" stroke="currentColor">
+      <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="8" />
+      <circle cx="50" cy="50" r="20" fill="currentColor" />
+    </symbol>
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="square1" viewBox="0 0 100 100" stroke="currentColor">
+      <rect x="0" y="0" width="100" height="100" fill="none" stroke="currentColor" stroke-width="16" />
+    </symbol>
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="square2" viewBox="0 0 100 100" stroke="currentColor">
+      <rect x="0" y="0" width="100" height="100" fill="none" stroke="currentColor" stroke-width="16" />
+      <line x1="25" y1="25" x2="75" y2="75" stroke="currentColor" stroke-width="8" />
+      <line x1="25" y1="75" x2="75" y2="25" stroke="currentColor" stroke-width="8" />
+    </symbol>
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="square3" viewBox="0 0 100 100" stroke="currentColor">
+      <rect x="0" y="0" width="100" height="100" fill="none" stroke="currentColor" stroke-width="16" />
+      <line x1="50" y1="25" x2="50" y2="75" stroke="currentColor" stroke-width="8" />
+      <line x1="25" y1="50" x2="75" y2="50" stroke="currentColor" stroke-width="8" />
+    </symbol>
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="square4" viewBox="0 0 100 100" stroke="currentColor">
+      <rect x="30" y="30" width="40" height="40" fill="currentColor" />
+      <rect x="0" y="0" width="100" height="100" fill="none" stroke="currentColor" stroke-width="16" />
+    </symbol>
+  </svg>
+  
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="square5" viewBox="0 0 100 100" stroke="currentColor">
+      <circle cx="50" cy="50" r="20" fill="currentColor" />
+      <rect x="0" y="0" width="100" height="100" fill="none" stroke="currentColor" stroke-width="16" />
     </symbol>
   </svg>
 

@@ -39,7 +39,7 @@ a{
 }
 
 b{
-  @apply underline text-blue-600 dark:text-lime-400;
+  @apply text-blue-600 dark:text-lime-400;
 }
 
 th, td {
@@ -67,13 +67,6 @@ th, td {
 
 .link{
   @apply after:content-['_↗'];
-}
-
-.splashScreen {
-  @apply fixed w-screen h-screen z-50;
-  @apply bg-neutral-100 text-black dark:bg-neutral-800 dark:text-white;
-  opacity: 1;
-  transition: opacity 1s ease-out;
 }
 
 .push-center{
