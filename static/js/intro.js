@@ -1,5 +1,7 @@
 // $('body').addClass("overflow-hidden");
 $(document).ready(() => {
+    const isDarkMode = $('html')[0].classList.contains('dark') ?? false;
+    console.log('isDarkMode', isDarkMode);
     const len = $('.intro-bar').length;
 
     let pos = Math.floor(len / 2);
@@ -22,7 +24,7 @@ $(document).ready(() => {
             }
 
             const bar = $('.intro-bar').eq(curr);
-            bar.addClass("!bg-lime-500");
+            bar.addClass(isDarkMode ? "!bg-lime-500" : "!bg-blue-600");
             setTimeout(() => {
                 bar.css("opacity", "0");
             }, i * 20);
