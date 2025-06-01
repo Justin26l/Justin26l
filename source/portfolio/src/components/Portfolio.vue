@@ -29,21 +29,14 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
 const portfolioItems = [
   {
     title: 'xxxTerminal.com',
-    description: 'Saas, Website Development',
+    description: 'Saas, Website',
     details: 'Provide algo trading solutions. let traders manage trading bots in ease, simplify software & infrastructure.',
     link: 'xxxterminalDemo.html',
     image: 'img/xxxTerminal.png'
   },
   {
     title: 'VeryExpress',
-    description: 'DevTool',
-    details: 'A Open-source generator to make Express.js app with custom REST API defined in Json Schema and Open Api',
-    link: 'veryExpressDemo.html',
-    image: 'img/placeholder.png'
-  },
-  {
-    title: 'VeryExpress2',
-    description: 'DevTool',
+    description: 'Developer Tool',
     details: 'A Open-source generator to make Express.js app with custom REST API defined in Json Schema and Open Api',
     link: 'veryExpressDemo.html',
     image: 'img/placeholder.png'

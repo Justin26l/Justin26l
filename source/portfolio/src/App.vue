@@ -3,15 +3,13 @@
   <body class="m-0">
     <Intro />
 
-    <Header />
-
     <main class="mt-6 flex flex-col gap-6 items-center">
 
       <section id="profile" class="push-center">
         <Profile/>
       </section>
 
-      <section id="portfolio" class="bg-neutral-800 dark:bg-neutral-200 w-full flex flex-col gap-6 pb-20 items-start">
+      <section id="portfolio" class="bg-vibrant w-full flex flex-col gap-6 pb-20 items-start">
         <SectionHeader value="Portfolio" />
 
         <div id="portfolioItems" class=" text-white dark:text-black">
@@ -24,12 +22,8 @@
         <Journey />
       </section>
 
-      <section id="contact" class="w-full plus-grid flex justify-center items-center py-20 ">
-        <div class="push-center w-full">
-          <div class="bg-white dark:bg-black border overflow-hidden rounded-md">
-          <Contact />
-          </div>
-        </div>
+      <section id="contact" class="w-full bg-vibrant plus-grid flex justify-center items-center py-20 ">
+        <Contact />
       </section>
 
     </main>
@@ -40,6 +34,12 @@
 </template>
 
 <style scoped>
+@reference "./assets/css/tailwind.css";
+
+.bg-vibrant{
+  @apply bg-neutral-800 dark:bg-neutral-200;
+}
+
 .plus-grid {
   background-image: url("./assets/SVG/plus.svg");
   background-repeat: repeat;
