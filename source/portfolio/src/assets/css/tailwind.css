@@ -3,6 +3,9 @@
 /* @import "tailwindcss/preflight.css" layer(base); */
 @import "tailwindcss/utilities.css" layer(utilities);
 
+@import '@splidejs/vue-splide/css';
+
+
 @custom-variant dark (&:where(.dark, .dark *));
 svg {
   fill: currentColor;
@@ -10,7 +13,7 @@ svg {
 
 @font-face {
   font-family: 'CharlesWrightBold';
-  src: url('../CharlesWrightBold.ttf') format('opentype');
+  src: url('/CharlesWrightBold.ttf') format('opentype');
 }
 
 .font-ariel{
@@ -46,6 +49,9 @@ th, td {
   @apply text-left align-top;
 }
 
+img {
+  @apply rounded-md overflow-hidden;
+}
 
 .text-main{
   @apply text-blue-500 dark:text-lime-400;
