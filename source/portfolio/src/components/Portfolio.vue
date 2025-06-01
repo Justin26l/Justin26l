@@ -32,21 +32,21 @@ const portfolioItems = [
     description: 'Saas, Website Development',
     details: 'Provide algo trading solutions. let traders manage trading bots in ease, simplify software & infrastructure.',
     link: 'xxxterminalDemo.html',
-    image: '/img/xxxTerminal.png'
+    image: 'img/xxxTerminal.png'
   },
   {
     title: 'VeryExpress',
     description: 'DevTool',
     details: 'A Open-source generator to make Express.js app with custom REST API defined in Json Schema and Open Api',
     link: 'veryExpressDemo.html',
-    image: '/img/placeholder.png'
+    image: 'img/placeholder.png'
   },
   {
     title: 'VeryExpress2',
     description: 'DevTool',
     details: 'A Open-source generator to make Express.js app with custom REST API defined in Json Schema and Open Api',
     link: 'veryExpressDemo.html',
-    image: '/img/placeholder.png'
+    image: 'img/placeholder.png'
   }
 ];
 </script>
