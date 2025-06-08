@@ -1,0 +1,98 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xxxTerminal Demo</title>
+    <link href="src/assets/css/tailwind.css" rel="stylesheet">
+</head>
+<body class="flex justify-center">
+    <main class="push-center my-6">
+        <div>
+            <h1>Project: xxxTerminal.com</h1>
+            <table class="table text-left">
+                <tr>
+                    <th>Description</th><td>: Crypto Trading Software as a Service (Saas)</td>
+                </tr>
+                <tr>
+                    <th>Site</th><td>: <a class="link" target="_blank" href="/Justin26l/sites/xxxterminal/home.html">Visit Demo Site</a></td>
+                </tr>
+                <tr>
+                    <th>Owner</th><td>: Justin Lai (me)</td>
+                </tr>
+                <tr>
+                    <th>My Role</th><td>: Software Engineer, Marketer</td>
+                </tr>
+            </table>
+        </div>
+
+        <img src="public/img/xxxTerminal.png" alt="xxxTerminal" class="w-full">
+
+        <div>
+            <h1>Overview:</h1>
+            <p>
+                xxxTerminal.com provide algo trading solution aimed at cryptocurrency traders. <br>
+                The platform provide a graphical interface to manage a trading bots, make traders to deal with software & infrastructure in ease. 
+            </p>
+        </div>
+
+        <div>
+            <h1>Key Features:</h1>
+            <ul>
+                
+                <li>Cloud Infrastructure Deployment
+                    <ul>
+                        <li>Deployed LAMP stack (Linux, Apache, MySQL, PHP) on Amazon Web Services.</li>
+                        <li>Utilized AWS services including : 
+                            <ul>
+                                <li>EC2 for PHP compute & Mysql database instances</li>
+                                <li>S3 for store images & DB backups</li>
+                                <li>Cloudfront for CDN network.</li>
+                            </ul>
+                    </ul>
+                </li>
+
+                <li>Security Implementation
+                    <ul>
+                        <li><b>Short-lived tokens</b> to minimizing the damage if credentials leaks.</li>
+                        <li><a target="_blank" href="https://en.wikipedia.org/wiki/Time-based_one-time_password" class="link">Time-based One-time-password</a> as Two-Factor Authentication to secure critical actions.</li>
+                        <li><b>Email security notice</b> with self-hosted SMTP server for enhanced security.</li>
+                    </ul>
+                </li>
+
+                <li>Content Management & Internationalization
+                    <ul>
+                        <li><b>Content Management System (CMS)</b> module developed to manage platform content (e.g., articles, faq, resources).</li>
+                        <li><b>Automatic language translation</b> achieve through Google Cloud Translation API, make contents accessible to global audience.</li>
+                    </ul>
+                </li>
+
+                <li>User Acquisition & Growth
+                    <ul>
+                        <li><b>Referral / Affiliate Program</b> to incentivize user growth.</li>
+                        <li>Offer <b>Commission-based rewards</b> to who bring new subscribers.</li>
+                    </ul>
+                </li>
+
+                <li>Trading Bot Kernel
+                    <ul>
+                        <li>Writen in TypeScript, running on NodeJs, with multi threading (worker threads) design</li>
+                        <li>handle data stream from exchange's web socket</li>
+                        <li></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <h1>Technology Stack</h1>
+            <p>LAMP Stack:</p>
+            <ul>
+                <li>Backend : PHP, Codeignitor</li>
+                <li>Frontend : Bootstrap, jQuery</li>
+                <li>Database : MariaDB</li>
+                <li>Web Server : Apache</li>
+                <li>Cloud Services : AWS (EC2, S3, Route53, Cloudfront)</li>
+        </div>
+    </main>
+</body>
+</html>
