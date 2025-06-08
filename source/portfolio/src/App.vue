@@ -1,10 +1,9 @@
 <template>
 
   <body class="m-0">
-    <Intro />
-
     <main class="flex flex-col items-center">
-      
+      <Intro />
+
       <!-- <Fancy class="w-full flex justify-center"> -->
         <section id="profile" class="my-6 push-center">
           <Profile/>
@@ -50,12 +49,10 @@
 
 <script setup lang="ts">
 import Contact from './components/Contact.vue';
-import Fancy from './components/fancy.vue';
 import Intro from './components/Intro.vue';
 import Journey from './components/Journey.vue';
 import Portfolio from './components/Portfolio.vue';
 import Profile from './components/Profile.vue';
 import SectionHeader from './components/SectionHeader.vue';
 import Svgs from './components/svgs.vue';
-import Waves from './components/Waves.vue';
 </script>
