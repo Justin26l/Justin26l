@@ -3,11 +3,13 @@
   <body class="m-0">
     <Intro />
 
-    <main class="mt-6 flex flex-col gap-6 items-center">
-
-      <section id="profile" class="push-center">
-        <Profile/>
-      </section>
+    <main class="flex flex-col items-center">
+      
+      <!-- <Fancy class="w-full flex justify-center"> -->
+        <section id="profile" class="my-6 push-center">
+          <Profile/>
+        </section>
+      <!-- </Fancy> -->
 
       <section id="portfolio" class="bg-vibrant w-full flex flex-col gap-6 pb-20 items-start">
         <SectionHeader value="Portfolio" />
@@ -17,7 +19,7 @@
         </div>
       </section>
 
-      <section id="about" class="w-full flex flex-col items-center">
+      <section id="about" class="w-full flex flex-col items-center pb-6">
         <SectionHeader value="Journey" />
         <Journey />
       </section>
@@ -48,11 +50,12 @@
 
 <script setup lang="ts">
 import Contact from './components/Contact.vue';
-import Header from './components/Header.vue';
+import Fancy from './components/fancy.vue';
 import Intro from './components/Intro.vue';
 import Journey from './components/Journey.vue';
 import Portfolio from './components/Portfolio.vue';
 import Profile from './components/Profile.vue';
 import SectionHeader from './components/SectionHeader.vue';
 import Svgs from './components/svgs.vue';
+import Waves from './components/Waves.vue';
 </script>

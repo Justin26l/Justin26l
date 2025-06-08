@@ -42,7 +42,7 @@ a{
 }
 
 b{
-  @apply text-blue-600 dark:text-lime-400;
+  @apply text-blue-900 dark:text-lime-400;
 }
 
 th, td {

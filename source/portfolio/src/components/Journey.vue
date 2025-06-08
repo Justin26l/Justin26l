@@ -8,7 +8,7 @@
     <div class="flex-grow text-xl">
       <div>
         <p class="year-title bg-theme">21</p>
-        <p>Start <b>Crypto trading</b> in pendemic, <br />
+        <p>Start <b>Crypto trading</b> in pendemic, <br/>
           Learn <a class="link" target="_blank"
             href="https://www.tradingview.com/pine-script-docs/welcome/">PineScript</a> & technical analysis and
           start freelancing on <a class="link" target="_blank" href="https://www.fiverr.com/justin26l">fiverr</a> as
@@ -16,24 +16,32 @@
       </div>
       <div>
         <p class="year-title bg-theme">22</p>
-        <p>start building xxxTerminal, <br />it is a Platform as a service (PaaS) to reduce the workload from my
-          freelance jobs,
-          it let trader setup their trading strategy without need of developer setup environment everytime, kinda
-          like wrodpress of trading bot.
-          <br />
-          <br /> realise im lack of technical skills such as cyber security, load balancing & scaling, <br /> so i
-          enrol a diploma programe specificly for web development at i-tea technology, a software house in malaysia.
-          <br />
+        <p>
+          start building xxxTerminal, a Software as a service (SaaS) to speed up trading bots deployment,
+          also open opportunity to let traders setup own trading strategy without programming skills,<br/> 
+          realising im lack of tech skills to run a public faced pro
+          i enrol a Web Programming Course at <a class="link" target="_blank" href="https://i-tea.com.my/en">i-tea technology</a>. with <a class="link" target="_blank" href="https://drive.google.com/file/d/1iBTnXq9UQvQpk43OCPqZ-ly5S8fybnE7/view?usp=sharing">Diploma Certifiacte</a>
+          <br/>
         </p>
       </div>
       <div>
         <p class="year-title bg-theme">23</p>
-        <p>join simit group as a full-stack engineer, <br /> re-build simtrian portal app, <br /> develop simbiz crm
+        <p>
+          Join <a class="link" target="_blank" href="https://simitgroup.com/">SIMIT GROUP</a> as Full-Stack Engineer, a ERP Solution provider.
+          <li>maintaining simbiz & simtrain ERP software updates</li>
+          <li>re-build simtrian portal, a mobile hybrid(webview) app</li>
+          <li>Join the development of Simbiz CRM</li>
         </p>
       </div>
       <div>
         <p class="year-title bg-theme">24</p>
-        <p>build open source project "very express" <br /> develop simit e-invoice, <br /> enrol UX design course
+        <p> 
+          <li>start working on side project, build open source project "very express"</li>
+          <br/> 
+          Meanwhile in SIMIT Group,<br/> <br/> 
+          <li>Join development of simit e-invoicing system, an api service enables high volume invoice submission to LHDN (Inland Revenue Board of Malaysia) system</li>
+          <li>Design UI & UX of MC Plus mobile app project</li>
+          <li>Enrol Google UX design course. <a class="link" target="_blank" href="https://drive.google.com/file/d/1iBTnXq9UQvQpk43OCPqZ-ly5S8fybnE7/view?usp=sharing">Certificate</a></li>
         </p>
       </div>
     </div>

@@ -1,16 +1,8 @@
 <template>
-  <div
-    id="intro"
-    class="z-100 fixed flex flex-row h-full w-full"
-    v-show="showIntro"
-  >
-    <div
-      v-for="(bar, i) in bars"
-      :key="i"
-      class="intro-bar bg-neutral-100 dark:bg-black h-full transition-all ease-in-out"
-      :class="bar.colorClass"
-      :style="{ opacity: bar.opacity, transitionDelay: '150ms'}"
-    ></div>
+  <div id="intro" class="z-100 fixed flex flex-row h-full w-full" v-show="showIntro">
+    <div v-for="(bar, i) in bars" :key="i"
+      class="intro-bar bg-neutral-100 dark:bg-black h-full transition-all ease-in-out" :class="bar.colorClass"
+      :style="{ opacity: bar.opacity, transitionDelay: '150ms' }"></div>
   </div>
 </template>
 
@@ -45,17 +37,17 @@ onMounted(async () => {
 
   for (let i = 0; i < len; i++) {
     setTimeout(() => {
-      
+
       if (i === 0) {
         curr = neg;
       } else if (i % 2 === 0) {
         pos += 1;
         curr = pos;
-                console.log('pos', curr);
+        // console.log('pos', curr);
       } else {
         neg -= 1;
         curr = neg;
-                console.log('neg', curr);
+        // console.log('neg', curr);
       }
 
       // Set color class

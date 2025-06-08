@@ -1,4 +1,5 @@
 <template>
+
   <div class="grid grid-cols-2 2xl:grid-cols-5 gap-4 px-2">
     <div class="flex items-end col-span-2 sm:col-span-1 2xl:col-span-2 relative rounded-md bg-invert overflow-clip">
       <img src="/img/profilePic.png" alt="Justin Lai" class="relative z-30 w-full" />
