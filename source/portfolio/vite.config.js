@@ -19,6 +19,17 @@ export default defineConfig({
   },
   base: 'Justin26l/sites/portfolio/',
   build: {
-    outDir: '../../sites/portfolio', // Change 'dist' to your desired directory, e.g. 'build' or '../dist'
+    outDir: '../../sites/portfolio',
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          // Only rename CSS files, leave others (like images/fonts) as default
+          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            return 'assets/css/style.css'
+          }
+          return assetInfo.name ? assetInfo.name : '[name][extname]'
+        }
+      }
+    }
   },
 })

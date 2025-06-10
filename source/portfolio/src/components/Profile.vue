@@ -57,7 +57,7 @@
 </template>
 
 <style scoped>
-@reference "../assets/css/tailwind.css";
+@reference "../assets/css/style.css";
 .button-sns{
   @apply gap-2 flex items-center px-4 py-2 rounded-md !text-white no-underline;
 }

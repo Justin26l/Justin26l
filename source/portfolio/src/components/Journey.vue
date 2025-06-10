@@ -49,7 +49,7 @@
 </template>
 
 <style scoped>
-@reference "./../assets/css/tailwind.css";
+@reference "./../assets/css/style.css";
 .year-title {
   @apply text-5xl py-2 sticky top-0 border-b;
   @apply lg:text-8xl lg:py-4;

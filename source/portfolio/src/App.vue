@@ -35,7 +35,7 @@
 </template>
 
 <style scoped>
-@reference "./assets/css/tailwind.css";
+@reference "./assets/css/style.css";
 
 .bg-vibrant{
   @apply bg-neutral-800 dark:bg-neutral-200;
