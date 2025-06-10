@@ -16,7 +16,7 @@
         <p class="font-ariel">{{ item.details }}</p>
         <a class="link" :href="item.link">View More</a>
         <a :href="item.link">
-          <img :src="item.image" alt="xxxTerminal" class="w-full mt-6" />
+          <img :src="item.image" alt="xxxTerminal" class="mt-6 w-full transition-all duration-200 ease-in-out hover:-translate-y-2 hover:shadow-[0_0_12px_4px_rgba(0,0,0,0.15)]" />
         </a>
       </div>
     </SplideSlide>
