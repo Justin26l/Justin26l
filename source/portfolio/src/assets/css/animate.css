@@ -1,0 +1,27 @@
+@keyframes flow-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flow-in {
+  animation: flow-in 0.5s ease-out;
+  animation-fill-mode: forwards;
+}
+
+.ani-delay-500 {
+  animation-delay: 500ms;
+}
+
+.ani-delay-1000 {
+  animation-delay: 1000ms;
+} 
+
+.ani-delay-1500 {
+  animation-delay: 1500ms;
+}

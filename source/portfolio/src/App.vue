@@ -2,7 +2,7 @@
 
   <body class="m-0">
     <main class="flex flex-col items-center">
-      <Intro />
+      <!-- <Intro /> -->
 
       <!-- <Fancy class="w-full flex justify-center"> -->
         <section id="profile" class="my-6 push-center">
