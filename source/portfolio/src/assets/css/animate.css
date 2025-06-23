@@ -18,8 +18,12 @@
   animation-delay: 500ms;
 }
 
-.ani-delay-1000 {
-  animation-delay: 1000ms;
+.ani-delay-800 {
+  animation-delay: 800ms;
+} 
+
+.ani-delay-1100 {
+  animation-delay: 1100ms;
 } 
 
 .ani-delay-1500 {

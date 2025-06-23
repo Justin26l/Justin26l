@@ -4,11 +4,9 @@
     <main class="flex flex-col items-center">
       <!-- <Intro /> -->
 
-      <!-- <Fancy class="w-full flex justify-center"> -->
-        <section id="profile" class="my-6 push-center">
-          <Profile/>
-        </section>
-      <!-- </Fancy> -->
+      <section id="profile" class="w-svw h-svh bg-neutral-800">
+        <Profile/>
+      </section>
 
       <section id="portfolio" class="bg-vibrant w-full flex flex-col gap-6 pb-20 items-start">
         <SectionHeader value="Portfolio" />

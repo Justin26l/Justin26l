@@ -1,3 +1,4 @@
+@config "../../tailwind.config.js";
 /* @layer theme, base, components, utilities; */
 @import "tailwindcss/theme.css" layer(theme);
 /* @import "tailwindcss/preflight.css" layer(base); */
@@ -31,7 +32,7 @@ html{
   font-family: 'CharlesWrightBold', sans-serif;
   box-sizing: border-box;
   transition: background-color 0.5s ease, color 0.5s ease;
-  @apply bg-neutral-100 text-black dark:bg-neutral-800 dark:text-white;
+  @apply bg-neutral-100 text-black;
 }
 
 body{
@@ -42,40 +43,24 @@ section{
   @apply w-full;
 }
 
-a{
-  @apply text-blue-500 dark:text-blue-400;
-  @apply hover:text-blue-700 dark:hover:text-blue-300;
-}
-
-b{
-  @apply text-blue-900 dark:text-lime-400;
-}
-
 th, td {
   @apply text-left align-top;
+}
+
+
+a {
+  @apply text-green-700 transition-colors duration-150;
+  @apply hover:text-green-500 ;
+}
+
+b {
+  @apply text-lime-600;
 }
 
 img {
   @apply rounded-md overflow-hidden;
 }
 
-.text-main{
-  @apply text-blue-500 dark:text-lime-400;
-}
-.bg-main{
-  @apply bg-blue-500 dark:bg-lime-400;
-}
-
-.bg-theme{
-  @apply bg-neutral-100 text-black dark:bg-neutral-800 dark:text-white;
-}
-.bg-invert{
-  @apply dark:bg-neutral-100 dark:text-black bg-neutral-800 text-white;
-}
-
-.text-invert{
-  @apply text-neutral-100 dark:text-neutral-800;
-}
 
 .link{
   @apply after:content-['_↗'];
@@ -85,7 +70,7 @@ img {
   @apply w-full lg:w-5/6 xl:w-3/4
 }
 
-.portfolio-card {
+/* .portfolio-card {
   @apply relative bg-black p-1;
   @apply hover:scale-103 hover:shadow-lg transition-transform duration-200;
 }
@@ -98,7 +83,7 @@ img {
 
 .portfolio-card-content p{
   @apply my-0 text-white;
-}
+} */
 
 .intro-bar{
   flex: 1;
