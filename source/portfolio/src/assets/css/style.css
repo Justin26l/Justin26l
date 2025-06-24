@@ -7,6 +7,7 @@
 @import '@splidejs/vue-splide/css';
 
 @import './animate.css';
+@import './customize.css';
 
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -17,6 +18,11 @@ svg {
 @font-face {
   font-family: 'CharlesWrightBold';
   src: url('/CharlesWrightBold.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'audiowide';
+  src: url('/Audiowide-Regular.ttf') format('opentype');
 }
 
 .font-ariel{
@@ -61,31 +67,11 @@ img {
   @apply rounded-md overflow-hidden;
 }
 
-
-.link{
-  @apply after:content-['_↗'];
+.font-audiowide {
+  font-family: 'audiowide', sans-serif;
 }
 
-.push-center{
-  @apply w-full lg:w-5/6 xl:w-3/4
-}
-
-/* .portfolio-card {
-  @apply relative bg-black p-1;
-  @apply hover:scale-103 hover:shadow-lg transition-transform duration-200;
-}
-
-.portfolio-card-content {
-  @apply absolute bottom-0 w-full ;
-  background: rgb(0,0,0);
-  background: linear-gradient(90deg, rgba(0,0,0, 1) 0%, rgba(0,0,0,0.85) 60%, rgba(255,255,255,0) 100%);
-}
-
-.portfolio-card-content p{
-  @apply my-0 text-white;
-} */
-
-.intro-bar{
+.intro-bars{
   flex: 1;
   opacity: 1;
   transition: all 0.5s ease;

@@ -1,12 +1,28 @@
-@keyframes flow-in {
+@keyframes flow-up {
   0% {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(100%);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes flow-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.flow-up {
+  animation: flow-up 0.5s ease-out;
+  animation-fill-mode: forwards;
 }
 
 .flow-in {
@@ -28,4 +44,12 @@
 
 .ani-delay-1500 {
   animation-delay: 1500ms;
+}
+
+.ani-delay-1600 {
+  animation-delay: 1600ms;
+}
+
+.ani-delay-1700 {
+  animation-delay: 1700ms;
 }

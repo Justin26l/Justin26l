@@ -8,12 +8,10 @@
         <Profile/>
       </section>
 
-      <section id="portfolio" class="bg-vibrant w-full flex flex-col gap-6 pb-20 items-start">
-        <SectionHeader value="Portfolio" />
+      <BridgeTop/>
 
-        <div id="portfolioItems" class=" text-white dark:text-black">
-          <Portfolio class="w-full" />
-        </div>
+      <section id="portfolio" class="bg-vibrant w-full flex flex-col gap-6 pb-20 items-start">
+        <Portfolio />
       </section>
 
       <section id="about" class="w-full flex flex-col items-center pb-6">
@@ -46,6 +44,7 @@
 </style>
 
 <script setup lang="ts">
+import BridgeTop from './components/BridgeTop.vue';
 import Contact from './components/Contact.vue';
 import Intro from './components/Intro.vue';
 import Journey from './components/Journey.vue';

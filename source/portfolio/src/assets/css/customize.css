@@ -1,0 +1,27 @@
+
+.link{
+  @apply after:content-['_↗'];
+}
+
+.push-center{
+  @apply w-full lg:w-5/6 xl:w-3/4
+}
+
+.icon { 
+  @apply w-6 h-6;
+  @apply md:w-8 md:h-8;
+  @apply lg:w-8 lg:h-8;
+}
+
+.icon-container {
+  @apply flex justify-center items-center rounded-md p-2;
+  @apply transition-colors duration-300 ease-in-out;
+}
+
+.heading {
+  @apply text-4xl lg:text-5xl;
+}
+
+.heading-lg {
+  @apply text-7xl lg:text-8xl;
+}
