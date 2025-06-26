@@ -15,7 +15,6 @@
       </section>
 
       <section id="about" class="w-full flex flex-col items-center pb-6">
-        <SectionHeader value="Journey" />
         <Journey />
       </section>
 
