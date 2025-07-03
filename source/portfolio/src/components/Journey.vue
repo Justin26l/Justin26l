@@ -1,6 +1,6 @@
 <template>
   <div class="bg-neutral-800 w-full flex flex-col justify-center">
-    <h1 class="heading-lg font-audiowide text-primary-500 ps-12">Journey</h1>
+    <h1 class="heading-lg heading-padding font-audiowide text-primary-500">Journey</h1>
 
     <div class="w-full flex flex-row justify-center text-neutral-300">
       <!-- Left Pane -->

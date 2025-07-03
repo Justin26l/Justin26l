@@ -19,9 +19,13 @@
 }
 
 .heading {
-  @apply text-4xl lg:text-5xl;
+  @apply text-3xl md:text-4xl lg:text-5xl;
 }
 
 .heading-lg {
-  @apply text-7xl lg:text-8xl;
+  @apply text-6xl md:text-7xl lg:text-8xl;
+}
+
+.heading-padding {
+  @apply ps-4 md:ps-8 lg:ps-12;
 }

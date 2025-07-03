@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-neutral-100 w-full flex flex-col justify-center pb-20">
-    <h1 class="heading-lg font-audiowide ps-12">Portfolio</h1>
+  <div class="bg-neutral-100 w-full flex flex-col gap-12 justify-center pb-20">
+    <h1 class="heading-lg heading-padding font-audiowide">Portfolio</h1>
 
     <div v-for="item in portfolioItems" class="flex flex-col md:flex-row md:justify-center w-full px-4 lg:px-8 xl:px-16">
       <div class="flex-1 flex justify-end">

@@ -1,62 +1,20 @@
-<svg width="960" height="144" viewBox="0 0 960 144" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 960 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 912 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 864 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 816 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 768 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 720 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 672 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 624 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 576 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 528 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 480 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 432 144)" fill="#9AE600"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 384 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 336 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 288 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 240 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 192 144)" fill="#9AE600"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 144 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 96 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 48 144)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 960 96)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 912 96)" fill="#9AE600"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 864 96)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 816 96)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 768 96)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 720 96)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 672 96)" fill="#9AE600"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 624 96)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 576 96)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 528 96)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 480 96)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 432 96)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 384 96)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 336 96)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 288 96)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 240 96)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 192 96)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 144 96)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 96 96)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 48 96)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 960 48)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 912 48)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 864 48)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 816 48)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 768 48)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 720 48)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 672 48)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 624 48)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 576 48)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 528 48)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 480 48)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 432 48)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 384 48)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 336 48)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 288 48)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 240 48)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 192 48)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 144 48)" fill="#F4F5F8"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 96 48)" fill="#222428"/>
-<rect width="48" height="48" transform="matrix(-1 0 0 -1 48 48)" fill="#F4F5F8"/>
+<svg viewBox="0 0 960 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#262626" d="M960 144h-48V96h48zm-48 0h-48V96h48zm-48 0h-48V96h48zm-48 0h-48V96h48zm-48 0h-48V96h48zm-48 0h-48V96h48zm-48 0h-48V96h48zm-48 0h-48V96h48zm-48 0h-48V96h48zm-48 0h-48V96h48zm-48 0h-48V96h48z"/>
+  <path fill="#9AE600" d="M432 144h-48V96h48z"/>
+  <path fill="#262626" d="M384 144h-48V96h48zm-48 0h-48V96h48zm-48 0h-48V96h48zm-48 0h-48V96h48z"/>
+  <path fill="#9AE600" d="M192 144h-48V96h48z"/>
+  <path fill="#262626" d="M144 144H96V96h48zm-48 0H48V96h48zm-48 0H0V96h48zm912-48h-48V48h48z"/>
+  <path fill="#9AE600" d="M912 96h-48V48h48z"/>
+  <path fill="#262626" d="M864 96h-48V48h48zm-48 0h-48V48h48zm-48 0h-48V48h48zm-48 0h-48V48h48z"/>
+  <path fill="#9AE600" d="M672 96h-48V48h48z"/>
+  <path fill="#262626" d="M624 96h-48V48h48zm-48 0h-48V48h48z"/>
+  <path fill="#262626" d="M432 96h-48V48h48z"/>
+  <path fill="#262626" d="M336 96h-48V48h48zm-48 0h-48V48h48zm-48 0h-48V48h48z"/>
+  <path fill="#262626" d="M144 96H96V48h48z"/>
+  <path fill="#262626" d="M48 96H0V48h48zm912-48h-48V0h48z"/>
+  <path fill="#262626" d="M816 48h-48V0h48z"/>
+  <path fill="#262626" d="M624 48h-48V0h48z"/>
+  <path fill="#262626" d="M480 48h-48V0h48z"/>
+  <path fill="#262626" d="M288 48h-48V0h48z"/>
+  <path fill="#262626" d="M96 48H48V0h48z"/>
 </svg>

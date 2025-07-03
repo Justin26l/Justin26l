@@ -1,12 +1,12 @@
 <template>
 
-  <div class="flex flex-col md:flex-row justify-center items-center w-vw h-svh gap-4 lg:gap-8 text-white">
+  <div class="flex flex-col md:flex-row justify-center items-center w-vw min-h-[80svh] gap-4 lg:gap-8 text-white">
 
-    <div class="flex overflow-clip rounded-xl shadow-xl bg-neutral-100">
+    <div class="flex overflow-clip rounded-xl shadow-xl bg-neutral-100 mt-8 md:mt-0">
       <img src="/img/profilePic.png" alt="Justin Lai" class="relative z-30 w-[60vw] md:w-[30vw]" />
     </div>
 
-    <div class="flex flex-col gap-2 overflow-clip">
+    <div class="flex flex-col gap-2 ps-2">
 
       <p class="heading-lg font-audiowide text-primary-500 my-4 opacity-0 flow-up">Justin Lai</p>
       <div class="heading ps-8 pb-6">
@@ -15,7 +15,7 @@
         <p class="my-4 opacity-0 flow-up ani-delay-1100">UI & UX Designer </p>
       </div>
 
-      <div class="ps-8 flex flex-row gap-4">
+      <div class="ps-8 flex flex-row gap-4 pb-12">
 
         <a href="https://www.linkedin.com/in/justin-lai-3b859422a/" target="_blank" class="icon-container z-30 opacity-0 flow-in ani-delay-1500 bg-blue-500">
           <svg xmlns="http://www.w3.org/2000/svg" alt="LinkedIn" class="icon text-white">
