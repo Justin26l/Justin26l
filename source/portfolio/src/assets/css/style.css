@@ -56,11 +56,15 @@ th, td {
 
 a {
   @apply text-green-700 transition-colors duration-150;
-  @apply hover:text-green-500 ;
+  @apply hover:text-green-500;
+}
+a.light {
+  @apply text-green-500;
+  @apply hover:text-green-600;
 }
 
 b {
-  @apply text-lime-600;
+  @apply text-amber-400;
 }
 
 img {

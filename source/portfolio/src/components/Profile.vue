@@ -1,9 +1,9 @@
 <template>
 
-  <div class="flex flex-col md:flex-row justify-center items-center w-vw min-h-[80svh] gap-4 lg:gap-8 text-white">
+  <div class="flex flex-col md:flex-row justify-center items-center w-vw min-h-[85svh] gap-4 lg:gap-8 text-white">
 
-    <div class="flex overflow-clip rounded-xl shadow-xl bg-neutral-100 mt-8 md:mt-0">
-      <img src="/img/profilePic.png" alt="Justin Lai" class="relative z-30 w-[60vw] md:w-[30vw]" />
+    <div class="flex overflow-clip rounded-xl shadow-xl bg-neutral-100 m-8 md:my-4 lg:my-12 xl:my-18">
+      <img src="/img/profilePic.png" alt="Justin Lai" class="relative z-30 w-[60vw] md:w-[30vw] xl:w-[24vw]" />
     </div>
 
     <div class="flex flex-col gap-2 ps-2">
