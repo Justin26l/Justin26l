@@ -21,15 +21,15 @@ export default defineConfig({
   build: {
     outDir: '../../sites/portfolio',
     rollupOptions: {
-      output: {
-        assetFileNames: (assetInfo) => {
-          // Only rename CSS files, leave others (like images/fonts) as default
-          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
-            return 'assets/css/style.css'
-          }
-          return assetInfo.name ? assetInfo.name : '[name][extname]'
-        }
-      }
+      // output: {
+      //   assetFileNames: (assetInfo) => {
+      //     // Only rename CSS files, leave others (like images/fonts) as default
+      //     if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+      //       return 'assets/css/style.css'
+      //     }
+      //     return assetInfo.name ? assetInfo.name : '[name][extname]'
+      //   }
+      // }
     }
   },
 })
