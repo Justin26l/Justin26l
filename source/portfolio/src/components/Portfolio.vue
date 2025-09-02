@@ -38,6 +38,13 @@ const portfolioItems = [
     details: 'A Open-source generator to make Express.js app with custom REST API defined in Json Schema and Open Api',
     link: 'veryExpressDemo.html',
     image: 'img/placeholder.png'
+  },
+  {
+    title: 'Expenses record app Wireframe',
+    description: 'UX Design Wireframe',
+    myRole: 'UX Designer',
+    details: 'This is a side project to practice my UI/UX design & Frontend development skill, this wireframe made with Figma and the UI & Mobile App is under construction.',
+    link: 'https://www.figma.com/proto/10eFNWDmh8LXMNzGLG0DL2/Spents?node-id=35120-46175&p=f&t=6G6plvh3j3SlMfFa-1&scaling=scale-down&content-scaling=fixed&page-id=16537%3A45869&starting-point-node-id=35120%3A46175'
   }
 ];
 </script>
