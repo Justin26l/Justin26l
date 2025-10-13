@@ -25,9 +25,9 @@
               also open opportunity to let traders setup own trading bot without need of programming skills,<br />
               realising im lack of tech skills to run a public faced product
               i <b>enrol Web Programming Course</b> at <a class="link light" target="_blank" href="https://i-tea.com.my/en">i-tea
-                technology</a>. with <a class="link light" target="_blank"
-                href="https://drive.google.com/file/d/1iBTnXq9UQvQpk43OCPqZ-ly5S8fybnE7/view?usp=sharing">Diploma
-                Certifiacte</a>
+                technology</a>. with 
+                <a class="link light" target="_blank" href="https://drive.google.com/file/d/1iBTnXq9UQvQpk43OCPqZ-ly5S8fybnE7/view?usp=sharing">Prof. Cert.</a> & 
+                <a class="link light" target="_blank" href="https://drive.google.com/file/d/1tuVwTyzcEiVozW4BbA487OO3PNnXovA2/view?usp=sharing">Diploma</a>
               <br />
             </p>
           </div>
