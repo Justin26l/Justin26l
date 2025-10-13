@@ -62,6 +62,10 @@
 <style scoped>
 @reference "./../assets/css/style.css";
 
+b{
+  @apply text-amber-400;
+}
+
 .year-title{
   @apply text-neutral-50 text-5xl py-2 sticky top-0 border-b;
   @apply lg:text-8xl lg:py-4;

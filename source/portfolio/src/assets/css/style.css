@@ -63,10 +63,6 @@ a.light {
   @apply hover:text-green-600;
 }
 
-b {
-  @apply text-amber-400;
-}
-
 img {
   @apply rounded-md overflow-hidden;
 }
