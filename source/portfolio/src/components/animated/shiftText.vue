@@ -1,5 +1,5 @@
 <template>
-  <div class="group relative">
+  <div class="group relative overflow-hidden">
     <span
       v-for="(letter, index) in letters"
       :key="index"
@@ -8,19 +8,20 @@
     >
       <span
         class="flex flex-col transition-transform duration-300"
-        :style="`transition-delay: ${index * 15}ms;`"
+        :style="`transition-delay: ${index * 50}ms;`"
         :class="{
           'group-hover:translate-y-[-50%]': true
         }"
       >
         <span
           class="transition-opacity duration-300"
-          :style="`transition-delay: ${index * 15}ms;`"
+          :style="`transition-delay: ${index * 50}ms;`"
           :class="{'opacity-100': true, 'group-hover:opacity-0': true}"
         >{{ letter }}</span>
         <span
-          class="text-primary-300 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-          :style="`transition-delay: ${index * 15}ms;`"
+        :class="props.shiftedClass"
+          class="transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+          :style="`transition-delay: ${index * 50}ms;`"
         >{{ letter }}</span>
       </span>
     </span>
@@ -31,6 +32,7 @@
 const props = defineProps<{
   text: string;
   height?: string;
+  shiftedClass?: string;
 }>();
 const letters = props.text.split("").map(l => l === " " ? "\u00A0" : l);
 </script>
