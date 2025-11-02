@@ -30,6 +30,10 @@
   animation-fill-mode: forwards;
 }
 
+.ani-delay-200 {
+  animation-delay: 200ms;
+}
+
 .ani-delay-500 {
   animation-delay: 500ms;
 }
