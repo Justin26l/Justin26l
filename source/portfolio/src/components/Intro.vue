@@ -1,7 +1,7 @@
 <template>
   <div id="intro" class="z-100 fixed flex flex-row h-full w-full" v-show="showIntro">
     <div v-for="(bar, i) in bars" :key="i"
-      class="intro-bar bg-neutral-100 dark:bg-black h-full transition-all ease-in-out" :class="bar.colorClass"
+      class="intro-bar bg-neutral-100 h-full transition-all ease-in-out" :class="bar.colorClass"
       :style="{ opacity: bar.opacity, transitionDelay: '150ms' }"></div>
   </div>
 </template>
@@ -24,12 +24,8 @@ const bars = ref<Bar[]>(
   }))
 );
 
-function isDarkMode() {
-  return document.documentElement.classList.contains("dark");
-}
-
 onMounted(async () => {
-  await nextTick();
+  // await nextTick();
   const len = bars.value.length;
   let pos = Math.floor(len / 2);
   let neg = Math.floor(len / 2);
@@ -51,9 +47,7 @@ onMounted(async () => {
       }
 
       // Set color class
-      bars.value[curr].colorClass = isDarkMode()
-        ? "!bg-lime-500"
-        : "!bg-blue-600";
+      bars.value[curr].colorClass = "!bg-lime-500";
       // Set opacity
       bars.value[curr].opacity = "0";
 

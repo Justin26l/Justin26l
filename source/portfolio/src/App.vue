@@ -20,7 +20,7 @@
         <Journey />
       </section>
 
-      <section id="contact" class="w-full bg-vibrant plus-grid flex justify-center items-center py-20 ">
+      <section id="contact" class="w-full bg-neutral-800 plus-grid flex justify-center items-center py-20 ">
         <Contact />
       </section>
 
@@ -32,12 +32,6 @@
 </template>
 
 <style scoped>
-@reference "./assets/css/style.css";
-
-.bg-vibrant{
-  @apply bg-neutral-800 dark:bg-neutral-200;
-}
-
 .plus-grid {
   background-image: url("./assets/SVG/plus.svg");
   background-repeat: repeat;
@@ -52,6 +46,5 @@ import Intro from './components/Intro.vue';
 import Journey from './components/Journey.vue';
 import Portfolio from './components/Portfolio.vue';
 import Profile from './components/Profile.vue';
-import SectionHeader from './components/SectionHeader.vue';
 import Svgs from './components/svgs.vue';
 </script>

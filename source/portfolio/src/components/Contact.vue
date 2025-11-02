@@ -5,7 +5,7 @@ import ShiftText from './animated/shiftText.vue';
 
 <template>
   <div class="push-center">
-    <div class="bg-white dark:bg-black border overflow-hidden rounded-md">
+    <div class="bg-white overflow-hidden rounded-4xl">
       <div class="flex flex-col items-center gap-4 w-full">
 
         <div class="flex justify-end w-full md:pe-12">
