@@ -13,7 +13,7 @@ import ShiftText from './animated/shiftText.vue';
             class="w-1/2 md:w-1/3 lg:w-1/4 h-full -rotate-30" />
         </div>
 
-        <div class="flex flex-col lg:items-start lg:flex-row lg:justify-between lg:w-2/3">
+        <div class="flex flex-col lg:items-start lg:flex-row lg:gap-4 lg:justify-between lg:w-2/3">
           <h2 class="font-audiowide text-5xl text-center mb-4 lg:mt-4">Keep in touch !</h2>
 
           <div class="flex flex-col lg:items-start gap-4 text-4xl xl:pe-18">
