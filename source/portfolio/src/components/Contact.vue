@@ -4,7 +4,7 @@ import ShiftText from './animated/shiftText.vue';
 </script>
 
 <template>
-  <div class="push-center">
+  <div id="contact" class="push-center">
     <div class="bg-white overflow-hidden rounded-4xl">
       <div class="flex flex-col items-center gap-4 w-full">
 

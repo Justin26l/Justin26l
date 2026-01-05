@@ -9,6 +9,9 @@
 @import './animate.css';
 @import './customize.css';
 
+html {
+  background-color: var(--color-neutral-300); /* Or use a predefined color name */
+}
 
 @custom-variant dark (&:where(.dark, .dark *));
 svg {
@@ -75,4 +78,18 @@ img {
   flex: 1;
   opacity: 1;
   transition: all 0.5s ease;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-lg duration-200 ease-in-out border-0;
+}
+
+.btn-primary {
+  @apply bg-primary-500 text-white;
+  @apply hover:bg-primary-600;
+}
+
+.btn-secondary {
+  @apply bg-secondary-500 text-white;
+  @apply hover:bg-secondary-600;
 }
