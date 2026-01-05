@@ -1,43 +1,45 @@
 <template>
-  <div class="bg-neutral-100 w-full">
-    <div class="push-center flex flex-col gap-12 justify-center pb-20">
-      <h1 class="heading-lg heading-padding font-audiowide">Portfolio</h1>
+  <div class="push-center bg-neutral-100 w-full flex flex-col gap-12 justify-center pb-20">
+    <h1 class="heading-lg heading-padding font-audiowide">Portfolio</h1>
 
-      <div class="grid grid-cols-3 gap-1 w-full px-2">
-        <div class="project-card hightlight-border !rounded-3xl  !p-1.5 bg-neutral-800 ">
-          <div class="hightlight-border rounded-2xl h-full !p-2 flex flex-col gap-2">
-            <a href="#contact" class="no-underline">
-              <p class="font-audiowide text-primary-500 text-4xl !mb-2">Get In Touch With Me !</p>
-            </a>
-            <button class="btn btn-secondary w-fit"> Contact 1</button>
-            <button class="btn btn-secondary w-fit"> Contact 2</button>
-            <button class="btn btn-secondary w-fit"> Contact 3</button>
-          </div>
-        </div>
-        <div>
-          <a :href="BannerItems.veryExpress.link" target="_blank" class="project-card">
-            <img :src="BannerItems.veryExpress.image" class="!rounded-xl w-full h-full !border-1 !border-neutral-300" />
+    <section id="project-grid" class="grid grid-cols-3 gap-1">
+      <div class="project-card hightlight-border !rounded-3xl  !p-1.5 bg-neutral-800 ">
+        <div class="hightlight-border rounded-2xl h-full !p-2 flex flex-col gap-2">
+          <a href="#contact" class="no-underline">
+            <p class="font-audiowide text-primary-500 text-4xl !mb-2">Get In Touch With Me !</p>
           </a>
-        </div>
-        <div class="row-span-2">
-          <a :href="BannerItems.spents.link" target="_blank" class="project-card">
-            <img :src="BannerItems.spents.image" class="!rounded-xl h-full !border-1 !border-neutral-300" />
-          </a>
-        </div>
-        <div class="col-span-2">
-          <a :href="BannerItems.xxxTerminal.link" target="_blank" class="project-card">
-            <img :src="BannerItems.xxxTerminal.image" class="!rounded-xl w-full !border-1 !border-neutral-300" />
-          </a>
+          <button class="btn btn-secondary w-fit"> Contact 1</button>
+          <button class="btn btn-secondary w-fit"> Contact 2</button>
+          <button class="btn btn-secondary w-fit"> Contact 3</button>
         </div>
       </div>
 
-      <div v-for="item in portfolioItems" class="flex flex-col md:flex-row md:justify-center w-full px-2 lg:px-4 xl:px-8">
-        <div class="flex-2 flex justify-end">
-          <div>
-            <a :href="item.link" target="_blank" class="flex aspect-[16/9] project-card hover-border">
+      <div>
+        <a :href="BannerItems.veryExpress.link" target="_blank" class="project-card">
+          <img :src="BannerItems.veryExpress.image" class="!rounded-xl w-full h-full !border-1 !border-neutral-300" />
+        </a>
+      </div>
+
+      <div class="row-span-2">
+        <a :href="BannerItems.spents.link" target="_blank" class="project-card">
+          <img :src="BannerItems.spents.image" class="!rounded-xl h-full !border-1 !border-neutral-300" />
+        </a>
+      </div>
+
+      <div class="col-span-2">
+        <a :href="BannerItems.xxxTerminal.link" target="_blank" class="project-card">
+          <img :src="BannerItems.xxxTerminal.image" class="!rounded-xl w-full !border-1 !border-neutral-300" />
+        </a>
+      </div>
+
+    </section>
+
+    <section id="project-list" class="flex flex-col gap-12">
+      <div v-for="item in portfolioItems" class="flex flex-col md:flex-row md:justify-center w-full">
+        <div class="flex-2 flex justify-end w-fit h-fit">
+            <a :href="item.link" target="_blank" class="flex project-card hover-border">
               <img :src="item.image" class="!rounded-xl w-full !border-1 !border-neutral-300" />
             </a>
-          </div>
         </div>
         <div class="flex-3 flex flex-col items-start gap-1 px-4">
           <text-title>{{ item.title }}</text-title>
@@ -51,11 +53,12 @@
           <text-label>Description</text-label>
           <text-detail>{{ item.description }}</text-detail>
           <a class="link" :href="item.link" target="_blank">View More</a>
-        </div>  
+        </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
+
 <script setup lang="ts">
 const BannerItems = {
   spents: {
@@ -120,25 +123,26 @@ const portfolioItems = [
 }
 
 .project-card {
-  @apply flex items-center w-full h-full rounded-2xl p-1 overflow-clip;
+  @apply flex items-center w-full h-full rounded-2xl !p-1 overflow-clip;
 }
 
 .hightlight-border {
   @apply border-4 border-primary-500;
 }
 
-text-title{
+text-title {
   @apply text-4xl font-bold mb-3;
 }
-text-label{
-  @apply text-sm text-neutral-500 ;
+
+text-label {
+  @apply text-sm text-neutral-500;
 }
 
-text-value{
-  @apply text-xl ps-4 ;
+text-value {
+  @apply text-xl ps-4;
 }
 
-text-detail{
-  @apply text-base text-neutral-800 ps-4 ;
+text-detail {
+  @apply text-base text-neutral-800 ps-4;
 }
 </style>
