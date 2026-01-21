@@ -17,7 +17,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
-  base: 'Justin26l/sites/portfolio/',
+  base: 'sites/portfolio/',
   build: {
     outDir: '../../sites/portfolio',
     rollupOptions: {
