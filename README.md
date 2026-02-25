@@ -3,6 +3,8 @@
 - I'm fullstack developer, moving forward to front-end dev & UI/UX design
 - I'm Malaysian, Native Mandarin, also speak English and Malay
 
+### [My Website](https://xxxterminal.com/sites/portfolio/)
+
 ## My Tech Knowledge Blog
 - [Notion](https://royal-pedestrian-b4f.notion.site/Justin-s-Software-Engineer-Brain-326afa4143604b6db0216008541eacf0)
 
