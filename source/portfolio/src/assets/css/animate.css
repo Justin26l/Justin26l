@@ -30,30 +30,23 @@
   animation-fill-mode: forwards;
 }
 
-.ani-delay-200 {
-  animation-delay: 200ms;
-}
-
-.ani-delay-500 {
-  animation-delay: 500ms;
-}
-
-.ani-delay-800 {
-  animation-delay: 800ms;
-} 
-
-.ani-delay-1100 {
-  animation-delay: 1100ms;
-} 
-
-.ani-delay-1500 {
-  animation-delay: 1500ms;
-}
-
-.ani-delay-1600 {
-  animation-delay: 1600ms;
-}
-
-.ani-delay-1700 {
-  animation-delay: 1700ms;
-}
+.ani-delay-100 { animation-delay: 100ms;}
+.ani-delay-200 { animation-delay: 200ms;}
+.ani-delay-300 { animation-delay: 300ms;}
+.ani-delay-400 { animation-delay: 400ms;}
+.ani-delay-500 { animation-delay: 500ms;}
+.ani-delay-600 { animation-delay: 600ms;}
+.ani-delay-700 {  animation-delay: 700ms;}
+.ani-delay-800 { animation-delay: 800ms;}
+.ani-delay-900 { animation-delay: 900ms;} 
+.ani-delay-1000 { animation-delay: 1000ms;}
+.ani-delay-1100 { animation-delay: 1100ms;}
+.ani-delay-1200 { animation-delay: 1200ms;}
+.ani-delay-1300 { animation-delay: 1300ms;}
+.ani-delay-1400 { animation-delay: 1400ms;} 
+.ani-delay-1500 { animation-delay: 1500ms;}
+.ani-delay-1600 { animation-delay: 1600ms;}
+.ani-delay-1700 { animation-delay: 1700ms;}
+.ani-delay-1800 { animation-delay: 1800ms;}
+.ani-delay-1900 { animation-delay: 1900ms;}
+.ani-delay-2000 { animation-delay: 2000ms;}

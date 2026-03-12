@@ -91,7 +91,7 @@ const length = computed(() => Math.ceil(window.innerWidth / 512));
 
   
   50% {
-    color: #7FBE00;
+    color: #a2f203;
   }
 }
 </style>

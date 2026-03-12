@@ -8,13 +8,12 @@
         <Profile/>
       </section>
 
-      <BridgeTop/>
 
-      <section id="portfolio" class=" w-full flex flex-col gap-6 pb-20 items-start">
+      <section id="portfolio" class="w-full bg-white flex flex-col gap-6 mb-20 items-start">
+        <BridgeTop />
         <Portfolio />
+        <BridgeTop style="transform: scaleY(-1);" /> 
       </section>
-
-      <BridgeBottom/>
 
       <section id="about" class="w-full flex flex-col items-center">
         <Journey />

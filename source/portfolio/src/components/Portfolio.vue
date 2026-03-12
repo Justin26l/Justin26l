@@ -4,10 +4,10 @@
 
     <section id="project-grid" class="grid grid-cols-2 md:grid-cols-3 gap-1">
       
-      <div class="project-card hightlight-border !rounded-3xl !p-1.5 bg-neutral-800 ">
-        <div class="hightlight-border rounded-2xl h-full w-full !p-2 flex flex-col gap-2">
+      <div class="project-card hightlight-border !rounded-4xl p-1 md:!p-1.5 bg-neutral-800 ">
+        <div class="hightlight-border rounded-3xl h-full w-full p-1.5 md:!p-2 flex flex-col gap-2 justify-center ">
           <a href="#contact" class="no-underline">
-            <p class="font-audiowide text-primary-500 text-4xl !my-2">Get In Touch With Me !</p>
+            <p class="font-audiowide text-primary-500 text-4xl !my-2">Keep In Touch!</p>
           </a>
           <!-- <button class="btn btn-secondary w-fit"> Contact 1</button>
           <button class="btn btn-secondary w-fit"> Contact 2</button>
@@ -20,10 +20,10 @@
           <div class="relative group w-full h-full">
             <img :src="project.image" class="w-full h-full object-cover" />
             <div class="absolute inset-0 bg-black/80 flex flex-col items-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-4" :style="{ opacity: activeOverlay[project.title] ? 1 : undefined }">
-              <p class="text-3xl font-bold">{{ project.title }}</p>
+              <p class="heading-sm font-bold my-2 md:my-6">{{ project.title }}</p>
               <p class="mt-1">{{ project.type }}</p>
               <p class="mt-1">{{ project.description }}</p>
-              <a :href="project.link" target="_blank" class="btn btn-secondary mt-4 text-lg">View More</a>
+              <a :href="project.link" target="_blank" class="btn btn-primary mt-4 text-lg">View More</a>
             </div>
           </div>
         </div>
@@ -72,8 +72,8 @@ const projects = [
   },
   {
     title: 'xxxTerminal.com',
-    type: 'SAAS, micro-services',
-    myRole: 'Full Stack Engineer & Marketer',
+    type: 'Trading-bot solution SAAS',
+    myRole: 'Product Owner, Software Engineer, Marketer',
     description: 'this is a platform that provide algo trading solutions. let trader run trading bots in ease, reduce software skill requirement for traders.',
     link: '/sites/xxxterminal/home.html',
     image: 'img/xxxTerminal.png',
@@ -82,8 +82,8 @@ const projects = [
   },
   {
     title: 'VeryExpress',
-    type: 'Development Tool',
-    myRole: 'Software Engineer',
+    type: 'Code Generator, Development Tool',
+    myRole: 'Product Owner, Software Engineer,',
     description: 'A Open-source generator to make Express.js app with custom REST API defined in Json Schema and Open Api',
     link: 'https://github.com/Justin26l/VeryExpress',
     link2: 'https://www.npmjs.com/package/very-express',
@@ -110,7 +110,7 @@ function handleClick(key: string) {
 @reference "../assets/css/style.css";
 
 .hover-border {
-  @apply duration-200 ease-in-out border-4 border-transparent hover:border-primary-600;
+  @apply duration-200 ease-in-out border-3 md:border-4 border-transparent hover:border-primary-600;
 }
 
 .project-card {
@@ -118,7 +118,7 @@ function handleClick(key: string) {
 }
 
 .hightlight-border {
-  @apply border-4 border-primary-500;
+  @apply border-3 md:border-4 border-primary-500;
 }
 
 text-title {

@@ -9,7 +9,7 @@
         </div>
 
         <div class="flex flex-col items-center lg:flex-row lg:gap-8 xl:gap-16">
-          <h2 class="font-audiowide text-5xl text-center mb-4 lg:mt-4">Keep in touch !</h2>
+          <h2 class="font-audiowide text-4xl md:text-5xl text-center">Keep in touch !</h2>
 
           <div class="flex flex-col lg:items-start gap-4 text-4xl">
             <a href="https://www.linkedin.com/in/justin-lai-3b859422a/" target="_blank"

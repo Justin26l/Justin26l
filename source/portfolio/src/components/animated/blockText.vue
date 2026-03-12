@@ -7,7 +7,7 @@
       :style="{ transitionDelay: (0.2 * props.delay) + 's' }"
     ></div>
     <!-- Text (revealed as block shrinks) -->
-    <span class="relative z-10 text-white transition-colors duration-700">
+    <span :class="['relative z-10 transition-colors duration-700', props.textClass]">
       {{ props.text }}
     </span>
   </div>
@@ -17,7 +17,8 @@
 import { ref, onMounted } from 'vue'
 const props = defineProps<{ 
   text: string,
-  delay?: number 
+  delay?: number,
+  textClass?: string
 }>()
 const revealed = ref(false)
 onMounted(() => {
