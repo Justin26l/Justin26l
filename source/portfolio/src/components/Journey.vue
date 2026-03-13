@@ -20,8 +20,8 @@
             <p class="year-title"><mobileOnly>20</mobileOnly>22</p>
             <BulletItem>Start building <HighlightLink href="/sites/xxxterminal/home.html">xxxTerminal</HighlightLink>, a Saas provide trading bot services</BulletItem>
             <BulletItem>Realise me lack of profesional software development skill, learn systematicly at <HighlightLink href="https://i-tea.com.my/en">i-tea technology</HighlightLink></BulletItem>
-            <BulletItem :level="1"><HighlightLink href="https://drive.google.com/file/d/1tuVwTyzcEiVozW4BbA487OO3PNnXovA2/view?usp=sharing">Diploma in Web Programming</HighlightLink> Certified by <HighlightLink href="https://www.lincoln.edu.my/">Lincoln University Collage</HighlightLink> </BulletItem>
-            <BulletItem :level="1"><HighlightLink href="https://drive.google.com/file/d/1ZlPTwid14rMYFLgbNlI9CEXl9DY6t14D/view?usp=sharing">Professional Certificate in Web Programming</HighlightLink> Certified by <HighlightLink href="https://www.utm.my/">UTM Space</HighlightLink></BulletItem>
+            <BulletItem :level="1"><HighlightLink href="https://drive.google.com/file/d/1tuVwTyzcEiVozW4BbA487OO3PNnXovA2/view?usp=sharing">Diploma</HighlightLink> in Web Programming Certified by <HighlightLink href="https://www.lincoln.edu.my/">Lincoln University Collage</HighlightLink> </BulletItem>
+            <BulletItem :level="1"><HighlightLink href="https://drive.google.com/file/d/1ZlPTwid14rMYFLgbNlI9CEXl9DY6t14D/view?usp=sharing">Professional Certificate</HighlightLink> in Web Programming Certified by <HighlightLink href="https://www.utm.my/">UTM Space</HighlightLink></BulletItem>
           </div>
           <div class="year-container">
             <p class="year-title"><mobileOnly>20</mobileOnly>23</p>
@@ -76,6 +76,7 @@ b {
 }
 
 .year-container {
-  @apply pb-8 tracking-wide;
+  color: rgb(203, 203, 203);
+  @apply pb-8 tracking-wide text-neutral-200;
 }
 </style>
