@@ -39,7 +39,7 @@
 
 <script setup lang="ts">
 import BridgeBottom from './components/BridgeBottom.vue';
-import BridgeTop from './components/BridgeTop.vue';
+import BridgeTop from './components/animated/BridgeTop.vue';
 import Contact from './components/Contact.vue';
 import Intro from './components/Intro.vue';
 import Journey from './components/Journey.vue';
