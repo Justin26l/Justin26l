@@ -1,9 +1,18 @@
 ## Hi there im Justin 👋
-- I'm 3rd year as Software Engineer
-- I'm fullstack developer, moving forward to front-end dev & UI/UX design
-- I'm Malaysian, Native Mandarin, also speak English and Malay
+- Started software engineering since 2021
+- I speak mandarin & english fluently
+  
+I have wide range of skills needed for develop a product, including:
+- System design, UI/UX design, database design, web security audit,
+- full-stack, cross-platform, mobile application development,
+- cloud computing deployment and management.
 
-### [My Website](https://xxxterminal.com/sites/portfolio/)
+Im also intrested to industry like: 
+- UAV & Aerospace Engineering
+- Biomimetic Robotic
+- Fintech
+
+### [My Portfolio](https://xxxterminal.com/sites/portfolio/)
 
 ## My Tech Knowledge Blog
 - [Notion](https://royal-pedestrian-b4f.notion.site/Justin-s-Software-Engineer-Brain-326afa4143604b6db0216008541eacf0)
