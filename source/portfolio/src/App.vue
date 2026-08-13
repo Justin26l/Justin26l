@@ -19,6 +19,10 @@
         <Journey />
       </section>
 
+      <section id="skills" class="w-full flex flex-col items-center">
+        <Skills />
+      </section>
+
       <section id="contact" class="w-full bg-neutral-800 plus-grid flex justify-center items-center py-20 ">
         <Contact />
       </section>
@@ -44,6 +48,7 @@ import Contact from './components/Contact.vue';
 import Intro from './components/Intro.vue';
 import Journey from './components/Journey.vue';
 import Portfolio from './components/Portfolio.vue';
+import Skills from './components/Skills.vue';
 import Profile from './components/Profile.vue';
 import Svgs from './components/svgs.vue';
 </script>

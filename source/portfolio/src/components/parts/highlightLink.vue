@@ -1,5 +1,5 @@
 <template>
-    <a class="light !no-underline hover:!underline" target="_blank" :href="props.href">
+    <a class="light link" target="_blank" :href="props.href">
         <slot></slot>
     </a>
 </template>

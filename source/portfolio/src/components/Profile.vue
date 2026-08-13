@@ -43,7 +43,7 @@ import BlockText from './animated/blockText.vue';
 
       <span class="heading-sm text-secondary-500">* Professionals</span>
       <div class="flex flex-col gap-4 heading-md ps-10 pb-6">
-        <BlockText text='Software Engineer' :delay="0" />
+        <BlockText text='Mid-Senior Software Engineer' :delay="0" />
         <BlockText text='System & UI/UX Designer' :delay="2" />
       </div>
 

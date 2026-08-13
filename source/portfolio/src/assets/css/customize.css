@@ -1,5 +1,5 @@
 .link{
-  @apply after:content-['↗'];
+  @apply underline after:content-['↗'];
 }
 
 .push-center{
