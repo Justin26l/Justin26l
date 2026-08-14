@@ -22,7 +22,7 @@
     <!-- Project grid -->
     <section id="project-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
       <article v-for="project in others" :key="project.title"
-        class="group bg-neutral-800 rounded-3xl overflow-hidden flex flex-col">
+        class="group bg-neutral-800 rounded-2xl overflow-hidden flex flex-col">
         <div class="overflow-hidden">
           <img :src="project.image" :alt="project.title" class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.04] !rounded-none" />
         </div>
@@ -40,7 +40,7 @@
 
     <!-- Keep in touch -->
     <div
-      class="hightlight-border bg-neutral-800 rounded-3xl md:rounded-4xl p-8 md:p-12 flex flex-col items-center gap-6 text-center">
+      class="hightlight-border bg-neutral-800 rounded-2xl p-8 md:p-12 flex flex-col items-center gap-6 text-center">
       <a href="#contact" class="no-underline">
         <h3 class="font-audiowide text-primary-500 text-4xl md:text-5xl lg:text-6xl">Keep In Touch!</h3>
       </a>
@@ -105,7 +105,7 @@ const others = projects.slice(1);
 @reference "../assets/css/style.css";
 
 .featured-card {
-  @apply grid md:grid-cols-2 bg-neutral-800 rounded-3xl md:rounded-[2rem] overflow-hidden;
+  @apply grid md:grid-cols-2 bg-neutral-800 rounded-2xl overflow-hidden;
 }
 
 .featured-card .media {
