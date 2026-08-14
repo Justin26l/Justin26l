@@ -101,7 +101,7 @@ const featured = projects[0];
 const others = projects.slice(1);
 </script>
 
-<style scoped>
+<style>
 @reference "../assets/css/style.css";
 
 .featured-card {
