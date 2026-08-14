@@ -10,7 +10,7 @@
       </div>
       <div class="info">
         <span class="tag">{{ featured.type }}</span>
-        <h3 class="font-audiowide text-primary text-4xl md:text-5xl">{{ featured.title }}</h3>
+        <h3 class="font-audiowide text-primary-500 text-3xl md:text-4xl lg:text-5xl">{{ featured.title }}</h3>
         <p class="text-neutral-300 text-sm md:text-base lg:text-lg">{{ featured.description }}</p>
         <div class="flex flex-wrap gap-2.5 pt-3">
           <a :href="featured.link" target="_blank" class="btn btn-primary text-base md:text-lg">View Project ↗</a>
@@ -24,12 +24,11 @@
       <article v-for="project in others" :key="project.title"
         class="group bg-neutral-800 rounded-3xl overflow-hidden flex flex-col">
         <div class="overflow-hidden">
-          <img :src="project.image" :alt="project.title"
-            class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.04] !rounded-none" />
+          <img :src="project.image" :alt="project.title" class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.04] !rounded-none" />
         </div>
         <div class="flex flex-col gap-2 p-5 md:p-6 flex-1">
           <span class="tag">{{ project.type }}</span>
-          <h3 class="font-audiowide text-primary-500  text-3xl md:text-4xl lg:text-5xl">{{ project.title }}</h3>
+          <h3 class="font-audiowide text-primary-500  text-xl md:text-2xl lg:text-3xl">{{ project.title }}</h3>
           <p class="text-neutral-300 text-sm leading-relaxed line-clamp-3">{{ project.description }}</p>
           <div class="mt-auto flex flex-wrap gap-2 pt-4">
             <a :href="project.link" target="_blank" class="btn btn-primary text-sm">View Project ↗</a>

@@ -34,7 +34,7 @@ const skills = [
   { skill: 'Backend Development', level: 'Advanced', experience: 'E-invoice service (Java Quarkus); native SDK packaging for Flutter; legacy system modernization' },
   { skill: 'Frontend Development', level: 'Advanced', experience: 'Offline-first apps; mobile apps; embedded UI' },
   { skill: 'PHP', level: 'Intermediate', experience: 'Legacy accounting ERP system; school & freelance projects' },
-  { skill: 'RelationalDB (MySQL & PostgreSQL)', level: 'Intermediate', experience: 'First choice for data storage; performance tuning; time-based partitioning' },
+  { skill: 'RelationalDB (MySQL & PostgreSQL)', level: 'Intermediate', experience: 'most used storage; performance tuning; time-based partitioning' },
   { skill: 'UI/UX Design', level: 'Intermediate', experience: 'MCPLUS internal system & mobile app; LMS UI/UX' },
   { skill: 'System Architecture', level: 'Intermediate', experience: 'High-availability fintech service; security framework for cross-system communication; microservices mentoring' },
   { skill: 'Java', level: 'Beginner', experience: 'E-invoicing system; Android (Kotlin) plugins' },
