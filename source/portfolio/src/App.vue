@@ -14,9 +14,10 @@
       </section>
 
       <section id="portfolio" class="w-full bg-white flex flex-col gap-6 mb-20 items-start">
-        <BridgeTop />
+        <!-- top bridge follows the neutral-900 Digital Clone band, so match its block colour -->
+        <BridgeTop fill="oklch(0.205 0 none)" />
         <Portfolio />
-        <BridgeTop style="transform: scaleY(-1);" /> 
+        <BridgeTop style="transform: scaleY(-1);" />
       </section>
 
       <section id="about" class="w-full flex flex-col items-center">
