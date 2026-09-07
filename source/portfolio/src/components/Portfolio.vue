@@ -62,6 +62,15 @@
 <script setup lang="ts">
 const projects = [
   {
+    title: 'Digital Clone Portfolio AI',
+    type: 'Conversational Portfolio AI · LLM',
+    myRole: 'Product Owner, Software Engineer, UI/UX Designer',
+    description: 'A conversational portfolio AI: visitors learn about me through a chat with an LLM "digital clone" that answers strictly from my profile and projects — with source citations and no invented experience. Nuxt 3 + Cloudflare Pages, running on-device via WebGPU (WebLLM), BYOK, or owner cloud.',
+    link: 'https://digiclone.xxxterminal.com/',
+    link2: 'https://github.com/Justin26l/DigitalCloneLLM',
+    image: 'img/digitalClone.png',
+  },
+  {
     title: 'Spents mobile app',
     type: 'Fullstack Application Development',
     myRole: 'Tech Research, Mobile & Cross Platform Dev, Backend Dev, UI UX Designer',
@@ -119,6 +128,9 @@ const others = projects.slice(1);
 
 .featured-card .phone {
   @apply relative z-10 h-72 md:h-[26rem] lg:h-[30rem] w-auto max-w-full object-contain !rounded-2xl;
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.85);
+  outline: 1px solid rgb(255 255 255 / 0.08);
+  outline-offset: -1px;
 }
 
 .featured-card .info {

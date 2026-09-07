@@ -9,6 +9,10 @@
       </section>
 
 
+      <section id="clone" class="w-full bg-neutral-900 overflow-hidden">
+        <DigitalClone/>
+      </section>
+
       <section id="portfolio" class="w-full bg-white flex flex-col gap-6 mb-20 items-start">
         <BridgeTop />
         <Portfolio />
@@ -36,15 +40,15 @@
 
 <style scoped>
 .plus-grid {
-  background-image: url("./assets/SVG/plus.svg");
+  background-image: url("./assets/svg/plus.svg");
   background-repeat: repeat;
 }
 </style>
 
 <script setup lang="ts">
-import BridgeBottom from './components/BridgeBottom.vue';
 import BridgeTop from './components/animated/BridgeTop.vue';
 import Contact from './components/Contact.vue';
+import DigitalClone from './components/DigitalClone.vue';
 import Intro from './components/Intro.vue';
 import Journey from './components/Journey.vue';
 import Portfolio from './components/Portfolio.vue';
