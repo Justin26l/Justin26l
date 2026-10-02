@@ -1,7 +1,10 @@
 <template>
-  <div class="bg-white w-full pb-20">
+  <div class="bg-gray-100 w-full pb-20">
+    <div class="section-head">
+      <h1 class="section-title section-title--light">Skills</h1>
+    </div>
+
     <div class="push-center flex flex-col gap-8 justify-center">
-      <h1 class="heading-lg heading-padding font-audiowide bg-part-white">Skills</h1>
 
       <div class="overflow-x-auto w-full">
         <table class="w-full border-collapse">

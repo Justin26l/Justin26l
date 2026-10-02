@@ -70,10 +70,13 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-// Base block colour for the bridge. Defaults to the site's dark (#262626 /
-// neutral-800) so it blends with the neighbouring dark section; pass the next
-// section's exact background colour when that section is a different dark tone
-// (e.g. the neutral-900 Digital Clone band).
+// Base block colour for the bridge. Defaults to the one dark tone the site
+// allows (#262626 / neutral-800), so it blends with any neighbouring dark band
+// without being passed an explicit colour.
+//
+// PLACEMENT RULE: bridges belong to LIGHT sections only. Put one at the top and
+// one at the bottom of a gray-100 section, filled with the neighbouring dark
+// tone (the default does this). Dark sections carry no bridges.
 const props = withDefaults(defineProps<{ fill?: string }>(), { fill: '#262626' });
 
 const length = computed(() => Math.ceil(window.innerWidth / 512));

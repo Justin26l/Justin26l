@@ -2,8 +2,12 @@
   @apply underline after:content-['↗'];
 }
 
+/* The page gutter. px-4 is load-bearing on phones: without it every section is
+   flush to the screen edge, and Journey's achievement nav (which uses -mx-4 to
+   bleed its background back out to the edges) overshoots the viewport by 16px
+   and makes the page horizontally scrollable. */
 .push-center{
-  @apply w-full px-4 lg:w-5/6 xl:w-3/4 m-auto;
+  @apply w-full px-4 lg:w-5/6 xl:w-3/4 mx-auto;
 }
 
 .icon { 
@@ -35,4 +39,55 @@
 
 .heading-padding {
   @apply ps-4 md:ps-8 lg:ps-12;
+}
+
+/* ==========================================================================
+   SECTION TITLES
+   One container, one spacing, one type style, in two tonal variants.
+   Journey is the dark reference; Other Builds is the light one.
+
+   Markup is always exactly this, so every section title moves together:
+     <div class="section-head">
+       <h1 class="section-title section-title--light">Other Builds</h1>
+     </div>
+
+   TONAL RULE: a light section gets the lime highlighter band behind dark type;
+   a dark section gets lime type on the section's own neutral-800 ground with no
+   band of its own — a second dark tone behind the title would break the
+   single-dark rule.
+   ========================================================================== */
+.section-head {
+  /* the standard measure, identical to .push-center */
+  @apply w-full px-4 lg:w-5/6 xl:w-3/4 mx-auto;
+  /* the ONE section-head spacing used everywhere */
+  padding-block: 4rem 2rem;
+}
+
+.section-title {
+  /* same scale and text inset as .heading-lg + .heading-padding, declared here
+     so section titles change in one place */
+  @apply text-6xl md:text-7xl lg:text-8xl ps-4 md:ps-8 lg:ps-12;
+  font-family: 'audiowide', sans-serif;
+  line-height: 1;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.section-title--light {
+  background: linear-gradient(
+    0deg,
+    theme('colors.primary.300') 70%,
+    rgba(0, 0, 0, 0) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.section-title--dark {
+  color: theme('colors.primary.500');
+  background: linear-gradient(
+    0deg, 
+    theme('colors.neutral.900') 60%, 
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }

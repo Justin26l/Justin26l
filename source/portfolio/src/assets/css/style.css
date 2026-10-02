@@ -6,6 +6,7 @@
 
 @import './animate.css';
 @import './customize.css';
+@import './projects.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
 svg {
@@ -89,9 +90,12 @@ img {
   background: linear-gradient(0deg, #606060 60%, rgba(0,0,0,0) 70%, rgba(0,0,0,0) 100%);
 }
 
+/* Dark bands are neutral-800 and nothing else, so this block is invisible on
+   one — which is the intended dark section-title treatment (lime type, no band).
+   Kept so the helper stays rule-compliant if it is ever used elsewhere. */
 .bg-part-black {
   background: #00000000;
-  background: linear-gradient(0deg, theme('colors.neutral.900') 60%, rgba(0,0,0,0) 60%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(0deg, theme('colors.neutral.800') 60%, rgba(0,0,0,0) 60%, rgba(0,0,0,0) 100%);
 }
 
 .btn {

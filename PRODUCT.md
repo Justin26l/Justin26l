@@ -31,7 +31,12 @@ End-to-end engineer-designer: not just full-stack software engineering, but the 
 ## Capabilities and Constraints
 
 - Sections: Profile (photo, title, socials), Portfolio (featured projects with images and links), Journey (year-by-year timeline 2021–2026 with employers and certificates), Skills (table), Contact.
-- Featured projects: Spents (offline-first personal ledger POC), xxxTerminal (trading-bot SAAS), VeryExpress (open-source Express API generator), LightweightPOS (zero-backend, offline-first POS & inventory PWA).
+- Portfolio is two-tier: a scroll-driven **highlight reel** (four projects, each with a pinned full-viewport stage that scales up as you scroll and steps through its photo set) followed by an **"Other Builds" grid** grouped by provenance.
+- **Provenance is a first-class distinction**: employment work at SIM IT Sdn Bhd (2023–2026) versus independent / open-source work. It is marked by a badge on every card, by the reel's progress rail, and by the grid's group headings. The section's data lives in `source/portfolio/src/data/projects.js`, sourced from the PortfolioLLM knowledge tree (`/home/justin/Documents/PortfolioLLM/knowledge/`) — not invented on the site.
+- Highlighted projects: MCPlus Mobile Apps & Admin Ecosystem (SIM IT), Simbiz e-Invoice / MyInvois (SIM IT), Digital Clone Portfolio AI (personal), xxxTerminal.com (personal).
+- Grid projects: Simbiz Accounting ERP (SIM IT), LightweightPOS (SIM IT), VeryExpress (personal), Spents mobile app (personal).
+- Projects with no real screenshot yet render a typographic cover rather than a faked image: MCPlus, Simbiz e-Invoice, Simbiz Accounting ERP. Supplying real captures for these would strengthen the reel considerably.
+- Open provenance question: `experience.md` credits LightweightPOS to SIM IT Sdn Bhd, but its own case study describes a personal freemium product on pos.xxxterminal.com open-sourced under Justin26l. It is currently filed under SIM IT Sdn Bhd and needs the owner's confirmation.
 - Contact is outbound only — no contact form; the section links to LinkedIn, GitHub, and GitBook.
 - Static site: no backend; everything is client-side.
 - Content is real and factual — career dates, employers, certificates, and product claims. Do not fabricate or add claims.
@@ -45,7 +50,8 @@ End-to-end engineer-designer: not just full-stack software engineering, but the 
 
 ## Evidence on Hand
 
-- Real project images in `source/portfolio/public/img/` and the built `sites/portfolio/img/`: `profilePic.png`, `spentsMobile.png`, `xxxTerminal.png`, `vex.png`, `lightweightPos.png`.
+- Real project images in `source/portfolio/public/img/` and the built `sites/portfolio/img/`: `profilePic.png`, `spentsMobile.png`, `spents.jpg`, `xxxTerminal.png`, `vex.png`, `lightweightPos.png`, `digitalClone.png`, `digitalCloneAbout.jpg`, `digitalCloneChat.jpg`.
+- Design references for the Portfolio section live in `source/portfolio/wireframe/`: `projects-section-wireframe.html` (v1, kept as a reference copy) and `projects-section-wireframe-v2.html` (the version that was implemented), plus a `media/` folder. These are standalone HTML wireframes, not part of the build.
 - Real outbound links: LinkedIn, GitHub, GitBook, Fiverr, Google Drive certificate documents, and employer/product sites (Simbiz, Simtrain, MCPlus, VeryExpress npm/GitHub, LightweightPOS GitHub, pos.xxxterminal.com).
 - Journey timeline (2021–2026) with named employers, certificates, and roles.
 - Absences that must not be fabricated: no testimonials, no resume/CV download, no pricing, no case-study documents.

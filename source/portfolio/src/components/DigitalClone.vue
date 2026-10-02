@@ -1,10 +1,11 @@
 <!--
-  THESIS      A dark "talk to me" band between the hero and the project grid that invites a visitor to
+  THESIS      A light "talk to me" band between the hero and the project grid that invites a visitor to
               stop reading about Justin and interview his digital clone instead. It refuses the
               portfolio default where the only action is "scroll more".
-  OWN-WORLD   The committed dark world: neutral-900 ground, a lime (primary-500) 4px-bordered card,
-              Audiowide display in lime, body in CharlesWrightBold, and one authored motion — the
-              pulsing lime "online" dot.
+  OWN-WORLD   A white ground inside the committed palette: black display type, lime (primary-500) as
+              the one accent, body in CharlesWrightBold, and one authored motion — the pulsing lime
+              "online" dot. The conversation card stays dark, so the light band still carries the
+              site's dark world as a single framed object rather than a second theme.
   STORY       Recruiters/clients learn that this site is backed by an AI that answers as Justin from
               his real data, and that they can open it and ask anything right now.
   FIRST VIEW  A live status pill over a wide Audiowide headline, then a bordered "chat" card whose
@@ -18,12 +19,12 @@
     <!-- Header statement -->
     <div class="flex flex-col items-start gap-5 max-w-4xl">
       <span
-        class="inline-flex items-center gap-2.5 rounded-full border border-primary-500/50 text-primary-400 px-3.5 py-1.5 text-[11px] md:text-xs font-bold uppercase tracking-[0.2em]">
-        <span class="h-2 w-2 rounded-full bg-primary-500 animate-pulse" aria-hidden="true"></span>
+        class="inline-flex items-center gap-2.5 rounded-full bg-primary-500 text-black px-3.5 py-1.5 text-[11px] md:text-xs font-bold uppercase tracking-[0.2em]">
+        <span class="h-2 w-2 rounded-full bg-neutral-800 animate-pulse" aria-hidden="true"></span>
         Digital clone · Live
       </span>
 
-      <h2 class="font-audiowide text-primary-500 text-5xl md:text-6xl xl:text-7xl leading-[1.04] m-0">
+      <h2 class="font-audiowide text-black text-5xl md:text-6xl xl:text-7xl leading-[1.04] m-0">
         Meet my digital clone.
       </h2>
     </div>
@@ -33,8 +34,8 @@
 
       <!-- Copy -->
       <div class="flex flex-col items-start gap-6 lg:w-[40%]">
-        <p class="text-neutral-200 text-base md:text-lg leading-relaxed max-w-[52ch] m-0">
-          An AI that <span class="text-white">answers as me</span> — grounded strictly in my real
+        <p class="text-neutral-600 text-base md:text-lg leading-relaxed max-w-[52ch] m-0">
+          An AI that <span class="bg-primary-300 px-0.5 text-black">answers as me</span> — grounded strictly in my real
           profile and projects, with citations after every reply. No invented experience, no filler:
           interview me instead of scrolling.
         </p>
@@ -43,7 +44,7 @@
           class="btn btn-primary text-lg md:text-xl px-6 py-3">
           Start a conversation ↗
         </a>
-        <p class="text-neutral-500 text-sm leading-relaxed max-w-[46ch] m-0">
+        <p class="text-neutral-600 text-sm leading-relaxed max-w-[46ch] m-0">
           Run it your way — on-device GPU (WebGPU), your own API key, or my cloud. No sign-up.
         </p>
       </div>
@@ -107,7 +108,7 @@
           </a>
         </div>
 
-        <p class="pt-4 text-center text-neutral-500 text-xs m-0">
+        <p class="pt-4 text-center text-neutral-600 text-xs m-0">
           Live preview — the real conversation opens in a new tab, where you pick the engine.
         </p>
       </div>

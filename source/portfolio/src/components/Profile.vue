@@ -8,7 +8,7 @@ import BlockText from './animated/blockText.vue';
   <div class="bg-texture flex flex-col md:flex-row justify-center items-center w-vw min-h-[85svh] md:pt-[10svh] gap-4 lg:gap-8 text-white ">
 
     <div class="bg-corners m-8 md:my-4 lg:my-12 xl:my-18 mb-0">
-      <div class=" flex overflow-clip rounded-2xl md:rounded-3xl lg:rounded-4xl bg-neutral-100 m-4 ">
+      <div class=" flex overflow-clip rounded-2xl md:rounded-3xl lg:rounded-4xl bg-gray-100 m-4 ">
         <img src="/img/profilePic.png" alt="Justin Lai" class="relative z-30 w-[60vw] md:w-[30vw] xl:w-[26vw]" />
       </div>
 
@@ -21,8 +21,10 @@ import BlockText from './animated/blockText.vue';
           </svg>
         </a>
 
+        <!-- GitHub's chip: dark, but dark here means neutral-800 with a rim, since
+             the band behind it is neutral-800 too. -->
         <a href="https://github.com/Justin26l/" target="_blank"
-          class="icon-container z-20 opacity-0 flow-in ani-delay-400 bg-neutral-900">
+          class="icon-container z-20 opacity-0 flow-in ani-delay-400 bg-neutral-800 border border-neutral-600">
           <svg xmlns="http://www.w3.org/2000/svg" alt="Github" class="icon text-white">
             <use xlink:href="#github" />
           </svg>

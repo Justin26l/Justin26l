@@ -1,0 +1,130 @@
+/* ==========================================================================
+   PROJECT PRESENTATION PRIMITIVES
+   Shared by the highlight reel and the Tier 2 grid, so a project reads the same
+   way wherever it appears: a row of pills, then the title, role and description.
+
+   TWO TONAL VARIANTS
+   The grid sits on a gray-100 band; the reel sits on neutral-800 and its HUD sits
+   on a dark scrim over arbitrary media. Same components, two surfaces, so every
+   block below comes in `--light` (on a light band) and `--dark` (on the dark
+   reel or its scrim) — the same convention as .section-title.
+
+   PROVENANCE MARKING
+   Only the org pill carries colour, so the employment / independent split stays
+   scannable without turning the row into a wall of badges. The text label carries
+   the meaning on its own, so the colour is redundant rather than load-bearing and
+   still reads in greyscale or with colour blindness.
+   ========================================================================== */
+
+/* ---- pills: the project's metadata, always in the order year, type, org ---- */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+}
+.pills li {
+  font-size: 0.72rem;
+  line-height: 1;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.pills--light {
+  margin: 1.1rem 0 0;
+}
+.pills--light li {
+  @apply text-neutral-600 border-neutral-300;
+}
+/* the 800 steps are the readable end of each scale on a gray-100 band */
+.pills--light li.org.is-simit {
+  @apply text-secondary-800 border-secondary-700/45;
+}
+.pills--light li.org.is-personal {
+  @apply text-primary-800 border-primary-700/45;
+}
+
+.pills--dark {
+  /* a little air after the row so the title does not crowd it, since the reel's
+     flex gap is smaller than the grid's margin */
+  margin: 0 0 0.35rem;
+}
+.pills--dark li {
+  @apply text-neutral-300 border-neutral-600;
+}
+.pills--dark li.org.is-simit {
+  @apply text-secondary-400 border-secondary-500/60;
+}
+.pills--dark li.org.is-personal {
+  @apply text-primary-500 border-primary-500/55;
+}
+
+/* ---- links: plain text, never buttons ------------------------------------
+   `.hl-actions` / `.btn` used to dress these up; a portfolio entry that only
+   needs to be opened reads better as a quiet link. */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.15rem;
+}
+.links a {
+  line-height: 1.3;
+}
+
+.links--light {
+  margin: 1rem 0 0;
+}
+.links--light a {
+  font-size: 0.82rem;
+  @apply text-primary-800;
+}
+.links--light a:hover {
+  @apply text-primary-600;
+}
+
+.links--dark {
+  margin: 0.85rem 0 0;
+}
+.links--dark a {
+  font-size: 0.86rem;
+  @apply text-primary-500;
+}
+.links--dark a:hover {
+  @apply text-primary-300;
+}
+
+/* ---- progress-rail badge -------------------------------------------------
+   The one place the org label is not a pill row member: the rail is a single
+   dark chip, so it keeps its own compact form. */
+.prov {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  font-family: 'audiowide', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.26rem 0.62rem;
+  border-radius: 999px;
+  border: 1px solid;
+  white-space: nowrap;
+  line-height: 1.25;
+  background-color: rgba(10, 10, 10, 0.78);
+}
+.prov::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex: none;
+}
+.prov.is-simit {
+  @apply text-secondary-400 border-secondary-500/60;
+}
+.prov.is-personal {
+  @apply text-primary-500 border-primary-500/55;
+}

@@ -1,9 +1,15 @@
 <template>
   <div class="bg-neutral-800 w-full pb-20">
-    <div class="push-center flex flex-col justify-center">
-      <h1 class="heading-lg heading-padding font-audiowide text-primary-500 bg-part-black">Journey</h1>
+    <div class="section-head">
+      <h1 class="section-title section-title--dark">Journey</h1>
+    </div>
 
-      <!-- Achievement navigation (scrollspy) -->
+    <div class="push-center flex flex-col justify-center">
+
+      <!-- Achievement navigation (scrollspy).
+           -mx-4 bleeds the bar's background out to the screen edges while its
+           own px-4 keeps the links aligned to .push-center's gutter. That only
+           works because .push-center carries px-4 — see customize.css. -->
       <nav ref="navRef" aria-label="Achievements"
         class="sticky top-0 z-40 bg-neutral-800 border-y border-neutral-700/60 -mx-4 px-4 lg:mx-0 lg:px-0 py-2.5 my-6 md:my-8 overflow-x-auto no-scrollbar">
         <div class="flex flex-row items-center gap-2 w-max">
@@ -49,7 +55,7 @@
             <div v-if="doc.details"
               class="ps-[26px] md:ps-8 mt-1.5 flex flex-col gap-y-1.5 text-sm md:text-base text-neutral-300 leading-relaxed">
               <div v-for="(detail, di) in doc.details" :key="di" class="flex flex-row items-start gap-2.5 md:gap-3">
-                <span class="mt-[0.5em] h-2 w-2 shrink-0 rounded-[2px] bg-white" aria-hidden="true"></span>
+                <span class="mt-[0.5em] h-2 w-2 shrink-0 rounded-[2px] bg-gray-100" aria-hidden="true"></span>
                 <p class="m-0"><TextRuns :runs="detail" /></p>
               </div>
             </div>

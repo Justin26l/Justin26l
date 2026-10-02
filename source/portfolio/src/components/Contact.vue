@@ -1,6 +1,6 @@
 <template>
   <div id="contact" class="push-center">
-    <div class="bg-white overflow-hidden rounded-4xl">
+    <div class="bg-gray-100 overflow-hidden rounded-4xl">
       <div class="flex flex-col items-center gap-4 w-full">
 
         <div class="flex justify-end w-full md:pe-12">
