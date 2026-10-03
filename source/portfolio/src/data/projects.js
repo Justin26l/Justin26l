@@ -23,10 +23,12 @@
  *   under `personal` here. Changing that is a one-word edit.
  *
  * MEDIA
- *   Only assets that actually exist are listed. `media: []` means no real
- *   screenshot exists yet (for MCPLUS and E-Invoice, every asset on hand is a
- *   2000x2000 marketing illustration rather than product UI), so those projects
- *   render a typographic cover instead of a faked one.
+ *   Only assets that actually exist are listed, and each item says what it is:
+ *   `type: 'video'` renders a silent, looping clip — with `poster`, a still
+ *   lifted from that same clip, used as the blurred wash that fills the
+ *   letterbox around it. Anything without a `type` is a still image.
+ *   `media: []` means no real asset exists yet, and that project renders a
+ *   typographic cover instead of a faked one.
  *
  * TITLE
  *   One `title` per project, always the short form. It carries the same weight
@@ -40,6 +42,7 @@
  */
 
 const IMG = 'img/'
+const VID = 'vid/'
 
 export const ORG = {
   simit: { short: 'SIM IT Sdn Bhd' },
@@ -58,24 +61,20 @@ export const PROJECTS = [
     description:
       'A digital tuition platform for students and parents — live classes, learning materials, subscriptions and a referral programme in one app.',
     links: [
-      { label: 'Google Play ↗', href: 'https://play.google.com/store/apps/details?id=my.mcplus.mcplus_mobile_app' },
+      { label: 'MCPlus', href: 'https://mcplus.my/' },
       { label: 'App Store ↗', href: 'https://apps.apple.com/my/app/mcplus/id6754678266' },
     ],
     highlight: true,
-    media: [],
-  },
-  {
-    key: 'einvoice',
-    title: 'E-Invoice',
-    type: 'Tax compliance',
-    org: 'simit',
-    year: '2024',
-    role: 'Architect and implementer',
-    description:
-      'Issues LHDN-compliant e-invoices from inside the accounting software businesses already use, so they meet Malaysia’s mandate without a separate portal.',
-    links: [{ label: 'Simbiz E-invoice', href: 'https://www.onlinesimbiz.com/#e-invoicing' }],
-    highlight: true,
-    media: [],
+    /* MCPLUS is the reel's lead card and the only project with a clip, so it
+       opens the reel with real motion instead of a still. */
+    media: [
+      {
+        type: 'video',
+        src: VID + 'mcplus.mp4',
+        poster: VID + 'mcplus-poster.jpg',
+        alt: 'MCPlus — a scroll through the marketing site for the tuition platform',
+      },
+    ],
   },
   {
     key: 'digitalclone',
@@ -92,8 +91,12 @@ export const PROJECTS = [
     ],
     highlight: true,
     media: [
-      { src: IMG + 'digitalCloneAbout.jpg', alt: 'Digital Clone — about page' },
-      { src: IMG + 'digitalCloneChat.jpg', alt: 'Digital Clone — chat page' },
+      {
+        type: 'video',
+        src: VID + 'digitalClone.mp4',
+        poster: IMG + 'digitalCloneAbout.jpg',
+        alt: 'digitalClone preview',
+      }
     ],
   },
   {
@@ -109,7 +112,20 @@ export const PROJECTS = [
     highlight: true,
     media: [{ src: IMG + 'xxxTerminal.png', alt: 'xxxTerminal trading dashboard' }],
   },
-
+  {
+    key: 'einvoice',
+    title: 'E-Invoice',
+    type: 'Tax compliance',
+    org: 'simit',
+    year: '2024',
+    role: 'System Designer and Main Developer',
+    description: 'Issues LHDN-compliant e-invoices from inside the accounting software businesses already use, so they meet Malaysia’s mandate without a separate portal.',
+    links: [{ label: 'Simbiz E-invoice', href: 'https://www.onlinesimbiz.com/#e-invoicing' }],
+    highlight: true,
+    media: [
+      { src: IMG + 'simbizEinvoice.webp', alt: 'Digital Clone — about page' },
+    ],
+  },
   /* --------------------------------- TIER 2 · GRID ------------------------ */
   {
     key: 'lightweightpos',

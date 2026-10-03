@@ -41,8 +41,10 @@ const props = defineProps({
 })
 
 /* a project may nominate a different image for the landscape grid thumbnail
-   than the one the reel opens with; otherwise the first media item is used */
-const thumbOf = p => p.thumb || (p.media.length ? p.media[0].src : null)
+   than the one the reel opens with; otherwise the first still is used. Clips are
+   skipped — an <img> cannot render one, and the grid only shows stills. */
+const thumbOf = p =>
+  p.thumb || (p.media.find(m => m.type !== 'video') || {}).src || null
 </script>
 
 <style scoped>

@@ -18,6 +18,11 @@ import { onBeforeUnmount, onMounted, reactive, ref } from 'vue'
  *
  * The same `p` also steps the project's photo set, so one downward scroll both
  * grows the card and advances its media.
+ *
+ * A media item may be a looping video. Playback is not a CSS concern, so this
+ * engine owns it: the clip for the frame that is actually on screen in the
+ * active track plays, every other clip is paused, and under reduced motion all
+ * of them stay paused on their first frame behind native controls.
  */
 
 const clamp = (v, a, b) => (v < a ? a : v > b ? b : v)
@@ -56,6 +61,7 @@ export function useHighlightReel(rootRef, highlights) {
   const scrollIdx = highlights.map(() => 0)
 
   let tracks = []
+  let clips = []
   let ticking = false
   let lastActive = -1
   let mq = null
@@ -67,8 +73,34 @@ export function useHighlightReel(rootRef, highlights) {
       el,
       i,
       stage: el.querySelector('.hl-stage'),
-      shots: [...el.querySelectorAll('.hl-shot')],
+      /* resolved once here rather than per frame: a shot is a still or a clip */
+      shots: [...el.querySelectorAll('.hl-shot')].map(shot => ({
+        el: shot,
+        video: shot.querySelector('video'),
+      })),
     }))
+    clips = tracks.flatMap(t => t.shots.map(s => s.video).filter(Boolean))
+  }
+
+  /**
+   * One clip plays at a time: the shot that is on screen, in the track the reel
+   * is centred on. Everything else rests. `play()` is promise-returning and
+   * rejects outright when a browser refuses autoplay, which is not an error
+   * worth surfacing — the frame simply stays on its poster-wash still.
+   */
+  function syncVideo() {
+    if (reduced.value) {
+      clips.forEach(v => !v.paused && v.pause())
+      return
+    }
+    tracks.forEach(t => {
+      t.shots.forEach((s, si) => {
+        if (!s.video) return
+        const on = t.i === activeIndex.value && mediaIndex[t.i] === si
+        if (on && s.video.paused) s.video.play().catch(() => {})
+        else if (!on && !s.video.paused) s.video.pause()
+      })
+    })
   }
 
   /* the resting geometry is authored purely in CSS (and overridden per
@@ -115,7 +147,7 @@ export function useHighlightReel(rootRef, highlights) {
 
       /* slow ken-burns inside the frame, so the media is never static */
       const inner = (1.07 - 0.07 * smooth(p)).toFixed(4)
-      t.shots.forEach(sh => sh.style.setProperty('--inner', inner))
+      t.shots.forEach(sh => sh.el.style.setProperty('--inner', inner))
 
       /* the photo set steps on the same gesture as the grow */
       const n = t.shots.length || 1
@@ -144,6 +176,9 @@ export function useHighlightReel(rootRef, highlights) {
       const r = band.getBoundingClientRect()
       railOn.value = r.top < vh * 0.6 && r.bottom > vh * 0.4
     }
+
+    /* the on-screen frame changed, so the clip that should be playing may have */
+    syncVideo()
   }
 
   function onScroll() {
@@ -160,15 +195,20 @@ export function useHighlightReel(rootRef, highlights) {
     manual[trackIndex] = shotIndex
     manualAt[trackIndex] = scrollIdx[trackIndex]
     mediaIndex[trackIndex] = shotIndex
+    /* a click does not run the scroll engine, so the clip swap is done here */
+    syncVideo()
   }
 
   function applyReduced() {
     reduced.value = mq ? mq.matches : false
     /* reduced motion is handled purely in CSS — a static stacked list */
+    collect()
     if (!reduced.value) {
-      collect()
       lastActive = -1
       render()
+    } else {
+      /* the clip stays paused on its first frame, playable via native controls */
+      syncVideo()
     }
   }
 

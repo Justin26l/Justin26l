@@ -18,8 +18,34 @@
                    phone screenshot to fill would destroy it.
                    Loaded eagerly: only three reel images exist, and a scroll-driven
                    hero must never pop in halfway through the grow. -->
-              <img class="bg" :src="m.src" alt="" aria-hidden="true" decoding="async" />
-              <img class="fg" :src="m.src" :alt="m.alt" decoding="async" />
+              <template v-if="m.type === 'video'">
+                <!-- The clip is 16:9 and the frame is the viewport, so a narrow
+                     screen leaves it letterboxed. The wash behind is a still
+                     lifted from the clip itself — no second video decode, and
+                     nothing fabricated. Playback is driven by useHighlightReel,
+                     which plays it only while the card is on screen and leaves it
+                     paused (with controls) under prefers-reduced-motion. -->
+                <span
+                  class="bg bg--still"
+                  :style="{ backgroundImage: `url(${m.poster})` }"
+                  aria-hidden="true"
+                ></span>
+                <video
+                  class="fg"
+                  :src="m.src"
+                  :aria-label="m.alt"
+                  muted
+                  loop
+                  playsinline
+                  preload="auto"
+                  :controls="reduced"
+                ></video>
+              </template>
+
+              <template v-else>
+                <img class="bg" :src="m.src" alt="" aria-hidden="true" decoding="async" />
+                <img class="fg" :src="m.src" :alt="m.alt" decoding="async" />
+              </template>
             </div>
 
             <!-- No real screenshot exists for this project. A typographic cover is an
@@ -73,7 +99,7 @@
             type="button"
             class="hl-dot"
             :class="{ 'is-on': mediaIndex[i] === mi }"
-            :aria-label="`Show image ${mi + 1} of ${p.media.length} for ${p.title}`"
+            :aria-label="`Show item ${mi + 1} of ${p.media.length} for ${p.title}`"
             @click="setMedia(i, mi)"
           />
         </div>
@@ -254,10 +280,22 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
   opacity: 0.34;
   transform: scale(1.14);
 }
+/* the wash behind a clip is a span with a background, not an <img> */
+.hl-shot .bg--still {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .hl-shot .fg {
   object-fit: contain;
   transform: scale(var(--inner, 1.06));
   transition: transform 0.1s linear;
+}
+/* A clip already moves. Ken-burning it on top of real motion only softens the
+   frame, so the video is the one media kind with no synthetic push. */
+.hl-shot video.fg {
+  transform: none;
+  display: block;
 }
 
 /* typographic cover for projects with no screenshot yet */
