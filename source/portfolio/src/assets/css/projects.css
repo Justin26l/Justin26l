@@ -23,6 +23,7 @@
   gap: 0.4rem;
   list-style: none;
   padding: 0;
+  margin: 1.1rem 0 0;
 }
 .pills li {
   font-size: 0.72rem;
@@ -33,33 +34,11 @@
   white-space: nowrap;
 }
 
-.pills--light {
-  margin: 1.1rem 0 0;
+.pills-gray {
+  @apply text-neutral-900 !bg-neutral-300/70;
 }
-.pills--light li {
-  @apply text-neutral-600 border-neutral-300;
-}
-/* the 800 steps are the readable end of each scale on a gray-100 band */
-.pills--light li.org.is-simit {
-  @apply text-secondary-800 border-secondary-700/45;
-}
-.pills--light li.org.is-personal {
-  @apply text-primary-800 border-primary-700/45;
-}
-
-.pills--dark {
-  /* a little air after the row so the title does not crowd it, since the reel's
-     flex gap is smaller than the grid's margin */
-  margin: 0 0 0.35rem;
-}
-.pills--dark li {
-  @apply text-neutral-300 border-neutral-600;
-}
-.pills--dark li.org.is-simit {
-  @apply text-secondary-400 border-secondary-500/60;
-}
-.pills--dark li.org.is-personal {
-  @apply text-primary-500 border-primary-500/55;
+.pills-blue {
+  @apply text-neutral-900 !bg-sky-200/30;
 }
 
 /* ---- links: plain text, never buttons ------------------------------------

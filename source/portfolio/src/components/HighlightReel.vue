@@ -70,28 +70,24 @@
           <!-- the HUD rises once the card has grown; its scrim has to guarantee
                contrast over ANY media, including light-mode screenshots.
                Same text layout as a grid card: pills, title, role, description. -->
-          <div class="hl-hud">
-            <div class="left">
-              <ul class="pills pills--dark">
-                <li>{{ p.year }}</li>
-                <li>{{ p.type }}</li>
-                <li class="org" :class="`is-${p.org}`">{{ ORG[p.org].short }}</li>
-              </ul>
-              <h3 class="hl-title font-audiowide">{{ p.title }}</h3>
-              <p class="hl-role">{{ p.role }}</p>
-              <p class="hl-desc">{{ p.description }}</p>
-              <p v-if="p.links.length" class="links links--dark">
-                <a
-                  v-for="l in p.links"
-                  :key="l.href"
-                  :href="l.href"
-                  target="_blank"
-                  rel="noopener"
-                  >{{ l.label }}</a
-                >
-              </p>
+            <div class="hl-hud">
+              <div class="left">
+                <p class="hl-info">{{ p.year }} · {{ p.type }}<template v-if="p.org!=='Personal'"> · {{ p.org }}</template></p>
+                <h3 class="hl-title font-audiowide">{{ p.title }}</h3>
+                <p class="hl-role">{{ p.role }}</p>
+                <p class="hl-desc">{{ p.description }}</p>
+                <p v-if="p.links.length" class="links links--dark">
+                  <a
+                    v-for="l in p.links"
+                    :key="l.href"
+                    :href="l.href"
+                    target="_blank"
+                    rel="noopener"
+                    >{{ l.label }}</a
+                  >
+                </p>
+              </div>
             </div>
-          </div>
         </div>
 
         <!-- media-set index: a sibling of the frame, so the grow transform never
@@ -119,11 +115,7 @@
              not rendering it on a fullscreen panel keeps a permanently invisible
              copy of the project text out of the DOM. -->
         <div v-if="modeOf(i) !== 'full'" class="hl-copy">
-          <ul class="pills pills--dark">
-            <li>{{ p.year }}</li>
-            <li>{{ p.type }}</li>
-            <li class="org" :class="`is-${p.org}`">{{ ORG[p.org].short }}</li>
-          </ul>
+          <p class="hl-info">{{ p.year }} · {{ p.type }}<template v-if="p.org!=='Personal'"> · {{ p.org }}</template></p>
           <h2 class="hl-title font-audiowide">{{ p.title }}</h2>
           <p class="hl-role">{{ p.role }}</p>
           <p class="hl-desc">{{ p.description }}</p>
@@ -144,7 +136,7 @@
     <!-- fixed segmented progress rail: the one element on screen for the whole
          reel, so it carries the provenance badge as well as position -->
     <div class="hl-rail" :class="{ 'is-on': railOn }" aria-hidden="true">
-      <span class="prov" :class="`is-${active.org}`">{{ ORG[active.org].short }}</span>
+      <span class="prov" :class="`is-${active.org}`">{{ active.org }}</span>
       <span class="hl-rail-name">{{ active.title }}</span>
       <span class="hl-segs">
         <span v-for="(p, i) in highlights" :key="p.key" class="hl-seg"><i :data-seg="i" /></span>
@@ -158,7 +150,6 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { ORG } from '../data/projects.js'
 import { useHighlightReel } from '../composables/useHighlightReel.js'
 
 const props = defineProps({
@@ -204,7 +195,7 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
 
 .hl-reel {
   --s-rest: 0.46; /* resting card scale */
-  --s-peak: 0.97; /* fullscreen card scale */
+  --s-peak: 1; /* fullscreen card scale */
   --ty-rest: 0svh; /* resting vertical offset */
   --x-rest: 16vw; /* parks the small card right so the left gutter is free
                      for the caption instead of the two colliding */
@@ -216,7 +207,12 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
   /* HUD scrim alpha, as a fraction of the alpha it was tuned to. Kept as one
      knob because it is a legibility trade, not a free win — the measured table
      on .hl-hud is what to re-read before changing it. */
-  --scrim: 0.5;
+  --scrim: 0.6;
+  /* the HUD panel's distance from the left and bottom edges of the viewport,
+     and the widest it is allowed to grow. svw rather than vw so the panel is
+     not re-measured when a desktop scrollbar comes and goes. */
+  --hud-inset: 5svw;
+  --hud-max: 50svw;
   position: relative;
   /* The band's dark ground lives HERE, not on each stage. Stages are siblings
      painted in DOM order, so an opaque stage background painted over the
@@ -301,7 +297,7 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
     )
     scale(var(--scale));
   /* divided by the scale so the *visual* radius stays correct as it goes to 0 */
-  border-radius: calc(28px * (1 - var(--tg)) / var(--scale));
+  border-radius: calc(12px * (1 - var(--tg)) / var(--scale));
   box-shadow: 0 40px 120px -40px rgba(0, 0, 0, 0.9);
   will-change: transform, border-radius;
 }
@@ -439,45 +435,50 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
 }
 
 /* ==================================================================== HUD --
-   The scrim sits at half the alpha it was tuned to (see --scrim): with every
-   card now fullscreen the media is the whole picture, and a 0.94-black panel
-   over it read as a black bar rather than as media.
+   On a desktop the HUD is a panel, not a bar.
 
-   MEASURED, and this is a real trade rather than a free win. Composited over the
-   reel's lightest media (Digital Clone's white page), sampled on each text row
-   at its lightest point, i.e. worst case:
+   It was a full-width gradient rising off the bottom edge, which is the only
+   shape that works when the copy has to sit directly on the media. As a
+   container it can be sized to its own content and carry its own surface
+   instead: dark, translucent and blurred, so the media reads through it as a
+   wash of its own colour rather than as a picture interrupted by a black band.
+   The blur is what keeps it legible without a heavy tint — it averages the
+   backdrop under the text rather than letting whatever is behind one glyph
+   decide the contrast for it.
 
-     --scrim   title 34px   role 11.5px   desc 14.7px   link 13.8px
-       0.5       2.4:1        2.4:1          3.0:1        3.0:1   <- current
-       0.75      5.3:1        5.5:1          7.0:1        6.6:1
-       1.0      12.2:1       12.4:1         15.7:1       13.7:1
+   Phones keep the gradient bar (see the 900px block below): a content-sized
+   panel would have to be nearly full width there anyway, and a blurred
+   full-width overlay is a worse trade on a small, busy screen.
 
-   At 0.5 none of the four lines clears AA (4.5:1) over white media; 0.75 is the
-   lightest scrim that does. The vignette below is still at full strength and
-   darkens the same band, but on its own it cannot make up the difference. The
-   other three panels carry dark media and read fine at 0.5.
+   MEASURED over the reel's lightest media (Digital Clone's white page), sampled
+   per text row across the whole panel on a backdrop-only render, worst case:
 
-   DELIBERATE EXCEPTION to the single-dark rule: this scrim, the vignette, the
+     row            size        backdrop        contrast
+     title          34.6px      rgb(76,76,76)     6.2:1
+     role           11.5px      rgb(76,76,76)     8.0:1
+     description    14.7px      rgb(76,76,76)     7.5:1
+     link           13.8px      rgb(69,69,69)     7.0:1
+
+   All four clear AA. The backdrop comes out as exactly 0.7 black over the
+   blurred page (0.3 x 255 = 76), and that is what makes a tint this light
+   viable where the old full-width gradient needed 0.94 to hold: the panel only
+   has to cover its own text, and the blur averages what is behind it rather
+   than letting one glyph's background decide the contrast for the whole row.
+
+   DELIBERATE EXCEPTION to the single-dark rule: this panel, the vignette, the
    media-index chip and the progress rail all sit on top of arbitrary media
    rather than on the page, so they stay near-black rather than neutral-800. */
 .hl-hud {
   position: absolute;
-  left: 0;
-  right: 0;
+  left: var(--hud-inset);
+  right: auto;
   bottom: 0;
-  padding: 12rem var(--gutter) 2.6rem;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 2.5rem;
-  background: linear-gradient(
-    to top,
-    rgb(0 0 0 / calc(0.94 * var(--scrim))) 0%,
-    rgb(0 0 0 / calc(0.88 * var(--scrim))) 46%,
-    rgb(0 0 0 / calc(0.72 * var(--scrim))) 66%,
-    rgb(0 0 0 / calc(0.38 * var(--scrim))) 84%,
-    rgb(0 0 0 / 0) 100%
-  );
+  width: fit-content;
+  max-width: var(--hud-max);
+  padding: 1.8rem 2rem;
+  background: rgb(0 0 0 / calc(.9 * var(--scrim)));
+  backdrop-filter: blur(6px);
+  border-radius: 24px 24px 0 0;
   opacity: var(--hud-o, 0);
   transform: translateY(var(--hud-y, 22px));
   pointer-events: var(--hud-pe, none);
@@ -505,13 +506,21 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
   margin: 0;
   text-wrap: pretty;
 }
+.hl-info {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.6;
+  margin: 0;
+  @apply text-primary-300;
+}
 .hl-role {
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   line-height: 1.6;
   margin: 0;
-  @apply text-neutral-400;
+  @apply text-neutral-200;
 }
 .hl-desc {
   @apply text-neutral-300;
@@ -656,8 +665,18 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
   /* On a phone the HUD stacks tall and short, so a percentage gradient leaves
      the upper text in a weak scrim zone — a near-solid bottom panel is the
      standard mobile pattern. It backs off with the same --scrim knob as the
-     desktop gradient, and the vignette underneath is doing the rest. */
+     desktop panel, and the vignette underneath is doing the rest.
+     Everything that made it a content-sized container on a desktop is undone
+     here: on a phone the panel would span nearly the whole width anyway, and a
+     blurred full-width overlay is a worse trade on a small, busy screen. */
   .hl-hud {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    max-width: none;
+    border-radius: 0;
+    backdrop-filter: none;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.8rem;

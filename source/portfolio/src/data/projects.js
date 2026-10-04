@@ -14,10 +14,10 @@
  *   on the reel's fixed progress rail. It is no longer used to group the grid:
  *   the distinction is carried by the pill itself.
  *
- *   simit    = work at SIM IT Sdn Bhd (Software Engineer, 2023-2026)
+ *   simit    = work at SIMIT (Software Engineer, 2023-2026)
  *   personal = independent / open-source work
  *
- *   NOTE / OPEN QUESTION: LightweightPOS is credited to SIM IT Sdn Bhd by
+ *   NOTE / OPEN QUESTION: LightweightPOS is credited to SIMIT by
  *   experience.md, but its own case study describes a personal freemium product
  *   hosted on pos.xxxterminal.com and open-sourced under Justin26l. It is filed
  *   under `personal` here. Changing that is a one-word edit.
@@ -44,22 +44,17 @@
 const IMG = 'img/'
 const VID = 'vid/'
 
-export const ORG = {
-  simit: { short: 'SIM IT Sdn Bhd' },
-  personal: { short: 'Personal' },
-}
-
 export const PROJECTS = [
   /* --------------------------------- TIER 1 · HIGHLIGHTS ------------------ */
   {
     key: 'mcplus',
     title: 'MCPlus Ecosystem',
-    type: 'App & System Design',
-    org: 'simit',
+    type: 'Product Design & Development',
+    org: 'SIMIT',
     year: '2026',
-    role: 'Product design & user experience',
+    role: 'Product Design, Development',
     description:
-      'A digital tuition platform for students and parents — live classes, learning materials, subscriptions and a referral programme in one app.',
+      'A nation-wide digital tuition platform. Managing live classes, learning materials, subscriptions and a referral in one app.',
     links: [
       { label: 'MCPlus', href: 'https://mcplus.my/' },
       { label: 'App Store ↗', href: 'https://apps.apple.com/my/app/mcplus/id6754678266' },
@@ -79,12 +74,12 @@ export const PROJECTS = [
   {
     key: 'digitalclone',
     title: 'Digital Clone AI',
-    type: 'Conversational AI',
-    org: 'personal',
+    type: 'AI Chat-bot',
+    org: 'Personal',
     year: '2026',
-    role: 'Sole author — product, front end, retrieval design',
+    role: 'Owner, Developer',
     description:
-      'An open-source AI that answers as me. Visitors ask about my work and get answers grounded in my real profile and projects — with sources, never invented experience.',
+      'An AI chatbot that answers as me. Visitors ask about my work and get answers grounded in my real profile and projects.',
     links: [
       { label: 'Live site ↗', href: 'https://digiclone.xxxterminal.com/' },
       { label: 'GitHub ↗', href: 'https://github.com/Justin26l/DigitalCloneLLM' },
@@ -103,9 +98,9 @@ export const PROJECTS = [
     key: 'xxxterminal',
     title: 'xxxTerminal',
     type: 'Algorithmic trading SaaS',
-    org: 'personal',
+    org: 'Personal',
     year: '2022',
-    role: 'Founder, product owner, engineer',
+    role: 'Owner, Developer',
     description:
       'A trading-bot platform for people who don’t code. Traders describe a strategy, run it in the cloud, and share what works with the community.',
     links: [{ label: 'Product archive ↗', href: '/sites/xxxterminal/home.html' }],
@@ -116,9 +111,9 @@ export const PROJECTS = [
     key: 'einvoice',
     title: 'E-Invoice',
     type: 'Tax compliance',
-    org: 'simit',
+    org: 'SIMIT',
     year: '2024',
-    role: 'System Designer and Main Developer',
+    role: 'System Designer, Developer',
     description: 'Issues LHDN-compliant e-invoices from inside the accounting software businesses already use, so they meet Malaysia’s mandate without a separate portal.',
     links: [{ label: 'Simbiz E-invoice', href: 'https://www.onlinesimbiz.com/#e-invoicing' }],
     highlight: true,
@@ -131,11 +126,10 @@ export const PROJECTS = [
     key: 'lightweightpos',
     title: 'LightweightPOS',
     type: 'POS & inventory',
-    org: 'personal',
+    org: 'Personal',
     year: '2026',
     role: 'Product owner, engineer, UI/UX designer',
-    description:
-      'A till and stock app for small shops that keeps working with no internet — and costs nothing to run, because there is no server behind it.',
+    description: 'A till and stock app for small shops that keeps working with no internet — and costs nothing to run, because there is no server behind it.',
     links: [
       { label: 'Live ↗', href: 'https://pos.xxxterminal.com/#/pos' },
       { label: 'GitHub ↗', href: 'https://github.com/Justin26l/LightweightPOS' },
@@ -146,11 +140,10 @@ export const PROJECTS = [
     key: 'veryexpress',
     title: 'VeryExpress',
     type: 'Developer tool',
-    org: 'personal',
+    org: 'Personal',
     year: '2024',
     role: 'Author and maintainer',
-    description:
-      'Generates a working backend API from a short schema description, instead of hand-writing the same routes, models and login for every new project.',
+    description: 'Generates a working backend API from a short schema description, instead of hand-writing the same routes, models and login for every new project.',
     links: [
       { label: 'npm ↗', href: 'https://www.npmjs.com/package/very-express' },
       { label: 'GitHub ↗', href: 'https://github.com/Justin26l/VeryExpress' },
@@ -161,11 +154,10 @@ export const PROJECTS = [
     key: 'spents',
     title: 'Spents mobile app',
     type: 'Personal ledger',
-    org: 'personal',
+    org: 'Personal',
     year: '2025',
     role: 'Design and full-stack prototype',
-    description:
-      'A personal spending tracker built to stay instant on a bad connection — entries save on the phone first and sync once the network comes back.',
+    description: 'A spending tracker built to stay instant on a bad connection, Data save on the phone first and sync once the network comes back.',
     links: [{ label: 'Figma prototype ↗', href: 'https://www.figma.com/proto/10eFNWDmh8LXMNzGLG0DL2/Spents' }],
     media: [
       { src: IMG + 'spentsMobile.png', alt: 'Spents mobile ledger' },

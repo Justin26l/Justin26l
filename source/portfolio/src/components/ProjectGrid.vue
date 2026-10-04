@@ -8,23 +8,24 @@
       </div>
 
       <!-- pills, in a fixed order: year, type, org -->
-      <ul class="pills pills--light">
+      <ul class="pills pills">
         <li>{{ p.year }}</li>
         <li>{{ p.type }}</li>
-        <li class="org" :class="`is-${p.org}`">{{ ORG[p.org].short }}</li>
+        <li class="org" :class="`is-${p.org}`">{{ p.org }}</li>
       </ul>
 
       <h3 class="font-audiowide">{{ p.title }}</h3>
       <p class="role">{{ p.role }}</p>
       <p class="desc">{{ p.description }}</p>
 
-      <p v-if="p.links && p.links.length" class="links links--light">
+      <p v-if="p.links && p.links.length" class="links">
         <a
           v-for="l in p.links"
           :key="l.href"
           :href="l.href"
           target="_blank"
           rel="noopener"
+          class="btn bg-neutral-400 !text-black"
           >{{ l.label }}</a
         >
       </p>
@@ -33,7 +34,6 @@
 </template>
 
 <script setup>
-import { ORG } from '../data/projects.js'
 
 const props = defineProps({
   /** Projects to render (already filtered to non-highlights). */
