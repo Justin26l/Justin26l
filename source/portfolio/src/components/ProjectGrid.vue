@@ -80,7 +80,7 @@ const thumbOf = p =>
 .thumb {
   position: relative;
   overflow: hidden;
-  border-radius: 0.875rem;
+  border-radius: 0.25rem;
   aspect-ratio: 16 / 9;
   /* dark ground for the typographic cover; dark means neutral-800 */
   @apply bg-neutral-800;

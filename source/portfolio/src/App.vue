@@ -61,4 +61,10 @@ import Portfolio from './components/Portfolio.vue';
 // import Skills from './components/Skills.vue';
 import Profile from './components/Profile.vue';
 import Svgs from './components/svgs.vue';
+import { useSmoothScroll } from './composables/useSmoothScroll.js';
+
+/* One eased scroll position for the whole page. Mounted at the root because it
+   owns the document's scroll, not any one section; the reel publishes the rest
+   positions it may settle on. */
+useSmoothScroll();
 </script>

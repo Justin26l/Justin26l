@@ -1,7 +1,15 @@
 <template>
   <div ref="rootRef" class="hl-reel" :class="{ 'is-reduced': reduced }">
-    <!-- ---------------- one sticky, pinned stage per highlight ---------------- -->
-    <article v-for="(p, i) in highlights" :key="p.key" class="hl-track">
+    <!-- -------- one sticky, pinned stage per highlight --------
+         The two ends carry a scroll runway (grow / settle); everything between
+         is a fullscreen panel with no travel, which is also where the page's
+         snap points land. -->
+    <article
+      v-for="(p, i) in highlights"
+      :key="p.key"
+      class="hl-track"
+      :class="`is-${modeOf(i)}`"
+    >
       <div class="hl-stage">
         <div class="hl-plusgrid" aria-hidden="true"></div>
 
@@ -104,10 +112,13 @@
           />
         </div>
 
-        <!-- resting-state editorial caption: lives in the stage, not the frame, so
+        <!-- Resting-state editorial caption: lives in the stage, not the frame, so
              it can sit in the gutter beside the shrunken card. Same text layout as
-             a grid card: pills, title, role, description. -->
-        <div class="hl-copy">
+             a grid card: pills, title, role, description.
+             Only the two bookend tracks ever rest, so only they need a caption —
+             not rendering it on a fullscreen panel keeps a permanently invisible
+             copy of the project text out of the DOM. -->
+        <div v-if="modeOf(i) !== 'full'" class="hl-copy">
           <ul class="pills pills--dark">
             <li>{{ p.year }}</li>
             <li>{{ p.type }}</li>
@@ -155,7 +166,10 @@ const props = defineProps({
 })
 
 const rootRef = ref(null)
-const { reduced, railOn, activeIndex, mediaIndex, setMedia } = useHighlightReel(rootRef, props.highlights)
+const { reduced, railOn, activeIndex, mediaIndex, setMedia, modeOf } = useHighlightReel(
+  rootRef,
+  props.highlights,
+)
 
 const active = computed(() => props.highlights[activeIndex.value] || props.highlights[0])
 </script>
@@ -165,22 +179,44 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
 
 /* ============================================================================
    HIGHLIGHT REEL
-   Each highlight gets a tall scroll runway with a position:sticky stage pinned
-   to the viewport. Scroll progress p (0 → 1) across that runway drives the
-   scale-up, the caption hand-off, the HUD and the photo set, all from CSS
-   custom properties written by useHighlightReel.
+   A fullscreen gallery with bookends. The first and last highlights each get a
+   tall scroll runway with a position:sticky stage pinned to the viewport; scroll
+   progress p (0 → 1) across that runway drives the scale-up (or, at the tail end,
+   the settle back down), the caption hand-off, the HUD and the photo set, all
+   from CSS custom properties written by useHighlightReel.
+
+   Every highlight between the bookends is a plain fullscreen panel with no
+   runway at all (--runway is one viewport), so scrolling only slides it into
+   place. Those are the positions the page snaps on.
 
    Resting geometry lives here (not in JS): it changes per breakpoint, and it is
    all derived in CSS so a resize needs no JS at all.
    ========================================================================== */
+
+/* Snapping is done in JS, by useSmoothScroll, for two reasons CSS snap cannot
+   cover. It has to be able to reach a position that is not an element edge —
+   the point at which a bookend card has finished growing is mid-track, with
+   nothing there to declare a snap area. And it has to commit by *direction*
+   rather than by distance: a reader who has moved down out of the resting card
+   is going to the fullscreen one, even from 20px away, or they are left parked
+   on a half-grown card. The rest positions the reel publishes live in
+   useHighlightReel.snapPositions(). */
+
 .hl-reel {
   --s-rest: 0.46; /* resting card scale */
   --s-peak: 0.97; /* fullscreen card scale */
   --ty-rest: 0svh; /* resting vertical offset */
   --x-rest: 16vw; /* parks the small card right so the left gutter is free
                      for the caption instead of the two colliding */
-  --runway: 260vh; /* scroll runway per highlight */
+  --runway: 200vh; /* scroll runway for the two bookend tracks. This is how far a
+                      card travels while it grows, and a turn plays that whole
+                      distance as one movement, so it sets how much ground the
+                      animation covers — not how much scrolling it costs. */
   --gutter: 5vw;
+  /* HUD scrim alpha, as a fraction of the alpha it was tuned to. Kept as one
+     knob because it is a legibility trade, not a free win — the measured table
+     on .hl-hud is what to re-read before changing it. */
+  --scrim: 0.5;
   position: relative;
   /* The band's dark ground lives HERE, not on each stage. Stages are siblings
      painted in DOM order, so an opaque stage background painted over the
@@ -193,6 +229,18 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
 .hl-track {
   position: relative;
   height: var(--runway);
+}
+
+/* Snap rest positions belong to the fullscreen panels, and only to them. A
+   panel is one screen: stopping half way between two of them shows the bottom
+   of one card and the top of the next, which is a state with no meaning. A
+   bookend runway is the opposite — every position along it is a deliberate
+   frame of the grow. That split is the useful part of the pattern in
+   MIBO_tech: snap where coming to rest half-shown is wrong, and nowhere else.
+   A bookend still publishes its two ends, which is what keeps a reader off a
+   half-grown card. */
+.hl-track.is-full {
+  --runway: 100svh;
 }
 
 .hl-stage {
@@ -391,17 +439,27 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
 }
 
 /* ==================================================================== HUD --
-   The scrim is heavy on purpose: projects with light-mode screenshots (the
-   Digital Clone covers are white pages) make lime text sitting directly on the
-   media unreadable. Measured with a compositing contrast check: worst case is
-   now 6.4:1 over the lightest media, against 1.1:1 before this was fixed.
+   The scrim sits at half the alpha it was tuned to (see --scrim): with every
+   card now fullscreen the media is the whole picture, and a 0.94-black panel
+   over it read as a black bar rather than as media.
+
+   MEASURED, and this is a real trade rather than a free win. Composited over the
+   reel's lightest media (Digital Clone's white page), sampled on each text row
+   at its lightest point, i.e. worst case:
+
+     --scrim   title 34px   role 11.5px   desc 14.7px   link 13.8px
+       0.5       2.4:1        2.4:1          3.0:1        3.0:1   <- current
+       0.75      5.3:1        5.5:1          7.0:1        6.6:1
+       1.0      12.2:1       12.4:1         15.7:1       13.7:1
+
+   At 0.5 none of the four lines clears AA (4.5:1) over white media; 0.75 is the
+   lightest scrim that does. The vignette below is still at full strength and
+   darkens the same band, but on its own it cannot make up the difference. The
+   other three panels carry dark media and read fine at 0.5.
 
    DELIBERATE EXCEPTION to the single-dark rule: this scrim, the vignette, the
-   media-index chip and the progress rail all sit on top of arbitrary
-   photography rather than on the page, so they stay near-black. Swapping them
-   to neutral-800 lifts the composited backdrop under the small role text from
-   ~(28,28,28) to ~(62,62,62) over a white screenshot, dropping it to ~4.0:1 —
-   below AA. */
+   media-index chip and the progress rail all sit on top of arbitrary media
+   rather than on the page, so they stay near-black rather than neutral-800. */
 .hl-hud {
   position: absolute;
   left: 0;
@@ -414,11 +472,11 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
   gap: 2.5rem;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.94) 0%,
-    rgba(0, 0, 0, 0.88) 46%,
-    rgba(0, 0, 0, 0.72) 66%,
-    rgba(0, 0, 0, 0.38) 84%,
-    rgba(0, 0, 0, 0) 100%
+    rgb(0 0 0 / calc(0.94 * var(--scrim))) 0%,
+    rgb(0 0 0 / calc(0.88 * var(--scrim))) 46%,
+    rgb(0 0 0 / calc(0.72 * var(--scrim))) 66%,
+    rgb(0 0 0 / calc(0.38 * var(--scrim))) 84%,
+    rgb(0 0 0 / 0) 100%
   );
   opacity: var(--hud-o, 0);
   transform: translateY(var(--hud-y, 22px));
@@ -596,8 +654,9 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
     display: none;
   }
   /* On a phone the HUD stacks tall and short, so a percentage gradient leaves
-     the upper text in a weak scrim zone. A near-solid bottom panel is both the
-     standard mobile pattern and the only thing that reliably clears AA. */
+     the upper text in a weak scrim zone — a near-solid bottom panel is the
+     standard mobile pattern. It backs off with the same --scrim knob as the
+     desktop gradient, and the vignette underneath is doing the rest. */
   .hl-hud {
     flex-direction: column;
     align-items: flex-start;
@@ -605,10 +664,10 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
     padding: 5rem var(--gutter) 4.6rem;
     background: linear-gradient(
       to top,
-      #0a0a0a 0%,
-      rgba(10, 10, 10, 0.97) 58%,
-      rgba(10, 10, 10, 0.8) 84%,
-      rgba(10, 10, 10, 0) 100%
+      rgb(10 10 10 / calc(1 * var(--scrim))) 0%,
+      rgb(10 10 10 / calc(0.97 * var(--scrim))) 58%,
+      rgb(10 10 10 / calc(0.8 * var(--scrim))) 84%,
+      rgb(10 10 10 / 0) 100%
     );
   }
   .hl-hud .hl-desc,
@@ -652,57 +711,33 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
 }
 
 /* ======================================================== REDUCED MOTION --
-   Honour the OS setting: no pinned scale-up at all, just an honest stacked
-   list. Everything stays reachable and readable. */
+   Honour the OS setting: no scroll runway, no snap, no scale-up. Every track
+   becomes the same plain fullscreen panel the middle of the reel already uses,
+   so nothing on the page moves except the scroll itself, and the caption — which
+   only ever existed to sit beside a moving card — steps aside for the HUD.
+   No snap rule is needed here: useSmoothScroll is off in this mode, and with no
+   runway left every track publishes a single rest position anyway. */
 .hl-reel.is-reduced .hl-track {
-  height: auto;
+  --runway: 100svh;
 }
+/* pin every stage at the end state of a grow, since no JS runs in this mode */
 .hl-reel.is-reduced .hl-stage {
-  position: static;
-  height: auto;
-  padding: 5rem 0;
-  display: block;
+  --tg: 1;
 }
-.hl-reel.is-reduced .hl-frame {
-  width: min(92vw, 1100px);
-  height: auto;
-  aspect-ratio: 16 / 10;
-  margin: 0 auto;
-  transform: none !important;
-  border-radius: 22px;
-  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.85);
-}
+/* The caption is hidden rather than stacked below: it carries the same project
+   text as the HUD, which is an overlay here, so showing both read as a
+   duplicated title. */
 .hl-reel.is-reduced .hl-copy {
-  position: static;
-  width: min(92vw, 1100px);
-  margin: 2rem auto 0;
-  opacity: 1 !important;
-  transform: none !important;
-  pointer-events: auto !important;
-}
-.hl-reel.is-reduced .hl-hud {
-  position: static;
-  opacity: 1 !important;
-  transform: none !important;
-  pointer-events: auto !important;
-  background: none;
-  padding: 1.5rem 0 0;
-  display: block;
-}
-.hl-reel.is-reduced .hl-hud .left {
-  gap: 0.5rem;
-}
-.hl-reel.is-reduced .hl-vignette,
-.hl-reel.is-reduced .hl-corners {
   display: none;
 }
+.hl-reel.is-reduced .hl-hud {
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}
 .hl-reel.is-reduced .hl-dots {
-  position: static;
   opacity: 1 !important;
   pointer-events: auto !important;
-  margin: 1rem auto 0;
-  justify-content: center;
-  width: min(92vw, 1100px);
 }
 .hl-reel.is-reduced .hl-shot .fg {
   transform: none !important;

@@ -1,4 +1,5 @@
 import { onBeforeUnmount, onMounted, reactive, ref } from 'vue'
+import { provideSnapTargets } from './useSmoothScroll.js'
 
 /**
  * Scroll engine for the highlight reel.
@@ -23,6 +24,19 @@ import { onBeforeUnmount, onMounted, reactive, ref } from 'vue'
  * engine owns it: the clip for the frame that is actually on screen in the
  * active track plays, every other clip is paused, and under reduced motion all
  * of them stay paused on their first frame behind native controls.
+ *
+ * TRACK ROLES
+ *   The reel is a fullscreen gallery with bookends. Only the two ends have a
+ *   scroll runway: the first card is resting when the reel opens and grows into
+ *   place, the last one settles back to a resting card as the reel hands off to
+ *   the light band. Every track between them is a plain fullscreen panel with no
+ *   travel at all, so it only slides, and the page snap points line up on it.
+ *
+ *   The settle track is the grow track read backwards, so it reuses the exact
+ *   same windows with `q = 1 - p` instead of `p`. That keeps the two ends true
+ *   mirrors — including the geometry constraint behind W.copyOut, which is why
+ *   the caption clears the card on the way in at the same rate it returns on the
+ *   way out — and it means there is only one set of timings to tune.
  */
 
 const clamp = (v, a, b) => (v < a ? a : v > b ? b : v)
@@ -47,6 +61,22 @@ const W = {
   dotsIn: [0.46, 0.68],
   mediaStep: [0.14, 0.9],
   brackets: [0.2, 0.46],
+}
+
+/**
+ * What a track does as the page scrolls past it.
+ *
+ *   grow   the reel's opening card: resting, then scaling up to fullscreen
+ *   full   a fullscreen panel with no travel — it only slides into place
+ *   settle the reel's closing card: fullscreen, then shrinking back to rest
+ *
+ * A one-highlight reel is a single grow track; it never needs a bookend pair.
+ */
+export function trackMode(i, n) {
+  if (n < 2) return 'grow'
+  if (i === 0) return 'grow'
+  if (i === n - 1) return 'settle'
+  return 'full'
 }
 
 export function useHighlightReel(rootRef, highlights) {
@@ -118,6 +148,12 @@ export function useHighlightReel(rootRef, highlights) {
       const p = clamp(-rect.top / Math.max(1, rect.height - stageH), 0, 1)
       const st = t.stage.style
 
+      /* A fullscreen panel has no runway, so its progress is not a position —
+         it is pinned at the state a grown card ends in. The settle track is the
+         grow track read backwards, so it runs the same windows off 1 - p. */
+      const mode = trackMode(t.i, tracks.length)
+      const q = mode === 'settle' ? 1 - p : mode === 'full' ? 1 : p
+
       /* ONE unitless number drives all of the card's responsive geometry.
          Scale, offset and radius are computed in CSS from --tg plus the tokens
          in .hl-reel, because those tokens change at the 900px breakpoint. Writing
@@ -125,38 +161,42 @@ export function useHighlightReel(rootRef, highlights) {
          width of stale offset behind for a frame or two, which pushed the page
          wider than the screen and latched a horizontal scrollbar. Letting CSS do
          it means a resize needs no JS at all. */
-      const te = win(p, ...W.grow)
+      const te = win(q, ...W.grow)
       st.setProperty('--tg', te.toFixed(4))
 
-      const copyT = win(p, ...W.copyOut)
+      const copyT = win(q, ...W.copyOut)
       st.setProperty('--copy-o', (1 - copyT).toFixed(3))
       st.setProperty('--copy-y', (-34 * copyT).toFixed(2) + 'px')
       st.setProperty('--copy-pe', copyT > 0.6 ? 'none' : 'auto')
 
-      const hudT = win(p, ...W.hudIn)
+      const hudT = win(q, ...W.hudIn)
       st.setProperty('--hud-o', hudT.toFixed(3))
       st.setProperty('--hud-y', (22 * (1 - hudT)).toFixed(2) + 'px')
       st.setProperty('--hud-pe', hudT > 0.6 ? 'auto' : 'none')
 
-      const dotsT = win(p, ...W.dotsIn)
+      const dotsT = win(q, ...W.dotsIn)
       st.setProperty('--dots-o', dotsT.toFixed(3))
       st.setProperty('--dots-pe', dotsT > 0.6 ? 'auto' : 'none')
 
       st.setProperty('--vig', (0.18 + 0.44 * te).toFixed(3))
-      st.setProperty('--brk', (1 - win(p, ...W.brackets)).toFixed(3))
+      st.setProperty('--brk', (1 - win(q, ...W.brackets)).toFixed(3))
 
       /* slow ken-burns inside the frame, so the media is never static */
-      const inner = (1.07 - 0.07 * smooth(p)).toFixed(4)
+      const inner = (1.07 - 0.07 * smooth(q)).toFixed(4)
       t.shots.forEach(sh => sh.el.style.setProperty('--inner', inner))
 
-      /* the photo set steps on the same gesture as the grow */
+      /* The photo set steps on the same gesture as the grow. A fullscreen panel
+         has no gesture to hang that on, so its set moves only by hand. */
       const n = t.shots.length || 1
-      const si = Math.min(n - 1, Math.floor(win(p, ...W.mediaStep) * n))
+      const si =
+        mode === 'full' ? 0 : Math.min(n - 1, Math.floor(win(q, ...W.mediaStep) * n))
       scrollIdx[t.i] = si
       if (manual[t.i] !== null && si !== manualAt[t.i]) manual[t.i] = null
       const idx = manual[t.i] !== null ? manual[t.i] : si
       if (mediaIndex[t.i] !== idx) mediaIndex[t.i] = idx
 
+      /* the rail still fills with raw travel, so every segment reads as scrolled
+         past — including a fullscreen panel, which fills as it slides through */
       const seg = root.querySelector(`[data-seg="${t.i}"]`)
       if (seg) seg.style.width = (p * 100).toFixed(2) + '%'
     })
@@ -179,6 +219,30 @@ export function useHighlightReel(rootRef, highlights) {
 
     /* the on-screen frame changed, so the clip that should be playing may have */
     syncVideo()
+  }
+
+  /**
+   * Where this reel's scroll is allowed to come to rest, for useSmoothScroll.
+   *
+   * Every track contributes the position where it first fills the screen. A
+   * bookend track contributes a second one at the far end of its runway, which
+   * is where the card has finished growing (or finished settling) — so a reader
+   * who stops in between is committed to one end of the grow instead of being
+   * left on a half-grown card.
+   *
+   * Read fresh rather than cached: it is four rectangles, asked for once per
+   * settle, against a layout that changes with the viewport and the media.
+   */
+  function snapPositions() {
+    const out = []
+    tracks.forEach(t => {
+      const stageH = t.stage.offsetHeight || window.innerHeight
+      const base = t.el.getBoundingClientRect().top + window.scrollY
+      out.push(base)
+      const travel = t.el.offsetHeight - stageH
+      if (travel > 1) out.push(base + travel)
+    })
+    return out
   }
 
   function onScroll() {
@@ -207,12 +271,17 @@ export function useHighlightReel(rootRef, highlights) {
       lastActive = -1
       render()
     } else {
+      /* The engine has stopped writing these, so it has to take back what it last
+         wrote: an inline --tg from before the setting flipped outranks the
+         stylesheet's reduced-motion rules, which are class-based. */
+      tracks.forEach(t => t.stage && t.stage.removeAttribute('style'))
       /* the clip stays paused on its first frame, playable via native controls */
       syncVideo()
     }
   }
 
   let resizeTimer = null
+  let unprovideSnap = null
   function onResize() {
     clearTimeout(resizeTimer)
     resizeTimer = setTimeout(() => {
@@ -226,6 +295,7 @@ export function useHighlightReel(rootRef, highlights) {
     mq = window.matchMedia('(prefers-reduced-motion: reduce)')
     mq.addEventListener('change', applyReduced)
     applyReduced()
+    unprovideSnap = provideSnapTargets(snapPositions)
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onResize)
     /* late image loads change the layout height, so settle once more */
@@ -235,11 +305,20 @@ export function useHighlightReel(rootRef, highlights) {
 
   onBeforeUnmount(() => {
     if (mq) mq.removeEventListener('change', applyReduced)
+    unprovideSnap?.()
     window.removeEventListener('scroll', onScroll)
     window.removeEventListener('resize', onResize)
     window.removeEventListener('load', render)
     clearTimeout(resizeTimer)
   })
 
-  return { reduced, railOn, activeIndex, mediaIndex, setMedia, render }
+  return {
+    reduced,
+    railOn,
+    activeIndex,
+    mediaIndex,
+    setMedia,
+    render,
+    modeOf: i => trackMode(i, highlights.length),
+  }
 }
