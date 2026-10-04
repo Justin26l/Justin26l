@@ -655,11 +655,18 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
    card. */
 @media (max-width: 900px) {
   .hl-reel {
-    --s-rest: 0.62;
-    --ty-rest: -8svh;
+    --s-rest: 0.9;
+    --ty-rest: 0svh;
     --x-rest: 0vw;
     --gutter: 6vw;
   }
+  /* Not grown: the media reads at 90svw, and fullscreen is still the whole
+     viewport (--s-peak). The media is `contain`, so on a portrait frame it is the
+     width that decides how large it appears — 0.9 of the viewport width is a card
+     with a margin around it, where 0.62 scaled *everything* down to a thumbnail.
+     No aspect is imposed on the card, so whatever the asset is — a 16:9 clip, a
+     phone screenshot — it is contained where it lands rather than having a ratio
+     argued with it. */
   .hl-copy {
     left: 0;
     right: 0;
