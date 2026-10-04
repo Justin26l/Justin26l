@@ -34,9 +34,7 @@ import { provideSnapTargets } from './useSmoothScroll.js'
  *
  *   The settle track is the grow track read backwards, so it reuses the exact
  *   same windows with `q = 1 - p` instead of `p`. That keeps the two ends true
- *   mirrors — including the geometry constraint behind W.copyOut, which is why
- *   the caption clears the card on the way in at the same rate it returns on the
- *   way out — and it means there is only one set of timings to tune.
+ *   mirrors and leaves only one set of timings to tune.
  */
 
 const clamp = (v, a, b) => (v < a ? a : v > b ? b : v)
@@ -49,15 +47,14 @@ const smooth = t => {
 const win = (p, a, b) => smooth((p - a) / (b - a))
 
 /**
- * Progress windows. These are constrained by geometry rather than taste:
- * the card is parked to the right at rest and its left edge crosses the
- * caption's right edge at p≈0.37, so copyOut must finish before then or the
- * two collide. Measured with an overlap sweep across p 0 → 0.62.
+ * Progress windows, as fractions of a bookend track's travel. These are
+ * constrained by geometry rather than taste: the card is parked to the right at
+ * rest and grows across the gutter, so the order below is what keeps it from
+ * crossing the other furniture on the way.
  */
 const W = {
   grow: [0.2, 0.7],
   copyOut: [0.13, 0.37],
-  hudIn: [0.52, 0.78],
   dotsIn: [0.46, 0.68],
   mediaStep: [0.14, 0.9],
   brackets: [0.2, 0.46],
@@ -81,7 +78,7 @@ export function trackMode(i, n) {
 
 export function useHighlightReel(rootRef, highlights) {
   const reduced = ref(false)
-  const railOn = ref(false)
+  const hudOn = ref(false)
   const activeIndex = ref(0)
   const mediaIndex = reactive(highlights.map(() => 0))
 
@@ -137,10 +134,38 @@ export function useHighlightReel(rootRef, highlights) {
      breakpoint), so nothing here needs to read it back */
 
   function render() {
-    if (reduced.value || !tracks.length) return
+    if (!tracks.length) return
     const root = rootRef.value
     if (!root) return
     const vh = window.innerHeight
+
+    /* Which track the reel is centred on, and whether it is on screen at all.
+       Both are needed even under reduced motion, where none of the custom
+       properties below are written: the HUD is one fixed panel now, so if this
+       stopped running in that mode the panel would keep naming whichever project
+       it happened to start on, however far the reader scrolled. */
+    let active = 0
+    tracks.forEach((t, i) => {
+      const rect = t.el.getBoundingClientRect()
+      if (rect.top <= vh * 0.5 && rect.bottom > vh * 0.5) active = i
+    })
+    if (active !== lastActive) {
+      lastActive = active
+      activeIndex.value = active
+    }
+
+    /* root IS .hl-reel: querying for it inside itself can only ever return null,
+       which is what this did before, so the gate never opened once. Measured
+       then: at three points across the reel the HUD's class was plain, opacity 0. */
+    const r = root.getBoundingClientRect()
+    hudOn.value = r.top < vh * 0.6 && r.bottom > vh * 0.4
+
+    if (reduced.value) {
+      syncVideo()
+      return
+    }
+
+    const hudFade = []
 
     tracks.forEach(t => {
       const rect = t.el.getBoundingClientRect()
@@ -169,10 +194,11 @@ export function useHighlightReel(rootRef, highlights) {
       st.setProperty('--copy-y', (-34 * copyT).toFixed(2) + 'px')
       st.setProperty('--copy-pe', copyT > 0.6 ? 'none' : 'auto')
 
-      const hudT = win(q, ...W.hudIn)
-      st.setProperty('--hud-o', hudT.toFixed(3))
-      st.setProperty('--hud-y', (22 * (1 - hudT)).toFixed(2) + 'px')
-      st.setProperty('--hud-pe', hudT > 0.6 ? 'auto' : 'none')
+      /* The panel is on screen only while the card it describes is fullscreen,
+         so it rides the same number that drives the card's size rather than a
+         window of its own: no window can disagree with te about when a card has
+         arrived. `full` tracks sit at te 1 for their whole length. */
+      hudFade[t.i] = smooth((te - 0.85) / 0.15).toFixed(3)
 
       const dotsT = win(q, ...W.dotsIn)
       st.setProperty('--dots-o', dotsT.toFixed(3))
@@ -201,21 +227,10 @@ export function useHighlightReel(rootRef, highlights) {
       if (seg) seg.style.width = (p * 100).toFixed(2) + '%'
     })
 
-    let active = 0
-    tracks.forEach((t, i) => {
-      const rect = t.el.getBoundingClientRect()
-      if (rect.top <= vh * 0.5 && rect.bottom > vh * 0.5) active = i
-    })
-    if (active !== lastActive) {
-      lastActive = active
-      activeIndex.value = active
-    }
-
-    const band = root.querySelector('.hl-reel')
-    if (band) {
-      const r = band.getBoundingClientRect()
-      railOn.value = r.top < vh * 0.6 && r.bottom > vh * 0.4
-    }
+    /* one panel, so one opacity: whichever track the reel is centred on decides
+       it, and it is written as a custom property rather than made reactive so
+       that a per-frame value never re-renders the component */
+    root.style.setProperty('--hud-o', hudFade[activeIndex.value] ?? '0')
 
     /* the on-screen frame changed, so the clip that should be playing may have */
     syncVideo()
@@ -267,17 +282,16 @@ export function useHighlightReel(rootRef, highlights) {
     reduced.value = mq ? mq.matches : false
     /* reduced motion is handled purely in CSS — a static stacked list */
     collect()
-    if (!reduced.value) {
-      lastActive = -1
-      render()
-    } else {
+    lastActive = -1
+    if (reduced.value) {
       /* The engine has stopped writing these, so it has to take back what it last
          wrote: an inline --tg from before the setting flipped outranks the
          stylesheet's reduced-motion rules, which are class-based. */
       tracks.forEach(t => t.stage && t.stage.removeAttribute('style'))
-      /* the clip stays paused on its first frame, playable via native controls */
-      syncVideo()
     }
+    /* render() does the active track and the panel's gate in both modes; it stops
+       short of the custom properties when reduced. */
+    render()
   }
 
   let resizeTimer = null
@@ -314,7 +328,7 @@ export function useHighlightReel(rootRef, highlights) {
 
   return {
     reduced,
-    railOn,
+    hudOn,
     activeIndex,
     mediaIndex,
     setMedia,

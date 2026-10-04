@@ -66,28 +66,6 @@
 
           <div class="hl-vignette" aria-hidden="true"></div>
           <div class="hl-corners" aria-hidden="true"><span /><span /><span /><span /></div>
-
-          <!-- the HUD rises once the card has grown; its scrim has to guarantee
-               contrast over ANY media, including light-mode screenshots.
-               Same text layout as a grid card: pills, title, role, description. -->
-            <div class="hl-hud">
-              <div class="left">
-                <p class="hl-info">{{ p.year }} · {{ p.type }}<template v-if="p.org!=='Personal'"> · {{ p.org }}</template></p>
-                <h3 class="hl-title font-audiowide">{{ p.title }}</h3>
-                <p class="hl-role">{{ p.role }}</p>
-                <p class="hl-desc">{{ p.description }}</p>
-                <p v-if="p.links.length" class="links links--dark">
-                  <a
-                    v-for="l in p.links"
-                    :key="l.href"
-                    :href="l.href"
-                    target="_blank"
-                    rel="noopener"
-                    >{{ l.label }}</a
-                  >
-                </p>
-              </div>
-            </div>
         </div>
 
         <!-- media-set index: a sibling of the frame, so the grow transform never
@@ -109,11 +87,12 @@
         </div>
 
         <!-- Resting-state editorial caption: lives in the stage, not the frame, so
-             it can sit in the gutter beside the shrunken card. Same text layout as
-             a grid card: pills, title, role, description.
-             Only the two bookend tracks ever rest, so only they need a caption —
-             not rendering it on a fullscreen panel keeps a permanently invisible
-             copy of the project text out of the DOM. -->
+             it can sit in the gutter beside the shrunken card.
+             It is the other half of the HUD's bargain — the panel below only
+             appears once a card is fullscreen, so without this both bookend rest
+             states would have no words on them at all. The two never show
+             together: the caption is gone by the time the card is a third grown,
+             and the panel does not begin until it is nearly all the way. -->
         <div v-if="modeOf(i) !== 'full'" class="hl-copy">
           <p class="hl-info">{{ p.year }} · {{ p.type }}<template v-if="p.org!=='Personal'"> · {{ p.org }}</template></p>
           <h2 class="hl-title font-audiowide">{{ p.title }}</h2>
@@ -133,17 +112,43 @@
       </div>
     </article>
 
-    <!-- fixed segmented progress rail: the one element on screen for the whole
-         reel, so it carries the provenance badge as well as position -->
-    <div class="hl-rail" :class="{ 'is-on': railOn }" aria-hidden="true">
-      <span class="prov" :class="`is-${active.org}`">{{ active.org }}</span>
-      <span class="hl-rail-name">{{ active.title }}</span>
-      <span class="hl-segs">
-        <span v-for="(p, i) in highlights" :key="p.key" class="hl-seg"><i :data-seg="i" /></span>
-      </span>
-      <span class="hl-rail-count">
-        {{ String(activeIndex + 1).padStart(2, '0') }} / {{ String(highlights.length).padStart(2, '0') }}
-      </span>
+    <!-- One HUD for the whole reel, fixed to the viewport rather than carried
+         inside a card.
+         Each card used to render its own copy, which put two panels of text on
+         screen through every hand-off, both of them sliding with the media they
+         belonged to. As one fixed panel it never moves: only the copy inside it
+         changes, keyed on the index.
+         Its bottom row is the reel's index — one bar per project and no words,
+         because the panel above it already names the project it is showing, so a
+         badge, a name and a count were three ways of saying the same thing. -->
+    <div class="hl-hud-outer" :class="{ 'is-on': hudOn }">
+      <div class="hl-hud">
+        <Transition name="hl-swap" mode="out-in">
+          <div :key="active.key" class="left">
+            <p class="hl-info">
+              {{ active.year }} · {{ active.type
+              }}<template v-if="active.org !== 'Personal'"> · {{ active.org }}</template>
+            </p>
+            <h2 class="hl-title font-audiowide">{{ active.title }}</h2>
+            <p class="hl-role">{{ active.role }}</p>
+            <p class="hl-desc">{{ active.description }}</p>
+            <p v-if="active.links.length" class="links links--dark">
+              <a
+                v-for="l in active.links"
+                :key="l.href"
+                :href="l.href"
+                target="_blank"
+                rel="noopener"
+                >{{ l.label }}</a
+              >
+            </p>
+          </div>
+        </Transition>
+
+        <div class="hl-segs">
+          <span v-for="(p, i) in highlights" :key="p.key" class="hl-seg"><i :data-seg="i" /></span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -157,7 +162,7 @@ const props = defineProps({
 })
 
 const rootRef = ref(null)
-const { reduced, railOn, activeIndex, mediaIndex, setMedia, modeOf } = useHighlightReel(
+const { reduced, hudOn, activeIndex, mediaIndex, setMedia, modeOf } = useHighlightReel(
   rootRef,
   props.highlights,
 )
@@ -446,9 +451,10 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
    backdrop under the text rather than letting whatever is behind one glyph
    decide the contrast for it.
 
-   Phones keep the gradient bar (see the 900px block below): a content-sized
-   panel would have to be nearly full width there anyway, and a blurred
-   full-width overlay is a worse trade on a small, busy screen.
+   Phones keep the same three layers, unstaked to the full width, with the
+   padding of each layer cut back — see the 900px block below. A content-sized
+   panel cannot work there: `fit-content` resolves against --hud-max, which on a
+   390px screen is a 195px column.
 
    MEASURED over the reel's lightest media (Digital Clone's white page), sampled
    per text row across the whole panel on a backdrop-only render, worst case:
@@ -465,35 +471,84 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
    has to cover its own text, and the blur averages what is behind it rather
    than letting one glyph's background decide the contrast for the whole row.
 
-   DELIBERATE EXCEPTION to the single-dark rule: this panel, the vignette, the
-   media-index chip and the progress rail all sit on top of arbitrary media
-   rather than on the page, so they stay near-black rather than neutral-800. */
-.hl-hud {
-  position: absolute;
+   DELIBERATE EXCEPTION to the single-dark rule: this panel, the vignette and the
+   media-index chip all sit on top of arbitrary media rather than on the page, so
+   they stay near-black rather than neutral-800. */
+.hl-hud-outer {
+  /* fixed, not absolute inside a card: the panel must not scale with the grow or
+     slide away with a panel, so it lives outside the frames entirely and the
+     only thing that changes as the reel turns is the copy inside it */
+  position: fixed;
   left: var(--hud-inset);
   right: auto;
   bottom: 0;
+  z-index: 30;
   width: fit-content;
   max-width: var(--hud-max);
-  padding: 1.8rem 2rem;
-  background: rgb(0 0 0 / calc(.9 * var(--scrim)));
+  padding: 12px 12px 0rem;
+  background: rgb(0 0 0 / calc(.25 * var(--scrim)));
   backdrop-filter: blur(6px);
-  border-radius: 24px 24px 0 0;
+  border-radius: 32px 32px 0 0;
+  /* Two gates, and both are needed. This one is the reel being on screen at all
+     — the panel is fixed, so without it, it would follow the reader into every
+     other section. The opacity inside it is whether the card being described is
+     fullscreen, which the composable writes as --hud-o; that is what keeps it
+     off the bookend rest states, where the caption in the gutter is talking. */
+  opacity: 0;
+  pointer-events: none;
+}
+.hl-hud-outer.is-on {
   opacity: var(--hud-o, 0);
-  transform: translateY(var(--hud-y, 22px));
-  pointer-events: var(--hud-pe, none);
+  pointer-events: auto;
+}
+.hl-hud {
+  padding: 12px 12px 0rem;
+  background: rgb(0 0 0 / calc(.25 * var(--scrim)));
+  border-radius: 24px 24px 0 0;
 }
 .hl-hud .left {
   max-width: 62ch;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  padding: 1.4rem;
+  background: rgb(0 0 0 / calc(.44 * var(--scrim)));
+  border-radius: 16px;
 }
 .hl-hud .hl-title {
   font-size: clamp(1.4rem, 2.4vw, 2.4rem);
 }
 .hl-hud .hl-desc {
   font-size: 0.92rem;
+}
+
+/* the reel's index: one bar per project, along the panel's bottom, inset to
+   line up under the copy above it and to keep the same floor as the copy's own
+   padding */
+.hl-segs {
+  display: flex;
+  gap: 6px;
+  padding: 10px 1.4rem 1.4rem;
+}
+
+/* the copy swaps with a short cross-fade rather than a blink: the index changes
+   mid-turn, while the media either side of it is still sliding.
+   The reduced-motion override has to be neutralised here rather than by binding
+   `:css="false"` on the Transition: with CSS off and no JS hooks, Vue never calls
+   the leave's `done`, and `mode="out-in"` then waits on it forever — the panel
+   keeps the old copy's space and never renders the new one. A zero transition
+   still fires the end callback, which is what makes this the safe way to do it. */
+.hl-swap-enter-active,
+.hl-swap-leave-active {
+  transition: opacity 0.16s linear;
+}
+.hl-swap-enter-from,
+.hl-swap-leave-to {
+  opacity: 0;
+}
+.hl-reel.is-reduced .hl-swap-enter-active,
+.hl-reel.is-reduced .hl-swap-leave-active {
+  transition: none;
 }
 
 /* ========================================================== shared fragments
@@ -520,14 +575,14 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
   text-transform: uppercase;
   line-height: 1.6;
   margin: 0;
-  @apply text-neutral-200;
+  @apply text-white;
 }
 .hl-desc {
-  @apply text-neutral-300;
   font-size: clamp(0.86rem, 1.02vw, 1rem);
   line-height: 1.65;
   margin: 0;
   text-wrap: pretty;
+  @apply text-white;
 }
 
 /* ================================================================ media dots */
@@ -575,42 +630,12 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
   transform: scale(1.25);
 }
 
-/* ============================================================ progress rail */
-.hl-rail {
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 20px;
-  z-index: 60;
-  display: flex;
-  align-items: center;
-  gap: 1.1rem;
-  background: rgba(10, 10, 10, 0.85);
-  border: 1px solid rgba(162, 242, 3, 0.25);
-  border-radius: 999px;
-  padding: 0.55rem 1.1rem;
-  font-family: 'audiowide', sans-serif;
-  font-size: 0.64rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  @apply text-neutral-300;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
-  backdrop-filter: blur(10px);
-  white-space: nowrap;
-}
-.hl-rail.is-on {
-  opacity: 1;
-  pointer-events: auto;
-}
-.hl-rail-name {
-  @apply text-primary-500;
-}
-.hl-segs {
-  display: flex;
-  gap: 6px;
-}
+/* ============================================================= reel index --
+   Was a fixed pill at the bottom of the screen carrying a provenance badge, the
+   project name, a count and these bars — four ways of saying where the reader
+   was, on top of a HUD that said all of it again. The bars are the only part
+   that said something the panel could not, so they moved into the panel's
+   bottom and the rest went. */
 .hl-seg {
   width: 54px;
   height: 4px;
@@ -626,8 +651,8 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
 }
 
 /* ============================================================== RESPONSIVE --
-   Below 900px the left gutter is too narrow for an editorial caption, so the
-   caption moves under the card. */
+   Below 900px the panel takes the whole width, and the caption moves under the
+   card. */
 @media (max-width: 900px) {
   .hl-reel {
     --s-rest: 0.62;
@@ -648,8 +673,8 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
   .hl-copy .hl-title {
     font-size: clamp(1.4rem, 6vw, 1.9rem);
   }
-  /* The caption has to clear the rail pinned to the bottom, so long copy defers
-     to the fullscreen HUD instead of being crammed in next to the card. */
+  /* Long copy defers to the fullscreen panel instead of being crammed in beside
+     the card. */
   .hl-copy .hl-desc,
   .hl-copy .hl-role {
     display: none;
@@ -662,67 +687,51 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
   .hl-plusgrid {
     display: none;
   }
-  /* On a phone the HUD stacks tall and short, so a percentage gradient leaves
-     the upper text in a weak scrim zone — a near-solid bottom panel is the
-     standard mobile pattern. It backs off with the same --scrim knob as the
-     desktop panel, and the vignette underneath is doing the rest.
-     Everything that made it a content-sized container on a desktop is undone
-     here: on a phone the panel would span nearly the whole width anyway, and a
-     blurred full-width overlay is a worse trade on a small, busy screen. */
-  .hl-hud {
+  /* On a phone the sheet takes the whole width.
+     A content-sized panel has nothing to size against here: `fit-content` is
+     capped by --hud-max, which on a 390px screen is a 195px column — the
+     description wrapped over thirteen lines in it, and on a short phone the
+     column grew tall enough to push its own top edge off the top of the screen.
+     The three layers stay, because they are the look, but each one gives back
+     padding so the copy keeps a usable line length. */
+  .hl-hud-outer {
     left: 0;
     right: 0;
-    bottom: 0;
     width: auto;
     max-width: none;
-    border-radius: 0;
-    backdrop-filter: none;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
-    padding: 5rem var(--gutter) 4.6rem;
-    background: linear-gradient(
-      to top,
-      rgb(10 10 10 / calc(1 * var(--scrim))) 0%,
-      rgb(10 10 10 / calc(0.97 * var(--scrim))) 58%,
-      rgb(10 10 10 / calc(0.8 * var(--scrim))) 84%,
-      rgb(10 10 10 / 0) 100%
-    );
+    padding: 10px 10px 0.5rem;
+    border-radius: 24px 24px 0 0;
   }
-  .hl-hud .hl-desc,
-  .hl-hud .hl-role {
-    display: block;
+  .hl-hud {
+    padding: 8px 8px 0;
+    border-radius: 18px 18px 0 0;
+  }
+  .hl-hud .left {
+    padding: 1.1rem;
+    border-radius: 14px 14px 0 0;
   }
   .hl-hud .hl-role {
     font-size: 0.62rem;
   }
+  .hl-segs {
+    padding: 9px 1.1rem 10px;
+  }
   .hl-corners {
     inset: 1.6%;
   }
-  /* top-right, so the media index fights neither the caption nor the rail */
+  /* top-right, so the reel's index in the panel below is the only thing at the
+     bottom of the screen */
   .hl-dots {
     top: 1.4rem;
     bottom: auto;
     right: var(--gutter);
   }
-  /* The rail gained a provenance badge and no longer fits a phone. Drop the
-     project name, tighten the segments and cap the width. */
-  .hl-rail {
-    gap: 0.5rem;
-    padding: 0.42rem 0.7rem;
-    font-size: 0.55rem;
-    max-width: calc(100vw - 1.5rem);
-  }
-  .hl-rail-name {
-    display: none;
-  }
-  .hl-rail .prov {
-    font-size: 0.55rem;
-    padding: 0.18rem 0.45rem;
-    letter-spacing: 0.06em;
-  }
+  /* four bars have to share a phone's width, and the count that used to sit
+     beside them is gone */
   .hl-seg {
-    width: 22px;
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
   }
   .hl-cover-name {
     font-size: clamp(1.6rem, 9vw, 2.6rem);
@@ -732,8 +741,7 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
 /* ======================================================== REDUCED MOTION --
    Honour the OS setting: no scroll runway, no snap, no scale-up. Every track
    becomes the same plain fullscreen panel the middle of the reel already uses,
-   so nothing on the page moves except the scroll itself, and the caption — which
-   only ever existed to sit beside a moving card — steps aside for the HUD.
+   so nothing on the page moves except the scroll itself.
    No snap rule is needed here: useSmoothScroll is off in this mode, and with no
    runway left every track publishes a single rest position anyway. */
 .hl-reel.is-reduced .hl-track {
@@ -744,14 +752,15 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
   --tg: 1;
 }
 /* The caption is hidden rather than stacked below: it carries the same project
-   text as the HUD, which is an overlay here, so showing both read as a
-   duplicated title. */
+   text as the panel, so showing both reads as a duplicated title. */
 .hl-reel.is-reduced .hl-copy {
   display: none;
 }
-.hl-reel.is-reduced .hl-hud {
+/* hudOn is written by the composable's scroll loop, which does not run in this
+   mode — so without this the gate would stay at its 0 default and the panel
+   would never appear. */
+.hl-reel.is-reduced .hl-hud-outer {
   opacity: 1 !important;
-  transform: none !important;
   pointer-events: auto !important;
 }
 .hl-reel.is-reduced .hl-dots {
@@ -760,8 +769,5 @@ const active = computed(() => props.highlights[activeIndex.value] || props.highl
 }
 .hl-reel.is-reduced .hl-shot .fg {
   transform: none !important;
-}
-.hl-reel.is-reduced .hl-rail {
-  display: none;
 }
 </style>
